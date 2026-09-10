@@ -12,6 +12,17 @@ reference research → principle extraction → implementation trial → Skill �
 - [x] Swiss / editorial references
 - [x] autonomous inspect → extract → translate → verify workflow
 
+## Supporting skills
+
+外部の実績ある Agent Skills から、domain knowledge ではなく cross-cutting workflow として有効なものを選別して取り込む。
+
+- [x] design intent / shared brief
+- [x] token audit / semantic token migration
+- [x] accessibility audit / re-test workflow
+- [x] curated external skill references
+
+これらは layout / color / typography / motion の代替ではなく、domain skills の前後で使う supporting skills とする。
+
 ## Next candidates
 
 ### Motion / Animation
@@ -72,6 +83,22 @@ interaction state と animation を分離せず扱う。
 ### Visual hierarchy
 
 layout / typography / color / density を跨ぐ上位 Skill として将来的に検討する。
+
+### Skill evals / deterministic detectors
+
+外部 Skill 調査から優先度を上げた領域。
+
+検討対象:
+
+- generic design language の検出 (`clean`, `modern`, `sleek` だけで終わる output)
+- reference-specific evidence の有無
+- rendered verification 実施の確認
+- arbitrary spacing / radius / color drift detectors
+- nested card / unnecessary container anti-patterns
+- motion で layout-triggering properties を使っていないか
+- representative reference projects に対する regression evals
+
+Skill の文章品質ではなく、実際の agent behavior を評価する。
 
 ## Promotion criteria
 
