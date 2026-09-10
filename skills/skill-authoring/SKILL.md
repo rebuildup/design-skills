@@ -271,7 +271,10 @@ Issueの候補をSkill化するときは、全候補を一括実装しない。
 3. scopeが大きすぎればさらに分ける
 4. minimal Skillを作る
 5. real project / artifactで試す
-6. 足りない観点だけ追加する
+6. 対象 artifact を実際に inspection / verification し、結果と判明した failure / limitation を記録する
+7. 足りない観点だけ追加する
+
+**artifact の inspection / verification と、その結果の記録が完了するまで research candidate を first-class Skill に promotion しない。**
 
 **最初から完全なdesign textbookを作らない。**
 reference-driven execution policyとして最小で成立させ、使用結果から育てる。
