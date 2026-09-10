@@ -1,0 +1,110 @@
+name: Ticket
+description: Skill content / repository 変更の durable ticket
+title: "[type/area]: concise English title"
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Ticket contract
+
+        本 repository は release-driven です。GitHub Issue が durable work item の canonical SoT です。
+        詳細 workflow は `docs/agent-workflow.md` / `CONTRIBUTING.md` を参照してください。
+
+  - type: input
+    id: target_release
+    attributes:
+      label: Target Release
+      description: この ticket が乗る target release branch (例: `release-0-2-0`)
+      placeholder: release-x-y-z
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - area/skill
+        - area/skill-layout-system
+        - area/skill-new
+        - area/docs
+        - area/infra
+        - area/reference
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - type/feature
+        - type/bug
+        - type/refactor
+        - type/docs
+        - type/chore
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - priority/high
+        - priority/medium
+        - priority/low
+    validations:
+      required: true
+
+  - type: dropdown
+    id: size
+    attributes:
+      label: Size
+      options:
+        - size/xs
+        - size/s
+        - size/m
+        - size/l
+        - size/xl
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: この ticket が完了したと言える客観的条件を列挙してください
+      placeholder: |
+        - [ ] criterion 1
+        - [ ] criterion 2
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependency
+    attributes:
+      label: Dependency / Stack Context
+      description: linear hard dependency がある場合の predecessor Issue / PR / branch
+      placeholder: |
+        - predecessor: #N (release-x-y-z)
+        - stack position: <position in chain>
+
+  - type: textarea
+    id: scope_nonscope
+    attributes:
+      label: Scope / non-scope
+      description: 含むもの / 含まないものを明示
+
+  - type: textarea
+    id: reference_targets
+    attributes:
+      label: Reference targets (optional)
+      description: 観察・抽出対象の reference (新規 Skill / reference family 追加時)
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Verification plan
+      description: Skill discovery / reference freshness / markdown lint 等の検証計画

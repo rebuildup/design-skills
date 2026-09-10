@@ -1,0 +1,58 @@
+name: release-source-check
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  validate-release-source:
+    name: Validate release-* source for PR to main
+    if: github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Validate head ref matches release-* pattern
+        id: head
+        run: |
+          HEAD_REF="${{ github.event.pull_request.head.ref }}"
+          echo "head_ref=$HEAD_REF"
+          if [[ ! "$HEAD_REF" =~ ^release-[0-9]+-[0-9]+-[0-9]+$ ]]; then
+            echo "::error::PR targeting 'main' must originate from a release-* branch."
+            echo "::error::Got head ref: '$HEAD_REF'"
+            exit 1
+          fi
+          echo "OK head ref matches release-* pattern"
+
+      - name: Extract Target Release from PR body
+        id: extract
+        shell: bash
+        run: |
+          BODY="${{ github.event.pull_request.body }}"
+          TARGET=$(printf '%s\n' "$BODY" | grep -iE '^[[:space:]]*Target Release[[:space:]]*:[[:space:]]*' | head -1 | sed -E 's/^[[:space:]]*Target Release[[:space:]]*:[[:space:]]*//I' | tr -d '[:space:]')
+          if [ -z "$TARGET" ]; then
+            echo "::error::PR body must contain 'Target Release:' field matching the head branch name."
+            echo "::error::Expected format: 'Target Release: 0.2.0' or 'Target Release: release-0-2-0'"
+            exit 1
+          fi
+          echo "target_release=$TARGET"
+          echo "$TARGET" >> "$GITHUB_OUTPUT"
+
+      - name: Compare Target Release with head branch
+        shell: bash
+        run: |
+          HEAD_REF="${{ steps.head.outputs.head_ref }}"
+          TARGET="${{ steps.extract.outputs.target_release }}"
+          if [ -z "$TARGET" ]; then
+            echo "::error::No Target Release extracted from PR body."
+            exit 1
+          fi
+          # Normalize: accept '0.2.0' or 'release-0-2-0'
+          NORMALIZED=$(echo "$TARGET" | tr '.' '-')
+          EXPECTED="release-$NORMALIZED"
+          if [ "$HEAD_REF" != "$EXPECTED" ]; then
+            echo "::error::Head ref '$HEAD_REF' does not match declared Target Release '$TARGET' (expected '$EXPECTED')."
+            exit 1
+          fi
+          echo "OK head ref '$HEAD_REF' matches Target Release '$TARGET'"
