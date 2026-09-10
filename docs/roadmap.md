@@ -12,21 +12,22 @@ reference research → principle extraction → implementation trial → Skill �
 - [x] Swiss / editorial references
 - [x] autonomous inspect → extract → translate → verify workflow
 
+## v1 — Motion / Animation (experimental)
+
+- [x] motion purpose classification
+- [x] Marketing / Expressive references
+- [x] Product UI / Feedback references
+- [x] Navigation / Gesture / Spatial transition references
+- [x] performance / reduced-motion verification gates
+- [x] autonomous inspect → extract → translate → implement → verify workflow
+- [ ] real project trial
+- [ ] trial feedback を反映した reference / decision policy refinement
+
+初版は「動きを足す」Skill ではなく、motion が情報理解・continuity・feedback・orientation・progress・expression に必要か判断し、必要な場合だけ coherent な system として実装する Skill とする。
+
+実 project での trial 後に、micro-interaction と motion-system の責務境界も再評価する。
+
 ## Next candidates
-
-### Motion / Animation
-
-調査対象候補:
-
-- page transition
-- enter / exit
-- spatial continuity
-- choreographed motion
-- reduced-motion behavior
-- duration / easing systems
-- data visualization motion
-
-「動きを足す」Skill ではなく、motion が情報理解・continuity・feedback に必要か判断する Skill を目指す。
 
 ### Micro-interaction
 
@@ -41,6 +42,7 @@ reference research → principle extraction → implementation trial → Skill �
 - error / success acknowledgement
 
 interaction state と animation を分離せず扱う。
+`motion-system` と重複する領域は trial 結果を見て、独立 Skill にするか reference family として統合するか判断する。
 
 ### Color
 
