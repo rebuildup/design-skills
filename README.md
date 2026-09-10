@@ -9,10 +9,10 @@ Reference-driven Agent Skills for designing and implementing web interfaces.
 > Inspect → Extract → Translate → Implement → Verify
 
 - **Inspect** — 実在する reference を開き、rendered UI / responsive behavior / computed styles / source を観察する
-- **Extract** — alignment、grid、spacing、hierarchy、scroll ownership などの再利用可能な構造を抽出する
+- **Extract** — alignment、grid、spacing、hierarchy、motion、interaction timing などの再利用可能な構造を抽出する
 - **Translate** — reference の数値や見た目をコピーせず、現在の product の要件・design language に翻訳する
 - **Implement** — project 既存の tokens / components / conventions を優先して実装する
-- **Verify** — browser / screenshot で geometry と behavior を再確認する
+- **Verify** — browser / screenshot / interaction で geometry と behavior を再確認する
 
 ## Install
 
@@ -27,6 +27,7 @@ bunx skills add rebuildup/design-skills
 
 ```bash
 bunx skills add rebuildup/design-skills --skill layout-system
+bunx skills add rebuildup/design-skills --skill motion-system
 ```
 
 npm 環境では `bunx` を `npx` に置き換えてください。
@@ -42,13 +43,20 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 │  ├─ design-principles.md
 │  └─ roadmap.md
 └─ skills/
-   └─ layout-system/
+   ├─ layout-system/
+   │  ├─ SKILL.md
+   │  └─ references/
+   │     ├─ marketing.md
+   │     ├─ dashboard.md
+   │     ├─ application.md
+   │     └─ swiss-editorial.md
+   └─ motion-system/
       ├─ SKILL.md
       └─ references/
          ├─ marketing.md
-         ├─ dashboard.md
-         ├─ application.md
-         └─ swiss-editorial.md
+         ├─ product-ui.md
+         ├─ navigation-gesture.md
+         └─ performance-accessibility.md
 ```
 
 ## Skills
@@ -64,6 +72,21 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 - Application / Tool
 - Swiss / Editorial / Typographic
 
+### `motion-system` — experimental
+
+Web / mobile UI の motion / animation が必要な理由を分類し、production reference と platform guidance を実際に観察した上で timing / easing / spatial continuity / choreography を設計・実装する Skill。
+
+現在の reference families:
+
+- Marketing / Expressive
+- Product UI / Feedback
+- Navigation / Gesture / Spatial transition
+- Performance / Accessibility
+
+単なる animation preset 集ではなく、motion の必要性判定、interruptibility、reduced motion、runtime performance、visual verification までを completion gate とします。
+
+まず実 project で trial し、観察項目・reference selection・agent autonomy の精度を検証します。
+
 ## Design philosophy
 
 長期的な思想は [`docs/design-principles.md`](./docs/design-principles.md) を canonical source とします。
@@ -74,7 +97,6 @@ Skill は単独インストールでも機能する必要があるため、runti
 
 今後、十分な reference research と実例検証ができたものから追加します。
 
-- motion / animation
 - micro-interaction
 - color system
 - typography
