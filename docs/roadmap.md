@@ -1,7 +1,7 @@
 # Roadmap
 
 この repository は domain を一度に埋めません。
-reference research → principle extraction → implementation trial → Skill 化の順で育てます。
+reference research → observation-axis extraction → lightweight Skill → implementation trial → refinement の順で育てます。
 
 ## v0 — Layout
 
@@ -20,12 +20,30 @@ reference research → principle extraction → implementation trial → Skill �
 - [x] token audit / semantic token migration
 - [x] accessibility audit / re-test workflow
 - [x] curated external skill references
+- [x] `skill-authoring` / research Issue → lightweight Skill workflow
+- [x] minimal Skill template
 
 これらは layout / color / typography / motion / artifact production の代替ではなく、domain skills の前後で使う supporting skills とする。
 
+## Skill growth model
+
+candidate は最初から完全な体系として実装しない。
+
+```text
+Research Issue
+→ deep reference research
+→ observation axes
+→ primary reference URLs
+→ minimal SKILL.md
+→ real use
+→ references / evals / scripts を必要に応じて追加
+```
+
+綿密な調査が済み、agent が何を見るかとどのreferenceを開くかが明確なら、`SKILL.md` 1枚だけでも正式なSkillとして成立してよい。
+
 ## Artifact domains
 
-Web UI に限定せず、媒体ごとに異なる visual decision を first-class Skill とする。
+Web UI に限定せず、2D graphic designにおいて媒体ごとに異なる visual decision を first-class Skill とする。
 
 詳細: [`artifact-skills.md`](./artifact-skills.md)
 
@@ -176,11 +194,13 @@ Skill の文章品質ではなく、実際の agent behavior と delivered artif
 
 ## Promotion criteria
 
-candidate を正式 Skill にする条件:
+candidate を正式 Skill にする条件はdomainごとに調整するが、共通して以下を満たす。
 
-1. primary references が複数ある
-2. real production artifact で observation ができる
-3. repeatable decision rules を抽出できる
-4. anti-pattern を定義できる
-5. delivered output の verification 方法がある
-6. 少なくとも一つの実 project で試せる
+1. scope / design problem が明確
+2. domainに適したprimary referencesを実際に調査している
+3. agentが見るべきobservable observation axesを整理できる
+4. reference固有の見た目をcloneするのではなく、比較・翻訳するworkflowになっている
+5. agentが直接開けるreference URLを持つ
+6. delivered artifactを確認する方法がある
+
+複数production artifacts、anti-pattern一覧、scripts、evals等は有用だが、すべてを初回Skillの必須条件にはしない。
