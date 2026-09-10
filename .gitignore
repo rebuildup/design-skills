@@ -1,0 +1,30 @@
+# temporary / external reference material
+.tmp/
+.reference/
+
+# actual dotenv (never committed; .env.example is OK)
+.env
+.env.development
+.env.production
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# editor / IDE
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# node modules (defensive — no project dependencies today, but guard if added)
+node_modules/
+
+# agent runtime directories created by `bunx skills add` (symlink-based install)
+.agents/
+.claude/
+.kiro/
+.opencode/
+.gemini/
+.cursor/

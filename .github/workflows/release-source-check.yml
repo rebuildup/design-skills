@@ -1,0 +1,64 @@
+name: release-source-check
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  validate-release-source:
+    name: validate-release-source
+    if: github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Validate head ref matches release-* pattern
+        id: head
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          if [[ ! "$HEAD_REF" =~ ^release-[0-9]+-[0-9]+-[0-9]+$ ]]; then
+            echo "::error::PR targeting 'main' must originate from a release-* branch."
+            echo "::error::Got head ref: '$HEAD_REF'"
+            exit 1
+          fi
+          echo "OK head ref $HEAD_REF matches release-* pattern"
+          echo "head_ref=$HEAD_REF" >> "$GITHUB_OUTPUT"
+
+      - name: Extract Target Release from PR body
+        id: extract
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if [ -z "$PR_BODY" ]; then
+            echo "::error::PR body is empty."
+            exit 1
+          fi
+          printf '%s\n' "$PR_BODY" > /tmp/pr_body.txt
+          TARGET=$(grep -iE '^[[:space:]]*[Tt]arget[[:space:]]+[Rr]elease[[:space:]]*:' /tmp/pr_body.txt | head -1 | sed -E 's/^[[:space:]]*[Tt]arget[[:space:]]+[Rr]elease[[:space:]]*://I' | tr -d ' \t\r\n')
+          rm -f /tmp/pr_body.txt
+          if [ -z "$TARGET" ]; then
+            echo "::error::PR body must contain a 'Target Release:' line."
+            echo "::error::Example: 'Target Release: 0.2.0'"
+            exit 1
+          fi
+          echo "target_release=$TARGET"
+          echo "target_release=$TARGET" >> "$GITHUB_OUTPUT"
+
+      - name: Compare Target Release with head branch
+        env:
+          HEAD_REF: ${{ steps.head.outputs.head_ref }}
+          TARGET: ${{ steps.extract.outputs.target_release }}
+        run: |
+          if [ -z "$TARGET" ]; then
+            echo "::error::No Target Release extracted from PR body."
+            exit 1
+          fi
+          NORMALIZED=$(echo "$TARGET" | tr '.' '-')
+          EXPECTED="release-$NORMALIZED"
+          if [ "$HEAD_REF" != "$EXPECTED" ]; then
+            echo "::error::Head ref '$HEAD_REF' does not match declared Target Release '$TARGET' (expected '$EXPECTED')."
+            exit 1
+          fi
+          echo "OK head ref '$HEAD_REF' matches Target Release '$TARGET'"
