@@ -27,6 +27,9 @@ bunx skills add rebuildup/design-skills
 
 ```bash
 bunx skills add rebuildup/design-skills --skill layout-system
+bunx skills add rebuildup/design-skills --skill design-intent
+bunx skills add rebuildup/design-skills --skill token-audit
+bunx skills add rebuildup/design-skills --skill accessibility-audit
 ```
 
 npm 環境では `bunx` を `npx` に置き換えてください。
@@ -38,17 +41,25 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 ├─ README.md
 ├─ CONTRIBUTING.md
 ├─ LICENSE
+├─ THIRD_PARTY_NOTICES.md
 ├─ docs/
 │  ├─ design-principles.md
+│  ├─ external-skills.md
 │  └─ roadmap.md
 └─ skills/
-   └─ layout-system/
-      ├─ SKILL.md
-      └─ references/
-         ├─ marketing.md
-         ├─ dashboard.md
-         ├─ application.md
-         └─ swiss-editorial.md
+   ├─ layout-system/
+   │  ├─ SKILL.md
+   │  └─ references/
+   │     ├─ marketing.md
+   │     ├─ dashboard.md
+   │     ├─ application.md
+   │     └─ swiss-editorial.md
+   ├─ design-intent/
+   │  └─ SKILL.md
+   ├─ token-audit/
+   │  └─ SKILL.md
+   └─ accessibility-audit/
+      └─ SKILL.md
 ```
 
 ## Skills
@@ -63,6 +74,40 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 - Dashboard / Data
 - Application / Tool
 - Swiss / Editorial / Typographic
+
+### `design-intent`
+
+新規 UI の visual direction が未確定なとき、既存 project context と具体的な references を先に読み、後続 Skill が共有できる `DESIGN-BRIEF.md` に design intent を固定する Skill。
+
+`dawitlabs/ui-skills` の `design-grill` を参考にしつつ、質問を増やすことではなく、すでに得られる evidence を優先して unresolved product-level decisions だけを解消する方針にしています。
+
+### `token-audit`
+
+既存 UI の hardcoded values / token drift / semantic mismatch を監査し、primitive → semantic → component の層へ整理する Skill。
+
+単純に hardcoded value をゼロにするのではなく、repeated design decision だけを安定した token vocabulary に昇格します。
+
+### `accessibility-audit`
+
+Automated scan、keyboard inspection、visual inspection、semantic inspection を組み合わせて accessibility を監査・修正する Skill。
+
+accessibility fix によって UI を無条件に大型化・冗長化せず、current design system の中で解決することも明示しています。
+
+## External skill research
+
+他の design-agent skills から借りるべきアプローチと、直接取り込まない理由を [`docs/external-skills.md`](./docs/external-skills.md) に整理しています。
+
+現在追っている主な project:
+
+- dawitlabs/ui-skills
+- senlindesign/taste-skill
+- pbakaus/impeccable
+- nextlevelbuilder/ui-ux-pro-max-skill
+- plugin87/ux-ui-agent-skills
+- touchine-ojo/OJO-Design-Skills
+- anthropics/knowledge-work-plugins design skills
+
+取り込んだ third-party-derived workflow の attribution は [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md) に保持します。
 
 ## Design philosophy
 
@@ -81,6 +126,6 @@ Skill は単独インストールでも機能する必要があるため、runti
 - visual hierarchy
 - responsive behavior
 - interaction feedback
-- accessibility as visual/interaction quality
+- skill evals / deterministic design detectors
 
 未検証の一般論を先に Skill 化しません。
