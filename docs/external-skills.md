@@ -119,7 +119,7 @@ License: MIT
 ### plugin87/ux-ui-agent-skills
 
 Repository: https://github.com/plugin87/ux-ui-agent-skills
-License: repository metadata で license が明示されていないため copy しない
+License: MIT（upstream README に明記）
 
 参考にする部分:
 
@@ -133,7 +133,7 @@ License: repository metadata で license が明示されていないため copy 
 直接 vendor しない理由:
 
 - large corpus をそのまま持ち込むと own references と source-of-truth が二重化する
-- license が明示されていない
+- upstream を canonical source として参照し、必要な architecture / observation pattern だけを選択的に取り込む方が保守しやすい
 
 ### touchine-ojo/OJO-Design-Skills
 
