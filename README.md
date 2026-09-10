@@ -128,6 +128,12 @@ PDF / PPTX / SVG / MP4 / Remotion / After Effects 等は原則として design d
 - plugin87/ux-ui-agent-skills
 - touchine-ojo/OJO-Design-Skills
 - anthropics/knowledge-work-plugins design skills
+- MoussaabBadla/claude-motion-studio
+- appautomaton/presentation
+- hunkim/slide-skill
+- marcogalluccio/claude-slides
+- AbdulkareemKR/brand-identity-generator
+- anthropics/skills document skills
 
 取り込んだ third-party-derived workflow の attribution は [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md) に保持します。
 
