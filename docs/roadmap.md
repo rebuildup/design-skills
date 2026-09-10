@@ -3,6 +3,15 @@
 この repository は domain を一度に埋めません。
 reference research → principle extraction → implementation trial → Skill 化の順で育てます。
 
+## Active release sprint — v0.3.0
+
+- Sprint window: **2026-09-10 → 2026-09-17**
+- Target release: **0.3.0**
+- Integration branch: `release-0-3-0`
+- Goal: open research / design topics を reference-driven な実行可能 Skill へ進め、既存 Skill の実 project trial と verification を継続する
+
+個別 ticket の優先度・target release・dependency・進捗は GitHub Issues / PRs を canonical source of truth とする。release scope は ticket が `release-0-3-0` へ land した時点で更新する。
+
 ## v0 — Layout
 
 - [x] layout classification
