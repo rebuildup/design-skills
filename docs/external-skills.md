@@ -10,7 +10,7 @@
 外部 Skill は次の観点で評価する。
 
 - agent に observable な行動を要求しているか
-- rendered UI / browser verification があるか
+- rendered UI / artifact verification があるか
 - generic best-practice collection に留まらないか
 - current `design-skills` の reference-driven policy と両立するか
 - runtime dependency が過剰でないか
@@ -171,6 +171,107 @@ License: Apache-2.0
 - role separation は良いが、個々の skill は比較的 generic
 - `design-skills` では browser observation / project evidence / verification をより強く要求したい
 
+## Artifact-production references
+
+詳細な domain boundary は [`artifact-skills.md`](./artifact-skills.md) を canonical source とする。
+
+### MoussaabBadla/claude-motion-studio
+
+Repository: https://github.com/MoussaabBadla/claude-motion-studio
+License: MIT
+
+参考にする部分:
+
+- `motion-design` と `remotion-motion` を分ける
+- temporal design judgment と renderer implementation を分離する
+- reusable motion primitives
+- actual MP4 / PNG rendering まで行う
+
+直接 vendor しない理由:
+
+- Remotion-specific studio 全体を持ち込む必要はない
+- `motion-design` は After Effects / CSS / Canvas 等にも適用できる tool-agnostic policy にしたい
+
+`motion-design` 実装時に skill-level rules を比較し、必要な MIT-derived material だけを attribution 付きで adapt する候補。
+
+### appautomaton/presentation
+
+Repository: https://github.com/appautomaton/presentation
+License: MIT
+
+参考にする部分:
+
+- `consultant` → argument / storyboard
+- `brand-system` → identity contract
+- `deck-design-pdf` → pixel-exact rendered deck
+- `deck-design-ppt` → editable native PPTX
+- executable verification / preview generation
+
+特に **presentation semantics と output renderer を分離する設計**が強い。
+
+`slide-design` 実装時の最重要候補。
+ただし consultant 的 business reasoning は `design-skills` の scope 外なのでそのまま取り込まない。
+
+### hunkim/slide-skill
+
+Repository: https://github.com/hunkim/slide-skill
+License: MIT
+
+参考にする部分:
+
+- one point per slide
+- significance / structure / simplicity
+- complexity を font shrink ではなく content split で解決する
+- slide と handout を別 artifact とする
+- overflow / blank slide / JS errors の pre-ship verification
+
+小さく責務が明確なので `slide-design` の quality floor として adaptation 候補。
+
+### marcogalluccio/claude-slides
+
+Repository: https://github.com/marcogalluccio/claude-slides
+License: MIT
+
+参考にする部分:
+
+- wireframe-first
+- fixed presentation stage
+- reusable slide components
+- animation recipes
+- HTML → presentation / print-to-PDF
+
+HTML-specific engine は adapter reference とし、slide design の source of truth にはしない。
+
+### anthropics/skills — pptx / pdf / docx
+
+Repository: https://github.com/anthropics/skills
+
+Repository 自身が open-source skills と source-available document skills を区別しており、`pptx` / `pdf` / `docx` は production architecture の参考として公開されている。
+
+参考にする部分:
+
+- source file 生成で終わらず render / inspect する
+- pagination / layout / overflow verification
+- artifact-specific helper scripts を skill に持たせる設計
+
+直接 vendor しない。
+source-available document skills は architecture / verification pattern の参考に限定する。
+
+### AbdulkareemKR/brand-identity-generator
+
+Repository: https://github.com/AbdulkareemKR/brand-identity-generator
+License: MIT
+
+参考にする部分:
+
+- logo system → color / typography → applications → brand guideline deck
+- identity を real applications で stress-test する
+- logo-bearing mockup で actual logo を composite し、AI に文字を再描画させない
+- generated deck を page-by-page visual review する
+
+`brand-identity` の production workflow として adaptation 候補。
+ただし `design-skills` では complete identity と `brand-mark` を独立 domain として扱う。
+
 ## Architecture ideas worth carrying forward
 
 external projects を比較すると、`design-skills` は次の2軸を分けると拡張しやすい。
@@ -185,6 +286,15 @@ motion
 micro-interaction
 accessibility
 tokens
+slide
+document
+brand
+brand-mark
+iconography
+graphic-composition
+data-visualization
+diagram
+illustration
 ```
 
 ### Operation axis
@@ -195,9 +305,11 @@ extract
 audit
 critique
 translate
+compose
 implement
 adapt
 polish
+produce
 verify
 ```
 
@@ -210,12 +322,14 @@ references/
   registry.json
   sites/
   systems/
+  artifacts/
 
 evals/
   <skill>/
 
 scripts/
   inspect/
+  render/
   detectors/
 ```
 
