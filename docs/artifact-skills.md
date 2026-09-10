@@ -1,8 +1,10 @@
 # Artifact Design Skills
 
-`design-skills` は Web UI だけでなく、視覚成果物全般を扱う。
+`design-skills` は Web UI だけでなく、**2D graphic design 全般**を扱う。
 
-ただし file format や実装 tool をそのまま design domain としない。
+3D modeling / scene / animation / renderingそのものはscope外。ただし、3Dで生成されたassetを最終的な2D graphic / video frameへ配置・compositeする判断は対象内とする。
+
+file format や実装 tool をそのまま design domain としない。
 
 共通原則は次の通り。
 
@@ -14,6 +16,20 @@
 - **Compose** — current artifact の information architecture と visual structure に翻訳する
 - **Produce** — appropriate renderer / authoring tool で成果物を生成する
 - **Verify** — exported artifact 自体を rasterize / playback / inspect して確認する
+
+## Authoring principle
+
+新しい artifact Skill は最初から巨大なproduction manualにしない。
+
+綿密なreference researchを行い、以下が整理できれば最小Skillとして成立させてよい。
+
+- when to use
+- observation axes
+- direct reference URLs
+- delivered-artifact verification
+
+候補Issueからの作成には `skills/skill-authoring` と `templates/minimal-skill/SKILL.md` を使う。
+使用結果から必要になったreferences / evals / scriptsだけを後から追加する。
 
 ## Domain vs output format
 
