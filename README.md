@@ -1,18 +1,18 @@
 # Design Skills
 
-Reference-driven Agent Skills for designing and implementing web interfaces.
+Reference-driven Agent Skills for designing and producing visual artifacts.
 
-この repository は、AI に「それっぽい UI」を記憶だけで生成させるのではなく、実在する優れたプロダクトや design system を観察させ、構造上の原則を抽出し、現在の product へ翻訳して実装させるための design policy / Agent Skills 集です。
+この repository は、AI に「それっぽい UI / 資料 / 動画」を記憶だけで生成させるのではなく、実在する優れたプロダクト・design system・visual artifact を観察させ、構造上の原則を抽出し、現在の目的へ翻訳して制作・検証させるための design policy / Agent Skills 集です。
 
 ## Core idea
 
 > Inspect → Extract → Translate → Implement → Verify
 
-- **Inspect** — 実在する reference を開き、rendered UI / responsive behavior / computed styles / source を観察する
-- **Extract** — alignment、grid、spacing、hierarchy、scroll ownership などの再利用可能な構造を抽出する
-- **Translate** — reference の数値や見た目をコピーせず、現在の product の要件・design language に翻訳する
-- **Implement** — project 既存の tokens / components / conventions を優先して実装する
-- **Verify** — browser / screenshot で geometry と behavior を再確認する
+- **Inspect** — relevant な実在 reference、current brand/system、rendered artifact を観察する
+- **Extract** — alignment、hierarchy、rhythm、spacing、motion、composition など再利用可能な構造を抽出する
+- **Translate** — reference の数値や見た目をコピーせず、現在の product / artifact の要件へ翻訳する
+- **Implement** — appropriate な authoring / rendering tool を使い、既存 tokens / components / conventions を優先して制作する
+- **Verify** — browser / screenshot / rasterized pages / playback などで delivered artifact 自体を再確認する
 
 ## Install
 
@@ -44,6 +44,7 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 ├─ THIRD_PARTY_NOTICES.md
 ├─ docs/
 │  ├─ design-principles.md
+│  ├─ artifact-skills.md
 │  ├─ external-skills.md
 │  └─ roadmap.md
 └─ skills/
@@ -77,7 +78,7 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 
 ### `design-intent`
 
-新規 UI の visual direction が未確定なとき、既存 project context と具体的な references を先に読み、後続 Skill が共有できる `DESIGN-BRIEF.md` に design intent を固定する Skill。
+新規 visual work の方向が未確定なとき、既存 project context と具体的な references を先に読み、後続 Skill が共有できる `DESIGN-BRIEF.md` に design intent を固定する Skill。
 
 `dawitlabs/ui-skills` の `design-grill` を参考にしつつ、質問を増やすことではなく、すでに得られる evidence を優先して unresolved product-level decisions だけを解消する方針にしています。
 
@@ -92,6 +93,27 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 Automated scan、keyboard inspection、visual inspection、semantic inspection を組み合わせて accessibility を監査・修正する Skill。
 
 accessibility fix によって UI を無条件に大型化・冗長化せず、current design system の中で解決することも明示しています。
+
+## Artifact skill architecture
+
+Web UI 以外の visual production も first-class domain として扱います。
+
+planned domains:
+
+- `slide-design` — presentation / pitch / lecture deck
+- `document-design` — report / proposal / handout / paginated document
+- `motion-design` — video / motion graphics / kinetic typography
+- `brand-identity` — reusable visual identity system
+- `brand-mark` — logo symbol / app badge / favicon / identity-bearing mark
+- `iconography-system` — UI / product icon family
+- `graphic-composition` — poster / banner / social graphic / thumbnail
+- `data-visualization`
+- `diagram-design`
+- `illustration-direction`
+
+PDF / PPTX / SVG / MP4 / Remotion / After Effects 等は原則として design domain ではなく output / renderer adapter として扱います。
+
+詳細な境界と参考実装は [`docs/artifact-skills.md`](./docs/artifact-skills.md) を参照してください。
 
 ## External skill research
 
@@ -126,6 +148,7 @@ Skill は単独インストールでも機能する必要があるため、runti
 - visual hierarchy
 - responsive behavior
 - interaction feedback
+- artifact skills listed above
 - skill evals / deterministic design detectors
 
 未検証の一般論を先に Skill 化しません。
