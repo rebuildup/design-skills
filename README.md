@@ -35,6 +35,7 @@ bunx skills add rebuildup/design-skills
 
 ```bash
 bunx skills add rebuildup/design-skills --skill layout-system
+bunx skills add rebuildup/design-skills --skill typesetting
 bunx skills add rebuildup/design-skills --skill responsive-design
 bunx skills add rebuildup/design-skills --skill design-intent
 bunx skills add rebuildup/design-skills --skill token-audit
@@ -68,6 +69,12 @@ npm 環境では `bunx` を `npx` に置き換えてください。
    │     ├─ dashboard.md
    │     ├─ application.md
    │     └─ swiss-editorial.md
+   ├─ typesetting/
+   │  ├─ SKILL.md
+   │  └─ references/
+   │     ├─ japanese.md
+   │     ├─ interface.md
+   │     └─ long-form.md
    ├─ responsive-design/
    │  └─ SKILL.md
    ├─ design-intent/
@@ -92,6 +99,18 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 - Dashboard / Data
 - Application / Tool
 - Swiss / Editorial / Typographic
+
+### `typesetting`
+
+文字を font size の集合としてではなく、情報構造・言語・文量に応じた composition として扱う Skill。
+
+現在の reference families:
+
+- Japanese / Mixed-script
+- Interface / Dense text
+- Long-form / Reading
+
+見出し、本文、ラベル、表、数値などを分類し、measure、line-height、paragraph rhythm、line breaking、mixed-script behavior を実コンテンツで検証します。
 
 ### `responsive-design`
 
@@ -201,7 +220,7 @@ Skill は単独インストールでも機能する必要があるため、runti
 - motion / animation
 - micro-interaction
 - color system
-- typography / typesetting / font mixing
+- typography / font mixing
 - visual hierarchy
 - interaction feedback
 - 2D artifact skills listed above
