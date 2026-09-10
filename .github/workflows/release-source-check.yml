@@ -15,40 +15,58 @@ jobs:
     steps:
       - name: Validate head ref matches release-* pattern
         id: head
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
         run: |
-          HEAD_REF="${{ github.event.pull_request.head.ref }}"
-          echo "head_ref=$HEAD_REF"
           if [[ ! "$HEAD_REF" =~ ^release-[0-9]+-[0-9]+-[0-9]+$ ]]; then
             echo "::error::PR targeting 'main' must originate from a release-* branch."
             echo "::error::Got head ref: '$HEAD_REF'"
             exit 1
           fi
-          echo "OK head ref matches release-* pattern"
+          echo "OK head ref $HEAD_REF matches release-* pattern"
+          echo "head_ref=$HEAD_REF" >> "$GITHUB_OUTPUT"
 
       - name: Extract Target Release from PR body
         id: extract
-        shell: bash
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
-          BODY="${{ github.event.pull_request.body }}"
-          TARGET=$(printf '%s\n' "$BODY" | grep -iE '^[[:space:]]*Target Release[[:space:]]*:[[:space:]]*' | head -1 | sed -E 's/^[[:space:]]*Target Release[[:space:]]*:[[:space:]]*//I' | tr -d '[:space:]')
+          BODY="$PR_BODY"
+          if [ -z "$BODY" ]; then
+            echo "::error::PR body is empty."
+            exit 1
+          fi
+          # Use Python to safely parse the body (avoids shell interpretation of backticks etc.)
+          TARGET=$(python3 - <<'PYEOF'
+import os, re, sys
+body = os.environ.get("PR_BODY", "")
+lines = body.splitlines()
+pattern = re.compile(r'^\s*[Tt]arget\s+[Rr]elease\s*:\s*(.+?)\s*$')
+for line in lines:
+    m = pattern.match(line)
+    if m:
+        print(m.group(1))
+        sys.exit(0)
+sys.exit(1)
+PYEOF
+          )
           if [ -z "$TARGET" ]; then
-            echo "::error::PR body must contain 'Target Release:' field matching the head branch name."
-            echo "::error::Expected format: 'Target Release: 0.2.0' or 'Target Release: release-0-2-0'"
+            echo "::error::PR body must contain a 'Target Release:' line."
+            echo "::error::Example: 'Target Release: 0.2.0'"
             exit 1
           fi
           echo "target_release=$TARGET"
           echo "$TARGET" >> "$GITHUB_OUTPUT"
 
       - name: Compare Target Release with head branch
-        shell: bash
+        env:
+          HEAD_REF: ${{ steps.head.outputs.head_ref }}
+          TARGET: ${{ steps.extract.outputs.target_release }}
         run: |
-          HEAD_REF="${{ steps.head.outputs.head_ref }}"
-          TARGET="${{ steps.extract.outputs.target_release }}"
           if [ -z "$TARGET" ]; then
             echo "::error::No Target Release extracted from PR body."
             exit 1
           fi
-          # Normalize: accept '0.2.0' or 'release-0-2-0'
           NORMALIZED=$(echo "$TARGET" | tr '.' '-')
           EXPECTED="release-$NORMALIZED"
           if [ "$HEAD_REF" != "$EXPECTED" ]; then
