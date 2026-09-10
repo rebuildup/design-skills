@@ -17,6 +17,21 @@ reference research → principle extraction → implementation trial → Skill �
   - reflow / overflow / responsive media
   - continuous resize / zoom verification
 
+## v1 — Motion / Animation (experimental)
+
+- [x] motion purpose classification
+- [x] Marketing / Expressive references
+- [x] Product UI / Feedback references
+- [x] Navigation / Gesture / Spatial transition references
+- [x] performance / reduced-motion verification gates
+- [x] autonomous inspect → extract → translate → implement → verify workflow
+- [ ] real project trial
+- [ ] trial feedback を反映した reference / decision policy refinement
+
+初版は「動きを足す」Skill ではなく、motion が情報理解・continuity・feedback・orientation・progress・expression に必要か判断し、必要な場合だけ coherent な system として実装する Skill とする。
+
+実 project での trial 後に、micro-interaction と motion-system の責務境界も再評価する。
+
 ## Supporting skills
 
 外部の実績ある Agent Skills から、domain knowledge ではなく cross-cutting workflow として有効なものを選別して取り込む。
@@ -98,22 +113,20 @@ Web UI に限定せず、媒体ごとに異なる visual decision を first-clas
 
 ## Next UI-system candidates
 
-### Motion / Animation
+### Motion / Animation — trial / refinement
 
-UI motion と standalone video motion は分ける。
-ここでは interactive product 内の motion を扱う。
+`motion-system` の初版を実 project で trial 中とする。UI motion と standalone video motion は分け、ここでは interactive product 内の motion を扱う。
 
-調査対象候補:
+次に確認する:
 
-- page transition
-- enter / exit
-- spatial continuity
-- choreographed motion
-- reduced-motion behavior
-- duration / easing systems
-- data visualization motion
+- reference family / URL を agent が task に応じて自律選択できるか
+- generic animation preset へ戻らず、motion の必要性自体を判断できるか
+- interruption / rapid input / touch / responsive behavior を十分に検証できるか
+- Marketing / portfolio の expressive motion と usability のバランス
+- reduced-motion / runtime performance gate が実作業で機能するか
+- micro-interaction と motion-system の責務境界
 
-「動きを足す」Skill ではなく、motion が情報理解・continuity・feedback に必要か判断する Skill を目指す。
+trial の結果を見て reference / decision policy を refinement する。
 
 ### Micro-interaction
 
@@ -128,6 +141,7 @@ UI motion と standalone video motion は分ける。
 - error / success acknowledgement
 
 interaction state と animation を分離せず扱う。
+`motion-system` と重複する領域は trial 結果を見て、独立 Skill にするか reference family として統合するか判断する。
 
 ### Color
 

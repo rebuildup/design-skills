@@ -36,6 +36,7 @@ bunx skills add rebuildup/design-skills
 ```bash
 bunx skills add rebuildup/design-skills --skill layout-system
 bunx skills add rebuildup/design-skills --skill typesetting
+bunx skills add rebuildup/design-skills --skill motion-system
 bunx skills add rebuildup/design-skills --skill responsive-design
 bunx skills add rebuildup/design-skills --skill design-intent
 bunx skills add rebuildup/design-skills --skill token-audit
@@ -75,6 +76,13 @@ npm 環境では `bunx` を `npx` に置き換えてください。
    │     ├─ japanese.md
    │     ├─ interface.md
    │     └─ long-form.md
+   ├─ motion-system/
+   │  ├─ SKILL.md
+   │  └─ references/
+   │     ├─ marketing.md
+   │     ├─ product-ui.md
+   │     ├─ navigation-gesture.md
+   │     └─ performance-accessibility.md
    ├─ responsive-design/
    │  └─ SKILL.md
    ├─ design-intent/
@@ -111,6 +119,21 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 - Long-form / Reading
 
 見出し、本文、ラベル、表、数値などを分類し、measure、line-height、paragraph rhythm、line breaking、mixed-script behavior を実コンテンツで検証します。
+
+### `motion-system` — experimental
+
+Web / mobile UI の motion / animation が必要な理由を分類し、production reference と platform guidance を実際に観察した上で timing / easing / spatial continuity / choreography を設計・実装する Skill。
+
+現在の reference families:
+
+- Marketing / Expressive
+- Product UI / Feedback
+- Navigation / Gesture / Spatial transition
+- Performance / Accessibility
+
+単なる animation preset 集ではなく、motion の必要性判定、interruptibility、reduced motion、runtime performance、visual verification までを completion gate とします。
+
+まず実 project で trial し、観察項目・reference selection・agent autonomy の精度を検証します。
 
 ### `responsive-design`
 
@@ -217,7 +240,7 @@ Skill は単独インストールでも機能する必要があるため、runti
 
 今後、十分な reference research と実例検証ができたものから追加します。
 
-- motion / animation
+- motion-system trial / refinement
 - micro-interaction
 - color system
 - typography / font mixing
