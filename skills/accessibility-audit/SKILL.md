@@ -166,7 +166,8 @@ fix 後に同じ条件で再実行する。
 - keyboard traversal
 - screenshots of focus / error / selected states
 - representative mobile viewport
-- 200% zoom or equivalent reflow check
+- 200% zoom / text enlargement check
+- 320 CSS px 相当 / 400% zoom の reflow check
 - reduced-motion check when applicable
 
 を確認する。
