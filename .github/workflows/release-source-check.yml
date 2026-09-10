@@ -6,7 +6,7 @@ on:
 
 jobs:
   validate-release-source:
-    name: Validate release-* source for PR to main
+    name: validate-release-source
     if: github.event.pull_request.base.ref == 'main'
     runs-on: ubuntu-latest
     permissions:
