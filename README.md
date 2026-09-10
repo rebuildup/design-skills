@@ -4,6 +4,14 @@ Reference-driven Agent Skills for designing and producing visual artifacts.
 
 この repository は、AI に「それっぽい UI / 資料 / 動画」を記憶だけで生成させるのではなく、実在する優れたプロダクト・design system・visual artifact を観察させ、構造上の原則を抽出し、現在の目的へ翻訳して制作・検証させるための design policy / Agent Skills 集です。
 
+## Scope
+
+この repository の design scope は **2D graphic design 全般**です。
+
+対象には Web / application UI、print / editorial、slide / document、logo / icon / brand identity、illustration、diagram / infographic / data visualization、2D animation / motion graphics / video graphics、compositing / 撮影処理、typography / typesetting を含みます。
+
+**3D design 自体は対象外**です。3D modeling、rigging、3D animation、scene construction、3D lighting / rendering 等は扱いません。ただし、3Dで生成済みのassetを最終的な2D graphic / video frameへ配置・compositeする判断は2D designの範囲として扱えます。
+
 ## Core idea
 
 > Inspect → Extract → Translate → Implement → Verify
@@ -96,7 +104,7 @@ accessibility fix によって UI を無条件に大型化・冗長化せず、c
 
 ## Artifact skill architecture
 
-Web UI 以外の visual production も first-class domain として扱います。
+Web UI 以外の 2D visual production も first-class domain として扱います。
 
 planned domains:
 
@@ -150,11 +158,11 @@ Skill は単独インストールでも機能する必要があるため、runti
 - motion / animation
 - micro-interaction
 - color system
-- typography
+- typography / typesetting / font mixing
 - visual hierarchy
 - responsive behavior
 - interaction feedback
-- artifact skills listed above
+- 2D artifact skills listed above
 - skill evals / deterministic design detectors
 
 未検証の一般論を先に Skill 化しません。
