@@ -44,7 +44,7 @@ jobs:
             exit 1
           fi
           echo "target_release=$TARGET"
-          echo "$TARGET" >> "$GITHUB_OUTPUT"
+          echo "target_release=$TARGET" >> "$GITHUB_OUTPUT"
 
       - name: Compare Target Release with head branch
         env:
