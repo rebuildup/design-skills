@@ -27,6 +27,7 @@ bunx skills add rebuildup/design-skills
 
 ```bash
 bunx skills add rebuildup/design-skills --skill layout-system
+bunx skills add rebuildup/design-skills --skill typesetting
 ```
 
 npm 環境では `bunx` を `npx` に置き換えてください。
@@ -42,13 +43,19 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 │  ├─ design-principles.md
 │  └─ roadmap.md
 └─ skills/
-   └─ layout-system/
+   ├─ layout-system/
+   │  ├─ SKILL.md
+   │  └─ references/
+   │     ├─ marketing.md
+   │     ├─ dashboard.md
+   │     ├─ application.md
+   │     └─ swiss-editorial.md
+   └─ typesetting/
       ├─ SKILL.md
       └─ references/
-         ├─ marketing.md
-         ├─ dashboard.md
-         ├─ application.md
-         └─ swiss-editorial.md
+         ├─ japanese.md
+         ├─ interface.md
+         └─ long-form.md
 ```
 
 ## Skills
@@ -64,6 +71,18 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 - Application / Tool
 - Swiss / Editorial / Typographic
 
+### `typesetting`
+
+文字を font size の集合としてではなく、情報構造・言語・文量に応じた composition として扱う Skill。
+
+現在の reference families:
+
+- Japanese / Mixed-script
+- Interface / Dense text
+- Long-form / Reading
+
+見出し、本文、ラベル、表、数値などを分類し、measure、line-height、paragraph rhythm、line breaking、mixed-script behavior を実コンテンツで検証します。
+
 ## Design philosophy
 
 長期的な思想は [`docs/design-principles.md`](./docs/design-principles.md) を canonical source とします。
@@ -77,7 +96,6 @@ Skill は単独インストールでも機能する必要があるため、runti
 - motion / animation
 - micro-interaction
 - color system
-- typography
 - visual hierarchy
 - responsive behavior
 - interaction feedback
