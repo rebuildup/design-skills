@@ -38,6 +38,7 @@ bunx skills add rebuildup/design-skills --skill layout-system
 bunx skills add rebuildup/design-skills --skill design-intent
 bunx skills add rebuildup/design-skills --skill token-audit
 bunx skills add rebuildup/design-skills --skill accessibility-audit
+bunx skills add rebuildup/design-skills --skill skill-authoring
 ```
 
 npm 環境では `bunx` を `npx` に置き換えてください。
@@ -55,6 +56,9 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 │  ├─ artifact-skills.md
 │  ├─ external-skills.md
 │  └─ roadmap.md
+├─ templates/
+│  └─ minimal-skill/
+│     └─ SKILL.md
 └─ skills/
    ├─ layout-system/
    │  ├─ SKILL.md
@@ -67,7 +71,9 @@ npm 環境では `bunx` を `npx` に置き換えてください。
    │  └─ SKILL.md
    ├─ token-audit/
    │  └─ SKILL.md
-   └─ accessibility-audit/
+   ├─ accessibility-audit/
+   │  └─ SKILL.md
+   └─ skill-authoring/
       └─ SKILL.md
 ```
 
@@ -101,6 +107,16 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 Automated scan、keyboard inspection、visual inspection、semantic inspection を組み合わせて accessibility を監査・修正する Skill。
 
 accessibility fix によって UI を無条件に大型化・冗長化せず、current design system の中で解決することも明示しています。
+
+### `skill-authoring`
+
+research Issue / candidate topic を、実際に使える Design Skill へ落とし込むための meta Skill。
+
+**Research deeply → Organize observation axes → Attach primary references → Define verification** を基本とし、一般論を大量に書くことを要求しません。
+
+綿密な調査が済んでおり、agent が見るべき観点と reference URL が整理されているなら、`skills/<name>/SKILL.md` 1枚だけでも正式な Skill として成立させます。
+
+最小雛形は [`templates/minimal-skill/SKILL.md`](./templates/minimal-skill/SKILL.md)、追加ルールは [`CONTRIBUTING.md`](./CONTRIBUTING.md) を参照してください。
 
 ## Artifact skill architecture
 
