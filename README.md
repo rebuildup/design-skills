@@ -118,6 +118,24 @@ research Issue / candidate topic を、実際に使える Design Skill へ落と
 
 最小雛形は [`templates/minimal-skill/SKILL.md`](./templates/minimal-skill/SKILL.md)、追加ルールは [`CONTRIBUTING.md`](./CONTRIBUTING.md) を参照してください。
 
+## Creating a new Skill
+
+候補Issueから新しいSkillを作るときは、最初に `skill-authoring` を使います。
+
+```text
+research issue / design topic
+→ primary reference research
+→ observation axes
+→ reference URLs
+→ minimal SKILL.md
+→ real use
+→ refinement
+```
+
+最初の段階では `SKILL.md` だけで構いません。referenceが増えて読みづらくなった場合のみ `references/` を分け、detector / script / evalは実際に必要になってから追加します。
+
+Skillの品質は文章量ではなく、**調査の質・見るべき観点の明確さ・referenceの具体性・最終成果物を検証できること**で評価します。
+
 ## Artifact skill architecture
 
 Web UI 以外の 2D visual production も first-class domain として扱います。
