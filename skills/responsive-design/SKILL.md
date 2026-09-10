@@ -28,9 +28,7 @@ Responsive design を「mobile / tablet / desktop の3枚を作ること」と�
 
 ## Observe
 
-### 1. Information priority
-
-最初に情報構造を見る。
+### Information priority
 
 - 狭くなったときも残すべき primary content / action は何か
 - secondary content は移動・折りたたみ・disclosureできるか
@@ -40,25 +38,22 @@ Responsive design を「mobile / tablet / desktop の3枚を作ること」と�
 
 狭幅化は「削除」ではなく、まず **reflow / reposition / disclosure** として考える。
 
-### 2. Macro layout
+### Macro layout
 
 - page margin / max-width / content measure
-- column count
-- gutter
+- column count / gutter
 - sidebar / rail / toolbar ownership
 - fixed / fluid / hybrid regions
-- alignment key lines
+- repeated alignment key lines
 - full-widthとconstrained contentの切り替え
 - wide screenで情報量を増やすのか、読みやすさのためmax-widthを維持するのか
 
 wide viewportを単純に引き伸ばさない。
-目的に応じて、editorialなsurfaceはmeasureを維持し、dense tool / dashboardは追加spaceを情報量へ使うことがある。
+editorialなsurfaceはmeasureを維持し、dense tool / dashboardは追加spaceを情報量へ使うことがある。
 
-### 3. Continuous vs discrete change
+### Continuous vs discrete change
 
 まず continuous な変化で解けないか確認する。
-
-候補:
 
 - flex / grid intrinsic sizing
 - `minmax()` / `auto-fit` / `auto-fill`
@@ -72,11 +67,9 @@ wide viewportを単純に引き伸ばさない。
 
 **breakpointはdevice名から決めず、contentが変形を要求する地点から決める。**
 
-### 4. Query scope
+### Query scope
 
-#### Media query
-
-page / viewport / environment単位で変化するものに向く。
+**Media query** は page / viewport / environment単位の変化に使う。
 
 - global shell
 - primary navigation
@@ -85,9 +78,7 @@ page / viewport / environment単位で変化するものに向く。
 - pointer / hover capability
 - user preferenceなどenvironmental media features
 
-#### Container query
-
-同じcomponentが配置場所によって異なるavailable widthを持つときに向く。
+**Container query** は、同じcomponentが配置場所によって異なるavailable widthを持つ場合に使う。
 
 - card
 - widget
@@ -97,7 +88,7 @@ page / viewport / environment単位で変化するものに向く。
 
 componentが「viewport幅」ではなく「自分に割り当てられた幅」で変形すべきなら container query を優先する。
 
-### 5. Responsive transformations
+### Responsive transformations
 
 各regionについて変形の種類を明示する。
 
@@ -110,20 +101,18 @@ componentが「viewport幅」ではなく「自分に割り当てられた幅」
 - `disclose` — dialog / drawer / disclosureへ移す
 - `scroll` — semantic上2D layoutが必要なsurfaceだけ内部scrollを許可
 
-「desktopを縮小する」だけで終わらせない。
-
-### 6. Typography and spacing
+### Typography and spacing
 
 - body text の可読性を保つ
 - line measure がwide viewportで長くなりすぎないか
 - headingがnarrow viewportで過度にwrapしないか
 - spacing hierarchyがsmall screenで過密 / wide screenで散漫にならないか
-- fixed px scaleをそのまま全幅へ適用すべきか
+- fixed scaleをそのまま全幅へ適用すべきか
 - user zoom / font scalingでcomponentが壊れないか
 
 font sizeを縮めてoverflowを隠すより、layoutをreflowする。
 
-### 7. Media
+### Media
 
 - image / video がcontainerをoverflowしないか
 - raster assetに不要な巨大sourceを配信していないか
@@ -132,7 +121,7 @@ font sizeを縮めてoverflowを隠すより、layoutをreflowする。
 - crop変更で意味のあるcontentが失われないか
 - intrinsic size / aspect ratioを保持しlayout shiftを防げるか
 
-### 8. Input and environment
+### Input and environment
 
 screen widthからinput methodを推測しない。
 
@@ -142,9 +131,9 @@ screen widthからinput methodを推測しない。
 - orientation固定を前提にしない
 - long localized text / zoom / browser chrome変化をstress caseとして扱う
 
-### 9. Overflow
+### Overflow
 
-horizontal overflowを見つけたら、まず accidental overflow か semantic overflow かを分ける。
+horizontal overflowを見つけたら、accidental overflow か semantic overflow かを分ける。
 
 accidental:
 
@@ -183,53 +172,35 @@ semantic上2D配置が必要な領域は内部scrollを許容できるが、scro
 
 - [MDN — Responsive web design](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design)
   - Observe: fluid layout、media query、mobile-first、responsive media、typography、viewportの関係。
-  - Useful for: responsive designのplatform-level baselineを確認するとき。
-
 - [web.dev — Responsive web design basics](https://web.dev/articles/responsive-web-design-basics)
   - Observe: content-driven breakpoints、viewport overflow、input capability、small-firstでbreakpointを発見する過程。
-  - Useful for: breakpointをdevice presetから決めそうになったとき。
-
 - [MDN — CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries)
   - Observe: viewport queryとcontainer queryの責務差、component-local adaptation、container units。
-  - Useful for: reusable componentが複数のlayout contextで使われるとき。
-
 - [W3C — Media Queries Level 5](https://www.w3.org/TR/mediaqueries-5/)
-  - Observe: widthだけでなくenvironment / user-agent featuresをqueryする仕組みそのもの。
-  - Useful for: media featureの意味や最新仕様を確認するとき。
+  - Observe: widthだけでなくenvironment / user-agent featuresをqueryする仕組み。
 
 ### Accessibility / reflow
 
 - [W3C WAI — WCAG 2.2 Quick Reference: 1.4.10 Reflow](https://www.w3.org/WAI/WCAG22/quickref/#reflow)
   - Observe: 320 CSS px相当で情報・機能を失わずreflowする基準と、2D layoutが必要な例外。
-  - Useful for: narrow viewport / 400% zoom QAのquality floor。
-
 - [Digital Agency Design System — Layout accessibility](https://design.digital.go.jp/dads/foundations/layout/accessibility/)
   - Observe: liquid layout、column/gutterの可変設計、不可避なhorizontal scroll時の扱い、reading order。
-  - Useful for: 日本語UIとaccessibilityを含めたresponsive判断。
 
 ### Production design systems
 
 - [Digital Agency Design System — Layout](https://design.digital.go.jp/dads/foundations/layout/)
   - Observe: margin / column / gutter、1〜12-column構成、navigation領域、breakpointの考え方。
-  - Useful for: 日本語Web / public-service UIの実装reference。
-
 - [GOV.UK Design System — Layout](https://design-system.service.gov.uk/styles/layout/)
   - Observe: small-screen-first、single-columnからの拡張、content measure、grid transformation。
-  - Useful for: content-heavy service surface。
-
 - [GOV.UK Design System — Spacing](https://design-system.service.gov.uk/styles/spacing/)
   - Observe: small/largeでspacing scaleをどう変えるか、何をstaticに残すか。
-  - Useful for: responsive spacingを無秩序なindividual overridesにしないため。
-
 - [Carbon Design System — 2x Grid](https://carbondesignsystem.com/elements/2x-grid/overview/)
   - Observe: fluid / fixed / hybrid behavior、screen regions、key lines、dense interfaceとeditorial surfaceの違い。
-  - Useful for: dashboard / tool / enterprise UIでwide screenの使い方を判断するとき。
 
 ### Responsive media
 
 - [MDN — Responsive images](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images)
   - Observe: resolution switching、`srcset` / `sizes`、art direction、display slotとsource selection。
-  - Useful for: image-heavy surfaceのquality / performance両面を調整するとき。
 
 ## Avoid
 
@@ -245,8 +216,6 @@ semantic上2D配置が必要な領域は内部scrollを許容できるが、scro
 - screenshot preset数枚だけで検証を終わらせない。
 
 ## Verify
-
-最低限、以下を確認する。
 
 1. browserを最小幅からwideまで**連続的に**resizeし、breakpoint直前・直後と中間幅を見る。
 2. horizontal page overflowがないことを確認する。例外surfaceはoverflow ownershipを明確にする。
