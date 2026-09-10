@@ -119,6 +119,8 @@ brief を書く前に、direction 同士の矛盾を探す。
 
 project root に以下の形式で書く。
 
+既存の `DESIGN-BRIEF.md` がある場合は再生成して全置換しない。confirmed decisions と、その判断を支える evidence を保持したまま差分更新する。current user requirement、current product requirements、または established design system と矛盾する項目だけを更新し、変更した decision には理由と新しい evidence を記録する。
+
 ```markdown
 # Design Brief — <product>
 
