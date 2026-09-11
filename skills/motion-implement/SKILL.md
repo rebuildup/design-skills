@@ -69,6 +69,17 @@ library の存在を motion の理由にしない。
 
 ### 5. Pick properties and relationships
 
+property と direction を選ぶ前に Spatial continuity を確認する。
+
+- direction
+- origin
+- exit
+- source
+- destination
+- navigation hierarchy
+
+route / pane transition では6条件を明示的に確認し、UI の空間モデルと一致しない movement は再検討する。
+
 isolated magic number より relationship を優先する。
 
 - transform / opacity で表現可能なら優先
