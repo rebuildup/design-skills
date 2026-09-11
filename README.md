@@ -37,6 +37,9 @@ bunx skills add rebuildup/design-skills
 bunx skills add rebuildup/design-skills --skill layout-system
 bunx skills add rebuildup/design-skills --skill typesetting
 bunx skills add rebuildup/design-skills --skill motion-system
+bunx skills add rebuildup/design-skills --skill motion-audit
+bunx skills add rebuildup/design-skills --skill motion-implement
+bunx skills add rebuildup/design-skills --skill motion-review
 bunx skills add rebuildup/design-skills --skill responsive-design
 bunx skills add rebuildup/design-skills --skill design-intent
 bunx skills add rebuildup/design-skills --skill token-audit
@@ -83,6 +86,12 @@ npm 環境では `bunx` を `npx` に置き換えてください。
    │     ├─ product-ui.md
    │     ├─ navigation-gesture.md
    │     └─ performance-accessibility.md
+   ├─ motion-audit/
+   │  └─ SKILL.md
+   ├─ motion-implement/
+   │  └─ SKILL.md
+   ├─ motion-review/
+   │  └─ SKILL.md
    ├─ responsive-design/
    │  └─ SKILL.md
    ├─ design-intent/
@@ -132,6 +141,14 @@ Web / mobile UI の motion / animation が必要な理由を分類し、producti
 - Performance / Accessibility
 
 単なる animation preset 集ではなく、motion の必要性判定、interruptibility、reduced motion、runtime performance、visual verification までを completion gate とします。
+
+focused operation として以下も提供します。
+
+- `motion-audit` — read-only で不足・過剰・不整合な motion を探す
+- `motion-implement` — motion gate から実装・visual verification まで行う
+- `motion-review` — read-only で実装済み motion を批評する
+
+`motion-system` は canonical domain policy のまま維持し、operation Skill は必要な責務だけを担当します。
 
 まず実 project で trial し、観察項目・reference selection・agent autonomy の精度を検証します。
 
@@ -215,6 +232,7 @@ PDF / PPTX / SVG / MP4 / Remotion / After Effects 等は原則として design d
 現在追っている主な project:
 
 - dawitlabs/ui-skills
+- emilkowalski/skills
 - senlindesign/taste-skill
 - pbakaus/impeccable
 - nextlevelbuilder/ui-ux-pro-max-skill

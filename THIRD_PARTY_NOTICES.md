@@ -38,4 +38,19 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+## emilkowalski/skills
+
+Source: https://github.com/emilkowalski/skills
+
+Used as a source of architectural and workflow ideas for:
+
+- `skills/motion-audit`
+- `skills/motion-implement`
+- `skills/motion-review`
+- the strengthened motion decision gate and observation vocabulary
+
+The downstream text is independently written for this repository's reference-driven policy. Upstream-specific magic numbers and author-specific defaults are not copied as universal rules.
+
+Upstream license: MIT.
+
 Other projects listed in `docs/external-skills.md` are references only and are not vendored into this repository.
