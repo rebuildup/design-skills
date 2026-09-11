@@ -55,7 +55,8 @@ motion が操作・読解・比較を遅らせないか確認する。
 
 ### 4. Spatial continuity
 
-motion の direction / origin / exit が UI の空間モデルと一致するか確認する。
+motion の direction / origin / exit と、source / destination / navigation hierarchy が UI の空間モデルと一致するか確認する。
+route / pane transition では6条件を明示的に確認し、source / destination / navigation hierarchy を説明できない movement は候補から落とす。
 
 ## Where to inspect
 
