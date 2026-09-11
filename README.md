@@ -44,6 +44,9 @@ bunx skills add rebuildup/design-skills --skill responsive-design
 bunx skills add rebuildup/design-skills --skill design-intent
 bunx skills add rebuildup/design-skills --skill token-audit
 bunx skills add rebuildup/design-skills --skill accessibility-audit
+bunx skills add rebuildup/design-skills --skill slide-design
+bunx skills add rebuildup/design-skills --skill document-design
+bunx skills add rebuildup/design-skills --skill diagram-design
 bunx skills add rebuildup/design-skills --skill skill-authoring
 ```
 
@@ -99,6 +102,12 @@ npm 環境では `bunx` を `npx` に置き換えてください。
    ├─ token-audit/
    │  └─ SKILL.md
    ├─ accessibility-audit/
+   │  └─ SKILL.md
+   ├─ slide-design/
+   │  └─ SKILL.md
+   ├─ document-design/
+   │  └─ SKILL.md
+   ├─ diagram-design/
    │  └─ SKILL.md
    └─ skill-authoring/
       └─ SKILL.md
@@ -176,6 +185,24 @@ Automated scan、keyboard inspection、visual inspection、semantic inspection �
 
 accessibility fix によって UI を無条件に大型化・冗長化せず、current design system の中で解決することも明示しています。
 
+### `slide-design` — experimental
+
+presentation / pitch / lecture deck を、時間順に提示される visual narrative として設計する Skill。
+
+audience / delivery mode、deck sequence、slide role、distance readability、text density、visual routing、reading order、export robustness を観察し、PowerPoint 等の renderer 固有操作ではなく slide artifact 自体の判断を扱います。
+
+### `document-design` — experimental
+
+report / proposal / handout / white paper 等の paginated document を、semantic structure と page structure を持つ artifact として設計する Skill。
+
+heading hierarchy、page architecture、figures / tables / captions、reading order、pagination、tagged PDF を source と export の両方で検証します。
+
+### `diagram-design` — experimental
+
+architecture / process / hierarchy / relationship diagram を、特定の問いに答える visual model として設計する Skill。
+
+audience と abstraction level から diagram type を選び、node / connector / grouping / label / legend / progressive disclosure / text alternative を一貫した semantics で設計します。
+
 ### `skill-authoring`
 
 research Issue / candidate topic を、実際に使える Design Skill へ落とし込むための meta Skill。
@@ -208,17 +235,17 @@ Skillの品質は文章量ではなく、**調査の質・見るべき観点の�
 
 Web UI 以外の 2D visual production も first-class domain として扱います。
 
-planned domains:
+current / planned domains:
 
-- `slide-design` — presentation / pitch / lecture deck
-- `document-design` — report / proposal / handout / paginated document
+- `slide-design` — presentation / pitch / lecture deck (experimental)
+- `document-design` — report / proposal / handout / paginated document (experimental)
 - `motion-design` — video / motion graphics / kinetic typography
 - `brand-identity` — reusable visual identity system
 - `brand-mark` — logo symbol / app badge / favicon / identity-bearing mark
 - `iconography-system` — UI / product icon family
 - `graphic-composition` — poster / banner / social graphic / thumbnail
 - `data-visualization`
-- `diagram-design`
+- `diagram-design` — architecture / process / explanatory diagram (experimental)
 - `illustration-direction`
 
 PDF / PPTX / SVG / MP4 / Remotion / After Effects 等は原則として design domain ではなく output / renderer adapter として扱います。

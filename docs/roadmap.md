@@ -61,14 +61,14 @@ Web UI に限定せず、媒体ごとに異なる visual decision を first-clas
 
 ### High priority
 
-- [ ] `slide-design`
+- [x] `slide-design` — experimental initial skill; real-project trial pending
   - narrative / governing thought
   - one point per slide
   - slide composition / density
   - diagrams / charts / imagery routing
   - speaker deck vs handout
   - PDF / PPTX / HTML export verification
-- [ ] `document-design`
+- [x] `document-design` — experimental initial skill; real-project trial pending
   - long-form typography
   - page grid / margins / heading depth
   - tables / figures / captions
@@ -101,7 +101,7 @@ Web UI に限定せず、媒体ごとに異なる visual decision を first-clas
 
 - [ ] `graphic-composition` — poster / banner / social graphic / thumbnail
 - [ ] `data-visualization` — chart / graph / data graphic
-- [ ] `diagram-design` — architecture / process / explanatory diagram
+- [x] `diagram-design` — architecture / process / explanatory diagram; experimental initial skill, real-project trial pending
 - [ ] `illustration-direction` — repeatable illustration / generated imagery language
 
 ### Output adapters
@@ -119,6 +119,8 @@ Web UI に限定せず、媒体ごとに異なる visual decision を first-clas
 - Figma / Canva
 
 媒体固有の implementation / export / validation rule として各 domain skill から参照する。
+
+`slide-design` / `document-design` / `diagram-design` は 2026-09-12 時点で reference-driven な experimental initial Skill を実装済み。正式 promotion は real-project trial と delivered artifact inspection 後に行う。
 
 ## Next UI-system candidates
 
