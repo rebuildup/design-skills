@@ -91,16 +91,18 @@ Web UI に限定せず、媒体ごとに異なる visual decision を first-clas
   - favicon / app icon / social avatar
   - silhouette / optical balance
   - monochrome / small-size verification
-- [ ] `iconography-system`
+- [x] `iconography-system` initial Skill
   - UI icon grid / stroke / fill language
   - metaphor consistency
   - optical sizing / baseline
   - family-level consistency
+  - RTL / localization / state variants
+  - family-level rendered verification
 
 ### Secondary
 
 - [ ] `graphic-composition` — poster / banner / social graphic / thumbnail
-- [ ] `data-visualization` — chart / graph / data graphic
+- [x] `data-visualization` initial Skill — question-first chart / graph / data graphic design with accessible redundant cues
 - [x] `diagram-design` — architecture / process / explanatory diagram; experimental initial skill, real-project trial pending
 - [ ] `illustration-direction` — repeatable illustration / generated imagery language
 
@@ -154,20 +156,19 @@ trial の結果を見て reference / decision policy を refinement する。
 interaction state と animation を分離せず扱う。
 `motion-system` と重複する領域は trial 結果を見て、独立 Skill にするか reference family として統合するか判断する。
 
-### Color
+### Color — `color-system` initial Skill implemented
 
-調査対象候補:
+- [x] semantic role
+- [x] surface hierarchy
+- [x] neutral / content hierarchy
+- [x] accent allocation
+- [x] state color
+- [x] UI color と data-visualization palette の責務分離
+- [x] light / dark transformation
+- [x] contrast-aware role pairing
 
-- semantic role
-- surface hierarchy
-- neutral scale
-- accent allocation
-- state color
-- data visualization palette
-- light / dark transformation
-- contrast
-
-「palette generator」ではなく、情報 hierarchy と state semantics の system を目指す。
+「palette generator」ではなく、情報 hierarchy と state semantics の system として初版実装済み。
+正式 promotion 前に real project trial を行い、role vocabulary と theme verification を refinement する。
 
 ### Typography
 

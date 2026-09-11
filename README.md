@@ -44,6 +44,9 @@ bunx skills add rebuildup/design-skills --skill responsive-design
 bunx skills add rebuildup/design-skills --skill design-intent
 bunx skills add rebuildup/design-skills --skill token-audit
 bunx skills add rebuildup/design-skills --skill accessibility-audit
+bunx skills add rebuildup/design-skills --skill color-system
+bunx skills add rebuildup/design-skills --skill iconography-system
+bunx skills add rebuildup/design-skills --skill data-visualization
 bunx skills add rebuildup/design-skills --skill slide-design
 bunx skills add rebuildup/design-skills --skill document-design
 bunx skills add rebuildup/design-skills --skill diagram-design
@@ -102,6 +105,12 @@ npm 環境では `bunx` を `npx` に置き換えてください。
    ├─ token-audit/
    │  └─ SKILL.md
    ├─ accessibility-audit/
+   │  └─ SKILL.md
+   ├─ color-system/
+   │  └─ SKILL.md
+   ├─ iconography-system/
+   │  └─ SKILL.md
+   ├─ data-visualization/
    │  └─ SKILL.md
    ├─ slide-design/
    │  └─ SKILL.md
@@ -166,6 +175,24 @@ focused operation として以下も提供します。
 viewport / container / zoom / input environment の変化に対して、fluid layout を基礎に content-driven breakpoint と responsive transformation を設計・実装する Skill。
 
 mobile / tablet / desktop の preset を先に固定せず、連続resizeで stress point を見つけ、page-level media query と component-level container query を使い分けます。
+
+### `color-system` — experimental
+
+palette generator ではなく、surface / content / action / status / structural color を semantic role として設計する Skill。
+
+Apple HIG、Material 3、Adobe Spectrum、USWDS を比較し、light / dark transformation、brand accent allocation、state color、role pairing を current project へ翻訳します。
+
+### `iconography-system` — experimental
+
+UI / product icon を個別 SVG ではなく family として設計・拡張する Skill。
+
+SF Symbols、Material Symbols、Fluent 2、Carbon を参照し、metaphor、stroke / fill language、optical sizing、selected state、icon-text alignment、RTL / localization、touch target を family-level で検証します。
+
+### `data-visualization` — experimental
+
+chart library の default ではなく analytical question から chart / encoding / scale / label / color / annotation / interaction を決める Skill。
+
+USWDS、Apple Charts、Carbon、GOV.UK / ONS の guidance を参照し、truthful scale、redundant visual cues、non-visual equivalents、responsive delivery を realistic data で検証します。
 
 ### `design-intent`
 
@@ -242,9 +269,9 @@ current / planned domains:
 - `motion-design` — video / motion graphics / kinetic typography
 - `brand-identity` — reusable visual identity system
 - `brand-mark` — logo symbol / app badge / favicon / identity-bearing mark
-- `iconography-system` — UI / product icon family
+- `iconography-system` — UI / product icon family (experimental)
 - `graphic-composition` — poster / banner / social graphic / thumbnail
-- `data-visualization`
+- `data-visualization` (experimental)
 - `diagram-design` — architecture / process / explanatory diagram (experimental)
 - `illustration-direction`
 
@@ -287,7 +314,6 @@ Skill は単独インストールでも機能する必要があるため、runti
 
 - motion-system trial / refinement
 - micro-interaction
-- color system
 - typography / font mixing
 - visual hierarchy
 - interaction feedback
