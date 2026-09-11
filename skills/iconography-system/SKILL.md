@@ -282,7 +282,7 @@ random multi-color 化で distinction を作らない。
 custom icon を作る前に確認:
 
 1. current family に同義 icon がないか
-2.近い icon を誤用していないか
+2. 近い icon を誤用していないか
 3. label で解決できないか
 4. custom metaphor が product-specific で本当に必要か
 5. family geometry を再現できるか
