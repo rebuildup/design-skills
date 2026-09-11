@@ -150,19 +150,19 @@ viewport / container / zoom / input environment の変化に対して、fluid la
 
 mobile / tablet / desktop の preset を先に固定せず、連続resizeで stress point を見つけ、page-level media query と component-level container query を使い分けます。
 
-### `color-system`
+### `color-system` — experimental
 
 palette generator ではなく、surface / content / action / status / structural color を semantic role として設計する Skill。
 
 Apple HIG、Material 3、Adobe Spectrum、USWDS を比較し、light / dark transformation、brand accent allocation、state color、role pairing を current project へ翻訳します。
 
-### `iconography-system`
+### `iconography-system` — experimental
 
 UI / product icon を個別 SVG ではなく family として設計・拡張する Skill。
 
 SF Symbols、Material Symbols、Fluent 2、Carbon を参照し、metaphor、stroke / fill language、optical sizing、selected state、icon-text alignment、RTL / localization、touch target を family-level で検証します。
 
-### `data-visualization`
+### `data-visualization` — experimental
 
 chart library の default ではなく analytical question から chart / encoding / scale / label / color / annotation / interaction を決める Skill。
 
@@ -218,16 +218,16 @@ Skillの品質は文章量ではなく、**調査の質・見るべき観点の�
 
 Web UI 以外の 2D visual production も first-class domain として扱います。
 
-planned domains:
+planned / experimental domains:
 
 - `slide-design` — presentation / pitch / lecture deck
 - `document-design` — report / proposal / handout / paginated document
 - `motion-design` — video / motion graphics / kinetic typography
 - `brand-identity` — reusable visual identity system
 - `brand-mark` — logo symbol / app badge / favicon / identity-bearing mark
-- `iconography-system` — UI / product icon family **(implemented)**
+- `iconography-system` — UI / product icon family **(experimental initial implementation)**
 - `graphic-composition` — poster / banner / social graphic / thumbnail
-- `data-visualization` **(implemented)**
+- `data-visualization` **(experimental initial implementation)**
 - `diagram-design`
 - `illustration-direction`
 
