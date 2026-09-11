@@ -100,6 +100,16 @@ Observe:
 - 同じ color を異なる meaning に再利用しない原則
 - brand color を UI 全体へ過剰配分しない考え方
 
+### Apple — Branding
+
+https://developer.apple.com/design/human-interface-guidelines/branding
+
+Observe:
+
+- brand accent を control 全体へ広げず、重要な action / status / content へ配分する考え方
+- platform-native hierarchy と brand expression の balance
+- logo repetition ではなく product experience 全体で identity を作る方法
+
 ### Material 3 — Color scheme / roles
 
 https://developer.android.com/develop/ui/compose/designsystems/material3
