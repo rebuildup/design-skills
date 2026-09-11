@@ -38,6 +38,7 @@ bunx skills add rebuildup/design-skills --skill layout-system
 bunx skills add rebuildup/design-skills --skill typesetting
 bunx skills add rebuildup/design-skills --skill motion-system
 bunx skills add rebuildup/design-skills --skill responsive-design
+bunx skills add rebuildup/design-skills --skill form-design
 bunx skills add rebuildup/design-skills --skill design-intent
 bunx skills add rebuildup/design-skills --skill token-audit
 bunx skills add rebuildup/design-skills --skill accessibility-audit
@@ -84,6 +85,8 @@ npm 環境では `bunx` を `npx` に置き換えてください。
    │     ├─ navigation-gesture.md
    │     └─ performance-accessibility.md
    ├─ responsive-design/
+   │  └─ SKILL.md
+   ├─ form-design/
    │  └─ SKILL.md
    ├─ design-intent/
    │  └─ SKILL.md
@@ -140,6 +143,12 @@ Web / mobile UI の motion / animation が必要な理由を分類し、producti
 viewport / container / zoom / input environment の変化に対して、fluid layout を基礎に content-driven breakpoint と responsive transformation を設計・実装する Skill。
 
 mobile / tablet / desktop の preset を先に固定せず、連続resizeで stress point を見つけ、page-level media query と component-level container query を使い分けます。
+
+### `form-design` — experimental
+
+申請、登録、設定、checkout などの form を control 集ではなく、質問順序 → 入力 → validation → error recovery → review → submit の task flow として設計する Skill。
+
+W3C WAI、GOV.UK、USWDS、NHS の primary guidance を比較し、visible label、control choice、step 分割、submit-time validation、入力保持、check-answers といった form 固有の判断を扱います。generic accessibility audit や framework-specific form API は扱いません。
 
 ### `design-intent`
 
