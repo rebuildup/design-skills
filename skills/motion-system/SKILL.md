@@ -13,6 +13,14 @@ description: >
 
 **Inspect → Extract → Translate → Implement → Verify** を順に実行する。
 
+この Skill は motion domain の canonical policy。focused operation が必要な場合は以下を使う。
+
+- `motion-audit` — read-only で opportunity / debt を探す
+- `motion-implement` — concrete motion を実装する
+- `motion-review` — read-only で既存 motion を批評する
+
+共通語彙は `references/vocabulary.md` を参照する。
+
 目的は animation を増やすことではない。
 状態変化、因果関係、空間的 continuity、feedback、attention、brand expression のうち何を motion が担うべきかを判断し、必要な箇所だけを coherent な system として実装する。
 
@@ -40,7 +48,24 @@ description: >
 
 ## 2. Decide whether motion is needed
 
-animation を実装する前に、その motion の役割を一つ以上特定する。
+animation を実装する前に Motion Gate を通す。
+motion を追加しないことも正常な成功結果として扱う。
+
+### Motion Gate
+
+#### Frequency
+
+interaction frequency と perceived latency の関係を見る。
+
+- high-frequency な direct manipulation / navigation は短くするか省略する
+- occasional な state transition は continuity のための motion を検討できる
+- rare / expressive な moment は brand expression の余地が大きい
+
+固定 threshold を universal rule としない。current product と production reference を優先する。
+
+#### Purpose
+
+その motion の役割を一つ以上特定する。
 
 ### Feedback
 
@@ -113,6 +138,19 @@ product personality や visual narrative を強化する。
 
 役割を説明できない motion は原則追加しない。
 Decoration-only motion は Marketing / Expressive surface でも page hierarchy を阻害しないことを確認する。
+
+#### Interference
+
+motion が操作・読解・比較を遅らせないか確認する。
+
+- direct manipulation に追従遅延を作らない
+- repeated action を animation queue で詰まらせない
+- data / text を読む場面で decorative movement を優先しない
+
+#### Spatial continuity
+
+direction / origin / exit が UI の空間モデルと一致するか確認する。
+source / destination / navigation hierarchy を説明できない movement は再検討する。
 
 ## 3. Classify the surface
 
