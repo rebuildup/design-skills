@@ -145,6 +145,21 @@ Web UI に限定せず、媒体ごとに異なる visual decision を first-clas
 
 ## Next UI-system candidates
 
+### Form design — experimental
+
+- [x] `form-design`
+  - task-first field reduction / question sequencing
+  - label / hint / grouping / input-choice decisions
+  - single-page vs multi-step flow
+  - submit-time validation as default; live validation only with evidence
+  - error recovery / input preservation
+  - check-answers for consequential submission
+  - keyboard / zoom / narrow viewport / correction-path verification
+- [ ] real project trial
+- [ ] trial feedback を反映した question grouping / validation / review policy refinement
+
+W3C WAI Forms Tutorial、GOV.UK、USWDS、NHS の current guidance を primary reference とし、control styling や form-library API ではなく end-to-end completion flow を扱う。
+
 ### Motion / Animation — trial / refinement
 
 `motion-system` の初版を実 project で trial 中とする。UI motion と standalone video motion は分け、ここでは interactive product 内の motion を扱う。

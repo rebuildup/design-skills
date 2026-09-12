@@ -44,6 +44,7 @@ bunx skills add rebuildup/design-skills --skill motion-review
 bunx skills add rebuildup/design-skills --skill compositing
 bunx skills add rebuildup/design-skills --skill promotional-video
 bunx skills add rebuildup/design-skills --skill responsive-design
+bunx skills add rebuildup/design-skills --skill form-design
 bunx skills add rebuildup/design-skills --skill design-intent
 bunx skills add rebuildup/design-skills --skill token-audit
 bunx skills add rebuildup/design-skills --skill accessibility-audit
@@ -108,6 +109,8 @@ npm 環境では `bunx` を `npx` に置き換えてください。
    ├─ promotional-video/
    │  └─ SKILL.md
    ├─ responsive-design/
+   │  └─ SKILL.md
+   ├─ form-design/
    │  └─ SKILL.md
    ├─ design-intent/
    │  └─ SKILL.md
@@ -220,6 +223,12 @@ SF Symbols、Material Symbols、Fluent 2、Carbon を参照し、metaphor、stro
 chart library の default ではなく analytical question から chart / encoding / scale / label / color / annotation / interaction を決める Skill。
 
 USWDS、Apple Charts、Carbon、GOV.UK / ONS の guidance を参照し、truthful scale、redundant visual cues、non-visual equivalents、responsive delivery を realistic data で検証します。
+
+### `form-design` — experimental
+
+申請、登録、設定、checkout などの form を control 集ではなく、質問順序 → 入力 → validation → error recovery → review → submit の task flow として設計する Skill。
+
+W3C WAI、GOV.UK、USWDS、NHS の primary guidance を比較し、visible label、control choice、step 分割、submit-time validation、入力保持、check-answers といった form 固有の判断を扱います。generic accessibility audit や framework-specific form API は扱いません。
 
 ### `design-intent`
 
