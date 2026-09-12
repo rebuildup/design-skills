@@ -80,14 +80,18 @@ Use these references as observation inputs. Do not copy brand-specific visual tr
 
 ## IBM Carbon Design System
 
-- [UI shell header](https://carbondesignsystem.com/components/ui-shell-header/usage/)
-  - Observe: product-to-global scope ordering, persistent shell behavior, responsive movement of header links into side navigation.
+- [Global header pattern](https://carbondesignsystem.com/patterns/global-header/)
+  - Observe: global-vs-product scope, persistent shell behavior, header-only vs header-plus-left-panel composition.
   - Useful for: large application shells with multiple navigation scopes.
 
-- [UI shell left panel](https://carbondesignsystem.com/components/ui-shell-left-panel/usage/)
-  - Observe: repeated secondary switching, sub-menu depth limits, relationship between side navigation and tabs.
-  - Useful for: deciding when a persistent side panel is justified and when hierarchy depth should stop.
+- [UI shell header accessibility](https://carbondesignsystem.com/components/UI-shell-header/accessibility/)
+  - Observe: skip-to-main behavior, keyboard reachability, shell-level labeling and page structure.
+  - Useful for: verifying persistent header navigation without turning the Skill into a component API guide.
+
+- [UI shell left panel accessibility](https://carbondesignsystem.com/components/UI-shell-left-panel/accessibility/)
+  - Observe: repeated secondary switching, responsive collapse, current-page semantics, expandable section behavior.
+  - Useful for: deciding when a persistent side panel is justified and verifying its compact-state behavior.
 
 - [Breadcrumb](https://carbondesignsystem.com/components/breadcrumb/usage/)
-  - Observe: hierarchy depth, current-page inclusion decision, placement relative to header and page title.
+  - Observe: hierarchy depth, current-page inclusion decision, placement relative to header and page title, breadcrumb-vs-progress boundary.
   - Useful for: secondary orientation in deep product hierarchies.
