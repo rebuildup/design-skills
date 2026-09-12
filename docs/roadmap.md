@@ -106,6 +106,25 @@ Web UI に限定せず、媒体ごとに異なる visual decision を first-clas
 - [x] `diagram-design` — architecture / process / explanatory diagram; experimental initial skill, real-project trial pending
 - [ ] `illustration-direction` — repeatable illustration / generated imagery language
 
+### Experimental v0.3 additions
+
+- [x] `font-mixing`
+  - Japanese / Latin / numeral / punctuation role assignment
+  - apparent size / baseline / weight / fallback verification
+  - mixed-language stress testing
+- [x] `compositing`
+  - alpha / matte / blend correctness
+  - edge / color / grain / blur integration
+  - representative-frame + playback verification
+- [x] `promotional-video`
+  - message-first hook / brand / proof / CTA structure
+  - sound-on / sound-off behavior
+  - 16:9 / 9:16 / 1:1 recomposition + safe-zone verification
+- [ ] real-project trials for the three experimental skills
+- [ ] trial feedback refinement before promotion
+
+`font-mixing` is a focused typography technique; `compositing` and `promotional-video` are 2D production skills. The broader research tracks #15 / #16 remain open for the other candidates.
+
 ### Output adapters
 
 以下は原則として独立した design domain にしない。
@@ -172,7 +191,11 @@ interaction state と animation を分離せず扱う。
 
 ### Typography
 
-調査対象候補:
+Implemented experimental technique:
+
+- [x] `font-mixing`
+
+Remaining research candidates:
 
 - type scale
 - measure
