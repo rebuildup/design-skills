@@ -36,11 +36,24 @@ bunx skills add rebuildup/design-skills
 ```bash
 bunx skills add rebuildup/design-skills --skill layout-system
 bunx skills add rebuildup/design-skills --skill typesetting
+bunx skills add rebuildup/design-skills --skill font-mixing
 bunx skills add rebuildup/design-skills --skill motion-system
+bunx skills add rebuildup/design-skills --skill motion-audit
+bunx skills add rebuildup/design-skills --skill motion-implement
+bunx skills add rebuildup/design-skills --skill motion-review
+bunx skills add rebuildup/design-skills --skill compositing
+bunx skills add rebuildup/design-skills --skill promotional-video
 bunx skills add rebuildup/design-skills --skill responsive-design
+bunx skills add rebuildup/design-skills --skill form-design
 bunx skills add rebuildup/design-skills --skill design-intent
 bunx skills add rebuildup/design-skills --skill token-audit
 bunx skills add rebuildup/design-skills --skill accessibility-audit
+bunx skills add rebuildup/design-skills --skill color-system
+bunx skills add rebuildup/design-skills --skill iconography-system
+bunx skills add rebuildup/design-skills --skill data-visualization
+bunx skills add rebuildup/design-skills --skill slide-design
+bunx skills add rebuildup/design-skills --skill document-design
+bunx skills add rebuildup/design-skills --skill diagram-design
 bunx skills add rebuildup/design-skills --skill skill-authoring
 ```
 
@@ -76,6 +89,8 @@ npm 環境では `bunx` を `npx` に置き換えてください。
    │     ├─ japanese.md
    │     ├─ interface.md
    │     └─ long-form.md
+   ├─ font-mixing/
+   │  └─ SKILL.md
    ├─ motion-system/
    │  ├─ SKILL.md
    │  └─ references/
@@ -83,13 +98,37 @@ npm 環境では `bunx` を `npx` に置き換えてください。
    │     ├─ product-ui.md
    │     ├─ navigation-gesture.md
    │     └─ performance-accessibility.md
+   ├─ motion-audit/
+   │  └─ SKILL.md
+   ├─ motion-implement/
+   │  └─ SKILL.md
+   ├─ motion-review/
+   │  └─ SKILL.md
+   ├─ compositing/
+   │  └─ SKILL.md
+   ├─ promotional-video/
+   │  └─ SKILL.md
    ├─ responsive-design/
+   │  └─ SKILL.md
+   ├─ form-design/
    │  └─ SKILL.md
    ├─ design-intent/
    │  └─ SKILL.md
    ├─ token-audit/
    │  └─ SKILL.md
    ├─ accessibility-audit/
+   │  └─ SKILL.md
+   ├─ color-system/
+   │  └─ SKILL.md
+   ├─ iconography-system/
+   │  └─ SKILL.md
+   ├─ data-visualization/
+   │  └─ SKILL.md
+   ├─ slide-design/
+   │  └─ SKILL.md
+   ├─ document-design/
+   │  └─ SKILL.md
+   ├─ diagram-design/
    │  └─ SKILL.md
    └─ skill-authoring/
       └─ SKILL.md
@@ -120,6 +159,12 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 
 見出し、本文、ラベル、表、数値などを分類し、measure、line-height、paragraph rhythm、line breaking、mixed-script behavior を実コンテンツで検証します。
 
+### `font-mixing` — experimental
+
+日本語 / Latin / 数字 / 記号など複数script・複数familyを混在させるとき、font名の相性ではなく apparent size、baseline、weight、stroke density、punctuation、glyph coverage、fallback を観察して和欧混植を設計・検証する Skill。
+
+CSS composite-face / fallback、Adobeの合成フォント、current Japanese typography guidanceをreferenceにしつつ、実際の mixed-language sample のrenderを completion gate にします。
+
 ### `motion-system` — experimental
 
 Web / mobile UI の motion / animation が必要な理由を分類し、production reference と platform guidance を実際に観察した上で timing / easing / spatial continuity / choreography を設計・実装する Skill。
@@ -133,13 +178,57 @@ Web / mobile UI の motion / animation が必要な理由を分類し、producti
 
 単なる animation preset 集ではなく、motion の必要性判定、interruptibility、reduced motion、runtime performance、visual verification までを completion gate とします。
 
+focused operation として以下も提供します。
+
+- `motion-audit` — read-only で不足・過剰・不整合な motion を探す
+- `motion-implement` — motion gate から実装・visual verification まで行う
+- `motion-review` — read-only で実装済み motion を批評する
+
+`motion-system` は canonical domain policy のまま維持し、operation Skill は必要な責務だけを担当します。
+
 まず実 project で trial し、観察項目・reference selection・agent autonomy の精度を検証します。
+
+### `compositing` — experimental
+
+実写・静止画・文字・graphics・effects・pre-rendered 3D asset等を最終2D frameへ統合する Skill。
+
+alpha / matte / mask / blend、straight vs premultiplied、edge / spill、color management、grain / blur / optical treatmentを分解して観察し、effect presetの量ではなく source 間の不一致が解消されているかを frame + playback で検証します。
+
+### `promotional-video` — experimental
+
+product / service / event / brand の短尺・中尺プロモーション映像を、hook / brand / promise / proof / CTA の message hierarchy から設計する Skill。
+
+Google / Meta の current platform guidance をreferenceに、sound-on / sound-off、safe zone、16:9 / 9:16 / 1:1のrecomposition、compressed exportまで検証します。
 
 ### `responsive-design`
 
 viewport / container / zoom / input environment の変化に対して、fluid layout を基礎に content-driven breakpoint と responsive transformation を設計・実装する Skill。
 
 mobile / tablet / desktop の preset を先に固定せず、連続resizeで stress point を見つけ、page-level media query と component-level container query を使い分けます。
+
+### `color-system` — experimental
+
+palette generator ではなく、surface / content / action / status / structural color を semantic role として設計する Skill。
+
+Apple HIG、Material 3、Adobe Spectrum、USWDS を比較し、light / dark transformation、brand accent allocation、state color、role pairing を current project へ翻訳します。
+
+### `iconography-system` — experimental
+
+UI / product icon を個別 SVG ではなく family として設計・拡張する Skill。
+
+SF Symbols、Material Symbols、Fluent 2、Carbon を参照し、metaphor、stroke / fill language、optical sizing、selected state、icon-text alignment、RTL / localization、touch target を family-level で検証します。
+
+### `data-visualization` — experimental
+
+chart library の default ではなく analytical question から chart / encoding / scale / label / color / annotation / interaction を決める Skill。
+
+USWDS、Apple Charts、Carbon、GOV.UK / ONS の guidance を参照し、truthful scale、redundant visual cues、non-visual equivalents、responsive delivery を realistic data で検証します。
+
+### `form-design` — experimental
+
+申請、登録、設定、checkout などの form を control 集ではなく、質問順序 → 入力 → validation → error recovery → review → submit の task flow として設計する Skill。
+
+W3C WAI、GOV.UK、USWDS、NHS の primary guidance を比較し、visible label、control choice、step 分割、submit-time validation、入力保持、check-answers といった form 固有の判断を扱います。generic accessibility audit や framework-specific form API は扱いません。
 
 ### `design-intent`
 
@@ -158,6 +247,24 @@ mobile / tablet / desktop の preset を先に固定せず、連続resizeで str
 Automated scan、keyboard inspection、visual inspection、semantic inspection を組み合わせて accessibility を監査・修正する Skill。
 
 accessibility fix によって UI を無条件に大型化・冗長化せず、current design system の中で解決することも明示しています。
+
+### `slide-design` — experimental
+
+presentation / pitch / lecture deck を、時間順に提示される visual narrative として設計する Skill。
+
+audience / delivery mode、deck sequence、slide role、distance readability、text density、visual routing、reading order、export robustness を観察し、PowerPoint 等の renderer 固有操作ではなく slide artifact 自体の判断を扱います。
+
+### `document-design` — experimental
+
+report / proposal / handout / white paper 等の paginated document を、semantic structure と page structure を持つ artifact として設計する Skill。
+
+heading hierarchy、page architecture、figures / tables / captions、reading order、pagination、tagged PDF を source と export の両方で検証します。
+
+### `diagram-design` — experimental
+
+architecture / process / hierarchy / relationship diagram を、特定の問いに答える visual model として設計する Skill。
+
+audience と abstraction level から diagram type を選び、node / connector / grouping / label / legend / progressive disclosure / text alternative を一貫した semantics で設計します。
 
 ### `skill-authoring`
 
@@ -191,17 +298,17 @@ Skillの品質は文章量ではなく、**調査の質・見るべき観点の�
 
 Web UI 以外の 2D visual production も first-class domain として扱います。
 
-planned domains:
+current / planned domains:
 
-- `slide-design` — presentation / pitch / lecture deck
-- `document-design` — report / proposal / handout / paginated document
+- `slide-design` — presentation / pitch / lecture deck (experimental)
+- `document-design` — report / proposal / handout / paginated document (experimental)
 - `motion-design` — video / motion graphics / kinetic typography
 - `brand-identity` — reusable visual identity system
 - `brand-mark` — logo symbol / app badge / favicon / identity-bearing mark
-- `iconography-system` — UI / product icon family
+- `iconography-system` — UI / product icon family (experimental)
 - `graphic-composition` — poster / banner / social graphic / thumbnail
-- `data-visualization`
-- `diagram-design`
+- `data-visualization` (experimental)
+- `diagram-design` — architecture / process / explanatory diagram (experimental)
 - `illustration-direction`
 
 PDF / PPTX / SVG / MP4 / Remotion / After Effects 等は原則として design domain ではなく output / renderer adapter として扱います。
@@ -215,6 +322,7 @@ PDF / PPTX / SVG / MP4 / Remotion / After Effects 等は原則として design d
 現在追っている主な project:
 
 - dawitlabs/ui-skills
+- emilkowalski/skills
 - senlindesign/taste-skill
 - pbakaus/impeccable
 - nextlevelbuilder/ui-ux-pro-max-skill
@@ -242,8 +350,8 @@ Skill は単独インストールでも機能する必要があるため、runti
 
 - motion-system trial / refinement
 - micro-interaction
-- color system
-- typography / font mixing
+- typography / editorial / vertical writing
+- font-mixing / compositing / promotional-video real-project trials
 - visual hierarchy
 - interaction feedback
 - 2D artifact skills listed above
