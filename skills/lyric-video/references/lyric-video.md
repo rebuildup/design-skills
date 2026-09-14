@@ -57,9 +57,9 @@ Avoid copying:
 
 ### OK Go — A Good, Good Day at Last
 
-- Production case study: https://www.behance.net/gallery/220338073/A-Good-Good-Day-At-Last-OK-GO
-- Release context: https://f28live.com/music-news/2025/ok-go-to-release-new-album
-- Song/release metadata: https://www.shazam.com/song/1794619548/a-good-good-day-at-last-feat-ben-harper-shalyah-fearing-and-beginners
+- Production case study: https://trufcreative.com/work/ok-go/
+- Independent portfolio mirror: https://www.behance.net/gallery/219695215/OK-GO-LYRIC-VIDEO
+- Official-artist lyric source: https://www.benharper.com/songs-lyrics/collaborations/a-good-good-day-at-last
 - Year: 2025
 
 Observe:
@@ -80,8 +80,8 @@ Avoid copying:
 ### Studio Sparks — Alfie Templeman lyric-video work
 
 - Studio: https://www.studiosparks.com/
-- Related 2025 production context: https://www.studiosparks.com/ws/2025/06/07/alfie-templeman-nile-rodgers-just-a-dance/
-- Portfolio case study: https://www.behance.net/gallery/231659035/Alfie-Templeman-Lyric-Videos
+- Portfolio case study: https://www.behance.net/gallery/227382057/Alfie-Templeman-Lyric-Videos
+- Related production context: https://www.studiosparks.com/ws/2025/06/07/alfie-templeman-nile-rodgers-just-a-dance/
 - Year: 2025
 
 Observe:
@@ -103,7 +103,7 @@ Avoid copying:
 ### TXT — Blue Orangeade Lyric Video
 
 - Official video: https://www.youtube.com/watch?v=WA4vCMt_lpg
-- Production upload: https://vimeo.com/329809584
+- Production upload: https://vimeo.com/344055889
 - Supporting context: https://www.soompi.com/article/1315685wpp/watch
 - Year: 2019
 
@@ -169,7 +169,7 @@ Avoid copying:
 
 ### Kissing, Dancing, Singing — lyric-video process breakdown
 
-- Production breakdown: https://vimeo.com/80706916
+- Production breakdown: https://vimeo.com/51225037
 
 Observe:
 
