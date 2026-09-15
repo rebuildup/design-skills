@@ -45,6 +45,7 @@ bunx skills add rebuildup/design-skills --skill compositing
 bunx skills add rebuildup/design-skills --skill promotional-video
 bunx skills add rebuildup/design-skills --skill responsive-design
 bunx skills add rebuildup/design-skills --skill form-design
+bunx skills add rebuildup/design-skills --skill interaction-state
 bunx skills add rebuildup/design-skills --skill design-intent
 bunx skills add rebuildup/design-skills --skill token-audit
 bunx skills add rebuildup/design-skills --skill accessibility-audit
@@ -111,6 +112,8 @@ npm 環境では `bunx` を `npx` に置き換えてください。
    ├─ responsive-design/
    │  └─ SKILL.md
    ├─ form-design/
+   │  └─ SKILL.md
+   ├─ interaction-state/
    │  └─ SKILL.md
    ├─ design-intent/
    │  └─ SKILL.md
@@ -229,6 +232,14 @@ USWDS、Apple Charts、Carbon、GOV.UK / ONS の guidance を参照し、truthfu
 申請、登録、設定、checkout などの form を control 集ではなく、質問順序 → 入力 → validation → error recovery → review → submit の task flow として設計する Skill。
 
 W3C WAI、GOV.UK、USWDS、NHS の primary guidance を比較し、visible label、control choice、step 分割、submit-time validation、入力保持、check-answers といった form 固有の判断を扱います。generic accessibility audit や framework-specific form API は扱いません。
+
+### `interaction-state` — experimental
+
+Web / application UI を screenshot の集合ではなく observable state graph として扱い、state ownership、mutually exclusive state、event / transition legality、pending / cancellation / re-entry を設計する Skill。
+
+WAI-ARIA APG、Stately / XState、Martin Fowler の GUI architecture patterns を primary reference とし、rapid repeated input、conflicting input、stale async completion、focus restoration まで実 interaction で検証します。特定の state machine library や MVP / Passive View / Mediator architecture は強制しません。
+
+`motion-system` は valid な transition をどう動かすか、`interaction-state` は transition 自体がいつ有効で誰が state を裁定するかを担当します。
 
 ### `design-intent`
 
@@ -349,11 +360,11 @@ Skill は単独インストールでも機能する必要があるため、runti
 今後、十分な reference research と実例検証ができたものから追加します。
 
 - motion-system trial / refinement
-- micro-interaction
+- interaction-state trial / refinement
 - typography / editorial / vertical writing
 - font-mixing / compositing / promotional-video real-project trials
 - visual hierarchy
-- interaction feedback
+- interaction-state / motion-system boundary refinement
 - 2D artifact skills listed above
 - skill evals / deterministic design detectors
 
