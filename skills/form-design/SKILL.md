@@ -44,6 +44,7 @@ Last reviewed: 2026-09-12
 - design system 固有の visual token のコピー
 
 generic accessibility 問題は `accessibility-audit`、page / application layout は `layout-system`、token drift は `token-audit` を併用する。
+form 内外に跨る mutually exclusive state、pending / cancellation / re-entry、stale async completion 等の coordination は `interaction-state` を併用する。
 
 ## Workflow
 
