@@ -24,6 +24,26 @@ description: >
 目的は animation を増やすことではない。
 状態変化、因果関係、空間的 continuity、feedback、attention、brand expression のうち何を motion が担うべきかを判断し、必要な箇所だけを coherent な system として実装する。
 
+### Interaction-state boundary
+
+motion を設計する前提となる **observable state、state ownership、event / transition legality、pending / cancellation / re-entry、stale async completion** は `interaction-state` の責務とする。
+
+この Skill は valid な transition に対して:
+
+- motion が必要か
+- duration / easing / spring
+- enter / exit / spatial continuity
+- choreography
+- interruption 時の visual response
+- reduced motion
+- runtime performance
+
+を扱う。
+
+state conflict を animation queue や completion callback だけで解決しない。
+state semantics が曖昧な場合は先に `interaction-state` で整理する。
+animation を無効化しても logical transition が成立することを前提にする。
+
 ## 1. Existing project first
 
 外部 reference を見る前に current project の既存 motion system を短く調査する。
