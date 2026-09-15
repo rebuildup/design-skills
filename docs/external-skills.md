@@ -49,6 +49,36 @@ License: MIT
 - `uicolor`
   - color は palette selection ではなく hierarchy / semantics を中心に自前で調査する予定
 
+### emilkowalski/skills
+
+Repository: https://github.com/emilkowalski/skills
+License: MIT
+
+採用した考え方:
+
+- domain knowledge と focused operation を分離する
+- motion work を discovery / implementation / review の責務へ分ける
+- animation を追加しないことを正常な成功結果として扱う
+- implementation 前に frequency / purpose / interference / spatial continuity を gate する
+- review で interruption / rapid repeated input / reduced motion を first-class に確認する
+- motion を observable vocabulary へ分解して reference observation を具体化する
+
+この repository では:
+
+- `motion-system` を canonical domain policy として維持
+- `motion-audit` を read-only discovery / audit operation として追加
+- `motion-implement` を implementation operation として追加
+- `motion-review` を read-only critique operation として追加
+- `motion-system/references/vocabulary.md` を共通 observation vocabulary として追加
+
+直接取り込まないもの:
+
+- author-specific な fixed duration / easing / frequency threshold を universal rule にすること
+- named product の挙動を reference inspection なしで default とすること
+- changing browser / library implementation detail を永続的 design principle として固定すること
+
+upstream の opinionated heuristic は useful evidence として扱うが、current project / production reference / platform guidance を優先する。
+
 ## Link-only references
 
 ### senlindesign/taste-skill

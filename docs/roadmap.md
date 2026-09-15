@@ -3,6 +3,15 @@
 この repository は domain を一度に埋めません。
 reference research → principle extraction → implementation trial → Skill 化の順で育てます。
 
+## Active release sprint — v0.3.0
+
+- Sprint window: **2026-09-10 → 2026-09-17**
+- Target release: **0.3.0**
+- Integration branch: `release-0-3-0`
+- Goal: open research / design topics を reference-driven な実行可能 Skill へ進め、既存 Skill の実 project trial と verification を継続する
+
+個別 ticket の優先度・target release・dependency・進捗は GitHub Issues / PRs を canonical source of truth とする。release scope は ticket が `release-0-3-0` へ land した時点で更新する。
+
 ## v0 — Layout
 
 - [x] layout classification
@@ -52,14 +61,14 @@ Web UI に限定せず、媒体ごとに異なる visual decision を first-clas
 
 ### High priority
 
-- [ ] `slide-design`
+- [x] `slide-design` — experimental initial skill; real-project trial pending
   - narrative / governing thought
   - one point per slide
   - slide composition / density
   - diagrams / charts / imagery routing
   - speaker deck vs handout
   - PDF / PPTX / HTML export verification
-- [ ] `document-design`
+- [x] `document-design` — experimental initial skill; real-project trial pending
   - long-form typography
   - page grid / margins / heading depth
   - tables / figures / captions
@@ -82,18 +91,39 @@ Web UI に限定せず、媒体ごとに異なる visual decision を first-clas
   - favicon / app icon / social avatar
   - silhouette / optical balance
   - monochrome / small-size verification
-- [ ] `iconography-system`
+- [x] `iconography-system` initial Skill
   - UI icon grid / stroke / fill language
   - metaphor consistency
   - optical sizing / baseline
   - family-level consistency
+  - RTL / localization / state variants
+  - family-level rendered verification
 
 ### Secondary
 
 - [ ] `graphic-composition` — poster / banner / social graphic / thumbnail
-- [ ] `data-visualization` — chart / graph / data graphic
-- [ ] `diagram-design` — architecture / process / explanatory diagram
+- [x] `data-visualization` initial Skill — question-first chart / graph / data graphic design with accessible redundant cues
+- [x] `diagram-design` — architecture / process / explanatory diagram; experimental initial skill, real-project trial pending
 - [ ] `illustration-direction` — repeatable illustration / generated imagery language
+
+### Experimental v0.3 additions
+
+- [x] `font-mixing`
+  - Japanese / Latin / numeral / punctuation role assignment
+  - apparent size / baseline / weight / fallback verification
+  - mixed-language stress testing
+- [x] `compositing`
+  - alpha / matte / blend correctness
+  - edge / color / grain / blur integration
+  - representative-frame + playback verification
+- [x] `promotional-video`
+  - message-first hook / brand / proof / CTA structure
+  - sound-on / sound-off behavior
+  - 16:9 / 9:16 / 1:1 recomposition + safe-zone verification
+- [ ] real-project trials for the three experimental skills
+- [ ] trial feedback refinement before promotion
+
+`font-mixing` is a focused typography technique; `compositing` and `promotional-video` are 2D production skills. The broader research tracks #15 / #16 remain open for the other candidates.
 
 ### Output adapters
 
@@ -111,7 +141,24 @@ Web UI に限定せず、媒体ごとに異なる visual decision を first-clas
 
 媒体固有の implementation / export / validation rule として各 domain skill から参照する。
 
+`slide-design` / `document-design` / `diagram-design` は 2026-09-12 時点で reference-driven な experimental initial Skill を実装済み。正式 promotion は real-project trial と delivered artifact inspection 後に行う。
+
 ## Next UI-system candidates
+
+### Form design — experimental
+
+- [x] `form-design`
+  - task-first field reduction / question sequencing
+  - label / hint / grouping / input-choice decisions
+  - single-page vs multi-step flow
+  - submit-time validation as default; live validation only with evidence
+  - error recovery / input preservation
+  - check-answers for consequential submission
+  - keyboard / zoom / narrow viewport / correction-path verification
+- [ ] real project trial
+- [ ] trial feedback を反映した question grouping / validation / review policy refinement
+
+W3C WAI Forms Tutorial、GOV.UK、USWDS、NHS の current guidance を primary reference とし、control styling や form-library API ではなく end-to-end completion flow を扱う。
 
 ### Motion / Animation — trial / refinement
 
@@ -143,24 +190,27 @@ trial の結果を見て reference / decision policy を refinement する。
 interaction state と animation を分離せず扱う。
 `motion-system` と重複する領域は trial 結果を見て、独立 Skill にするか reference family として統合するか判断する。
 
-### Color
+### Color — `color-system` initial Skill implemented
 
-調査対象候補:
+- [x] semantic role
+- [x] surface hierarchy
+- [x] neutral / content hierarchy
+- [x] accent allocation
+- [x] state color
+- [x] UI color と data-visualization palette の責務分離
+- [x] light / dark transformation
+- [x] contrast-aware role pairing
 
-- semantic role
-- surface hierarchy
-- neutral scale
-- accent allocation
-- state color
-- data visualization palette
-- light / dark transformation
-- contrast
-
-「palette generator」ではなく、情報 hierarchy と state semantics の system を目指す。
+「palette generator」ではなく、情報 hierarchy と state semantics の system として初版実装済み。
+正式 promotion 前に real project trial を行い、role vocabulary と theme verification を refinement する。
 
 ### Typography
 
-調査対象候補:
+Implemented experimental technique:
+
+- [x] `font-mixing`
+
+Remaining research candidates:
 
 - type scale
 - measure
