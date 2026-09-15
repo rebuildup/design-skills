@@ -125,6 +125,14 @@ Observe:
 
 これらを使う場合は observable な構造へ分解する。
 
+## 3.5. Delay commitment when the problem is still underdetermined
+
+複数の構造的に妥当な解釈が残り、最初の案への早期 commitment が後続案を狭めそうな場合だけ、critique / refinement の前に materially different な hypothesis を並列で出す。
+
+固定数の案を要求しない。色・radius・spacing だけの variation は divergence と数えない。truth / safety / accessibility / legal / approved-brand invariants は hard constraint のまま維持する。
+
+発火条件・skip 条件・比較軸・trial protocol は [Divergence before commitment](./references/divergence-before-commitment.md) を参照する。
+
 ## 4. Turn findings into lightweight guidance
 
 原則として、調査で十分に確認できたことだけを書く。
