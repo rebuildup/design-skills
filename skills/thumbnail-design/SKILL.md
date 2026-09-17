@@ -264,7 +264,7 @@ source file ではなく **delivered browse artifact** を見る。
 - `thumbnail-design` — browse-preview proposition、small-size recognition、crop/variant、card context、content-truth verification
 - `visual-hierarchy` — artifact横断のpriority-to-emphasis orchestration
 - `promotional-video` — time-based hook / message / proof / CTA / playback
-- future `poster-design` — standalone posterとしてのlarge-format hierarchy
-- future `key-visual-design` — title/campaignのmaster visual language
+- `poster-design` — standalone posterとしてのlarge-format hierarchy
+- `key-visual-design` — title/campaignのmaster visual language
 
 renderer、platform uploader、image generator は implementation adapter であり、design source of truth ではない。
