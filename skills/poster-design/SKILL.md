@@ -27,10 +27,10 @@ description: >
 
 - 小さな browse card で開く/見る判断を支える → `thumbnail-design`
 - 音楽 release の persistent artwork → `album-cover-design`
-- campaign 全体の master visual language を決める → future `key-visual-design`
-- 手渡し・持ち帰り前提で近距離情報量が中心 → future `event-flyer`
+- campaign 全体の master visual language を決める → `key-visual-design`
+- 手渡し・持ち帰り前提で近距離情報量が中心 → `event-flyer`
 - 時間変化・loop・途中遭遇を設計する → `motion-poster`
-- wayfinding / navigation / instruction が primary job → future `signage-design`
+- wayfinding / navigation / instruction が primary job → `signage-design`
 
 ## Workflow
 
