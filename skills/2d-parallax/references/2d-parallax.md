@@ -1,6 +1,6 @@
 # 2D Parallax References
 
-Last reviewed: 2026-09-14
+Last reviewed: 2026-09-17
 
 この reference family は authored 2D / 2.5D multiplane animation の **plane segmentation、relative depth、camera / layer motion、occlusion / reveal、coverage、flat-plane limit** を調べるために使う。
 
@@ -161,7 +161,7 @@ Avoid copying:
 
 ### Repository `compositing` Skill
 
-https://github.com/rebuildup/design-skills/tree/main/skills/compositing
+[`compositing` Skill](../../compositing/SKILL.md)
 
 Observe:
 
