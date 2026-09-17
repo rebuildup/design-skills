@@ -1,4 +1,4 @@
-import { access, readFile, readdir, stat } from 'node:fs/promises';
+import { access, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
@@ -29,6 +29,16 @@ async function walk(dir) {
 
 function relative(file) {
   return path.relative(root, file).split(path.sep).join('/');
+}
+
+function stripFencedCode(content) {
+  return content
+    .replace(/^```[^\n]*\n[\s\S]*?^```\s*$/gm, '')
+    .replace(/^~~~[^\n]*\n[\s\S]*?^~~~\s*$/gm, '');
+}
+
+function normalizeExternalUrl(url) {
+  return url.replace(/[.,;:!?]+$/g, '');
 }
 
 const manifestPath = path.join(root, 'docs/release-status-v0.3.0.json');
@@ -68,7 +78,7 @@ for (const name of skillNames) {
 const markdownFiles = (await walk(root)).filter((file) => file.endsWith('.md') && !file.includes(`${path.sep}.git${path.sep}`));
 const externalUrls = new Set();
 for (const file of markdownFiles) {
-  const content = await readFile(file, 'utf8');
+  const content = stripFencedCode(await readFile(file, 'utf8'));
   const fileLabel = relative(file);
 
   for (const match of content.matchAll(/\bfuture\s+`([^`]+)`/g)) {
@@ -81,7 +91,7 @@ for (const file of markdownFiles) {
     const titleCut = target.match(/^(\S+)(?:\s+["'].*["'])$/);
     if (titleCut) target = titleCut[1];
     if (/^https?:\/\//i.test(target)) {
-      externalUrls.add(target);
+      externalUrls.add(normalizeExternalUrl(target));
       continue;
     }
     if (/^(?:mailto:|tel:|data:|javascript:)/i.test(target) || target.startsWith('#')) continue;
@@ -90,6 +100,12 @@ for (const file of markdownFiles) {
     try { target = decodeURIComponent(target); } catch {}
     const resolved = path.resolve(path.dirname(file), target);
     if (!await exists(resolved)) errors.push(`${fileLabel}: broken relative markdown link -> ${target}`);
+  }
+
+  for (const match of content.matchAll(/https?:\/\/[^\s<>"'`]+/g)) {
+    let url = normalizeExternalUrl(match[0]);
+    while (url.endsWith(')') && (url.match(/\(/g)?.length ?? 0) < (url.match(/\)/g)?.length ?? 0)) url = url.slice(0, -1);
+    externalUrls.add(url);
   }
 }
 
@@ -108,13 +124,28 @@ if (externalMode) {
   const restricted = [];
   const transient = [];
   let cursor = 0;
+
+  async function request(url, method) {
+    return fetch(url, {
+      method,
+      redirect: 'follow',
+      signal: AbortSignal.timeout(8000),
+      headers: {
+        'user-agent': 'design-skills-release-link-check/0.3.0',
+        ...(method === 'GET' ? { range: 'bytes=0-0' } : {}),
+      },
+    });
+  }
+
   async function worker() {
     while (cursor < urls.length) {
       const url = urls[cursor++];
       let response;
       try {
-        response = await fetch(url, { method: 'HEAD', redirect: 'follow', signal: AbortSignal.timeout(8000), headers: { 'user-agent': 'design-skills-release-link-check/0.3.0' } });
-        if (response.status === 405) response = await fetch(url, { method: 'GET', redirect: 'follow', signal: AbortSignal.timeout(8000), headers: { 'user-agent': 'design-skills-release-link-check/0.3.0', range: 'bytes=0-0' } });
+        response = await request(url, 'HEAD');
+        if (response.status >= 400 && ![401, 403, 429].includes(response.status)) {
+          response = await request(url, 'GET');
+        }
       } catch (error) {
         transient.push(`${url} (${error?.name ?? 'network error'})`);
         continue;
@@ -125,6 +156,7 @@ if (externalMode) {
       else if (response.status >= 400) warnings.push(`${url} returned ${response.status}`);
     }
   }
+
   await Promise.all(Array.from({ length: Math.min(20, urls.length || 1) }, worker));
   console.log(`External link sweep: ${urls.length - restricted.length - transient.length - explicitBroken.length} reachable, ${restricted.length} restricted/rate-limited, ${transient.length} transient, ${explicitBroken.length} explicit 404/410`);
   for (const item of restricted) console.warn(`restricted: ${item}`);
