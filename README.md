@@ -31,6 +31,8 @@ bunx skills add rebuildup/design-skills --list
 bunx skills add rebuildup/design-skills
 ```
 
+`--list` の出力を **現在公開されている Skill inventory の authoritative source** とします。以下の個別 install 例や README 内の Skill 紹介は代表例であり、release surface の完全な列挙ではありません。
+
 特定 Skill のみ:
 
 ```bash
@@ -62,6 +64,8 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 
 ## Repository layout
 
+以下は **構造を示す schematic** であり、`skills/` 配下の完全な inventory ではありません。公開 Skill の一覧は `bunx skills add rebuildup/design-skills --list` で確認してください。
+
 ```text
 .
 ├─ README.md
@@ -77,67 +81,15 @@ npm 環境では `bunx` を `npx` に置き換えてください。
 │  └─ minimal-skill/
 │     └─ SKILL.md
 └─ skills/
-   ├─ layout-system/
+   ├─ <skill-name>/
    │  ├─ SKILL.md
-   │  └─ references/
-   │     ├─ marketing.md
-   │     ├─ dashboard.md
-   │     ├─ application.md
-   │     └─ swiss-editorial.md
-   ├─ typesetting/
-   │  ├─ SKILL.md
-   │  └─ references/
-   │     ├─ japanese.md
-   │     ├─ interface.md
-   │     └─ long-form.md
-   ├─ font-mixing/
-   │  └─ SKILL.md
-   ├─ motion-system/
-   │  ├─ SKILL.md
-   │  └─ references/
-   │     ├─ marketing.md
-   │     ├─ product-ui.md
-   │     ├─ navigation-gesture.md
-   │     └─ performance-accessibility.md
-   ├─ motion-audit/
-   │  └─ SKILL.md
-   ├─ motion-implement/
-   │  └─ SKILL.md
-   ├─ motion-review/
-   │  └─ SKILL.md
-   ├─ compositing/
-   │  └─ SKILL.md
-   ├─ promotional-video/
-   │  └─ SKILL.md
-   ├─ responsive-design/
-   │  └─ SKILL.md
-   ├─ form-design/
-   │  └─ SKILL.md
-   ├─ interaction-state/
-   │  └─ SKILL.md
-   ├─ design-intent/
-   │  └─ SKILL.md
-   ├─ token-audit/
-   │  └─ SKILL.md
-   ├─ accessibility-audit/
-   │  └─ SKILL.md
-   ├─ color-system/
-   │  └─ SKILL.md
-   ├─ iconography-system/
-   │  └─ SKILL.md
-   ├─ data-visualization/
-   │  └─ SKILL.md
-   ├─ slide-design/
-   │  └─ SKILL.md
-   ├─ document-design/
-   │  └─ SKILL.md
-   ├─ diagram-design/
-   │  └─ SKILL.md
-   └─ skill-authoring/
-      └─ SKILL.md
+   │  └─ references/       # 必要な Skill のみ
+   └─ ...
 ```
 
 ## Skills
+
+このセクションは repository の考え方を示す **selected examples** です。v0.3.0 では platform adapters、accessibility/UI foundations、artifact、motion/video を含む多数の Skill を追加しており、完全な公開一覧は Skills CLI の `--list` を canonical source とします。
 
 ### `layout-system`
 
