@@ -16,8 +16,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Checkout final head
+      - name: Checkout exact release head
         uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+
+      - name: Show validated SHA
+        run: |
+          echo "event sha: $GITHUB_SHA"
+          echo "checked-out sha: $(git rev-parse HEAD)"
 
       - name: Set up Node.js
         uses: actions/setup-node@v5
@@ -28,8 +35,19 @@ jobs:
         run: node scripts/validate-release.mjs
 
       - name: Discover Skills from the checked-out release head
+        shell: bash
         run: |
+          set -euo pipefail
+          source_list="$RUNNER_TEMP/source-skills.txt"
+          find "$GITHUB_WORKSPACE/skills" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort > "$source_list"
+
           npx -y skills@1.6.0 add "$GITHUB_WORKSPACE" --list | tee "$RUNNER_TEMP/skills-list.txt"
+
+          while IFS= read -r skill; do
+            grep -F -- "$skill" "$RUNNER_TEMP/skills-list.txt" > /dev/null
+          done < "$source_list"
+
+          echo "Validated CLI discovery for $(wc -l < "$source_list") Skills from $(git rev-parse HEAD)."
 
       - name: Install every Skill from the checked-out release head
         shell: bash
@@ -41,7 +59,6 @@ jobs:
 
           source_list="$RUNNER_TEMP/source-skills.txt"
           installed_list="$RUNNER_TEMP/installed-skills.txt"
-          find "$GITHUB_WORKSPACE/skills" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort > "$source_list"
           find "$install_dir/.agents/skills" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort > "$installed_list"
           diff -u "$source_list" "$installed_list"
 
@@ -49,7 +66,7 @@ jobs:
             test -f "$install_dir/.agents/skills/$skill/SKILL.md"
           done < "$source_list"
 
-          echo "Validated $(wc -l < "$source_list") isolated Skill installs."
+          echo "Validated $(wc -l < "$source_list") isolated Skill installs from $(git -C "$GITHUB_WORKSPACE" rev-parse HEAD)."
 
       - name: Sweep external reference links
         run: node scripts/validate-release.mjs --external
