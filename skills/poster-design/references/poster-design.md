@@ -159,7 +159,7 @@ Last reviewed: 2026-09-14
   - one graphic mark が 2D / 3D application で役割を変える点
   - poster を campaign identity そのものではなく application surface の一つとして見ること
 - Useful for:
-  - future `key-visual-design` との責務境界
+  - `key-visual-design` との責務境界
   - campaign master concept から poster へ適応するケース
 - Avoid copying:
   - Biennale 固有の mark / palette / 2D-3D expression
