@@ -1,18 +1,22 @@
 # Roadmap
 
 この repository は domain を一度に埋めません。
-reference research → principle extraction → implementation trial → Skill 化の順で育てます。
+reference research → principle extraction → implementation trial → Skill 化 → real-project verification の順で育てます。
 
-## Active release sprint — v0.3.0
+公開されている Skill の完全な inventory は `bunx skills add rebuildup/design-skills --list` を canonical source とし、この roadmap は **次に何を検証・改善するか**を記録します。個別 ticket の優先度・target release・dependency・進捗は GitHub Issues / PRs を source of truth とします。
+
+## Release snapshot — v0.3.0
 
 - Sprint window: **2026-09-10 → 2026-09-17**
 - Target release: **0.3.0**
 - Integration branch: `release-0-3-0`
 - Goal: open research / design topics を reference-driven な実行可能 Skill へ進め、既存 Skill の実 project trial と verification を継続する
 
-個別 ticket の優先度・target release・dependency・進捗は GitHub Issues / PRs を canonical source of truth とする。release scope は ticket が `release-0-3-0` へ land した時点で更新する。
+この section は v0.3.0 の release snapshot です。`main` へ merge 後に active sprint を表すものではありません。次 sprint の scope は GitHub 上で新たに定義します。
 
-## v0 — Layout
+v0.3.0 では UI foundations、platform/design-system adapters、typography、motion/video、artifact design を大幅に拡張しました。landing 済みでも real-project trial や standalone install validation が残る Skill は experimental / trial-pending のまま扱います。
+
+## Foundation — Layout / responsive
 
 - [x] layout classification
 - [x] marketing / LP references
@@ -26,7 +30,7 @@ reference research → principle extraction → implementation trial → Skill �
   - reflow / overflow / responsive media
   - continuous resize / zoom verification
 
-## v1 — Motion / Animation (experimental)
+## Motion / animation — experimental
 
 - [x] motion purpose classification
 - [x] Marketing / Expressive references
@@ -34,12 +38,12 @@ reference research → principle extraction → implementation trial → Skill �
 - [x] Navigation / Gesture / Spatial transition references
 - [x] performance / reduced-motion verification gates
 - [x] autonomous inspect → extract → translate → implement → verify workflow
+- [x] focused operations: `motion-audit` / `motion-implement` / `motion-review`
+- [x] focused motion/video Skills integrated in v0.3.0
 - [ ] real project trial
 - [ ] trial feedback を反映した reference / decision policy refinement
 
-初版は「動きを足す」Skill ではなく、motion が情報理解・continuity・feedback・orientation・progress・expression に必要か判断し、必要な場合だけ coherent な system として実装する Skill とする。
-
-実 project での trial 後に、`interaction-state` と motion-system の責務境界も再評価する。state semantics / transition legality は `interaction-state`、timing / easing / choreography は `motion-system` を canonical owner とする。
+`interaction-state` と `motion-system` の責務は分離する。state semantics / transition legality / state authority は `interaction-state`、timing / easing / choreography は `motion-system` を canonical owner とする。
 
 ## Supporting skills
 
@@ -50,6 +54,7 @@ reference research → principle extraction → implementation trial → Skill �
 - [x] accessibility audit / re-test workflow
 - [x] curated external skill references
 - [x] skill authoring workflow / minimal Skill template
+- [x] conditional divergence-before-commitment policy
 
 これらは layout / color / typography / motion / artifact production の代替ではなく、domain skills の前後で使う supporting skills とする。
 
@@ -59,71 +64,33 @@ Web UI に限定せず、媒体ごとに異なる visual decision を first-clas
 
 詳細: [`artifact-skills.md`](./artifact-skills.md)
 
-### High priority
+### Integrated foundations
 
-- [x] `slide-design` — experimental initial skill; real-project trial pending
-  - narrative / governing thought
-  - one point per slide
-  - slide composition / density
-  - diagrams / charts / imagery routing
-  - speaker deck vs handout
-  - PDF / PPTX / HTML export verification
-- [x] `document-design` — experimental initial skill; real-project trial pending
-  - long-form typography
-  - page grid / margins / heading depth
-  - tables / figures / captions
-  - page-break quality
-  - printable / accessible PDF verification
-- [ ] `motion-design`
-  - scene / shot hierarchy
-  - temporal rhythm / hold time
-  - spatial continuity
-  - kinetic typography
-  - easing / choreography
-  - frame + playback verification
-- [ ] `brand-identity`
-  - logo system
-  - color / typography / imagery
-  - iconography / motion direction
-  - application stress tests
-- [ ] `brand-mark`
-  - symbol / wordmark / monogram / lockup
-  - favicon / app icon / social avatar
-  - silhouette / optical balance
-  - monochrome / small-size verification
-- [x] `iconography-system` initial Skill
-  - UI icon grid / stroke / fill language
-  - metaphor consistency
-  - optical sizing / baseline
-  - family-level consistency
-  - RTL / localization / state variants
-  - family-level rendered verification
+- [x] `slide-design` — experimental initial Skill; real-project trial pending
+- [x] `document-design` — experimental initial Skill; real-project trial pending
+- [x] `diagram-design` — experimental initial Skill; real-project trial pending
+- [x] `brand-identity` — experimental initial Skill; application stress-test / real-project trial pending
+- [x] `brand-mark` — experimental initial Skill; full/compact and reproduction trial pending
+- [x] `iconography-system` — experimental initial Skill
+- [x] `data-visualization` — experimental initial Skill
 
-### Secondary
+### Integrated focused artifact Skills in v0.3.0
 
-- [ ] `graphic-composition` — poster / banner / social graphic / thumbnail
-- [x] `data-visualization` initial Skill — question-first chart / graph / data graphic design with accessible redundant cues
-- [x] `diagram-design` — architecture / process / explanatory diagram; experimental initial skill, real-project trial pending
-- [ ] `illustration-direction` — repeatable illustration / generated imagery language
+- [x] `thumbnail-design`
+- [x] `album-cover-design`
+- [x] `poster-design`
+- [x] `key-visual-design`
+- [x] `event-flyer`
+- [x] `og-image-design`
+- [x] `social-card-design`
+- [x] `app-icon-design`
+- [x] `favicon-design`
+- [x] `merch-graphic`
+- [x] `signage-design`
+- [x] `map-design`
+- [x] `infographic-design`
 
-### Experimental v0.3 additions
-
-- [x] `font-mixing`
-  - Japanese / Latin / numeral / punctuation role assignment
-  - apparent size / baseline / weight / fallback verification
-  - mixed-language stress testing
-- [x] `compositing`
-  - alpha / matte / blend correctness
-  - edge / color / grain / blur integration
-  - representative-frame + playback verification
-- [x] `promotional-video`
-  - message-first hook / brand / proof / CTA structure
-  - sound-on / sound-off behavior
-  - 16:9 / 9:16 / 1:1 recomposition + safe-zone verification
-- [ ] real-project trials for the three experimental skills
-- [ ] trial feedback refinement before promotion
-
-`font-mixing` is a focused typography technique; `compositing` and `promotional-video` are 2D production skills. The broader research tracks #15 / #16 remain open for the other candidates.
+`graphic-composition` のような広すぎる umbrella Skill を canonical owner にせず、artifact 固有の encounter / delivery / verification が異なる場合は focused Skill へ分離する。
 
 ### Output adapters
 
@@ -139,11 +106,9 @@ Web UI に限定せず、媒体ごとに異なる visual decision を first-clas
 - After Effects
 - Figma / Canva
 
-媒体固有の implementation / export / validation rule として各 domain skill から参照する。
+媒体固有の implementation / export / validation rule として各 domain Skill から参照する。
 
-`slide-design` / `document-design` / `diagram-design` は 2026-09-12 時点で reference-driven な experimental initial Skill を実装済み。正式 promotion は real-project trial と delivered artifact inspection 後に行う。
-
-## Next UI-system candidates
+## UI-system tracks
 
 ### Form design — experimental
 
@@ -151,29 +116,11 @@ Web UI に限定せず、媒体ごとに異なる visual decision を first-clas
   - task-first field reduction / question sequencing
   - label / hint / grouping / input-choice decisions
   - single-page vs multi-step flow
-  - submit-time validation as default; live validation only with evidence
-  - error recovery / input preservation
+  - validation / error recovery / input preservation
   - check-answers for consequential submission
   - keyboard / zoom / narrow viewport / correction-path verification
 - [ ] real project trial
-- [ ] trial feedback を反映した question grouping / validation / review policy refinement
-
-W3C WAI Forms Tutorial、GOV.UK、USWDS、NHS の current guidance を primary reference とし、control styling や form-library API ではなく end-to-end completion flow を扱う。
-
-### Motion / Animation — trial / refinement
-
-`motion-system` の初版を実 project で trial 中とする。UI motion と standalone video motion は分け、ここでは interactive product 内の motion を扱う。
-
-次に確認する:
-
-- reference family / URL を agent が task に応じて自律選択できるか
-- generic animation preset へ戻らず、motion の必要性自体を判断できるか
-- interruption / rapid input / touch / responsive behavior を十分に検証できるか
-- Marketing / portfolio の expressive motion と usability のバランス
-- reduced-motion / runtime performance gate が実作業で機能するか
-- `interaction-state` が定義した state semantics と motion-system の実装境界
-
-trial の結果を見て reference / decision policy を refinement する。
+- [ ] trial feedback refinement
 
 ### Interaction state — experimental
 
@@ -187,17 +134,11 @@ trial の結果を見て reference / decision policy を refinement する。
   - focus restoration / modality
   - rapid repeated / conflicting input stress verification
 - [ ] real project trial
-- [ ] trial feedback を反映した state granularity / authority / async lifetime policy refinement
+- [ ] trial feedback refinement
 
-WAI-ARIA APG を observable interaction behavior、Stately / XState を explicit state-transition vocabulary、Martin Fowler の GUI architecture patterns を presentation-state ownership の primary reference とする。
+`interaction-state` を observable interaction state の canonical owner とする。重複する `interaction-states` Skill は v0.3.0 release surface から除外する。
 
-Passive View / Mediator / state machine 等は implementation candidate であり、特定 architecture を要求しない。
-`interaction-state` は **何の state が存在し、どの event で遷移でき、誰が conflict を裁定するか**を担当する。
-`motion-system` はその valid transition を **どう時間・空間上で表現するか**を担当する。
-
-hover / pressed / selected、optimistic feedback、inline save、drag / reorder、resize affordance、loading、error / success acknowledgement 等の micro-interaction は独立した曖昧な候補 Skill とせず、state semantics は `interaction-state`、motion treatment は `motion-system` へ分解する。
-
-### Color — `color-system` initial Skill implemented
+### Color — experimental
 
 - [x] semantic role
 - [x] surface hierarchy
@@ -207,15 +148,15 @@ hover / pressed / selected、optimistic feedback、inline save、drag / reorder�
 - [x] UI color と data-visualization palette の責務分離
 - [x] light / dark transformation
 - [x] contrast-aware role pairing
-
-「palette generator」ではなく、情報 hierarchy と state semantics の system として初版実装済み。
-正式 promotion 前に real project trial を行い、role vocabulary と theme verification を refinement する。
+- [ ] real project trial / promotion review
 
 ### Typography
 
-Implemented experimental technique:
+Integrated experimental techniques:
 
 - [x] `font-mixing`
+- [x] `vertical-writing`
+- [x] `numeric-typography`
 
 Remaining research candidates:
 
@@ -225,13 +166,33 @@ Remaining research candidates:
 - metadata hierarchy
 - dense tool typography
 - editorial typography
-- numeric / tabular information
 
-### Visual hierarchy
+### Visual hierarchy — experimental
 
-layout / typography / color / density を跨ぐ上位 Skill として将来的に検討する。
+- [x] `visual-hierarchy` initial Skill integrated
+- [ ] real project trial
+- [ ] layout / typography / color / density を跨ぐ decision policy の refinement
 
-### Skill evals / deterministic detectors
+## Platform / design-system adapters
+
+v0.3.0 では Apple HIG、Material、Fluent 2、Spectrum、Carbon、Atlassian、Polaris、Lightning、Fiori、Primer、Ant Design、GOV.UK、USWDS の adapter Skills を統合した。
+
+これらは framework component catalog のコピーではなく、current official guidance を開き、current product へ翻訳するための adapter とする。platform-specific rule を repository 全体の universal rule に昇格させない。
+
+## Experimental production tracks
+
+v0.3.0 で以下を含む production Skills を統合した。
+
+- `font-mixing`
+- `compositing`
+- `promotional-video`
+- hand-drawn / limited animation / kinetic typography
+- MIDI / audio-reactive / loop / title sequence / 2D parallax / transition / motion poster
+- lyric / camera / product promo / music promo / music visualization video
+
+次の gate は Skill 本文の追加ではなく、real-project trial、delivered artifact inspection、cross-skill routing の refinement とする。
+
+## Skill evals / deterministic detectors
 
 外部 Skill 調査から優先度を上げた領域。
 
@@ -253,11 +214,12 @@ Skill の文章品質ではなく、実際の agent behavior と delivered artif
 
 ## Promotion criteria
 
-candidate を正式 Skill にする条件:
+candidate / experimental Skill を正式 promotion する条件:
 
 1. primary references が複数ある
 2. real production artifact で observation ができる
 3. repeatable decision rules を抽出できる
 4. anti-pattern を定義できる
 5. delivered output の verification 方法がある
-6. 少なくとも一つの実 project で試せる
+6. 少なくとも一つの実 project で trial し、failure / revision を記録できる
+7. standalone install / discovery と cross-skill routing が release surface 上で矛盾しない
