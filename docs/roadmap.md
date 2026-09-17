@@ -39,7 +39,7 @@ reference research → principle extraction → implementation trial → Skill �
 
 初版は「動きを足す」Skill ではなく、motion が情報理解・continuity・feedback・orientation・progress・expression に必要か判断し、必要な場合だけ coherent な system として実装する Skill とする。
 
-実 project での trial 後に、micro-interaction と motion-system の責務境界も再評価する。
+実 project での trial 後に、`interaction-state` と motion-system の責務境界も再評価する。state semantics / transition legality は `interaction-state`、timing / easing / choreography は `motion-system` を canonical owner とする。
 
 ## Supporting skills
 
@@ -171,24 +171,31 @@ W3C WAI Forms Tutorial、GOV.UK、USWDS、NHS の current guidance を primary r
 - interruption / rapid input / touch / responsive behavior を十分に検証できるか
 - Marketing / portfolio の expressive motion と usability のバランス
 - reduced-motion / runtime performance gate が実作業で機能するか
-- micro-interaction と motion-system の責務境界
+- `interaction-state` が定義した state semantics と motion-system の実装境界
 
 trial の結果を見て reference / decision policy を refinement する。
 
-### Micro-interaction
+### Interaction state — experimental
 
-調査対象候補:
+- [x] `interaction-state` initial Skill
+  - observable state inventory / state graph
+  - local vs shared state ownership
+  - mutually exclusive presentation state authority
+  - event / transition legality / invalid transition policy
+  - pending / cancellation / retry / re-entry
+  - stale async completion / lifecycle verification
+  - focus restoration / modality
+  - rapid repeated / conflicting input stress verification
+- [ ] real project trial
+- [ ] trial feedback を反映した state granularity / authority / async lifetime policy refinement
 
-- hover / pressed / selected
-- optimistic feedback
-- inline save
-- drag / reorder
-- resize affordance
-- loading transitions
-- error / success acknowledgement
+WAI-ARIA APG を observable interaction behavior、Stately / XState を explicit state-transition vocabulary、Martin Fowler の GUI architecture patterns を presentation-state ownership の primary reference とする。
 
-interaction state と animation を分離せず扱う。
-`motion-system` と重複する領域は trial 結果を見て、独立 Skill にするか reference family として統合するか判断する。
+Passive View / Mediator / state machine 等は implementation candidate であり、特定 architecture を要求しない。
+`interaction-state` は **何の state が存在し、どの event で遷移でき、誰が conflict を裁定するか**を担当する。
+`motion-system` はその valid transition を **どう時間・空間上で表現するか**を担当する。
+
+hover / pressed / selected、optimistic feedback、inline save、drag / reorder、resize affordance、loading、error / success acknowledgement 等の micro-interaction は独立した曖昧な候補 Skill とせず、state semantics は `interaction-state`、motion treatment は `motion-system` へ分解する。
 
 ### Color — `color-system` initial Skill implemented
 
