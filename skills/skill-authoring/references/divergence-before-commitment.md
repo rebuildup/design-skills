@@ -1,6 +1,6 @@
 # Divergence before commitment
 
-Last reviewed: 2026-09-15
+Last reviewed: 2026-09-17
 
 この reference は、Skill authoring / artifact trial 中に最初の妥当案へ早すぎる収束が起きる場合だけ使う。常時「複数案を作る」規則ではない。
 
@@ -90,7 +90,7 @@ promotion 前の controlled trial では、可能なら同一 brief / hard const
   - https://www.designcouncil.org.uk/our-resources/framework-for-innovation/
   - Observe: problem-space / solution-space の divergence と convergence、Develop で複数回答を探索し Deliver で test / reject / improve する構造。
 - Dow et al. — Parallel Prototyping Leads to Better Design Results, More Divergence, and Increased Self-Efficacy
-  - https://hci.stanford.edu/publications/2010/parallel-prototyping/DowParallelPrototypingCHI2010.pdf
+  - https://hci.stanford.edu/publications/2010/parallel-prototyping/ParallelPrototyping2010-final.pdf
   - Observe: critique 前に alternatives を並列保持する条件と serial iteration の差。固定案数や対象 artifact 固有値は一般化しない。
 - Cocoda / カナリー — ありがちなUIに収束させない生成フロー。「デザイナー人格」のskill化について
   - https://cocoda.design/varhirac/p/pe1f4d8e389b2
