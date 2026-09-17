@@ -27,7 +27,7 @@ brand mark を「きれいなベクター形状」で完了させない。
 - 小サイズ、crop、低解像度、印刷、刺繍、signage などで detail が失われる
 - co-brand / product lockup で optical balance が崩れる
 
-UI icon family を作る場合は `iconography-system` を使う。app icon の platform-specific mask / safe area / rendering は future `app-icon-design`、browser favicon の implementation と browser behavior は future `favicon-design` が担当する。
+UI icon family を作る場合は `iconography-system` を使う。app icon の platform-specific mask / safe area / rendering は `app-icon-design`、browser favicon の implementation と browser behavior は `favicon-design` が担当する。
 
 ## 1. Inspect role, context, and existing equity
 
