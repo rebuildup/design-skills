@@ -1,5 +1,9 @@
 {
   "release": "0.3.0",
+  "releaseDate": "2026-09-17",
+  "sourceBranch": "release-0-3-0",
+  "targetBranch": "main",
+  "skillsCliVersion": "1.6.0",
   "statusDefinitions": {
     "stable": "Previously released and retained as the default supported surface.",
     "experimental": "Public preview; usable but not yet promoted to stable.",
