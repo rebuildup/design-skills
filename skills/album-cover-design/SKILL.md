@@ -268,11 +268,11 @@ album cover は release の persistent identity であり、CTR 最大化を主�
 
 release phase、audio excerpt、reveal budget、campaign asset family、time-based playback を扱う。
 
-### future `key-visual-design`
+### `key-visual-design`
 
 複数 artifact class をまたぐ campaign/title visual language の source を扱う。
 
-### future `poster-design`
+### `poster-design`
 
 large standalone surface、viewing distance、event/information hierarchy を扱う。
 
