@@ -1,6 +1,6 @@
 # SAP Fiori system references
 
-Last reviewed: 2026-09-13
+Last reviewed: 2026-09-17
 
 この reference は SAP Fiori / SAP Design System の **current behavior と判断軸を観察するための runtime input**。
 
@@ -36,17 +36,17 @@ version number・token value・control API を暗記して複製するために�
   - Freshness note: direct page の guideline version は古い。実装時は current SAP Fiori Elements entry point から replacement/current support も再確認する。
   - Avoid copying: chart が存在するだけの page を analytical list page とみなすこと。
 
-- [Object Page](https://experience.sap.com/fiori-design-web/object-page/)
+- [Object Page — SAP Fiori Elements](https://www.sap.com/design-system/fiori-design-web/v1-136/discover/frameworks/sap-fiori-elements/object-page/object-page-overview-sap-fiori-elements)
   - Observe: one business object の identity、dynamic header、sections/subsections、display/edit/create、related information の構造。
   - Useful for: single-object detail / edit workflow。
   - Avoid copying: multi-object editing、large-dataset discovery、guided creation を object page に押し込むこと。
 
-- [Dynamic Page Layout](https://experience.sap.com/fiori-design-web/dynamic-page-layout/)
+- [Dynamic Page Layout](https://www.sap.com/design-system/fiori-design-web/v1-136/page-types/page-layouts/dynamic-page-web-component/)
   - Observe: title/header/content/footer の関係、header collapse、freestyle foundation と predefined floorplan の境界。
   - Useful for: predefined floorplan では満たせないが Fiori page behavior が必要な freestyle surface。
   - Avoid copying: every page を dynamic-page configuration exercise にすること。
 
-- [Flexible Column Layout](https://experience.sap.com/fiori-design-web/flexible-column-layout/)
+- [Flexible Column Layout](https://www.sap.com/design-system/fiori-design-web/v1-96/page-types/page-layouts/flexible-column-layout)
   - Observe: list-detail / list-detail-detail relationship、one/two/three-column state、focus/expand、responsive transition、back-navigation context。
   - Useful for: parent context を残したまま child / subchild を連続処理する task。
   - Avoid copying: IDE/workbench、dashboard、unrelated tools、one object の arbitrary split に使うこと。
