@@ -1,6 +1,6 @@
 # Limited Animation References
 
-Last reviewed: 2026-09-13
+Last reviewed: 2026-09-17
 
 Limited animation を low-frame-rate preset として扱わず、**motion allocation / hold / reuse / substitution / partial movement / cycle / selective redraw** の組み合わせとして観察するための runtime reference。
 
@@ -10,7 +10,7 @@ Limited animation を low-frame-rate preset として扱わず、**motion alloca
 
 ### UPA / `Gerald McBoing-Boing`
 
-- [Library of Congress — National Film Registry descriptions](https://www.loc.gov/static/programs/national-film-preservation-board/film-registry/descriptions.html)
+- [Library of Congress — National Film Registry descriptions and essays](https://www.loc.gov/programs/national-film-preservation-board/film-registry/descriptions-and-essays/)
   - Observe: `Gerald McBoing-Boing` に見られる、live-action realism の再現から離れた graphic abstraction、simplified shapes、composition と motion の分業。
   - Useful for: drawing detail / movement density を増やすことと expressive animation quality を切り離して考える。
   - Avoid copying: UPA 固有の character、palette、background treatment、mid-century visual vocabulary。
