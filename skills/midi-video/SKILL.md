@@ -251,7 +251,7 @@ time lookahead、pitch range、keyboard width、labels、part lanes の優先度
 - `kinetic-typography` — temporal text / reading / semantic hierarchy
 - `compositing` — matte、blend、glow、grain、blur、final visual integration
 - `promotional-video` — hook、promise、proof、brand、CTA、cross-format promo structure
-- future `audio-reactive-video` / `music-visualization-video` — waveform / spectrum / audio-feature-driven or broader music-reactive graphics
+- `audio-reactive-video` / `music-visualization-video` — waveform / spectrum / audio-feature-driven or broader music-reactive graphics
 
 `midi-video` は **structured musical events を playback-synchronized visual grammar に変換し、event relationship を必要な粒度で読める状態に保つこと**を canonical responsibility とする。
 
