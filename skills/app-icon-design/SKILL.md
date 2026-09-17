@@ -22,7 +22,7 @@ installed application の launcher / home screen / dock / taskbar / Start 等で
 - 小サイズ、taskbar、dock、Start、home screen 等で recognition が弱いとき
 - platform 更新により icon material / mask / theming / asset model が変わったとき
 
-canonical symbol / wordmark / monogram / lockup の geometry・optical correction 自体を設計する場合は `brand-mark` を使う。UI 内の icon family は `iconography-system`、browser tab / bookmark / pinned-tab 固有の asset は future `favicon-design` の責務とする。
+canonical symbol / wordmark / monogram / lockup の geometry・optical correction 自体を設計する場合は `brand-mark` を使う。UI 内の icon family は `iconography-system`、browser tab / bookmark / pinned-tab 固有の asset は `favicon-design` の責務とする。
 
 ## Workflow
 
@@ -193,7 +193,7 @@ source asset の生成成功では完了しない。target platform ごとに該
 - `brand-identity`: durable identity system、expression range、brand architecture
 - `app-icon-design`: installed-app container / mask / layer / rendering mode / platform adaptation と最終 launch-surface QA
 - `iconography-system`: application UI 内 icon family の metaphor / grid / stroke / fill / state consistency
-- future `favicon-design`: browser tab / bookmark / pinned-tab 等の browser-specific compact asset
+- `favicon-design`: browser tab / bookmark / pinned-tab 等の browser-specific compact asset
 - `apple-hig` 等 platform Skill: application UI 全体の platform convention。app icon では current platform guidance の入口として併用する
 
 境界に迷ったら、**canonical identity asset を変える問題は上流 Skill、OS/launcher が処理する container へ適応する問題はこの Skill** と切り分ける。
