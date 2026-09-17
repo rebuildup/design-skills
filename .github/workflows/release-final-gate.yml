@@ -1,0 +1,55 @@
+name: release-final-gate
+
+on:
+  push:
+    branches:
+      - release-0-3-0
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  final-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout final head
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Validate release surface and local markdown
+        run: node scripts/validate-release.mjs
+
+      - name: Discover Skills from the checked-out release head
+        run: |
+          npx -y skills@1.6.0 add "$GITHUB_WORKSPACE" --list | tee "$RUNNER_TEMP/skills-list.txt"
+
+      - name: Install every Skill from the checked-out release head
+        shell: bash
+        run: |
+          set -euo pipefail
+          install_dir="$(mktemp -d)"
+          cd "$install_dir"
+          npx -y skills@1.6.0 add "$GITHUB_WORKSPACE" --skill '*' --agent codex --copy -y
+
+          source_list="$RUNNER_TEMP/source-skills.txt"
+          installed_list="$RUNNER_TEMP/installed-skills.txt"
+          find "$GITHUB_WORKSPACE/skills" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort > "$source_list"
+          find "$install_dir/.agents/skills" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort > "$installed_list"
+          diff -u "$source_list" "$installed_list"
+
+          while IFS= read -r skill; do
+            test -f "$install_dir/.agents/skills/$skill/SKILL.md"
+          done < "$source_list"
+
+          echo "Validated $(wc -l < "$source_list") isolated Skill installs."
+
+      - name: Sweep external reference links
+        run: node scripts/validate-release.mjs --external
