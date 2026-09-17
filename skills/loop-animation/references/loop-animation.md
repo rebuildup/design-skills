@@ -1,6 +1,6 @@
 # Loop Animation References
 
-Last reviewed: 2026-09-14
+Last reviewed: 2026-09-17
 
 この reference は、loop を software feature ではなく **repeatable temporal structure** として観察するために使う。
 
@@ -157,7 +157,7 @@ Avoid copying:
 
 ### W3C WAI — Easy Checks / moving content
 
-- https://www.w3.org/WAI/test-evaluate/easy-checks/pause-stop-hide/
+- https://www.w3.org/WAI/test-evaluate/preliminary/
 
 Observe:
 
