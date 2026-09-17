@@ -1,6 +1,6 @@
 # Shopify Polaris references
 
-Last reviewed: 2026-09-13
+Last reviewed: 2026-09-17
 
 この reference set は Shopify Admin / App Home に merchant-facing app を適応するときの current system evidence をまとめる。
 
@@ -67,7 +67,7 @@ Polaris の exact token / component API を一般的な design law として使�
   - Useful for: returning merchant が daily operation を開始する surface。
   - Avoid copying: dashboard widgets を目的なく増やすこと。
 
-- [Index pattern](https://shopify.dev/docs/api/app-home/latest/patterns/templates/index)
+- [Index pattern — current Patterns index](https://shopify.dev/docs/api/app-home/latest/patterns)
   - Observe: resource collection、search/filter/selection、resource actions、collection-to-detail transition。
   - Useful for: repeated first-class resources を管理する app。
   - Avoid copying: singleton settings / low-volume content を無理に index 化すること。
