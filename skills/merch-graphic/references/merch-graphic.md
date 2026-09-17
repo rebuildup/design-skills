@@ -1,10 +1,20 @@
 # Merch Graphic References
 
-Last reviewed: 2026-09-15
+Last reviewed: 2026-09-17
 
 Merchandise graphic は flat artwork ではなく、product / substrate / process / placement / use context を含む最終物として観察する。
 
 ## Production-process evidence
+
+- [ISO 12647-5:2015 — Screen printing](https://www.iso.org/standard/60479.html)
+  - Observe: screen printing as a controlled production chain spanning data preparation, proof, printing-form preparation, and production print; current status was reconfirmed by ISO in 2025.
+  - Useful for: screen print を単なる visual effect ではなく separation / proof / production を伴う reproduction process として扱う根拠。
+  - Avoid copying: standard-specific process-control requirements into unrelated decoration methods or treating the standard as a composition recipe.
+
+- [PrintNinja — Screenprinted Fabric Bag Artwork Setup Guide](https://printninja.com/screenprinted-fabric-bag-artwork-setup-guide/)
+  - Observe: final-size line/type survival, spot-color preparation, printable area, and vendor review; page updated 2026-04-28.
+  - Useful for: screen print では artwork detail, separation, substrate/product, and production capabilityを早期に照合する必要があることの current production evidence.
+  - Avoid copying: one vendor's exact type sizes, print area, quantity, file formats, or color limits as universal rules.
 
 - [Printful — DTG design file guidance](https://www.printful.com/jp/creating-dtg-file)
   - Observe: substrate composition, print sharpness/softness, transparency, color conversion, final-size resolution.
@@ -12,9 +22,14 @@ Merchandise graphic は flat artwork ではなく、product / substrate / proces
   - Avoid copying: one vendor's DPI/file-format values as universal rules.
 
 - [Printful — Prepare design for embroidery](https://help.printful.com/hc/en-us/articles/28727397325340-How-should-I-prepare-my-design-for-embroidery)
-  - Observe: flat vs puff vs other embroidery behavior, small-detail loss, thread/material interpretation.
-  - Useful for: embroidery を raster print の代替出力と考えないための process evidence.
+  - Observe: flat vs puff vs other embroidery behavior, small-detail/gap loss, thread/material interpretation, and the explicit recommendation to inspect a physical sample before sale.
+  - Useful for: embroidery を raster print の代替出力と考えず、digitized/stitch result を別 representation として検証するための current production evidence.
   - Avoid copying: vendor-specific minimum dimensions as universal design law.
+
+- [Gooten — Embroidery Guide](https://help.gooten.com/hc/en-us/articles/360047284192-Embroidery-Guide)
+  - Observe: artwork-to-stitch digitization, stitch direction, complexity/detail loss, thread-color constraints, and sample ordering; updated 2026-01-23.
+  - Useful for: materially different embroidery vendorでも「source artwork ≠ final stitched representation」が反復することの比較 evidence.
+  - Avoid copying: exact pixel canvas, stitch-count limits, or vendor workflow as universal embroidery rules.
 
 - [Cotton Bureau — Embroidery specs](https://support.cottonbureau.com/article/202-what-size-should-my-hat-artwork-be)
   - Observe: digitization/stitch interpretation, detail/gap/text survival, distortion by product/material.
@@ -68,7 +83,8 @@ Merchandise graphic は flat artwork ではなく、product / substrate / proces
 
 - merchandise は artwork と substrate/process の合成結果であり、blank mockup 上の flat composition だけでは判断できない。
 - 同じ identity/campaign でも商品ごとに surface、使用状態、加工が違うため、literal duplication より product-specific translation が必要になる。
-- screen/digital print/embroidery は detail・color・edge・texture の成立条件が異なる。production constraint は artwork design の早い段階へ戻す。
+- screen print / digital textile print / embroidery は detail・color・edge・texture の成立条件と production representation が異なる。process constraint は artwork design の早い段階へ戻す。
+- screen print は separation / registration / proof、embroidery は digitization / stitch direction / gap-detail survival のように、process ごとに最終 artifact で見るべき failure が違う。
 - merchandise collection の consistency は同一 placement/graphic の反復ではなく、recognition cue と variation logic で作れる。
 - artwork reproduction / artist merchandise / brand merchandise では source ownership と approved use が design truth の一部になる。
-- mockup は scale/placement/context の仮説確認には使えるが、ink/thread/substrate の最終 reproduction を証明しない。
+- mockup は scale/placement/context の仮説確認には使えるが、ink/thread/substrate の最終 reproduction を証明しない。可能なら production proof / sample を gate にする。
