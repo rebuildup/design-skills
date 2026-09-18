@@ -1,0 +1,126 @@
+name: Publish GitHub Release
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-release.yml
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: publish-release
+  cancel-in-progress: false
+
+jobs:
+  metadata:
+    name: publication-metadata
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      tag: ${{ steps.release.outputs.tag }}
+      release_sha: ${{ steps.release.outputs.release_sha }}
+      pr_number: ${{ steps.release.outputs.pr_number }}
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Resolve latest merged release PR
+        id: release
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          RELEASE_SHA="$(git log --merges --extended-regexp \
+            --grep='release: v[0-9]+\.[0-9]+\.[0-9]+' \
+            --format='%H' -n 1)"
+
+          if [[ -z "$RELEASE_SHA" ]]; then
+            echo "::error::No merged release commit matching 'release: vX.Y.Z' was found."
+            exit 1
+          fi
+
+          MESSAGE="$(git show -s --format='%B' "$RELEASE_SHA")"
+          TAG="$(printf '%s\n' "$MESSAGE" | grep -Eo 'release: v[0-9]+\.[0-9]+\.[0-9]+' | head -n 1 | sed 's/^release: //')"
+          PR_NUMBER="$(printf '%s\n' "$MESSAGE" | grep -Eo 'Merge pull request #[0-9]+' | head -n 1 | grep -Eo '[0-9]+')"
+
+          if [[ -z "$TAG" || -z "$PR_NUMBER" ]]; then
+            echo "::error::Could not resolve release tag or source PR from $RELEASE_SHA."
+            exit 1
+          fi
+
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "release_sha=$RELEASE_SHA" >> "$GITHUB_OUTPUT"
+          echo "pr_number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
+
+      - name: Validate release notes source
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.release.outputs.pr_number }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.body // ""' > /tmp/release-notes.md
+          test -s /tmp/release-notes.md
+
+  publish:
+    name: publish-release
+    needs: metadata
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: read
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Publish tag and GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ needs.metadata.outputs.tag }}
+          RELEASE_SHA: ${{ needs.metadata.outputs.release_sha }}
+          PR_NUMBER: ${{ needs.metadata.outputs.pr_number }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "GitHub Release $TAG already exists; nothing to do."
+            exit 0
+          fi
+
+          gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.body // ""' > /tmp/release-notes.md
+          test -s /tmp/release-notes.md
+
+          git fetch --tags --force
+          if git rev-parse --verify --quiet "refs/tags/$TAG" >/dev/null; then
+            TAG_SHA="$(git rev-list -n 1 "$TAG")"
+            if [[ "$TAG_SHA" != "$RELEASE_SHA" ]]; then
+              echo "::error::Existing tag $TAG points to $TAG_SHA, expected $RELEASE_SHA."
+              exit 1
+            fi
+
+            gh release create "$TAG" \
+              --repo "$GITHUB_REPOSITORY" \
+              --verify-tag \
+              --title "$TAG" \
+              --notes-file /tmp/release-notes.md
+          else
+            gh release create "$TAG" \
+              --repo "$GITHUB_REPOSITORY" \
+              --target "$RELEASE_SHA" \
+              --title "$TAG" \
+              --notes-file /tmp/release-notes.md
+          fi
