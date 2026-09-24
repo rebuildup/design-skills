@@ -81,3 +81,18 @@ bunx skills add rebuildup/design-skills --skill layout-system
 - ADR 必須化 (decision log は `docs/` への自然記述で十分)
 
 contributor 増加・release versioning 導入等の状況変化時には `docs/agent-workflow.md` を再評価する。
+
+
+## Constitution / operating profile
+
+- [`constitution/CONSTITUTION.md`](constitution/CONSTITUTION.md)
+- [`organization/profiles/release-driven-solo.md`](organization/profiles/release-driven-solo.md)
+
+
+## Agent Skills lifecycle
+
+- `bunx skills add rebuildup/project-init --skill '*' --agent claude-code opencode codex -y`
+- `bunx skills install`
+- `bunx skills update -p -y`
+- project-local only; commit CLI-generated `skills-lock.json`
+- project-specific Skills remain separate from upstream-managed project-init Skills
