@@ -81,3 +81,10 @@ bunx skills add rebuildup/design-skills --skill layout-system
 - ADR 必須化 (decision log は `docs/` への自然記述で十分)
 
 contributor 増加・release versioning 導入等の状況変化時には `docs/agent-workflow.md` を再評価する。
+
+
+## Constitution / operating profile
+
+- Top-level contract: [`constitution/CONSTITUTION.md`](constitution/CONSTITUTION.md)
+- Current Operating Model: [`organization/profiles/release-driven-solo.md`](organization/profiles/release-driven-solo.md)
+- Project-specific canonical docs and ADRs remain more specific than replaceable upstream Practices when they preserve the Constitution.
