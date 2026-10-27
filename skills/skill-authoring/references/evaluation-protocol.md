@@ -31,11 +31,12 @@ Status: experimental / initial research, 2026-10-28. このprotocolは、新規S
 
 ## Evaluation axes — keep separate
 
-1. **Hard floor**: factual correctness, privacy/IP, accessible controls, preserved behavior, required deliverable. 重大違反はvisual tasteに関係なく報告。
-2. **Objective artifact defects**: crop/clip/overlap/reflow、broken pages、misaligned rules、判読不可能な文字、状態間の一貫性など。機械検査と実物観察を区別して列挙。
-3. **Task and meaning**: audienceが必要な情報を得られるか、主張や手順が伝わるか、見栄えと機能が競合していないか。
-4. **Visual judgment**: 目的に適した階層、構図、独自性、reference adaptation。美観はcontext依存で単一採点が不安定なので、複数の具体的観察と理由を記録する。
-5. **Cost and regressions**: tool calls / tokens / elapsed cost、ブラウザの可用性、agent correction数、fidelity loss、false positivesと例外。
+1. **Purpose and selection**: なぜこのartifactが必要か、audienceが何を理解/行動/経験するかが成立しているか。元のfeature listやtask contextをそのまま配置していないか。必要な情報、根拠、体験要素が取捨選択されているか。
+2. **Information and experience architecture**: 判断・理解・操作・鑑賞が進む順序は適切か。componentや既存テンプレートの都合ではなく、情報の関係/ユースケース/時間的展開から構造を決めているか。
+3. **Attractiveness and expressive judgment**: artifactの狙いに適した魅力、意外性、まとまり、緊張と緩和、記憶に残るcharacterを実物から評価する。単に「AIっぽくない」ことや汎用的な禁止形状への準拠を評価目標にしない。美観はcontext依存で単一採点が不安定なので、具体的な観察と理由を記録する。
+4. **Hard floor**: factual correctness, privacy/IP, accessible controls, preserved behavior, required deliverable。重大違反は美観の高さでは相殺しない。
+5. **Objective artifact defects**: crop/clip/overlap/reflow、broken pages、判読不可能な文字、状態間の一貫性など。機械検査と実物観察を区別する。
+6. **Cost and regressions**: tool calls / tokens / elapsed cost、環境の可用性、agent correction数、意味/表現の劣化、false positivesと例外。
 
 Anti-template detections（特定のgradient、font、カード構造、decorative pattern）は、ブランドや利用場面に即した説明があれば許容可能。hard floorに自動昇格しない。
 
