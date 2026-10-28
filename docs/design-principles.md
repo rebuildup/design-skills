@@ -4,16 +4,15 @@
 
 現時点の原則は完成版ではありません。新しい Skill を作る過程で、実例と実装結果から更新します。
 
-## 1. Reference before invention
+## 1. Purpose and reference before pattern selection
 
-非自明な design を、AI の記憶上の「一般的な UI」だけから作らない。
+非自明なdesignを、与えられたfeature / materials / data modelとAIの記憶上の一般的なUIを直接対応させて作らない。まず誰にとって何を成立させるかと、何が確認済みで何が仮説かを区別し、必要な情報・体験・表現を選ぶ。
 
-優れた実在 reference がある場合はまず観察する。
+優れた実在referenceは、問題の観察・構造仮説の発見・視覚表現のいずれの段階でも参照してよい。**referenceを開くことと、referenceの構造へ早期にcommitすることを混同しない。** referenceは現在のproductに必要な判断を考えるためのevidenceであり、答えのtemplateではない。
 
-ただし reference は答えそのものではない。
-現在の product に必要な構造を発見するための evidence として使う。
+## 2. Consequential decisions before surface polish
 
-## 2. Structure before decoration
+本質的な方向性が未確定なとき、目的・情報と体験の構造・結果を左右する設計判断を先に確認する。選択理由を「普通と異なるから」とせず、その判断で何が改善し、何が相対的に後回しになるかを説明できるようにする。不要な奇抜さを強制しない。視覚的な魅力・表現上の発見が目的になる作品では、その価値を機能性へ還元しない。
 
 UI が整理されて見えないとき、最初に decoration を増やさない。
 
@@ -129,9 +128,11 @@ reference と current product の目的が異なる場合は current product を
 既存 implementation が一貫しているなら重要な evidence とする。
 ただし legacy inconsistency を機械的に固定しない。
 
-## 10. Visual verification is mandatory
+## 10. Delivered experience and visual verification are mandatory
 
-実装完了条件は compile / test success だけではない。
+実装完了条件は compile / test success だけではない。実物を見た人が何を最初に理解・感じ・操作するかと、当初の目的を比較する。可能なら制作過程やbriefを知らない別のviewerによる初回反応と、目的を明かした後の適合性レビューを分ける。
+
+独立reviewがない場合はそれを明記し、自己評価をblind evaluationと呼ばない。
 
 browser 上で:
 
