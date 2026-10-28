@@ -1,130 +1,99 @@
 ---
 name: design-discipline
 description: >
-  Use when creating or substantially redesigning a 2D visual artifact, interface, document,
-  graphic or motion piece. Frames the human purpose, selects necessary content and experiences,
-  organizes them before visual composition, and reviews the delivered work as its audience.
-  Prevents direct translation of feature lists, internal structure or reference templates into design.
+  Use before generating or substantially redesigning a 2D visual artifact, UI, graphic, document,
+  or motion piece. Reconstructs the audience's problem and desired experience before selecting
+  content, challenges default structures, commits to evidence-grounded design decisions, and
+  tests the delivered work instead of merely polishing generated patterns.
 ---
 
 # Design Discipline
 
-Designを、prompt、feature list、database schema、reference、component catalog、既存素材の**視覚的な配置替え**として始めない。
+**Designは要件・素材・内部データ構造をそのまま視覚化する作業ではない。** 与えられた情報をカードやsceneに移し、referenceに似せて磨くだけでは、きれいでも何も考えられていない成果物になり得る。
 
-Agentは与えられた機能や素材、既存design patternを容易に画面やsceneへ並べられる。しかし、何を見せ、何を削り、どのような理解・判断・行動・感情・体験につなぐのかを決める前に配置を始めると、各要素が整っていても成果物全体は平均的なものになりやすい。見た目のAIらしさを消すことや、汎用的なanti-patternを避けることは目的ではない。
+> Purpose → Select → Structure → Commit → Express → Test the experience
 
-原則:
+これは固定の工程表でも新しい出力テンプレートでもない。実際に変えるべきなのは、**配置を始める前に何を成立させるかを考え、結果を左右する判断を下すこと**。成果物の魅力を「AIらしい表現の除去」「チェック項目の合格」へ還元しない。
 
-> **Understand the purpose. Select what matters. Shape the experience. Express it deliberately. Experience it without the brief.**
+## 1. Stop requirement / template serialization
 
-このSkillは2D design全般の**設計判断の基盤**であり、特定のstyle、renderer、ページ型、構図を指示しない。制作の開始時に適用し、すでに誤った構成で作ったものをsurface polishだけで延命しない。
+入力に項目があるだけでは、それを表示する理由にならない。既定の連想を疑う。
 
-## 1. Design is not requirement serialization
+- feature 6個 → 同じ形のcard 6個、とは限らない
+- database / 組織構成 → 情報設計 / navigation、とは限らない
+- サイト → hero / feature grid / testimonials / CTA、とは限らない
+- MV → transitionとpresetの順番、とは限らない
+- reference → 同じ見た目、とは限らない
+- 要素が多い → 全部小さく配置、とは限らない
 
-素材や仕様に項目が存在することは、その項目を表示する理由にならない。次のような自動対応を避ける。
+正当な理由があれば、その表現を採用してよい。「定番の見た目」は欠陥ではない。デザイン判断を伴わず既定形へ流れることが欠陥である。
 
-- featureの数だけ同じ強さのcardsを作る
-- backend/data modelや組織図をそのままnavigation構造にする
-- 「Webサイト」からhero → feature grid → testimonials → CTAを先に選ぶ
-- 「MV」からtransition/presetの列を作り、その間にmessageを流し込む
-- 実在referenceの外観を、referenceが解いていた問題を理解せず移植する
-- ユーザーが指定した素材を、必要性や優先度を判断せず均等に並べる
-- 複数の見た目のvariantだけを作り、内容や体験の違いを検討したことにする
+## 2. Establish the purpose, not an invented persona
 
-これは特定のcomponentや表現を禁止するものではない。選んだ構造が目的に適していれば使ってよい。
+実際のuser request、product、既存asset / content、関係者が知り得る観察結果を読む。**誰がどんな場面で触れ／見るのか、何を理解・実行・比較・感じる必要があるのか**を特定する。
 
-## 2. Frame — 誰にとって、何が成立すべきか
+- 明示された目的、客観的制約、仮説を区別する
+- 見る人の行動の具体例 / viewing situationをひとつは考え、設計上の帰結を確認する。根拠のない属性や架空のユーザー調査は作らない
+- 作品の目的が感情、視覚的な発見、余韻そのものなら、作業効率やCVRに言い換えない
+- 明確な再現・狭い修正・承認済み仕様では、目的や構造を勝手に再定義しない
 
-制作前に、current project/user request/actual content/constraintsから次を決める。
+## 3. Select and structure before layout
 
-- **Audience** — 誰が、どんな状況で見る・触る・読む・聴くか。利用者と依頼者が異なる場合は区別する
-- **Purpose** — 成功後、相手の理解・判断・行動・感情・記憶・鑑賞体験にどんな変化が生じるか
-- **Situation** — 何を知っていて、何に困り、何を期待し、どの媒体/時間/距離/入力環境にいるか
-- **Constraints** — 正確性、既存brand、機能、素材、accessibility、技術/配布上の条件
-- **Evidence and uncertainty** — 明示された目的と観察できる証拠を、agentが推測した動機や利用者像から区別する
+情報・操作・証拠・素材・音・動き・空間のうち、目的に必要なものを選び直す。
 
-目的を「登録率」「クリック数」へ機械的に置き換えない。expressiveな作品では、視覚的な魅力、違和感、遊び、余韻、運動感や感情の推移**そのもの**が目的になりうる。
+- **Must**: これが欠ければ意味、判断、機能、表現が成立しないもの
+- **Supporting**: 理解、信頼、比較、リズムを支えるもの
+- **Optional / remove**: 内部都合、重複、惰性、未検証のclaim
+- **Missing**: 成果物に必要だが現時点の材料にないもの。見た目で隠さず、確認・調査・制作を検討する
 
-必要な情報が存在しない場合は調査・観察を優先する。重大なproduct/brandの判断を架空のユーザー調査や事実で埋めない。可逆的な判断なら仮説として進め、成立を確かめる。
+その後に、見る順序、操作の経路、sceneの展開、主従、比較、情報の密度、意図的な空白を構成する。順序は仕様書や調査ログに従う必要はない。
 
-## 3. Select — 何を使い、何を作らないか
+## 4. Commit to a consequential design decision
 
-Frameを根拠に、情報、操作、image、text、figure、state、motion、scene、beatを必要なroleへ割り当てる。
+本質的な方向性が未確定であれば、実装前に**成果物の質を最も左右する設計上の仮説／選択**を明確にする。立派な名前や一行のキャッチコピーを作ることが目的ではない。
 
-- 見た人が最初に認識すべきものは何か
-- 理解・比較・選択・鑑賞を進めるため、次に何が必要か
-- 示せる根拠・デモ・素材は何か。新しく調べる/作る必要はあるか
-- detailはどこに必要で、どこには不要か
-- contentが不足している箇所を、decorative placeholderや架空のbenefitで埋めていないか
-- 情報を削ることで誤解や機能欠落が生じないか
-- 相手にとって不要な情報、agentの作業履歴、内部事情を混ぜていないか
+判断を確かめる質問:
 
-削減やミニマル化自体を成功としない。重要な内容を増やす、言葉を変える、見せる順番を変える、別の形式にする、あえて空間や時間を使う方がよい場合がある。
+1. この成果物で、**何を特に大事に扱うか**。その根拠はどの観察・user need・表現目的か
+2. それによって**情報、体験、構成、視覚表現が何に変わるか**
+3. 何が相対的に弱く／遅く／少なくなるか。トレードオフがあれば、どの制約内で許容するか
+4. 実物のどの差や反応によって、その判断を確かめるか
 
-## 4. Structure — 情報・行動・体験を構成する
+実際にない犠牲を捏造しない。単一の奇抜な仕掛けを強制しない。単純で習熟しやすい構成を選ぶことも有効な判断であり得る。複数の判断が必要な複合成果物なら無理に一文へ圧縮しない。
 
-既製layout/templateより先に、選んだ要素の関係を決める。媒体に応じて使う判断を変える。
+**Default-challenge**: 最初の案が「入力の順に標準componentへ入れただけ」「参照例の表層を写しただけ」に見える場合、別の情報・体験上の構造を少なくとも一つ仮説として試す。**差分が目的や体験に効く場合のみ**案として認める。色やradiusだけの変更、意外さだけが理由の案は不採用。標準案と比較し、優れていないなら標準案を選ぶ。
 
-- **UI / service**: real use case、開始条件、探す/理解する/決める/操作する/回復する順序、stateと情報の所在、重要操作の到達性
-- **Information / document / slide**: 主張と根拠、理解順序、比較対象、情報のかたまり、参照関係、読む/走査する/見せられる時間の違い
-- **Graphic / brand / poster**: 何が主役か、意味や感情を担う要素の関係、余白と密度、visual motif、意図的な意外性、視線と記憶
-- **Motion / video**: sceneの必然性、変化の理由、時間を通した関心の移動、強弱/hold、audio/visualの関係、余韻
+目的が未確定で、初期案へ固着する危険が大きい場合は、独立した構造仮説をcommitment前に比較する。routineな修正や強いhard constraintがある場合は探索を省略する。
 
-最初の案が要件の自然な写像に過ぎない場合は、構造の別解を検討する。ただし常に複数案や固定個数の案を強制しない。
+## 5. Express the decision, not a mood word
 
-全要素を等しいcard/scene/slideにする前に、役割に応じて**非対称な重要度**を許す。機能や情報が増えたときも、単純にgridへ追加するのではなく構造の妥当性を再評価する。
+referenceは**問題の把握・候補の発見・表現の選択の各段階**で使ってよい。早期のreferenceを正解テンプレートにせず、実際に何を解決しているのかを見抜く。
 
-## 5. Express — 意図を視覚的に成立させる
+`design-intent`はvisual directionを永続化する必要があるときの補助、`content-design`はUI文言とtask content、`visual-hierarchy`は重要度の視覚配分、domain Skillsは媒体固有の制作判断を担当する。このSkillはそれらの上流にあるpurpose/content/experienceの結び付きに責任を持つ。
 
-ここでrelevantな実在reference、current design system、domain Skillを観察・適用する。
+「洗練」「高級」「インパクト」だけをdesign conceptと呼ばない。何をどの関係・構成・時間表現で際立たせるのか決め、そのためのlayout / type / imagery / sound / motionを制作する。**魅力的かどうかは実際の成果物で評価する**。
 
-- referenceを特定の**問題・表現目的**に対する解として観察し、表層の見た目の模倣にしない
-- layout / typography / color / image / compositing / motion はそれぞれのdomain Skillで決定する
-- visual languageの一貫性だけでなく、必要な箇所での強弱、特徴、関心、驚き、感情の表現を考える
-- 人間に魅力的と感じられる理由を、無根拠な形容語だけでなく意図・構造・実物の効果に結び付けて説明できるようにする
-- 既存brandや作品固有の表現を保ち、特定font/gradient/shadow/形状の一般禁止で個性を潰さない
+## 6. Test delivered experience — without relying on the brief
 
-「機能が使える」「基準に適合する」だけでは十分ではない。一方で、美しく見えるからといって誤情報・重要機能の欠落を見逃さない。
+render / export / playbackした最終representationを検証する。sourceの正しさだけでは終わらない。
 
-## 6. Experience — briefなしで完成物を見る
+- **First encounter**: 可能ならbrief・内部仕様・正解意図を渡さない独立reviewerに、実物（UIの初期表示、実寸graphic、slide、motionなら再生映像）を見せる。「最初に気付くこと」「何のためのものに見えるか」「興味・次の行動・印象」を自由回答してもらう。利用環境に関する最低限の情報は与えてよい
+- **After reveal**: その後に対象者・目的・制約を提示し、目的との適合性、実際のtask / interaction、視覚・時間的な魅力、誤解・欠落を別途確認する。first impressionと適合性は異なる評価
+- **Without independent reviewer**: 自己検査と明示し、独立cold readができたと主張しない。スクリーンショットだけではscroll / interaction / animationは検証できないので、必要なstateと時間変化も確認する
+- **Repair upstream**: 目的の誤読 → purpose、材料不足 → selection、理解順や体験の不成立 → structure / commitment、意図が視覚表現で伝わらない → expressionに戻る。意味の欠陥をpadding / effectsだけで修正しない
 
-render / export / playbackした**delivered artifact**を、元のrequestや制作者の意図を知らない人が体験するものとして観察する。
+機械lintはoverflow・欠落・アクセシビリティ等の客観的問題の**検出補助**にする。カードの個数・特定font・特定装飾の有無を、美観や独自性の合否にしない。
 
-1. 相手は最初に何を認識し、次に何を見る・行う・感じるか。想定と一致するか
-2. 必要な情報/操作/表現は存在するか。内容が欠けているのに装飾で補っていないか
-3. 内容・構造・表現のどこが価値を生んでいるか。理解/操作/感情/関心に意味のある差があるか
-4. 安易な均等配置、冗長な導線、無目的なmotion、気の利かないcopy等が成果物の価値を損なっていないか
-5. **視覚・時間的な魅力そのもの**は成立しているか。整合性・lint passのみを成果の証拠にしていないか
-6. audienceやbrandが違う場合、同じ表現で本当に成立するか。少数の具体的なcounterexampleを想像/検証する
+## Proportionality and evidence
 
-失敗の原因に応じて戻る:
+全projectに新しいbrief、persona、複数案、subagent、審査書類を強制しない。小さな修正は既存仕様との整合性を優先する。深い探索は、purpose/structureの不確実性や変更影響が大きいときに実施する。
 
-- 内容や根拠の不足 → **Select**（必要なら調査）
-- 対象者・目的の解釈違い → **Frame**
-- 導線/順序/情報の関係が不合理 → **Structure**
-- 適切な構造が、見た目・可読性・動きとして伝わらない → **Express**
+この候補の有効性は未実証。baselineと同条件で、**内容の選択、情報設計、結果を左右する判断、最終的な魅力と使いやすさ**が改善したかを実成果物で比較してからpromoteする。検出器の警告数が減ったことだけで成功にしない。
 
-spacing/polishを繰り返しても上流の失敗は直らない。検証可能なものは実ユーザー/観客の反応や利用状況で確かめ、agentの想像だけで成功と断定しない。
+## Research references
 
-## 7. Scope / coexistence / proportionality
-
-これは新しい必須deliverable/templateを増やすSkillではない。必要な判断は内部working notesでもよく、巨大な`DESIGN-BRIEF.md`やpersonaを都度生成しない。小規模修正や確定したデザインの再現では既存要件の保持を優先し、Frame/Select/Structureの確認は短くしてよい。
-
-- `design-intent`: 未確定のproject visual directionとbriefを扱う。`design-discipline`はその前に何を成立させるかを定める
-- `content-design`: UI/serviceに必要なtext/contentの詳細を担当する
-- `visual-hierarchy`: 決まった重要度をvisual channelsへ割り当てる
-- `layout-system` / `slide-design` / `poster-design` / `motion-design`等: 媒体固有の構成/実装を担う
-- `writing-discipline`: proseの生成規則を担い、graphic semantics全体の代替にはしない
-
-これは**思考の順序を守る原則**であり、一本道の工程表ではない。実物の検証からFrame/Select/Structureへ繰り返し戻る。
-
-## References
-
-- [Design Council — The Double Diamond](https://www.designcouncil.org.uk/resources/the-double-diamond/) — 課題を探索/再定義してからsolutionへ進むこと、非線形に検証することを観察。fixed ceremonyにはしない
-- [GOV.UK — Government Design Principles](https://www.gov.uk/guidance/government-design-principles) — user needs、context、service outcomeを優先する判断。artwork全般へのtask-first規則としては適用しない
-- [AIGA — Design Process](https://www.aiga.org/sites/default/files/2021-03/3A_DesignProcess_Introduction.pdf) — graphic designを視覚的なcommunication problemとして捉える。対象/目的とvisual expressionの関係を見る
-- [NN/g — Aesthetic-Usability Effect](https://www.nngroup.com/articles/aesthetic-usability-effect/) — attractivenessがperceived usabilityに作用することと、utility defectを隠しうることを分けて評価する
-
-## Candidate status
-
-Research-backed proposal. This Skill has **not** passed real-artifact paired trials; do not promote it to released foundation until actual comparisons and cold-audience review are recorded under the tracking Issue.
+- [Design Council — Double Diamond](https://www.designcouncil.org.uk/resources/the-double-diamond/) — 問題の捉え直しと異なる解の探索。固定工程へ変換しない
+- [Dow et al., Parallel Prototyping (2010)](https://doi.org/10.1145/1879831.1879836) — 初期案へ固定しない並行prototypingの実験。あらゆるartworkへの外挿はしない
+- [Jansson & Smith, Design Fixation (1991)](https://doi.org/10.1016/0142-694X%2891%2990003-F) — 例や初期案への無自覚な固着を避ける
+- [GOV.UK — Design Principles](https://www.gov.uk/guidance/government-design-principles) — service use caseの参考。expressive artの目的には置き換えない
+- [NN/g — Aesthetic-Usability Effect](https://www.nngroup.com/articles/aesthetic-usability-effect/) — 見た目の魅力と機能評価を別々に扱う
