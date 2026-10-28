@@ -3,15 +3,16 @@ name: design-discipline
 description: >
   Use before generating or substantially redesigning a 2D visual artifact, UI, graphic, document,
   or motion piece. Reconstructs the audience's problem and desired experience before selecting
-  content, challenges default structures, commits to evidence-grounded design decisions, and
-  tests the delivered work instead of merely polishing generated patterns.
+  content, explores off-default options by making them rather than ranking them in words, commits
+  to evidence-grounded design decisions, and tests the delivered work instead of merely polishing
+  generated patterns.
 ---
 
 # Design Discipline
 
 **Designは要件・素材・内部データ構造をそのまま視覚化する作業ではない。** 与えられた情報をカードやsceneに移し、referenceに似せて磨くだけでは、きれいでも何も考えられていない成果物になり得る。
 
-> Purpose → Select → Structure → Commit → Express → Test the experience
+> Purpose → Select → Structure → Explore by making → Commit → Express → Test the experience
 
 これは固定の工程表でも新しい出力テンプレートでもない。実際に変えるべきなのは、**配置を始める前に何を成立させるかを考え、結果を左右する判断を下すこと**。成果物の魅力を「AIらしい表現の除去」「チェック項目の合格」へ還元しない。
 
@@ -35,6 +36,7 @@ description: >
 - 明示された目的、客観的制約、仮説を区別する
 - 見る人の行動の具体例 / viewing situationをひとつは考え、設計上の帰結を確認する。根拠のない属性や架空のユーザー調査は作らない
 - 作品の目的が感情、視覚的な発見、余韻そのものなら、作業効率やCVRに言い換えない
+- 視覚の質を上げることが、目的に最も効く手段とは限らない。成果物が何と並べて比較されるかによっては、整っていることは前提にすぎず、何を言うか・どの形式で出すかが結果を決める。見た目を磨く前に、どこで判断が動くのかを考える
 - 明確な再現・狭い修正・承認済み仕様では、目的や構造を勝手に再定義しない
 
 ## 3. Select and structure before layout
@@ -48,28 +50,28 @@ description: >
 
 その後に、見る順序、操作の経路、sceneの展開、主従、比較、情報の密度、意図的な空白を構成する。順序は仕様書や調査ログに従う必要はない。
 
-## 4. Commit to a consequential design decision
+## 4. Do not discard off-default options in words
+
+最初の案が「入力の順に標準componentへ入れただけ」「参照例の表層を写しただけ」に見える場合、別の構造を試す。色やradiusだけの違いは別の案として数えない。
+
+既定から大きく外れた案ほど、今の評価基準では価値が見えない。「意外なだけ」「目的に効くか分からない」と**言葉の段階で採点して捨てると、何度探索しても最初の案の近くへ戻る。** 探索を、良い候補を増やすことではなく、悪く見える案にいったん留まることとして扱う。
+
+- **作ってから判断する。** thumbnail、wireframe、一枚のrender、短いplaybackなど、最も安い形で実物にして見る。視覚的・時間的な価値は記述には現れず、実物を並べて初めて分かることが多い
+- **実物から出た問いで作り直す。** 見て気付いたこと、予想と違ったことを一つ取り出し、そこから次の案を作る。最初の評価基準のまま採点し直さない
+- **評価軸そのものが問われているなら、agentが選ばない。** 選択が成果物の受け取られ方を大きく変える場合は、標準案と並べてuserへ示す。agentが自分なら捨てる案ほど、捨てずに見せる価値がある
+- **何も生まれなければ、そう言う。** 実物にしても新しい問いや差が出なければ、標準案を選んでよい。無理に意味を見いださない
+
+routineな修正、承認済み仕様の再現、強いhard constraintがある場合は探索を省略する。既存の延長にない発想そのものを求められた場合は、`idea-discovery` Skillが導入されていればそれを使う。
+
+## 5. Commit to a consequential design decision
 
 本質的な方向性が未確定であれば、実装前に**成果物の質を最も左右する設計上の仮説／選択**を明確にする。立派な名前や一行のキャッチコピーを作ることが目的ではない。
 
-判断の着想を一般的なstyle labelから始めない。材料を見て、**どこに決定的な差や衝突があるか**を探す。たとえば、最も重要なのに伝わっていない価値、互いに競合するuser needs、最初の数秒で生まれる誤解、素材固有の形・時間・比喩、あえて説明しないことで生まれる感情など。そこから「この関係を変えたら体験がどう変わるか」という仮説を作る。何も見つからなければ作為的な特徴を発明せず、確かな構造を選ぶ。
+判断の着想を一般的なstyle labelから始めない。材料と、前節で実物にした案があればそれを見て、**どこに決定的な差や衝突があるか**を探す。たとえば、最も重要なのに伝わっていない価値、互いに競合するuser needs、最初の数秒で生まれる誤解、素材固有の形・時間・比喩、あえて説明しないことで生まれる感情など。
 
-可能なら実装コストの低いoutline / wireframe / thumbnail / storyboardで重要な判断を可視化して比較する。言葉だけのconceptは完成物に変化を生む証拠にならない。
+判断を下したら、**何を特に大事に扱い、それによって情報・体験・構成・視覚表現の何が変わるか**を、根拠となる観察と一緒に言えるようにする。相対的に弱く／遅く／少なくなるものがあれば、それも把握する。実際にない犠牲を捏造しない。単純で習熟しやすい構成を選ぶことも有効な判断であり得る。複数の判断が必要な複合成果物なら無理に一文へ圧縮しない。
 
-判断を確かめる質問:
-
-1. この成果物で、**何を特に大事に扱うか**。その根拠はどの観察・user need・表現目的か
-2. それによって**情報、体験、構成、視覚表現が何に変わるか**
-3. 何が相対的に弱く／遅く／少なくなるか。トレードオフがあれば、どの制約内で許容するか
-4. 実物のどの差や反応によって、その判断を確かめるか
-
-実際にない犠牲を捏造しない。単一の奇抜な仕掛けを強制しない。単純で習熟しやすい構成を選ぶことも有効な判断であり得る。複数の判断が必要な複合成果物なら無理に一文へ圧縮しない。
-
-**Default-challenge**: 最初の案が「入力の順に標準componentへ入れただけ」「参照例の表層を写しただけ」に見える場合、別の情報・体験上の構造を少なくとも一つ仮説として試す。**差分が目的や体験に効く場合のみ**案として認める。色やradiusだけの変更、意外さだけが理由の案は不採用。標準案と比較し、優れていないなら標準案を選ぶ。
-
-目的が未確定で、初期案へ固着する危険が大きい場合は、独立した構造仮説をcommitment前に比較する。routineな修正や強いhard constraintがある場合は探索を省略する。
-
-## 5. Express the decision, not a mood word
+## 6. Express the decision, not a mood word
 
 referenceは**問題の把握・候補の発見・表現の選択の各段階**で使ってよい。早期のreferenceを正解テンプレートにせず、実際に何を解決しているのかを見抜く。
 
@@ -77,14 +79,14 @@ referenceは**問題の把握・候補の発見・表現の選択の各段階**�
 
 「洗練」「高級」「インパクト」だけをdesign conceptと呼ばない。何をどの関係・構成・時間表現で際立たせるのか決め、そのためのlayout / type / imagery / sound / motionを制作する。**魅力的かどうかは実際の成果物で評価する**。
 
-## 6. Test delivered experience — without relying on the brief
+## 7. Test delivered experience — without relying on the brief
 
 render / export / playbackした最終representationを検証する。sourceの正しさだけでは終わらない。
 
-- **First encounter**: 可能ならbrief・内部仕様・正解意図を渡さない独立reviewerに、実物（UIの初期表示、実寸graphic、slide、motionなら再生映像）を見せる。「最初に気付くこと」「何のためのものに見えるか」「興味・次の行動・印象」を自由回答してもらう。利用環境に関する最低限の情報は与えてよい
+- **First encounter**: 可能ならbrief・内部仕様・正解意図を渡さない独立reviewerに、実物（UIの初期表示、実寸graphic、slide、motionなら再生映像）を見せる。「最初に気付くこと」「何のためのものに見えるか」「興味・次の行動・印象」を自由回答してもらう。reviewerの役割は良否の判定ではなく、作り手には見えなくなった性質の報告である。利用環境に関する最低限の情報は与えてよい
 - **After reveal**: その後に対象者・目的・制約を提示し、目的との適合性、実際のtask / interaction、視覚・時間的な魅力、誤解・欠落を別途確認する。first impressionと適合性は異なる評価
 - **Without independent reviewer**: 自己検査と明示し、独立cold readができたと主張しない。スクリーンショットだけではscroll / interaction / animationは検証できないので、必要なstateと時間変化も確認する
-- **Repair upstream**: 目的の誤読 → purpose、材料不足 → selection、理解順や体験の不成立 → structure / commitment、意図が視覚表現で伝わらない → expressionに戻る。意味の欠陥をpadding / effectsだけで修正しない
+- **Repair upstream**: 目的の誤読 → purpose、材料不足 → selection、理解順や体験の不成立 → structure / exploration / commitment、意図が視覚表現で伝わらない → expressionに戻る。意味の欠陥をpadding / effectsだけで修正しない
 
 機械lintはoverflow・欠落・アクセシビリティ等の客観的問題の**検出補助**にする。カードの個数・特定font・特定装飾の有無を、美観や独自性の合否にしない。
 
