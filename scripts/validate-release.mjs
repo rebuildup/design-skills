@@ -41,9 +41,9 @@ function normalizeExternalUrl(url) {
   return url.replace(/[.,;:!?]+$/g, '');
 }
 
-const manifestPath = path.join(root, 'docs/release-status-v0.3.0.json');
+const manifestPath = path.join(root, 'docs/release-status-v0.4.0.json');
 const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
-if (manifest.release !== '0.3.0') errors.push(`release manifest version is ${manifest.release}, expected 0.3.0`);
+if (manifest.release !== '0.4.0') errors.push(`release manifest version is ${manifest.release}, expected 0.4.0`);
 
 const skillDirents = await readdir(path.join(root, 'skills'), { withFileTypes: true });
 const skillNames = skillDirents.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
@@ -131,7 +131,7 @@ if (externalMode) {
       redirect: 'follow',
       signal: AbortSignal.timeout(8000),
       headers: {
-        'user-agent': 'design-skills-release-link-check/0.3.0',
+        'user-agent': 'design-skills-release-link-check/0.4.0',
         ...(method === 'GET' ? { range: 'bytes=0-0' } : {}),
       },
     });
