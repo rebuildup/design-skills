@@ -1,0 +1,54 @@
+name: One-time prune of fully merged branches
+
+on:
+  push:
+    branches: [release-0-5-0]
+    paths:
+      - .github/workflows/prune-merged-branches-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  prune:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Delete only unchanged branches fully incorporated in main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          while read -r branch expected; do
+            [[ -n "$branch" ]] || continue
+            current="$(gh api "repos/$GITHUB_REPOSITORY/branches/$branch" --jq '.commit.sha')"
+            if [[ "$current" != "$expected" ]]; then
+              echo "SKIP $branch: changed head ($current != $expected)"
+              continue
+            fi
+            ahead="$(gh api "repos/$GITHUB_REPOSITORY/compare/main...$branch" --jq '.ahead_by')"
+            if [[ "$ahead" != "0" ]]; then
+              echo "SKIP $branch: $ahead unmerged commits"
+              continue
+            fi
+            if gh api --method DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$branch"; then
+              echo "DELETED $branch @ $expected"
+            else
+              echo "FAILED $branch (e.g. protected branch)"
+            fi
+          done <<'EXPECTED'
+          29 215e41c7c3cd697338bfb137f8d801f0e715185f
+          43 efe5a2580726404834d726d70d2f195284de850d
+          47 b0c77456b1f697bcfe92feb121263f0ad94f5e65
+          49 b0c77456b1f697bcfe92feb121263f0ad94f5e65
+          57 c22683a924d5908b01bac670d58ecdbff82c6022
+          75 c22683a924d5908b01bac670d58ecdbff82c6022
+          77 e37370766285c5f7d2955f644179ca0f1324b392
+          81 c22683a924d5908b01bac670d58ecdbff82c6022
+          83 c22683a924d5908b01bac670d58ecdbff82c6022
+          undefined 446755ea1e01d51a765e8e0698305a0352024608
+          176 082e2b9144365e464b5c09e422fca6fb17db55f2
+          release-0-4-0 84ecf8f6a3964be0bf190abb6692e5fc1bba3459
+          release-0-4-1 8aef94b97fcbd3be25cf3a54b9d6bbedfbac6fb4
+          EXPECTED
