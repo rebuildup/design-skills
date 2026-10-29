@@ -71,7 +71,7 @@ Spectrum pages below are established Spectrum guidance retained as design eviden
   - Useful for: action-hierarchy and salience-competition inspection.
   - Avoid copying: exact variant count, color, size, or button styling as a universal system.
 
-- [Action button](https://spectrum.adobe.com/page/action-button/)
+- [Action button](https://spectrum.adobe.com/web/rsp/components/action-button)
   - Observe: dense application panelsでは default emphasis を抑え、core interaction / selected state だけ prominence を上げる考え方。
   - Useful for: professional-tool surfaces where controls can overpower content.
   - Avoid copying: blue selection styling or specific size vocabulary.

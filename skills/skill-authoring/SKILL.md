@@ -270,6 +270,17 @@ Skill化する前に確認する。
 
 条件を満たせなければ、無理にSkillを書かず candidate / research Issue のまま残す。
 
+## 8.5. Evaluate substantive improvements against actual artifacts
+
+他のAgent Skillから手法を借りる場合、または既存Skillの実行行動を大きく変える場合は、最初に改善仮説と、減るはずの具体的failureを定める。
+
+- [Skill improvement evaluation protocol](./references/evaluation-protocol.md)に従い、必要に応じて`no-skill` / `current` / `candidate`を同条件のheld-out briefで比較する
+- 生成過程の説明だけでなく、render / export / playbackした成果物、functional regression、human/independent critiqueとcostを残す
+- deterministicな問題の減少を、美観の向上と混同しない。styleごとのanti-pattern ruleはbrand / intentに基づく正当な例外を許す
+- ベンチマークを新規Skillの機械的な昇格閾値にしない。実物で改善が確認できない場合は`insufficient evidence`として研究に戻す
+
+これは小さなreference/wording修正のたびに大規模evalを要求するものではない。調査済みの小さなSkillを作る原則と、real-artifact trialのpromotion gateは維持する。
+
 ## 9. Promotion from research Issue
 
 Issueの候補をSkill化するときは、全候補を一括実装しない。

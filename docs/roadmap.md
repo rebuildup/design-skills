@@ -1,5 +1,16 @@
 # Roadmap
 
+## Current release — v0.4.0
+
+- Source: `release-0-4-0`; target: `main`
+- Previous published release: `v0.3.0`
+- Scope: the October 2026 comparative design-agent research and reusable real-artifact evaluation protocol from #169, plus release metadata and verification updates
+- Published Skill inventory: 82 existing Skills; existing `stable` / `experimental` / `trial-pending` classifications are retained without promotion
+- Excluded from this release: #164 (outdated project-init 0.3.0 reconciliation requiring a current-baseline rewrite) and #171 (proposed `design-discipline` pending paired real-artifact and independent evaluation). These remain Draft PRs, not a claim of validated improvements
+- v0.4.0 shipping classification: `docs/release-status-v0.4.0.json`
+
+The research/protocol release does **not** claim improved generated design quality. Candidate promotion requires observed artifact evidence.
+
 この repository は **v0.3.0 の release surface を安定スナップショットとして固定**する。
 
 公開 Skill の canonical inventory は `bunx skills add rebuildup/design-skills --list` とし、個別 Skill の実行方針・reference・verification は各 `skills/*/SKILL.md` とその `references/` を source of truth とする。
