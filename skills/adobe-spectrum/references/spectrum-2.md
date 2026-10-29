@@ -8,7 +8,7 @@ Spectrum は version-sensitive な design system なので、exact token / compo
 
 ## Current Spectrum 2 direction
 
-- [Spectrum 2 — Adobe](https://s2.spectrum.adobe.com/index.html)
+- [Spectrum 2 — Adobe](https://spectrum.adobe.com/getting-started/principles)
   - Observe: Rational / Human / Focused / Collaborative の system direction、cross-platform adaptation、accessibility / personalization、professional tool と approachable expression の両立。
   - Useful for: Spectrum 2 を単なる visual refresh ではなく system evolution として理解する。
   - Avoid copying: promotional illustration、Adobe brand asset、具体的な mockup appearance。
