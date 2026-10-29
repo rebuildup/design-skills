@@ -17,6 +17,17 @@
 - license が明確か
 - own skill と責務が重複しすぎないか
 
+## October 2026 comparative review
+
+2026-10-28 に再評価した external projects の一次資料・適用境界・trial hypotheses:
+
+- [Design-agent Skills 調査 — 2026-10-28](./research/design-skills-2026-10.md)
+- [Artifact-based Skill evaluation protocol](../skills/skill-authoring/references/evaluation-protocol.md)
+
+追加で確認したproject: [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)、[Nutlope/hallmark](https://github.com/Nutlope/hallmark)、[garrytan/gstack](https://github.com/garrytan/gstack)、[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)。既存の`senlindesign/taste-skill`とは別repoである。
+
+この再評価で採用するのは、baselineとの比較、条件付きdesign divergence、bounded artifact feedback、optional deterministic adapterの調査方針であって、upstreamの固定palette・theme・anti-template blacklistを共通原則へ追加することではない。**候補の制作性能は未検証**であり、research記録をfirst-class Skill採用の根拠にしてはいけない。
+
 ## Vendored / adapted into this repository
 
 ### dawitlabs/ui-skills
