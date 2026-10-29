@@ -2,12 +2,19 @@ import { access, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
-const allowedStatuses = new Set(['stable', 'experimental', 'trial-pending']);
-const externalMode = process.argv.includes('--external');
-const errors = [];
-const warnings = [];
+type ShippingStatus = 'stable' | 'experimental' | 'trial-pending';
+type ShippingManifest = {
+  release: string;
+  skills: Record<string, ShippingStatus>;
+};
+type RequestMethod = 'HEAD' | 'GET';
 
-async function exists(target) {
+const allowedStatuses = new Set<ShippingStatus>(['stable', 'experimental', 'trial-pending']);
+const externalMode = process.argv.includes('--external');
+const errors: string[] = [];
+const warnings: string[] = [];
+
+async function exists(target: string): Promise<boolean> {
   try {
     await access(target);
     return true;
@@ -16,9 +23,9 @@ async function exists(target) {
   }
 }
 
-async function walk(dir) {
+async function walk(dir: string): Promise<string[]> {
   const entries = await readdir(dir, { withFileTypes: true });
-  const files = [];
+  const files: string[] = [];
   for (const entry of entries) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) files.push(...await walk(full));
@@ -27,23 +34,23 @@ async function walk(dir) {
   return files;
 }
 
-function relative(file) {
+function relative(file: string): string {
   return path.relative(root, file).split(path.sep).join('/');
 }
 
-function stripFencedCode(content) {
+function stripFencedCode(content: string): string {
   return content
     .replace(/^```[^\n]*\n[\s\S]*?^```\s*$/gm, '')
     .replace(/^~~~[^\n]*\n[\s\S]*?^~~~\s*$/gm, '');
 }
 
-function normalizeExternalUrl(url) {
+function normalizeExternalUrl(url: string): string {
   return url.replace(/[.,;:!?]+$/g, '');
 }
 
-const manifestPath = path.join(root, 'docs/release-status-v0.4.0.json');
-const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
-if (manifest.release !== '0.4.0') errors.push(`release manifest version is ${manifest.release}, expected 0.4.0`);
+const manifestPath = path.join(root, 'docs/release-status-v0.4.1.json');
+const manifest = JSON.parse(await readFile(manifestPath, 'utf8')) as ShippingManifest;
+if (manifest.release !== '0.4.1') errors.push(`release manifest version is ${manifest.release}, expected 0.4.1`);
 
 const skillDirents = await readdir(path.join(root, 'skills'), { withFileTypes: true });
 const skillNames = skillDirents.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
@@ -76,7 +83,7 @@ for (const name of skillNames) {
 }
 
 const markdownFiles = (await walk(root)).filter((file) => file.endsWith('.md') && !file.includes(`${path.sep}.git${path.sep}`));
-const externalUrls = new Set();
+const externalUrls = new Set<string>();
 for (const file of markdownFiles) {
   const content = stripFencedCode(await readFile(file, 'utf8'));
   const fileLabel = relative(file);
@@ -112,7 +119,7 @@ for (const file of markdownFiles) {
   }
 }
 
-const statusCounts = Object.values(manifest.skills).reduce((acc, status) => {
+const statusCounts = Object.values(manifest.skills).reduce<Partial<Record<ShippingStatus, number>>>((acc, status) => {
   acc[status] = (acc[status] ?? 0) + 1;
   return acc;
 }, {});
@@ -123,24 +130,24 @@ console.log(`External links discovered: ${externalUrls.size}`);
 
 if (externalMode) {
   const urls = [...externalUrls];
-  const explicitBroken = [];
-  const restricted = [];
-  const transient = [];
+  const explicitBroken: string[] = [];
+  const restricted: string[] = [];
+  const transient: string[] = [];
   let cursor = 0;
 
-  async function request(url, method) {
+  async function request(url: string, method: RequestMethod): Promise<Response> {
     return fetch(url, {
       method,
       redirect: 'follow',
       signal: AbortSignal.timeout(8000),
       headers: {
-        'user-agent': 'design-skills-release-link-check/0.4.0',
+        'user-agent': 'design-skills-release-link-check/0.4.1',
         ...(method === 'GET' ? { range: 'bytes=0-0' } : {}),
       },
     });
   }
 
-  async function worker() {
+  async function worker(): Promise<void> {
     while (cursor < urls.length) {
       const url = urls[cursor++];
       let response;
