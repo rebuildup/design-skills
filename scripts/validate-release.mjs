@@ -102,7 +102,10 @@ for (const file of markdownFiles) {
     if (!await exists(resolved)) errors.push(`${fileLabel}: broken relative markdown link -> ${target}`);
   }
 
-  for (const match of content.matchAll(/https?:\/\/[^\s<>"'`]+/g)) {
+  // Destinations were already collected above. Strip Markdown links before scanning bare URLs,
+  // so adjacent Japanese prose or punctuation never becomes part of a URL.
+  const bareUrlContent = content.replace(/!?\[[^\]]*\]\([^)]+\)/g, '');
+  for (const match of bareUrlContent.matchAll(/https?:\/\/[^\s<>"'`\]\)。、]+/g)) {
     let url = normalizeExternalUrl(match[0]);
     while (url.endsWith(')') && (url.match(/\(/g)?.length ?? 0) < (url.match(/\)/g)?.length ?? 0)) url = url.slice(0, -1);
     externalUrls.add(url);
