@@ -3,7 +3,7 @@ name: release-final-gate
 on:
   push:
     branches:
-      - release-0-3-0
+      - 'release-*'
   pull_request:
     branches:
       - main
@@ -29,10 +29,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: '22'
+          node-version: '22.18.0'
 
       - name: Validate release surface and local markdown
-        run: node scripts/validate-release.mjs
+        run: node scripts/validate-release.mts
 
       - name: Discover Skills from the checked-out release head
         shell: bash
@@ -69,4 +69,4 @@ jobs:
           echo "Validated $(wc -l < "$source_list") isolated Skill installs from $(git -C "$GITHUB_WORKSPACE" rev-parse HEAD)."
 
       - name: Sweep external reference links
-        run: node scripts/validate-release.mjs --external
+        run: node scripts/validate-release.mts --external
