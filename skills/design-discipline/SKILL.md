@@ -79,6 +79,15 @@ referenceは**問題の把握・候補の発見・表現の選択の各段階**�
 
 「洗練」「高級」「インパクト」だけをdesign conceptと呼ばない。何をどの関係・構成・時間表現で際立たせるのか決め、そのためのlayout / type / imagery / sound / motionを制作する。**魅力的かどうかは実際の成果物で評価する**。
 
+## UI surface repair — optional, downstream
+
+既存のUIをpolishする場合、または新規生成したUIがgeneric / 不統一に見える場合は、[UI craft review](./references/ui-craft-review.md)を使い、**画面を実際に見て問題箇所を特定してから**変更する。AI生成物らしい装飾の有無だけで、品質を断定しない。
+
+- 問題がなければ変更しない。局所的な問題だけなら既存のbrand・構造・意図を保って最小修正する
+- 意味や情報の選択が間違っていれば表面的な修正に入らず、Purpose / Select / Structureへ戻る
+- 表面的な問題なら、観察した箇所と影響を特定し、依存関係に沿って修正して再表示する。見た目を別の既定テンプレートへ置き換えない
+- token、motion、content、visual hierarchyなどの詳細は専門Skillに任せる。固定px値・配色・装飾禁止を全2Dの規範へ昇格させない
+
 ## 7. Test delivered experience — without relying on the brief
 
 render / export / playbackした最終representationを検証する。sourceの正しさだけでは終わらない。
@@ -103,3 +112,4 @@ render / export / playbackした最終representationを検証する。sourceの�
 - [Jansson & Smith, Design Fixation (1991)](https://doi.org/10.1016/0142-694X%2891%2990003-F) — 例や初期案への無自覚な固着を避ける
 - [GOV.UK — Design Principles](https://www.gov.uk/guidance/government-design-principles) — service use caseの参考。expressive artの目的には置き換えない
 - [NN/g — Aesthetic-Usability Effect](https://www.nngroup.com/articles/aesthetic-usability-effect/) — 見た目の魅力と機能評価を別々に扱う
+- [Damir Sokolovsky — unslop](https://github.com/heydamir/unslop) (CC BY 4.0) — UIの現物監査・段階的改善・製品固有性を保つアプローチ。具体的な数値・スタイル禁止は汎用ルールにしない
