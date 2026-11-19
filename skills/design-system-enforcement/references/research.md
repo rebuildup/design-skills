@@ -56,4 +56,4 @@ Status: trial-pending / method research. 本 repo の実プロジェクトでの
 
 実プロジェクトの **同一 component を変更する held-out tasks** で、baseline と candidate を比較する。shared component 拡張、既存 style の軽微修正、intentional exception を含む負例を使う。修正前後の違反の位置・実害、lint precision、例外の妥当性、修正工数、visual / functional regression を記録する。static warning 減少だけでは採用しない。
 
-既存の [skill-authoring evaluation protocol](../../../skill-authoring/references/evaluation-protocol.md) は repository 開発時の参考であり、この Skill 自体は単独 install で動作する。
+既存の [skill-authoring evaluation protocol](https://github.com/rebuildup/design-skills/blob/main/skills/skill-authoring/references/evaluation-protocol.md) は repository 開発時の参考であり、この Skill 自体は単独 install で動作する。
