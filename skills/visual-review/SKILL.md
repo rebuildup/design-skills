@@ -70,6 +70,15 @@ Evidence: before / after / crop / baseline links:
 
 「もっと polished」「点数が低い」は単独では修正 Issue にしない。好み、表現の違い、renderer 差を defect と断定しない。問題がなければ **no material finding** と報告し、変更を捏造しない。
 
+## Review routing and owner decisions
+
+静的な design system 契約は `design-system-enforcement`、primitive の設計は `ui-primitive-architecture` 相当の役割に分ける。AI reviewer は「発見と仮説」までとし、owner が明示した brand / product choice を model の多数決や score で上書きしない。T3 Code の [redesign PR #24865](https://github.com/pingdotgg/t3code/pull/24865) も council result とは別に維持する owner calls を記録し、大きな変更は off-by-default Beta toggle とした。
+
+- 細かな修正は self-check + narrow evidence を基本とし、毎回の human review gate にしない
+- 構造・ブランド等の未確定かつ consequential な選択だけ、安い実物で早い時点に人間へ判断材料を出す
+- 大規模で可逆的な変更は候補 / preview / feature flag を使い、必要な human acceptance を default-on / release 前へ集約する
+- 実際の権限境界と受入要件は current project を優先。`design-review-routing` 相当の review selection を用い、未実施の受入を pass としない
+
 ## 5. Repair, rerender, stop
 
 1. 大きな意味・導線・情報の欠陥があれば表層の polish で隠さず既存要件・設計判断へ返す

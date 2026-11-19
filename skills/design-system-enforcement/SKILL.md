@@ -34,6 +34,12 @@ description: >
 
 **静的ルールは検出できる性質だけを強制する。** 「code に直書き値がある」だけでは違反ではない。同じ値でも semantic role が異なり得る。
 
+## Responsibility boundary: decide before enforcing
+
+この Skill は **定義済みの contract を検査する**。どれを primitive にするか、`variant` と feature-local のどちらが適切かの設計そのものは `ui-primitive-architecture` 相当の検討を先に行う。新しい screen の UI 方向が決まらない段階で、他製品の primitive 一覧や暫定配置を lint で永久固定しない。
+
+shared component の contract に重大な product intent / brand の衝突が生じる場合、人間へ戻す前に既存 decision を読む。新たな承認や例外が必要なときの timing は `design-review-routing` 相当の判断に委ね、routine な variant choice の承認待ちを作らない。
+
 ## 3. Place the rule at its owner
 
 - **Tokens:** 色・space・type・radius・motion 等の意味論を canonical token source に置く。設計判断の昇格基準は repeated relationship / theme role であり、全値の token 化ではない
