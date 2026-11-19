@@ -50,6 +50,8 @@ bunx skills add rebuildup/design-skills --skill form-design
 bunx skills add rebuildup/design-skills --skill interaction-state
 bunx skills add rebuildup/design-skills --skill design-intent
 bunx skills add rebuildup/design-skills --skill token-audit
+bunx skills add rebuildup/design-skills --skill design-system-enforcement
+bunx skills add rebuildup/design-skills --skill visual-review
 bunx skills add rebuildup/design-skills --skill accessibility-audit
 bunx skills add rebuildup/design-skills --skill color-system
 bunx skills add rebuildup/design-skills --skill iconography-system
@@ -204,6 +206,16 @@ WAI-ARIA APG、Stately / XState、Martin Fowler の GUI architecture patterns �
 既存 UI の hardcoded values / token drift / semantic mismatch を監査し、primitive → semantic → component の層へ整理する Skill。
 
 単純に hardcoded value をゼロにするのではなく、repeated design decision だけを安定した token vocabulary に昇格します。
+
+### `design-system-enforcement` — trial-pending
+
+既存 Web / application UI における component ownership、token semantics、variant / slot の責務を観察し、明示された contract だけを lint / scoped review で強制する operation Skill。美観を機械判定したり、他プロジェクトの design language を無条件で導入したりしません。調査: [reference](./skills/design-system-enforcement/references/research.md)。
+
+### `visual-review` — trial-pending
+
+実表示の screenshot と比較可能な baseline を用いて、視覚的な defect・一貫性・目的適合を検証する operation Skill。independent critique / multi-model review は optional、点数は合格閾値にせず、functional・a11y・motion の検証と分けます。調査: [reference](./skills/visual-review/references/research.md)。
+
+両 Skill の効果はまだ held-out real-artifact trials で未実証であり、既存の [evaluation protocol](./skills/skill-authoring/references/evaluation-protocol.md) に沿って評価します。
 
 ### `accessibility-audit`
 
