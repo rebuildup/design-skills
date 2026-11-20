@@ -1,0 +1,36 @@
+name: One-time cleanup of accidental undefined ref
+
+on:
+  push:
+    branches: [release-0-5-0]
+    paths:
+      - .github/workflows/cleanup-undefined-ref-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Delete only the exact accidental branch without unmerged changes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch='undefined'
+          expected='218769fb24a038473bb454b188fcd7c7cd3fb6e9'
+          current="$(gh api "repos/$GITHUB_REPOSITORY/branches/$branch" --jq '.commit.sha')"
+          if [[ "$current" != "$expected" ]]; then
+            echo "::error::Ref changed: $current"
+            exit 1
+          fi
+          ahead="$(gh api "repos/$GITHUB_REPOSITORY/compare/release-0-5-0...$branch" --jq '.ahead_by')"
+          if [[ "$ahead" != '0' ]]; then
+            echo "::error::Ref has $ahead unique commits"
+            exit 1
+          fi
+          gh api --method DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$branch"
+          echo "Deleted $branch at $expected"
