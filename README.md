@@ -50,6 +50,10 @@ bunx skills add rebuildup/design-skills --skill form-design
 bunx skills add rebuildup/design-skills --skill interaction-state
 bunx skills add rebuildup/design-skills --skill design-intent
 bunx skills add rebuildup/design-skills --skill token-audit
+bunx skills add rebuildup/design-skills --skill design-system-enforcement
+bunx skills add rebuildup/design-skills --skill ui-primitive-architecture
+bunx skills add rebuildup/design-skills --skill design-review-routing
+bunx skills add rebuildup/design-skills --skill visual-review
 bunx skills add rebuildup/design-skills --skill accessibility-audit
 bunx skills add rebuildup/design-skills --skill color-system
 bunx skills add rebuildup/design-skills --skill iconography-system
@@ -204,6 +208,26 @@ WAI-ARIA APG、Stately / XState、Martin Fowler の GUI architecture patterns �
 既存 UI の hardcoded values / token drift / semantic mismatch を監査し、primitive → semantic → component の層へ整理する Skill。
 
 単純に hardcoded value をゼロにするのではなく、repeated design decision だけを安定した token vocabulary に昇格します。
+
+### `ui-primitive-architecture` — trial-pending
+
+T3 Code の `components/ui`、variant / size、slot / composition、feature-local control の区別から、project 固有の primitive vocabulary を設計する operation Skill。既存 component reuse → owner-level variant → composition → feature-local → new primitive の判断と、その state contract を扱います。[調査](./skills/ui-primitive-architecture/references/research.md)。
+
+### `design-review-routing` — trial-pending
+
+静的 check・AI / independent image review・人間による consequential design decision・release candidate acceptance を、影響 / 可逆性 / 費用に基づいて適切な時点へ振り分けます。**毎PRの人間承認を増やすのでなく、不要な review を剪定する**運用です。[調査](./skills/design-review-routing/references/research.md)。
+
+### `design-system-enforcement` — trial-pending
+
+既存 Web / application UI における component ownership、token semantics、variant / slot の責務を観察し、明示された contract だけを lint / scoped review で強制する operation Skill。美観を機械判定したり、他プロジェクトの design language を無条件で導入したりしません。調査: [reference](./skills/design-system-enforcement/references/research.md)。
+
+### `visual-review` — trial-pending
+
+実表示の screenshot と比較可能な baseline を用いて、視覚的な defect・一貫性・目的適合を検証する operation Skill。independent critique / multi-model review は optional、点数は合格閾値にせず、functional・a11y・motion の検証と分けます。調査: [reference](./skills/visual-review/references/research.md)。
+
+これら4 Skill の効果はまだ held-out real-artifact trials で未実証であり、既存の [evaluation protocol](./skills/skill-authoring/references/evaluation-protocol.md) に沿って評価します。
+
+**T3 Code に学ぶ運用の流れ:** representative screen / brand intent の観察 → primitive と例外の決定 → contract を source / lint に反映 → 変更範囲の最小十分な検証 → 変更影響に応じた画像・独立レビュー → 真に未確定な重大判断と RC 受入だけ人間へ。前提・目的の設計は既存の `design-intent` / `design-discipline`（trial）、token の意味・正規化は `token-audit` が担当し、それらを置き換えません。
 
 ### `accessibility-audit`
 
