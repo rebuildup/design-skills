@@ -13,7 +13,7 @@ version number・token value・control API を暗記して複製するために�
   - Useful for: 最初の freshness check と current information architecture の確認。
   - Avoid copying: product branding、UI kit asset、current visual values を unrelated product の default にすること。
 
-- [SAP Fiori Elements](https://www.sap.com/design-system/fiori-design-web/v1-151/discover/frameworks/sap-fiori-elements)
+- [SAP Fiori Elements](https://www.sap.com/design-system/fiori-design-web/v1-154/discover/frameworks/sap-fiori-elements)
   - Observe: current supported floorplan families, table/list guidance, analytical/overview entry points, current framework capability boundaries.
   - Useful for: floorplan / framework evidence が current か確認するとき。
   - Avoid copying: annotation/API configuration を design rule にすること。
