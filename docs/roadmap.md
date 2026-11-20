@@ -1,17 +1,18 @@
 # Roadmap
 
-## Current release — v0.4.0
+## Current release — v0.5.0
 
-- Source: `release-0-4-0`; target: `main`
-- Previous published release: `v0.3.0`
-- Scope: the October 2026 comparative design-agent research and reusable real-artifact evaluation protocol from #169, plus release metadata and verification updates
-- Published Skill inventory: 82 existing Skills; existing `stable` / `experimental` / `trial-pending` classifications are retained without promotion
-- Excluded from this release: #164 (outdated project-init 0.3.0 reconciliation requiring a current-baseline rewrite) and #171 (proposed `design-discipline` pending paired real-artifact and independent evaluation). These remain Draft PRs, not a claim of validated improvements
-- v0.4.0 shipping classification: `docs/release-status-v0.4.0.json`
+- Source: `release-0-5-0`; target: `main`
+- Previous published release: `v0.4.1`
+- Scope: user-directed consolidation of the purpose/experience design candidate (#170 / #171) and T3-informed UI operations (#182 / #183), plus v0.5.0 shipping metadata
+- Public Skill inventory: **87 Skills**, including five newly published **`trial-pending`** candidates: `design-discipline`, `ui-primitive-architecture`, `design-system-enforcement`, `visual-review`, `design-review-routing`
+- Existing 82 Skill maturity classifications are unchanged; no existing or new Skill is promoted to stable by this release
+- Excluded: outdated project-init reconciliation PR #164, universal project-init activation, forced per-ticket owner approval, and any claim that the new methods have proven visual-quality benefit
+- Shipping classification: `docs/release-status-v0.5.0.json`
 
-The research/protocol release does **not** claim improved generated design quality. Candidate promotion requires observed artifact evidence.
+**Evidence boundary:** The candidate Skills are available for opt-in experiments, but controlled real-artifact comparisons, cold/independent reviews, regressions, false-positive measurements, and human/time cost assessments remain incomplete. #170 and #182 remain open. The previous no-publication restriction is superseded only for explicit public `trial-pending` exposure at the owner's release request, not for evidence-backed promotion or default activation.
 
-この repository は **v0.3.0 の release surface を安定スナップショットとして固定**する。
+v0.4.1 preserved the previous 82-Skill shipping state and migrated the validator to native TypeScript. v0.4.0 introduced the real-artifact evaluation protocol. The v0.3.0 stable snapshot remains historical, not a prohibition on additional experimental publication.
 
 公開 Skill の canonical inventory は `bunx skills add rebuildup/design-skills --list` とし、個別 Skill の実行方針・reference・verification は各 `skills/*/SKILL.md` とその `references/` を source of truth とする。
 
