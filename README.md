@@ -48,6 +48,7 @@ bunx skills add rebuildup/design-skills --skill promotional-video
 bunx skills add rebuildup/design-skills --skill responsive-design
 bunx skills add rebuildup/design-skills --skill form-design
 bunx skills add rebuildup/design-skills --skill interaction-state
+bunx skills add rebuildup/design-skills --skill design-discipline
 bunx skills add rebuildup/design-skills --skill design-intent
 bunx skills add rebuildup/design-skills --skill token-audit
 bunx skills add rebuildup/design-skills --skill design-system-enforcement
@@ -196,6 +197,10 @@ Web / application UI を screenshot の集合ではなく observable state graph
 WAI-ARIA APG、Stately / XState、Martin Fowler の GUI architecture patterns を primary reference とし、rapid repeated input、conflicting input、stale async completion、focus restoration まで実 interaction で検証します。特定の state machine library や MVP / Passive View / Mediator architecture は強制しません。
 
 `motion-system` は valid な transition をどう動かすか、`interaction-state` は transition 自体がいつ有効で誰が state を裁定するかを担当します。
+
+### `design-discipline` — trial-pending
+
+要件や参考画面をそのまま並べず、目的・情報の選択・体験構造・具体的な設計判断を実際の成果物で検証する、2D全般の上流Skill。狭い修正や承認済み仕様の再現を勝手に再設計しません。品質改善の比較実証は未完了のため、明示的に採用する実験用途として公開します。
 
 ### `design-intent`
 
