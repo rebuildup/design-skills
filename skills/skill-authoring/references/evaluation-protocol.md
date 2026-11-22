@@ -40,6 +40,17 @@ Status: experimental / initial research, 2026-10-28. このprotocolは、新規S
 
 Anti-template detections（特定のgradient、font、カード構造、decorative pattern）は、ブランドや利用場面に即した説明があれば許容可能。hard floorに自動昇格しない。
 
+### Adversarial negative/positive controls（optional）
+
+AI にありがちな画面表層を扱う改善では、単に「既定の見た目」を避けたかではなく、**同じ visual motif が正当な条件でも通るか**を調べる。単一の satirical reference から全媒体に普遍的な禁止則を導かない。
+
+1. 同じ brief・情報・brand・表示条件で、内容に根拠のない表現が情報伝達を妨げる negative case と、その表現が意味・意図と整合する positive control を対にする。semantic claim の真偽を試す対は、外見だけの対と分離する
+2. current / candidate に **両方の対照例**を、評価者に判定期待値を明かさず提示する。絵柄や特定 class 名だけで拒否した件数と、意味の欠陥を見逃した件数を区別する
+3. 各 arm で `true positive / false positive / false negative / unknown` を記録し、根拠となる first-glance、task、state、viewport、claim の出典を残す。未知は negative と見なさない
+4. 反例への不当な修正、視覚的魅力の減退、product-specific expression の喪失を regression として残す。detector の警告件数が減っただけなら改善とはしない
+
+例: [Slopstrap](https://slopstrap.mikelacher.com/) は AI 風 UI の風刺例だが、その装飾を一律違反と判定する根拠ではない。実際の negative/positive case は対象領域に合った内容で新規に作る。
+
 ## Blind review and disagreement
 
 - 可能なら出力をランダムなIDにして、生成条件を隠した独立reviewerが比較する。source codeやテスト条件の情報が必要な検証では、visual blind reviewとは別工程にする。

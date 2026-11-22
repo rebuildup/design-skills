@@ -22,7 +22,7 @@
 - **System coherence:** 意味が同じなのに異なるtype / color / radius / icon treatment、用途が異なるのに同じtreatment
 - **Motion and interaction:** 理由のない反復運動、feedback不足、操作を妨げるanimation、focusやreduced-motionの欠落
 
-特定のgradient、emoji、font、pill、影、カード数だけで「悪い」と判定しない。それらが意図・ブランド・読みやすさ・操作・表現と衝突するかで判断する。
+特定のgradient、emoji、font、pill、影、カード数だけで「悪い」と判定しない。それらが意図・ブランド・読みやすさ・操作・表現と衝突するかで判断する。たとえば [Slopstrap](https://slopstrap.mikelacher.com/) が風刺する「見た目のチェックリストに目的を従わせる」失敗は、表層の不採用ではなく、タスクに対する **根拠のない強調・内容の捏造・関係のない階層化** として検証する。visual の問題と claim の検証問題は分離する。
 
 ## 2. Choose scope before editing
 

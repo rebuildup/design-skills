@@ -61,6 +61,8 @@ description: >
 
 [references/principles.md](./references/principles.md) の原則カードに従い、ページ全体を対象に各原則を一巡する。すべての原則を毎回フル適用する必要はなく、変更範囲と surface の性質に応じて観点を絞る。各カードの「検出方法」に従い、rendered artifact / DOM geometry / code のどれを見るかを選ぶ。
 
+AI の既定テンプレートへ流れた疑いがある場合は [Slopstrap に着想を得た対照ケース](./references/anti-template-cases.md) も参照する。これは検出器の評価材料であって、特定の色・装飾・font・card 数を禁止する規則ではない。ケースの事前判定を対象 artifact に転写せず、用途・意味・観察可能な影響から判断する。
+
 特に以下はページ全体で必ず確認する:
 
 - **Gestalt grouping**: 関連要素が近接・共通領域でまとまり、無関係な要素が分離されているか
@@ -81,6 +83,8 @@ Impact: blocker | major | minor | note
 Confidence / alternative explanation:
 Detection method used (rendered / DOM geometry / code):
 ```
+
+実データに基づかない status・数値・推薦文・ロゴ使用は visual styling の好みではなく、**claim の根拠確認**が必要な別問題である。rendered だけで「偽」と断定せず、根拠が無ければ `unverified` と記録し、内容は `content-design` / upstream の `design-discipline`、動的 state は実装の contract 検査へ引き継ぐ。構図上の注目配分は本 Skill で独立して扱う。
 
 「なんとなく散らかっている」「洗練されていない」は単独では finding にしない。観察可能な特徴に分解できない指摘は `note` に留め、修正 Issue の根拠にしない。
 
