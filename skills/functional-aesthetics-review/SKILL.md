@@ -89,6 +89,13 @@ Verification: observable before/after task and state
 
 実装権限と環境があれば変更点・実 artifact・再検証を示す。それ以外は component / flow / state ごとの具体的な設計・実装指示と確認条件を提示。**提案・実装済み・rendered 確認済み・task 確認済み・human acceptance** を混同しない。
 
+## Verify
+
+- 代表タスクの開始・意思決定・実行・結果が追えるか。初見の画面と実際の操作を区別して記録したか
+- 指摘の原因・役割・修正対象・受入条件が対応し、必要な情報や専門的操作を削っていないか
+- 修正を実施した場合は before/after の rendered UI と影響した操作/state を同条件で確認したか。実施できなければ `not tested` と記録したか
+- project の権限と release / human acceptance 境界を保ち、見た目・数値スコアから task 成功を推定していないか
+
 ## References
 
 作業時には関連する一次 guidance を実際に開き、現在の product に必要な観点だけ抽出する。
