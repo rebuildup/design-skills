@@ -2,7 +2,8 @@
 name: visual-review
 description: >
   Use to review and refine a rendered Web/application UI using screenshots,
-  comparable baselines, independent image critique, and bounded rerendering.
+  comparable baselines, independent image critique, optional automated
+  reviewer harnesses, and bounded rerendering.
   Distinguishes objective visual regressions from context-dependent aesthetics.
 ---
 
@@ -53,6 +54,15 @@ pixel / perceptual diff は **変わった領域の検出**。意図した変更
 - product-specific visual character と、目的のない decoration
 
 AI image reviewers は optional。可能なら実装担当とは別の reviewer と独立 critique を使う。複数モデルの意見や 10点評価を**合格の真値にしない**。不一致は見直す場所を示す signal。特定 pixel の指摘は原寸 crop、再撮影、DOM / computed styles などで裏取りする。
+
+### Automated screenshot review
+
+project が `agent review`（dotfiles の視覚レビューハーネス）等の自動 reviewer を提供する場合、同じ capture 条件の画像へ canonical spec（[references/agent-review-spec.md](./references/agent-review-spec.md)）を与えて局所チェックを実行できる。自動結果は Pass B への仮説入力であり、verdict をそのまま採用しない — 指摘は原寸画像・DOM・computed styles で裏取りする。
+
+- spec は finding を `[defect]`（観察可能な具体的問題）/ `[spec-mismatch]`（明示要件・確立した規約との不一致）/ `[suggestion]`（欠陥ではない主観的改善提案）に区別する。`suggestion` を defect として修正 Issue にしない
+- `approve` はその run の画像・spec 範囲の判断に限定される。製品全体の品質保証・人間の最終受入ではない
+- capture artifact（broken-image icon、consent overlay 等）や画像不足・未検証 state は `unverified` として記録し、pass にしない
+- 証跡として result JSON の model・specSha256・入力画像・findings・quota 消費を残す
 
 ## 4. Turn comments into evidence-based findings
 
