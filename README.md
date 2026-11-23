@@ -55,6 +55,7 @@ bunx skills add rebuildup/design-skills --skill design-system-enforcement
 bunx skills add rebuildup/design-skills --skill ui-primitive-architecture
 bunx skills add rebuildup/design-skills --skill design-review-routing
 bunx skills add rebuildup/design-skills --skill visual-review
+bunx skills add rebuildup/design-skills --skill functional-aesthetics-review
 bunx skills add rebuildup/design-skills --skill accessibility-audit
 bunx skills add rebuildup/design-skills --skill color-system
 bunx skills add rebuildup/design-skills --skill iconography-system
@@ -197,6 +198,10 @@ Web / application UI を screenshot の集合ではなく observable state graph
 WAI-ARIA APG、Stately / XState、Martin Fowler の GUI architecture patterns を primary reference とし、rapid repeated input、conflicting input、stale async completion、focus restoration まで実 interaction で検証します。特定の state machine library や MVP / Passive View / Mediator architecture は強制しません。
 
 `motion-system` は valid な transition をどう動かすか、`interaction-state` は transition 自体がいつ有効で誰が state を裁定するかを担当します。
+
+### `functional-aesthetics-review` — trial-pending
+
+実際の UI で主要 task の discoverability・情報の優先順位・不要な friction・一貫性・feedback / recovery を観察し、根拠のある上位 3〜5 件と改善方針、実装可能な修正指示を返す operation Skill。構図の原則監査（`composition-review`）や screenshot regression（`visual-review`）と役割を分離し、静止画だけで操作成功を宣言しません。
 
 ### `design-discipline` — trial-pending
 

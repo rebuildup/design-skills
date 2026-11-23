@@ -72,6 +72,9 @@ Evidence: before / after / crop / baseline links:
 
 ## Review routing and owner decisions
 
+タスクに沿った操作の発見・情報優先順位・行き戻りの負担・feedback / recovery の**機能美評価**が必要な場合は `functional-aesthetics-review` が担当する。スクリーンショットだけで task completion を保証しない。
+
+
 静的な design system 契約は `design-system-enforcement`、primitive の設計は `ui-primitive-architecture` 相当の役割に分ける。AI reviewer は「発見と仮説」までとし、owner が明示した brand / product choice を model の多数決や score で上書きしない。T3 Code の [redesign PR #24865](https://github.com/pingdotgg/t3code/pull/24865) も council result とは別に維持する owner calls を記録し、大きな変更は off-by-default Beta toggle とした。
 
 - 細かな修正は self-check + narrow evidence を基本とし、毎回の human review gate にしない
