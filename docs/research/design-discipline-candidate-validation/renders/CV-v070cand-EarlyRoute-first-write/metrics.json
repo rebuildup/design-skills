@@ -1,0 +1,85 @@
+{
+  "capturedAt": "2026-11-27T10:27:46.600Z",
+  "siteDir": "/tmp/exp-postreset/CV-v070cand-EarlyRoute-first-write",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Kestrel Trace — ローカルファーストの分散トレース＆フレームグラフ",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 3408,
+    "horizontalOverflowPx": 0,
+    "svgCount": 0,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 10,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "遅くなったスパンを、手元でミリ秒単位まで。"
+      },
+      {
+        "tag": "H2",
+        "text": "収集から再発防止まで、4 コマンド"
+      },
+      {
+        "tag": "H2",
+        "text": "手元で完結する 6 つの能力"
+      },
+      {
+        "tag": "H2",
+        "text": "起動の軽さは、数字で比べられます"
+      },
+      {
+        "tag": "H3",
+        "text": "取り込み完了時間 / 反映遅延"
+      },
+      {
+        "tag": "H3",
+        "text": "メモリ使用量"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカルは無料。チームで使うときだけ有料。"
+      },
+      {
+        "tag": "H3",
+        "text": "Open-Source Core"
+      },
+      {
+        "tag": "H3",
+        "text": "Team CI"
+      },
+      {
+        "tag": "H3",
+        "text": "Enterprise"
+      }
+    ],
+    "interactiveCount": 20,
+    "visibleTextChars": 2303,
+    "bodyTextSample": "Kestrel Trace\nワークフロー\n機能\nベンチマーク\nプラン\nインストール\n\nv1.4 · Rust / Go / TypeScript · macOS / Linux\n\n遅くなったスパンを、手元でミリ秒単位まで。\n\nローカルファーストの分散トレース＆フレームグラフプロファイラ。本番 APM にデータを送らず、開発機と CI で p99 の回帰箇所を特定します。\n\nbrew install kestrel-trace/tap/kestrel\nコピー\ncurl -fsSL https://kestreltrace.dev/install.sh | sh\nコピー\n18 MB 単一静的バイナリ\n0 テレメトリ送信\nDocker 不要 エアギャップ可\nkestrel diff main..HEAD\nモデル表現・仕様に基づくサンプル\nmain\nHEAD\n差分\nPOST /checkout\nauth.verify\ncart.load\ncheckout.reserve_inventory\nstock.check\nSELECT * FROM sku_locks\npayment.authoriz"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 5421,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "t1",
+    "requiredFacts": {
+      "hasKestrelTrace": true,
+      "hasPort4317": true,
+      "has340ms": true,
+      "has42MB": true,
+      "has18MB": true,
+      "hasP99Max120ms": true,
+      "hasApache2": true,
+      "hasTeam19": true,
+      "hasInstallCmd": true
+    }
+  }
+}
