@@ -4,7 +4,7 @@
 - **Canonical Concept Doc**: [`visual-design-capability.md`](visual-design-capability.md) (`b5aeceb7554acd7eab82a8b85422d6d89703f986`, [#201](https://github.com/rebuildup/design-skills/issues/201) / [PR #202](https://github.com/rebuildup/design-skills/pull/202))
 - **Prior Baseline**: [`experiment-0-baseline.md`](experiment-0-baseline.md) ([#203](https://github.com/rebuildup/design-skills/issues/203) / [PR #204](https://github.com/rebuildup/design-skills/pull/204))
 - **Frozen Protocol**: [`experiment-1a/protocol.md`](experiment-1a/protocol.md) (commit `e1d293b188a6e30ca577a07e63982eb29017f2fe`, frozen before Trial 1)
-- **Upstream / Downstream Coordination**: [rebuildup/design-skills#170](https://github.com/rebuildup/design-skills/issues/170) / [rebuildup/project-init#129](https://github.com/rebuildup/project-init/issues/129)
+- **Upstream / Downstream Coordination**: [rebuildup/design-skills#170](https://github.com/rebuildup/design-skills/issues/170) / [rebuildup/project-init#129](https://github.com/rebuildup/aude-skills/issues/129)
 - **Date**: 2026-11-27
 - **Scope Boundary**: 観測比較実験のみ。新規 Skill・Visual Primitives・Perceptual View・美的検出器・汎用実験基盤の実装なし。`project-init` における `design-discipline` の `default` 昇格は本実験では行わず `watch` 維持。
 

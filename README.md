@@ -200,7 +200,7 @@ WAI-ARIA APG、Stately / XState、Martin Fowler の GUI architecture patterns �
 
 ### `design-discipline`
 
-入力仕様の見出しや参考画面をそのまま並べず、意味の再構成・表現媒体の誠実な選択・テキストを含む空間構成・実物比較を通じて成果物を組み立てる、2D 視覚成果物・UI の上流 Skill。狭い修正や承認済み仕様の再現を勝手に再設計しません。静止画 2D / Web UI 領域では `#170`・Experiment 1A（`#205`）・候補検証（`#209`）および `project-init#129` の 4 ケース dispatch 検証を経て `v0.7.0` で `stable` 化しました（動画・モーション等の時間軸成果物および独立した人間評価は未実施範囲として別途記録）。
+入力仕様の見出しや参考画面をそのまま並べず、意味の再構成・表現媒体の誠実な選択・テキストを含む空間構成・実物比較を通じて成果物を組み立てる、2D 視覚成果物・UI の上流 Skill。狭い修正や承認済み仕様の再現を勝手に再設計しません。静止画 2D / Web UI 領域では `#170`・Experiment 1A（`#205`）・候補検証（`#209`）および `project-init#129`（現 [aude-skills#129](https://github.com/rebuildup/aude-skills/issues/129)）の 4 ケース dispatch 検証を経て `v0.7.0` で `stable` 化しました（動画・モーション等の時間軸成果物および独立した人間評価は未実施範囲として別途記録）。
 
 ### `design-intent`
 
