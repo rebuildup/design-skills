@@ -5,20 +5,20 @@
   "targetBranch": "main",
   "skillsCliVersion": "1.6.0",
   "statusDefinitions": {
-    "stable": "Previously released or empirically validated within its documented scope and retained as the default supported surface.",
-    "experimental": "Public preview; usable but not yet promoted to stable.",
-    "trial-pending": "Public experimental Skill with a concrete real-project/artifact or adapter trial still required before promotion."
+    "stable": "公開実績があるか、文書に記載した範囲で実証済みで、標準のサポート対象として維持する。",
+    "experimental": "公開プレビューとして利用できる。stable への昇格は未実施。",
+    "trial-pending": "公開済みの実験的な Skill。昇格前に、具体的な実プロジェクト・成果物または adapter での試験が必要。"
   },
   "evidenceBoundaries": {
     "design-discipline": {
       "status": "stable",
-      "verifiedScope": "Static 2D visual / Web UI design and redesign across #170 (3 genres + proportionality), #205 Experiment 1A (gemini-4-neon-medium, 10 blind GPT-6 pairs including confound-free first-write 2-0), #209 candidate validation (claude-sonnet-5-5-medium, passive vs early routing 0/1 -> 2/2, blind GPT-6 first-write & final win over v0.6.0), and project-init#129 4-case dispatch/collision eval.",
-      "unverifiedScope": "Time-based/motion artifacts and independent human evaluation remain unexecuted and are recorded separately rather than gating the verified static 2D/UI release."
+      "verifiedScope": "静止画 2D と Web UI の設計・再設計。#170 では3ジャンルと比例関係を検証。#205 の Experiment 1A では gemini-4-neon-medium を使い、GPT-6 が条件を伏せた10組を比較し、交絡のない初稿比較は2対0。#209 の候補検証では claude-sonnet-5-5-medium を使い、passive routing の0/1から early routing の2/2へ改善。GPT-6 のブラインド比較では初稿と最終稿がともに v0.6.0 を上回った。aude-skills#129（当時の project-init#129）では4ケースで起動と競合を検証。",
+      "unverifiedScope": "時間軸を持つ成果物・モーションと、独立した人間による評価は未実施。検証済みの静止画 2D・UI のリリース条件とは分けて記録する。"
     },
     "visual-review": {
       "status": "trial-pending",
-      "verifiedScope": "Experiment 1B (#206 / #210) validated the four Quality Floor layers (verification friction, final-revision freshness, mechanical check bounds, independent cold visual review) and agent review harness integration (#200).",
-      "unverifiedScope": "Broader real-project promotion trials remain pending before stable/default promotion."
+      "verifiedScope": "Experiment 1B（#206・#210）で Quality Floor の4層（検証時の負担、最終版での検証結果の有効性、機械的検査の適用範囲、独立した事前知識なしの視覚レビュー）と agent review harness の統合（#200）を検証。",
+      "unverifiedScope": "stable・標準扱いへ昇格するには、さらに実プロジェクトでの試験が必要。"
     }
   },
   "skills": {
