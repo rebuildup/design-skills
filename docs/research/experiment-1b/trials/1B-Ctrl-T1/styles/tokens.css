@@ -1,0 +1,77 @@
+/* Design tokens for Kestrel Trace landing page */
+:root {
+  /* Surface hierarchy: dark obsidian instrument palette */
+  --bg-canvas: #0b0e14;
+  --bg-surface-1: #111621;
+  --bg-surface-2: #171e2c;
+  --bg-surface-3: #1e2738;
+  --bg-code: #0d111a;
+
+  /* Borders */
+  --border-subtle: rgba(148, 163, 184, 0.14);
+  --border-default: rgba(148, 163, 184, 0.22);
+  --border-strong: rgba(245, 158, 11, 0.45);
+
+  /* Ink / Text */
+  --ink-primary: #eef2f6;
+  --ink-secondary: #a0aec0;
+  --ink-muted: #718096;
+  --ink-inverse: #0b0e14;
+
+  /* Semantic accents */
+  --accent-amber: #f59e0b;
+  --accent-amber-bright: #fbbf24;
+  --accent-amber-soft: rgba(245, 158, 11, 0.14);
+  --accent-regression: #f43f5e;
+  --accent-regression-soft: rgba(244, 63, 94, 0.16);
+  --accent-pass: #10b981;
+  --accent-pass-soft: rgba(16, 185, 129, 0.14);
+
+  /* Language / runtime telemetry badges */
+  --lang-rust: #f97316;
+  --lang-go: #38bdf8;
+  --lang-ts: #a78bfa;
+  --lang-sql: #f43f5e;
+
+  /* Typography */
+  --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Meiryo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  /* Type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: clamp(1.5rem, 2.4vw, 2.125rem);
+  --text-hero: clamp(1.85rem, 3.1vw, 2.75rem);
+
+  /* Spacing rhythm */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Radii (restrained technical precision) */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  /* Layout */
+  --container-max: 1240px;
+  --gutter: clamp(1rem, 3vw, 2rem);
+  --header-height: 64px;
+
+  /* Elevation */
+  --shadow-panel: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(148, 163, 184, 0.12);
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.25);
+}

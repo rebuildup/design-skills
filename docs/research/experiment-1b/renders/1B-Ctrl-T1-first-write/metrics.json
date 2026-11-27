@@ -1,0 +1,105 @@
+{
+  "capturedAt": "2026-11-27T06:34:39.501Z",
+  "siteDir": "/tmp/exp1b-trials/_firstwrite/1B-Ctrl-T1",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Kestrel Trace v1.4 — ローカルファースト分散トレース＆フレームグラフプロファイラ",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 4772,
+    "horizontalOverflowPx": 0,
+    "svgCount": 8,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 15,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "手元と CI で、マイクロ秒の回帰を逃さない。"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカル解析と CI ゲートを完結させる 6 つの主要機能"
+      },
+      {
+        "tag": "H3",
+        "text": "ゼロ設定 OTLP 取り込み"
+      },
+      {
+        "tag": "H3",
+        "text": "インタラクティブ Span Waterfall & Differential Flamegraph"
+      },
+      {
+        "tag": "H3",
+        "text": "SQL & N+1 クエリ帰属"
+      },
+      {
+        "tag": "H3",
+        "text": "決定的な CI レイテンシ予算ゲート"
+      },
+      {
+        "tag": "H3",
+        "text": "オフライン完結・プライバシー保護"
+      },
+      {
+        "tag": "H3",
+        "text": "クロス言語トレース連結"
+      },
+      {
+        "tag": "H2",
+        "text": "収集から回帰特定・CI 防御まで 4 ステップ"
+      },
+      {
+        "tag": "H2",
+        "text": "12サービス・48,200 スパンでの仕様ベンチマーク比較"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカル解析のすべてを Apache-2.0 で無料提供"
+      },
+      {
+        "tag": "H3",
+        "text": "Open-Source Core"
+      },
+      {
+        "tag": "H3",
+        "text": "Team CI"
+      },
+      {
+        "tag": "H3",
+        "text": "Enterprise"
+      },
+      {
+        "tag": "H2",
+        "text": "18 MB のバイナリで、今日からレイテンシ回帰をローカル検証。"
+      }
+    ],
+    "interactiveCount": 41,
+    "visibleTextChars": 4618,
+    "bodyTextSample": "メインコンテンツへ移動\nKestrel Trace\nv1.4\n機能\nワークフロー\nベンチマーク\nプラン\nCLI を見る\nインストール\nLOCAL-FIRST DISTRIBUTED TRACING & FLAMEGRAPH\n手元と CI で、マイクロ秒の回帰を逃さない。\n\nKestrel Trace は Rust / Go / TypeScript マイクロサービス向けのローカルファースト分散トレース＆フレームグラフプロファイラです。本番クラウド APM へデータを送らず、開発者の手元環境や CI 上でテールレイテンシ回帰を即座に特定します。\n\n18 MB\n単一静的バイナリ (macOS / Linux)\nDocker 不要\nテレメトリ送信ゼロ\nエアギャップ動作可能\nHomebrew\ncurl | sh\n18 MB static binary / Apache-2.0\n$brew install kestrel-trace/tap/kestrel\nCopy\n4ステップで試す\n仕様ベンチマークを見る\n\n対象: バックエンドエンジニア・プラットフォームエンジニア・SRE / Open-So"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 423,
+    "scrollHeight": 8707,
+    "horizontalOverflowPx": 33
+  },
+  "functionalCheck": {
+    "mode": "t1",
+    "requiredFacts": {
+      "hasKestrelTrace": true,
+      "hasPort4317": true,
+      "has340ms": true,
+      "has42MB": true,
+      "has18MB": true,
+      "hasP99Max120ms": true,
+      "hasApache2": true,
+      "hasTeam19": true,
+      "hasInstallCmd": true
+    }
+  }
+}
