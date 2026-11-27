@@ -2,7 +2,7 @@
 
 - Status: owner-directed concept / Experiment 0 pending
 - Decision date: 2026-11-27
-- Ownership: design-skills（設計能力の研究）; project-init（利用側の能力選定・実行保証）
+- Ownership: design-skills（設計能力の研究）; aude-skills（旧称 project-init、利用側の能力選定・実行保証）
 - Tracking: [#201](https://github.com/rebuildup/design-skills/issues/201)
 - Related: [Design Principles](../design-principles.md), [design-discipline](../../skills/design-discipline/SKILL.md), [2026-10 research](design-skills-2026-10.md)
 - Provenance: ownerとのコンセプト議論、VCE/VCPの三回の批評・改訂、最終第三者レビューを統合した方針。第三者レビューは実証結果ではない。
@@ -120,10 +120,10 @@ Web/GUIは静止画だけではない。画面幅、データ量、文字長、�
 本研究の対象は初期のWeb UIであり、結果を他媒体へ無条件に外挿しない。
 
 - design-skills：設計知識、表現・構成・探索、artifact review の正本。
-- project-init：能力の選定・利用可能性、実行・品質保証・権限・delivery の基盤。
+- aude-skills（旧称 project-init）：能力の選定・利用可能性、実行・品質保証・権限・delivery の基盤。
 - 対象project：製品要件、素材、コード、描画・検証環境。
 
-[#170](https://github.com/rebuildup/design-skills/issues/170) の design-discipline trial と [project-init#129](https://github.com/rebuildup/project-init/issues/129) の採用判断を尊重する。既存の [#195](https://github.com/rebuildup/design-skills/issues/195) 反例検証、[#197](https://github.com/rebuildup/design-skills/issues/197) 機能美レビュー、[#199](https://github.com/rebuildup/design-skills/issues/199) 実描画レビュー連携の成果と重複させない。
+[#170](https://github.com/rebuildup/design-skills/issues/170) の design-discipline trial と [project-init#129（現 aude-skills#129）](https://github.com/rebuildup/aude-skills/issues/129) の採用判断を尊重する。既存の [#195](https://github.com/rebuildup/design-skills/issues/195) 反例検証、[#197](https://github.com/rebuildup/design-skills/issues/197) 機能美レビュー、[#199](https://github.com/rebuildup/design-skills/issues/199) 実描画レビュー連携の成果と重複させない。
 
 現時点で新規 Skill、既存 Skill の強制activation、Visual Primitives、Perceptual View、検出器、workflow、project-initの方針改変を着工・採用しない。まず Experiment 0 の証拠で必要な介入を選ぶ。将来Skillが必要と判明した場合も、既存の理論と重複する指示を増やすことを既定値とせず、必要な能力の利用・routing・摩擦低減など観測された問題に対応させる。
 

@@ -5,7 +5,7 @@
 - **Prior Baseline**: [`../experiment-0-baseline.md`](../experiment-0-baseline.md) ([#203](https://github.com/rebuildup/design-skills/issues/203) / [PR #204](https://github.com/rebuildup/design-skills/pull/204))
 - **Upstream / Downstream Coordination**:
   - [rebuildup/design-skills#170](https://github.com/rebuildup/design-skills/issues/170): `design-discipline` (`v0.6.0`, `10b0d4a9`) 上流能力実証（既存 2026-11-24 trial の自己描画交絡・未分離要因を解消する追試）
-  - [rebuildup/project-init#129](https://github.com/rebuildup/project-init/issues/129): `visual-design-foundation` の `watch → default` 昇格および `PROMPT.ja.md` 早期ルーティング判断の入力証拠（本実験では `default` 昇格や `project-init` 改変は行わない）
+  - [rebuildup/project-init#129](https://github.com/rebuildup/aude-skills/issues/129): `visual-design-foundation` の `watch → default` 昇格および `PROMPT.ja.md` 早期ルーティング判断の入力証拠（本実験では `default` 昇格や `project-init` 改変は行わない）
 - **Protocol Status**: **FROZEN BEFORE EXECUTION**
 - **Date**: 2026-11-27
 
