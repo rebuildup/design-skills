@@ -1,0 +1,24 @@
+{
+  "first_encounter_X": "The headline establishes local and CI regression detection, with the install command immediately available. The adjacent trace preview makes the latency increase visible and connects it to repeated SQL and a failed CI budget.",
+  "first_encounter_Y": "The headline makes p99 the focus, and the adjacent terminal shows a complete example from OTLP collection through branch comparison, repeated SQL, CI failure, and HTML snapshot output. The command sequence gives engineers concrete evidence before they reach the demo.",
+  "axis_winners": {
+    "information_restructuring": "Y",
+    "representation_fit": "Y",
+    "hierarchy_rhythm": "Y",
+    "quality_floor": "Y"
+  },
+  "overall_winner": "Y",
+  "margin": "clear",
+  "evidence": "Y follows the trace diagnosis with the workflow an engineer would use to reproduce it, then gives OTLP ingestion and CI gating more space than the supporting capabilities. Its visible waterfall marks the 120 ms budget, shows baseline and current bars against a labeled time axis, and ties the selected SQL row to timing, repeat count, and source location. X gives the CI gate a dedicated demo tab and adds a useful closing command, but its visible waterfall requires more inference because it has no labeled time axis. Y also places supporting explanations beside section headings, making the page easier to scan. Both screenshots show a flamegraph tab. Its contents and the behavior of the controls cannot be assessed from these views.",
+  "defects_X": [
+    "The demo heading strands 認 on its own line, and the licensing heading does the same with 料. The capabilities heading splits ローカル across lines.",
+    "The SQL preview in the selected-span panel is visibly cut off at the right edge.",
+    "Muted captions and metadata are difficult to read against several dark panels, especially in the hero metrics and capability cards.",
+    "The benchmark uses a partial-width bar for unquantified SaaS memory and a single full-width bar for a latency range. The bar lengths imply more precision than the labels support."
+  ],
+  "defects_Y": [
+    "The demo and workflow headings break across Japanese words, splitting クエリ from its particle and から across lines.",
+    "The selected SQL row truncates its label in the waterfall. The detail panel recovers the full query and repeat count.",
+    "The benchmark uses a partial-width bar for unquantified SaaS memory and a single full-width bar for a latency range. The 340 ms and 4,800 ms bars also appear wider than their proportions on a shared 18,000 ms scale."
+  ]
+}

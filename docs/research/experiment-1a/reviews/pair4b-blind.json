@@ -1,0 +1,24 @@
+{
+  "first_encounter_X": "The headline makes p99 regression the focal point. The adjacent terminal immediately shows an 84 ms regression, an N+1 SQL query tied to a source line, and a failed CI budget check. The orange install button gives that proof a clear next action.",
+  "first_encounter_Y": "The headline emphasizes microsecond precision. The terminal backs up the regression diagnosis with a source line and a failed CI check, while four compact metrics establish binary size, ingestion speed, memory use, and zero data transfer.",
+  "axis_winners": {
+    "information_restructuring": "Y",
+    "representation_fit": "Y",
+    "hierarchy_rhythm": "X",
+    "quality_floor": "X"
+  },
+  "overall_winner": "Y",
+  "margin": "slight",
+  "evidence": "Both pages follow the engineer’s decision journey. Y connects its stages more explicitly: the workbench puts baseline p99, current p99, delta, and gate status above the trace, then links the selected span to a source excerpt and SQL diagnosis. The four workflow commands are visible together, and the OTLP diagram shows the path from services through the collector to SQLite and DuckDB. X offers a useful 120 ms reference line directly on the waterfall, a dedicated SQL attribution tab, and simultaneous visibility of both benchmark charts. Its stronger install emphasis and alternating section backgrounds make the long page easier to scan. Y’s explanation of the mechanism gives it a slight overall edge despite more visible layout defects.",
+  "defects_X": [
+    "The selected SQL span label is ellipsized in the waterfall, hiding the repetition count in the row itself.",
+    "The waterfall has a large empty area below its six rows because its height follows the detail pane. A similar gap appears under the workflow terminal beside the remaining steps.",
+    "The ingestion chart gives 340 ms and 4,800 ms roughly 6% and 40% of the track ending at the 18,000 ms upper bound, which overstates both values on an apparently linear scale. The memory chart also assigns a partial bar to SaaS without a numeric memory value."
+  ],
+  "defects_Y": [
+    "The workflow heading strands the final character of 完結 on its own line.",
+    "The second workflow command runs into the right edge of its code block, and the SQL line in the inspector is visibly clipped.",
+    "The checkout.reserve_inventory label in the miniature differential chart collides with its bar.",
+    "The waterfall has a large empty area below its six rows because its height follows the inspector."
+  ]
+}
