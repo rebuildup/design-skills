@@ -1,6 +1,20 @@
 # Roadmap
 
-## Current release — v0.5.0
+## Current release — v0.7.0
+
+- Source: `release-0-7-0`; target: `main`
+- Previous published release: `v0.6.0`（`composition-review` 追加・88 Skills）
+- Scope:
+  - 視覚設計能力の思想上の正本（`#201` / [visual-design-capability.md](./research/visual-design-capability.md)）と Experiment 0（`#203` + T3 クォータ回復補完）・Experiment 1A（`#205`）・Experiment 1B（`#206`）・候補検証（`#209`）の実証記録を統合
+  - **`design-discipline`**（`#209` / PR `#211`）を改訂・軽量化（-1,129 bytes）し、静止画 2D / Web UI の実証済み適用範囲に基づき **`stable`** へ昇格（2026-11-27）
+  - **`visual-review`** へ自動 reviewer ハーネス連携（`#200`）および Experiment 1B Quality Floor 4 層分離（`#210` / PR `#212`）を統合（実プロジェクト継続 trial 待ちのため `trial-pending` を維持）
+  - 既存 upstream 参照切れ修復および `docs/release-status-v0.7.0.json` 整合（`#215`）
+- Public Skill inventory: **88 Skills**（`stable`: 8 / `trial-pending`: 80）。新規 Skill・Visual Primitives・Perceptual View・美的検出器・汎用実験基盤は導入しない。
+- Shipping classification: `docs/release-status-v0.7.0.json`
+
+**Evidence boundary:** `design-discipline` の実証は静止画 2D・Web UI 領域（`#170`, `#205` Experiment 1A, `#209` 候補検証, `project-init#129` 4 ケース dispatch 検証）を対象とする。動画・モーション等の時間軸成果物および独立した人間評価者による校正は未実施（`unavailable / unexecuted`）であり、本リリースの実証済み範囲とは分離して記録する（`#170` に追跡を保持）。
+
+## Previous release — v0.5.0
 
 - Source: `release-0-5-0`; target: `main`
 - Previous published release: `v0.4.1`

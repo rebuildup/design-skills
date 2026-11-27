@@ -112,4 +112,4 @@ Evidence: before / after / crop / baseline links:
 
 確認した artifact / commit、capture matrix、問題ごとの観察と影響、修正・意図的維持、before/after、各未実施検証を記録。reviewer 数や点数ではなく、**再現可能な指摘と、成果物で確かめた変化**を主要 evidence とする。
 
-参考比較・制約は [Research: screenshot-driven review](./references/research.md) を参照。品質改善の実証は **trial-pending**。単体 install でもこの手順を利用できる。
+参考比較・制約は [Research: screenshot-driven review](./references/research.md) を参照。Experiment 1B（`#206` / `#210`）で Quality Floor 4 層分離と独立コールドレビューの必要性を検証し手順へ統合済みだが、Skill 全体の `stable` 昇格に向けた実プロジェクト継続 trial は **trial-pending**。単体 install でもこの手順を利用できる。

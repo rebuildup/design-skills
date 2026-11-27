@@ -12,7 +12,7 @@ AI agent が既存 UI を改修するとき、**コード上は正しくても�
 ### T3 Code — iterative human/AI critique
 
 - [UI polish PR #24776](https://github.com/pingdotgg/t3code/pull/24776): font weights、radius scale、icon stroke、hierarchy、control treatment、contrast を shared token / primitive で改善。複数 UI state の before / after screenshot と 3 review rounds（Claude、Muse、Codex の自己記録）を掲載
-- [T3 Code Web UI](https://github.com/pingdotgg/t3code/blob/main/docs/internals/web-ui.md): component owners、theme、composition の実装規約。画像の指摘をどこで直すかの手掛かり
+- [T3 Code Web UI](https://github.com/pingdotgg/t3code/blob/main/docs/internals/10_web-ui.md): component owners、theme、composition の実装規約。画像の指摘をどこで直すかの手掛かり
 - [Agents Sucked At UI (Until Today)](https://www.youtube.com/watch?v=xq0eB8vxeqk): 製作者による multi-model screenshot feedback の実演。**9/10** は実験内の rubric であり普遍的な品質閾値ではない
 
 PRには downscaled screenshot による composer placeholder の誤判定を原寸 crop で訂正した経緯もある。screen context / crop を見ずに「画像に欠陥がある」と断定すると false positive になる。
