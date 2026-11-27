@@ -1,0 +1,109 @@
+{
+  "capturedAt": "2026-11-27T10:24:47.200Z",
+  "siteDir": "/tmp/exp-postreset/CV-v060-EarlyRoute",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Kestrel Trace — ローカルファーストの分散トレース＆フレームグラフ",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 3572,
+    "horizontalOverflowPx": 0,
+    "svgCount": 0,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 16,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "そのレイテンシ回帰、どの file:line が原因か。"
+      },
+      {
+        "tag": "H2",
+        "text": "main と HEAD を重ねて、増えたミリ秒だけを見る"
+      },
+      {
+        "tag": "H2",
+        "text": "4 コマンドで、収集から再発防止まで"
+      },
+      {
+        "tag": "H2",
+        "text": "6 つの主要機能"
+      },
+      {
+        "tag": "H3",
+        "text": "ゼロ設定 OTLP 取り込み"
+      },
+      {
+        "tag": "H3",
+        "text": "Span Waterfall ＆ 差分フレームグラフ"
+      },
+      {
+        "tag": "H3",
+        "text": "SQL ＆ N+1 クエリ帰属"
+      },
+      {
+        "tag": "H3",
+        "text": "決定的な CI レイテンシ予算ゲート"
+      },
+      {
+        "tag": "H3",
+        "text": "オフライン完結・プライバシー"
+      },
+      {
+        "tag": "H3",
+        "text": "クロス言語トレース連結"
+      },
+      {
+        "tag": "H2",
+        "text": "起動して 340 ms、常駐 42 MB"
+      },
+      {
+        "tag": "H2",
+        "text": "プラン・ライセンス"
+      },
+      {
+        "tag": "H3",
+        "text": "Open-Source Core"
+      },
+      {
+        "tag": "H3",
+        "text": "Team CI"
+      },
+      {
+        "tag": "H3",
+        "text": "Enterprise"
+      },
+      {
+        "tag": "H2",
+        "text": "1 分で手元に"
+      }
+    ],
+    "interactiveCount": 21,
+    "visibleTextChars": 2395,
+    "bodyTextSample": "本文へ移動\nKestrel Trace\nデモ\n機能\nベンチマーク\nプラン\nインストール\n\nv1.4 · Rust / Go / TypeScript · macOS / Linux\n\nそのレイテンシ回帰、\nどの file:line が原因か。\n\nKestrel Trace は、手元と CI で動くローカルファーストの分散トレース＆フレームグラフプロファイラ。テレメトリ送信ゼロ、18 MB の単一バイナリ、Docker 不要。\n\nインストール\n差分フレームグラフを触る\n18 MB\n静的バイナリ\n0\n外部送信\n340 ms\n48,200 スパン取り込み*\n\n* 仕様ベンチマーク条件（12 サービス・決済トレース）での値。詳細は「ベンチマーク」参照。\n\nmain と HEAD を重ねて、増えたミリ秒だけを見る\n\nkestrel diff main..HEAD の出力を模したサンプルです（仕様に基づくモデルデータ。実測ログではありません）。スパンを選ぶと詳細が出ます。\n\n$ kestrel diff main..HEAD\nmain\nHEAD\nDiff\n0\n58 ms\n116 ms\n174 ms"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 5600,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "t1",
+    "requiredFacts": {
+      "hasKestrelTrace": true,
+      "hasPort4317": true,
+      "has340ms": true,
+      "has42MB": true,
+      "has18MB": true,
+      "hasP99Max120ms": true,
+      "hasApache2": true,
+      "hasTeam19": true,
+      "hasInstallCmd": true
+    }
+  }
+}
