@@ -1,0 +1,121 @@
+{
+  "capturedAt": "2026-11-27T06:14:47.081Z",
+  "siteDir": "/tmp/exp1a-trials/_firstwrite/1A-Ctrl-Prose-R2",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Kestrel Trace v1.4 — ローカルファースト分散トレース＆フレームグラフプロファイラ",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 4697,
+    "horizontalOverflowPx": 0,
+    "svgCount": 3,
+    "largeSvgCount": 1,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 19,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "PR マージ前に、マイクロ秒の回帰を手元で突き止める。"
+      },
+      {
+        "tag": "H2",
+        "text": "収集・差分特定・CI 防御を 3 つのコマンドで完結"
+      },
+      {
+        "tag": "H3",
+        "text": "設定不要で OTLP をローカル収集"
+      },
+      {
+        "tag": "H3",
+        "text": "ブランチ間の回帰スパンと N+1 を特定"
+      },
+      {
+        "tag": "H3",
+        "text": "CI 予算チェックと HTML スナップショット"
+      },
+      {
+        "tag": "H2",
+        "text": "Docker 不要、外部送信なし。エアギャップ環境でもそのまま稼働"
+      },
+      {
+        "tag": "H3",
+        "text": "macOS / Linux 単一静的バイナリ"
+      },
+      {
+        "tag": "H3",
+        "text": "完全オフライン・エアギャップ対応"
+      },
+      {
+        "tag": "H3",
+        "text": "ローカルリングバッファ格納"
+      },
+      {
+        "tag": "H3",
+        "text": "多言語サービスを 1 本に連結"
+      },
+      {
+        "tag": "H3",
+        "text": "ローカル実行パイプライン構成図"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカル常駐に耐える取り込み速度と省メモリ設計"
+      },
+      {
+        "tag": "H3",
+        "text": "取り込み / 反映遅延（低いほど高速）"
+      },
+      {
+        "tag": "H3",
+        "text": "ローカル開発機のメモリ使用量（低いほど軽量）"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカル解析機能は Apache-2.0 で制限なく利用可能"
+      },
+      {
+        "tag": "H3",
+        "text": "Open-Source Core"
+      },
+      {
+        "tag": "H3",
+        "text": "Team CI"
+      },
+      {
+        "tag": "H3",
+        "text": "Enterprise"
+      },
+      {
+        "tag": "H2",
+        "text": "次の PR から、p99 回帰をローカルで止める。"
+      }
+    ],
+    "interactiveCount": 32,
+    "visibleTextChars": 5000,
+    "bodyTextSample": "本文へスキップ\nKestrel Trace\nv1.4\nワークフロー\nローカル設計\nベンチマーク\nライセンス・プラン\nApache-2.0 Core\n今すぐ導入\nLocal-First Profiler\nRust · Go · TypeScript\nApache-2.0 Core\nPR マージ前に、マイクロ秒の回帰を手元で突き止める。\n\nKestrel Trace v1.4 は、バックエンドエンジニア・プラットフォームエンジニア・SRE のためのローカルファースト分散トレース＆フレームグラフプロファイラです。クラウド APM へ送信せず、開発機や CI 上だけで p99 テールレイテンシ悪化の原因を特定できます。\n\nHomebrew\nShell (curl)\nmacOS / Linux · 18 MB static binary\n$brew install kestrel-trace/tap/kestrel\nCopy\n18 MB\n単一静的バイナリ\n0\nDocker・外部送信なし\n340 ms\n48,200 スパン取込\n42 MB\n常駐メモリ消費\n$ kestrel diff main.."
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 8775,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "t1",
+    "requiredFacts": {
+      "hasKestrelTrace": true,
+      "hasPort4317": true,
+      "has340ms": true,
+      "has42MB": true,
+      "has18MB": true,
+      "hasP99Max120ms": true,
+      "hasApache2": true,
+      "hasTeam19": true,
+      "hasInstallCmd": true
+    }
+  }
+}

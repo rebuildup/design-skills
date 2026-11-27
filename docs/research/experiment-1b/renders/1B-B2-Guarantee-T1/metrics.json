@@ -1,0 +1,117 @@
+{
+  "capturedAt": "2026-11-27T06:26:56.888Z",
+  "siteDir": "/tmp/exp1b-trials/1B-B2-Guarantee-T1",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Kestrel Trace v1.4 — ローカルファースト分散トレース＆フレームグラフプロファイラ",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 4625,
+    "horizontalOverflowPx": 0,
+    "svgCount": 2,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 18,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "本番 APM へ送らず、\n            手元と CI で p99 回帰 を突き止める。"
+      },
+      {
+        "tag": "H2",
+        "text": "checkout.reserve_inventory"
+      },
+      {
+        "tag": "H2",
+        "text": "マイクロサービス開発の現場に必要な 6 つの計測機能"
+      },
+      {
+        "tag": "H3",
+        "text": "ゼロ設定 OTLP 取り込み"
+      },
+      {
+        "tag": "H3",
+        "text": "Span Waterfall & 差分 Flamegraph"
+      },
+      {
+        "tag": "H3",
+        "text": "SQL & N+1 クエリ帰属"
+      },
+      {
+        "tag": "H3",
+        "text": "決定的な CI レイテンシ予算ゲート"
+      },
+      {
+        "tag": "H3",
+        "text": "オフライン完結・プライバシー保護"
+      },
+      {
+        "tag": "H3",
+        "text": "クロス言語トレース連結"
+      },
+      {
+        "tag": "H2",
+        "text": "収集から CI ゲート化まで、4 ステップで完結"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカル実行に最適化した取り込み速度とフットプリント"
+      },
+      {
+        "tag": "H3",
+        "text": "取り込み完了時間 / 起動反映"
+      },
+      {
+        "tag": "H3",
+        "text": "ローカルメモリ使用量"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカル計測は永久無料。CI チーム連携へ段階的に拡張"
+      },
+      {
+        "tag": "H3",
+        "text": "Open-Source Core"
+      },
+      {
+        "tag": "H3",
+        "text": "Team CI"
+      },
+      {
+        "tag": "H3",
+        "text": "Enterprise"
+      },
+      {
+        "tag": "H2",
+        "text": "まずは手元の 4317 ポートで、次の PR の p99 差分を確認。"
+      }
+    ],
+    "interactiveCount": 40,
+    "visibleTextChars": 4481,
+    "bodyTextSample": "メインコンテンツへ移動\nKestrel Trace\nv1.4\n機能\nワークフロー\nベンチマーク\nプラン\nApache-2.0\nインストール\nRust / Go / TypeScript 向けローカルファースト・プロファイラ\n本番 APM へ送らず、\n手元と CI で p99 回帰 を突き止める。\n\nKestrel Trace は、18 MB の単一静的バイナリで動作する分散トレース＆差分フレームグラフプロファイラです。Docker も外部送信も不要。ブランチ間のマイクロ秒差分を即座に可視化し、テールレイテンシの劣化をマージ前に遮断します。\n\nHomebrew\nShell (macOS / Linux)\n$ brew install kestrel-trace/tap/kestrel\nコピー\nバイナリサイズ\n18 MB 単一静的\n実行依存\nDocker 不要\n外部送信\n0 bytes / エアギャップ対応\nライセンス\nApache-2.0 Core\nkestrel diff main..HEAD --service checkout\n仕様モデル UI\n差分 Waterfall\n差分 Fl"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 8382,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "t1",
+    "requiredFacts": {
+      "hasKestrelTrace": true,
+      "hasPort4317": true,
+      "has340ms": true,
+      "has42MB": true,
+      "has18MB": true,
+      "hasP99Max120ms": true,
+      "hasApache2": true,
+      "hasTeam19": true,
+      "hasInstallCmd": true
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "capturedAt": "2026-11-27T06:34:42.555Z",
+  "siteDir": "/tmp/exp1b-trials/_firstwrite/1B-B1-Friction-T1",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Kestrel Trace v1.4 — ローカルファースト分散トレース＆フレームグラフプロファイラ",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 4775,
+    "horizontalOverflowPx": 0,
+    "svgCount": 2,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 17,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "手元と CI で、マイクロ秒のテールレイテンシ回帰を逃さない。"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカルデバッグから CI ゲートまで、6 つの設計原則"
+      },
+      {
+        "tag": "H3",
+        "text": "ゼロ設定 OTLP 取り込み"
+      },
+      {
+        "tag": "H3",
+        "text": "Span Waterfall & Differential Flamegraph"
+      },
+      {
+        "tag": "H3",
+        "text": "SQL & N+1 クエリ帰属"
+      },
+      {
+        "tag": "H3",
+        "text": "決定的な CI レイテンシ予算ゲート"
+      },
+      {
+        "tag": "H3",
+        "text": "オフライン完結・プライバシー保護"
+      },
+      {
+        "tag": "H3",
+        "text": "クロス言語トレース連結"
+      },
+      {
+        "tag": "H2",
+        "text": "4 ステップで原因特定から CI 再発防止まで"
+      },
+      {
+        "tag": "H2",
+        "text": "12 サービス・48,200 スパンの標準テスト条件での比較"
+      },
+      {
+        "tag": "H3",
+        "text": "取り込み完了時間 / 反映遅延"
+      },
+      {
+        "tag": "H3",
+        "text": "ローカルメモリ使用量"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカル解析はすべて無料、チーム CI 連携は必要な分だけ"
+      },
+      {
+        "tag": "H3",
+        "text": "Open-Source Core"
+      },
+      {
+        "tag": "H3",
+        "text": "Team CI"
+      },
+      {
+        "tag": "H3",
+        "text": "Enterprise"
+      },
+      {
+        "tag": "H2",
+        "text": "30 秒でローカル OTLP プロファイリングを開始"
+      }
+    ],
+    "interactiveCount": 42,
+    "visibleTextChars": 4555,
+    "bodyTextSample": "メインコンテンツへ移動\nKestrel Trace\nv1.4\n機能\nワークフロー\nベンチマーク\n料金\nインストール\nLocal-First Profiler · Rust / Go / TypeScript\n手元と CI で、マイクロ秒のテールレイテンシ回帰を逃さない。\n\nKestrel Trace は、本番クラウド APM にデータを送らず、開発者のローカル環境や CI 上で分散トレースと差分フレームグラフを解析できるプロファイラです。バックエンドエンジニア・プラットフォームエンジニア・SRE のデバッグと回帰防止を単一バイナリで完結させます。\n\nHomebrew\nShell (curl)\nbrew install kestrel-trace/tap/kestrel\nコピー\n18 MB 静的バイナリ (macOS / Linux)\nDocker 不要\nテレメトリ送信ゼロ\nエアギャップ環境対応\nSAMPLE MODEL\ncheckout-flow · main vs HEAD\np99\n112.4ms → 196.4ms (+84.0ms)\nSpan Waterfall\nDiff Fla"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 510,
+    "scrollHeight": 8235,
+    "horizontalOverflowPx": 120
+  },
+  "functionalCheck": {
+    "mode": "t1",
+    "requiredFacts": {
+      "hasKestrelTrace": true,
+      "hasPort4317": true,
+      "has340ms": true,
+      "has42MB": true,
+      "has18MB": true,
+      "hasP99Max120ms": true,
+      "hasApache2": true,
+      "hasTeam19": true,
+      "hasInstallCmd": true
+    }
+  }
+}

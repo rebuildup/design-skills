@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fieldnote — Spec Review Workbench</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <img class="brand-mark" src="./assets/fieldnote-mark.svg" alt="Fieldnote" width="32" height="32">
+        <div class="brand-text">
+          <div class="brand-title-row">
+            <h1>Fieldnote</h1>
+            <span class="brand-divider" aria-hidden="true">/</span>
+            <span class="brand-subtitle">Spec Review Workbench</span>
+          </div>
+          <p id="workspace-meta" class="workspace-meta">Loading workspace...</p>
+        </div>
+      </div>
+      <div class="topbar-signals" id="topbar-signals" aria-label="Priority alerts"></div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="telemetry-band" aria-labelledby="summary-heading">
+      <h2 id="summary-heading" class="sr-only">Queue Summary and Risk Overview</h2>
+      <div class="telemetry-grid">
+        <div class="telemetry-cell telemetry-status">
+          <div class="telemetry-header">
+            <span class="telemetry-label">Queue Breakdown</span>
+            <span class="telemetry-total" id="kpi-total">0 specs</span>
+          </div>
+          <div class="status-bar" id="status-bar" role="img" aria-label="Review status distribution"></div>
+          <div class="status-legend" id="status-legend"></div>
+        </div>
+
+        <div class="telemetry-cell telemetry-priority">
+          <div class="telemetry-header">
+            <span class="telemetry-label">Critical Attention</span>
+            <span class="telemetry-pill telemetry-pill-critical" id="kpi-p0-badge">0 P0</span>
+          </div>
+          <div class="kpi-pair">
+            <div class="kpi-stat">
+              <span class="kpi-value" id="kpi-high-risk">0</span>
+              <span class="kpi-caption">High risk (&ge;80)</span>
+            </div>
+            <div class="kpi-stat">
+              <span class="kpi-value" id="kpi-avg-risk">0<span class="kpi-unit">/100</span></span>
+              <span class="kpi-caption">Avg risk score</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="telemetry-cell telemetry-risk-chart">
+          <div class="telemetry-header">
+            <span class="telemetry-label">Risk Distribution</span>
+            <span class="telemetry-hint">Click bar to inspect</span>
+          </div>
+          <div class="risk-chart" id="risk-chart" role="group" aria-label="Risk score by specification"></div>
+        </div>
+
+        <div class="telemetry-cell telemetry-checklist">
+          <div class="telemetry-header">
+            <span class="telemetry-label">Checklist Readiness</span>
+            <span class="telemetry-pct" id="kpi-check-pct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="kpi-check-bar" style="width: 0%"></div>
+          </div>
+          <p class="telemetry-sub" id="kpi-check-sub">0 of 0 items verified</p>
+        </div>
+      </div>
+      <p id="summary-prose" class="sr-only" aria-live="polite"></p>
+    </section>
+
+    <div class="workbench">
+      <section class="queue-pane" aria-labelledby="list-heading">
+        <div class="queue-header">
+          <div class="queue-title-row">
+            <h2 id="list-heading">Specification Queue</h2>
+            <span class="queue-showing" id="queue-showing">0 shown</span>
+          </div>
+
+          <div class="search-field">
+            <label for="search-input" class="sr-only">Search specifications</label>
+            <svg class="search-icon" viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true">
+              <path d="M9 15.5a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Zm5-1.5 3.5 3.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Filter by RFC ID, title, owner, or domain..."
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="filter-buttons" role="group" aria-label="Filter by status">
+            <button type="button" class="filter-btn active" data-status="all" aria-pressed="true">All <span class="filter-count">0</span></button>
+            <button type="button" class="filter-btn" data-status="needs-review" aria-pressed="false">Needs Review <span class="filter-count">0</span></button>
+            <button type="button" class="filter-btn" data-status="changes-requested" aria-pressed="false">Changes <span class="filter-count">0</span></button>
+            <button type="button" class="filter-btn" data-status="approved" aria-pressed="false">Approved <span class="filter-count">0</span></button>
+          </div>
+        </div>
+
+        <div id="spec-list" class="spec-list" role="listbox" aria-label="Specifications"></div>
+      </section>
+
+      <section class="inspector-pane" aria-labelledby="detail-heading" id="inspector-section">
+        <h2 id="detail-heading" class="sr-only">Selected Specification Details</h2>
+        <div id="spec-detail" class="spec-detail">
+          <div class="empty-state">Select a specification from the queue to inspect details.</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

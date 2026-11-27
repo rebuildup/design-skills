@@ -1,0 +1,125 @@
+{
+  "capturedAt": "2026-11-27T06:14:34.629Z",
+  "siteDir": "/tmp/exp1a-trials/1A-A2-EarlyRoute-R2",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Kestrel Trace v1.4 — ローカルファースト分散トレース＆フレームグラフプロファイラ",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 4788,
+    "horizontalOverflowPx": 0,
+    "svgCount": 2,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 21,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "手元の端末と CI で、\n            p99 回帰をマイクロ秒まで追い詰める。"
+      },
+      {
+        "tag": "H2",
+        "text": "ブランチ間の p99 回帰を、スパンとコード行まで直結して確認する"
+      },
+      {
+        "tag": "H3",
+        "text": "checkout.reserve_inventory"
+      },
+      {
+        "tag": "H2",
+        "text": "起動から CI ゲート組み込みまで、4 コマンドで完結"
+      },
+      {
+        "tag": "H3",
+        "text": "ローカルコレクタを即時起動"
+      },
+      {
+        "tag": "H3",
+        "text": "既存テスト・負荷スクリプトを実行"
+      },
+      {
+        "tag": "H3",
+        "text": "ブランチ差分で回帰スパンを特定"
+      },
+      {
+        "tag": "H3",
+        "text": "CI 予算ゲートで再発を防止"
+      },
+      {
+        "tag": "H2",
+        "text": "分散トレースの「重さ」と「後追い」を断つ 6 つの設計"
+      },
+      {
+        "tag": "H3",
+        "text": "ゼロ設定 OTLP 取り込み"
+      },
+      {
+        "tag": "H3",
+        "text": "Span Waterfall & Differential Flamegraph"
+      },
+      {
+        "tag": "H3",
+        "text": "SQL & N+1 クエリ帰属"
+      },
+      {
+        "tag": "H3",
+        "text": "決定的な CI レイテンシ予算ゲート"
+      },
+      {
+        "tag": "H3",
+        "text": "オフライン完結・プライバシー保護"
+      },
+      {
+        "tag": "H3",
+        "text": "クロス言語トレース連結"
+      },
+      {
+        "tag": "H2",
+        "text": "12 サービス・48,200 スパンの標準テスト条件での比較"
+      },
+      {
+        "tag": "H3",
+        "text": "オーバーヘッド比較（低いほど高速・軽量）"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカル解析と CI ゲートはすべて Apache-2.0 で無料"
+      },
+      {
+        "tag": "H3",
+        "text": "Open-Source Core"
+      },
+      {
+        "tag": "H3",
+        "text": "Team CI"
+      }
+    ],
+    "interactiveCount": 38,
+    "visibleTextChars": 6004,
+    "bodyTextSample": "メインコンテンツへ移動\nKestrel Trace\nv1.4\nインタラクティブデモ\nワークフロー\n機能と設計\nベンチマーク\nライセンス\nインストール\nLOCAL-FIRST PROFILER\nRust · Go · TypeScript / Bun\n手元の端末と CI で、\np99 回帰をマイクロ秒まで追い詰める。\n\nKestrel Trace は本番クラウド APM へデータを一切送らず、ローカル環境と CI 上で分散トレースと差分フレームグラフを解析する単一バイナリのプロファイラです。Docker 不要・テレメトリ送信ゼロで、エアギャップ環境でもそのまま動作します。\n\nHomebrew (macOS / Linux)\nShell Script\n$\nbrew install kestrel-trace/tap/kestrel\nコピー\n\n配布バイナリ\n18 MB 単一静的バイナリ\n取り込み速度\n340 ms (48,200 spans)\n常駐メモリ\n42 MB (SQLite + DuckDB)\nデータ送信\n0 bytes (オフライン完結)\nkestrel diff main..HE"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 9828,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "t1",
+    "requiredFacts": {
+      "hasKestrelTrace": true,
+      "hasPort4317": true,
+      "has340ms": true,
+      "has42MB": true,
+      "has18MB": true,
+      "hasP99Max120ms": true,
+      "hasApache2": true,
+      "hasTeam19": true,
+      "hasInstallCmd": true
+    }
+  }
+}

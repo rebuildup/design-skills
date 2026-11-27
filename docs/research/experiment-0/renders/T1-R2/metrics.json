@@ -1,0 +1,117 @@
+{
+  "capturedAt": "2026-11-27T02:38:15.316Z",
+  "siteDir": "/tmp/exp0-trials/T1-R2",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Kestrel Trace — ローカルファーストの分散トレース＆フレームグラフ",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 4342,
+    "horizontalOverflowPx": 0,
+    "svgCount": 0,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 18,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "遅くなったスパンを、手元で 340 ms で見つける。"
+      },
+      {
+        "tag": "H2",
+        "text": "main と HEAD を重ねて、回帰だけを光らせる"
+      },
+      {
+        "tag": "H2",
+        "text": "4 コマンドで、検出から再発防止まで"
+      },
+      {
+        "tag": "H2",
+        "text": "6 つの主要機能"
+      },
+      {
+        "tag": "H3",
+        "text": "ゼロ設定 OTLP 取り込み"
+      },
+      {
+        "tag": "H3",
+        "text": "Span Waterfall & Differential Flamegraph"
+      },
+      {
+        "tag": "H3",
+        "text": "SQL & N+1 クエリ帰属"
+      },
+      {
+        "tag": "H3",
+        "text": "決定的な CI 予算ゲート"
+      },
+      {
+        "tag": "H3",
+        "text": "オフライン完結・プライバシー保護"
+      },
+      {
+        "tag": "H3",
+        "text": "クロス言語トレース連結"
+      },
+      {
+        "tag": "H2",
+        "text": "起動も取り込みも、軽い"
+      },
+      {
+        "tag": "H3",
+        "text": "取り込み完了 / 起動時間"
+      },
+      {
+        "tag": "H3",
+        "text": "メモリ使用量"
+      },
+      {
+        "tag": "H2",
+        "text": "コアは無料、チームで使うなら Team CI"
+      },
+      {
+        "tag": "H3",
+        "text": "Open-Source Core"
+      },
+      {
+        "tag": "H3",
+        "text": "Team CI"
+      },
+      {
+        "tag": "H3",
+        "text": "Enterprise"
+      },
+      {
+        "tag": "H2",
+        "text": "macOS / Linux。Docker は不要。"
+      }
+    ],
+    "interactiveCount": 20,
+    "visibleTextChars": 2584,
+    "bodyTextSample": "本文へ移動\nKestrel Trace\nデモ\n機能\nベンチマーク\nプラン\nインストール\n\nV1.4 · RUST / GO / TYPESCRIPT\n\n遅くなったスパンを、\n手元で 340 ms で見つける。\n\nKestrel Trace は、ローカルファーストの分散トレース＆フレームグラフプロファイラ。本番クラウド APM にデータを送らず、開発機と CI でテールレイテンシ回帰を特定します。\n\n18 MB\n単一静的バイナリ\n0\nテレメトリ送信\nAir-gap\n動作可能\nインストール\n差分フレームグラフを試す\n~/shop — sample output\n$ kestrel watch --port 4317\n✓ listening  gRPC/HTTP OTLP  :4317\n$ kestrel diff main..HEAD\n+84 ms  checkout.reserve_inventory\n  └ SELECT * FROM sku_locks  ×14\n$ kestrel check --p99-max 120ms\n✗ p99 204 ms > 120 ms  exit 1"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 6928,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "t1",
+    "requiredFacts": {
+      "hasKestrelTrace": true,
+      "hasPort4317": true,
+      "has340ms": true,
+      "has42MB": true,
+      "has18MB": true,
+      "hasP99Max120ms": true,
+      "hasApache2": true,
+      "hasTeam19": true,
+      "hasInstallCmd": true
+    }
+  }
+}

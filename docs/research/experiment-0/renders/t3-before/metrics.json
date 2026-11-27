@@ -1,0 +1,94 @@
+{
+  "capturedAt": "2026-11-27T02:37:16.554Z",
+  "siteDir": "/home/basic/work/design-skills/docs/research/experiment-0/fixtures/t3-app",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Fieldnote Spec Review Workbench",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 2227,
+    "horizontalOverflowPx": 0,
+    "svgCount": 0,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 1,
+    "brokenImgs": [],
+    "headingCount": 13,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Fieldnote Spec Review Workbench"
+      },
+      {
+        "tag": "H2",
+        "text": "Queue Summary"
+      },
+      {
+        "tag": "H2",
+        "text": "Filter and Search Specifications"
+      },
+      {
+        "tag": "H2",
+        "text": "Specification List"
+      },
+      {
+        "tag": "H3",
+        "text": "RFC-214: Zero-Downtime Shard Split for Ledger Partitions"
+      },
+      {
+        "tag": "H3",
+        "text": "RFC-211: Adaptive Concurrency Limiter for Edge Auth Tokens"
+      },
+      {
+        "tag": "H3",
+        "text": "RFC-209: Streaming Arrow Export for Analytics Warehouse"
+      },
+      {
+        "tag": "H3",
+        "text": "RFC-207: Deterministic Retry Envelope for Webhook Delivery"
+      },
+      {
+        "tag": "H3",
+        "text": "RFC-205: Unified OTLP Span Attribute Taxonomy v2"
+      },
+      {
+        "tag": "H3",
+        "text": "RFC-202: Read-Only Audit Log Export CLI Command"
+      },
+      {
+        "tag": "H3",
+        "text": "RFC-198: Deprecate Legacy XML Invoice Attachment Endpoint"
+      },
+      {
+        "tag": "H2",
+        "text": "Selected Specification Details"
+      },
+      {
+        "tag": "H3",
+        "text": "RFC-214: Zero-Downtime Shard Split for Ledger Partitions"
+      }
+    ],
+    "interactiveCount": 18,
+    "visibleTextChars": 3605,
+    "bodyTextSample": "Fieldnote Spec Review Workbench\n\nCore Platform Architecture — Last updated 2026-11-27T08:45:00Z\n\nQueue Summary\n\nThere are currently 7 specifications in the review queue: 3 need review, 2 have changes requested, and 2 are approved. 2 specifications are marked P0 priority. The average risk score across all specifications is 54 out of 100, and 12 of 19 total checklist items have been completed.\n\nFilter and Search Specifications\nSearch specifications:\nAll (7)\nNeeds Review (3)\nChanges Requested (2)\nA"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 3556,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "t3",
+    "requiredFacts": {
+      "usesExistingLogo": true,
+      "hasAll7Rfcs": true,
+      "searchWorked": true,
+      "filterWorked": true,
+      "checklistToggleWorked": true,
+      "approveWorked": false
+    }
+  }
+}

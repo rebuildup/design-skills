@@ -1,0 +1,79 @@
+{
+  "capturedAt": "2026-11-27T02:41:15.986Z",
+  "siteDir": "/tmp/exp0-trials/T2-R2",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Harborline Release & Build Fleet Dashboard",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 2805,
+    "horizontalOverflowPx": 0,
+    "svgCount": 4,
+    "largeSvgCount": 4,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 8,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Fleet Dashboard"
+      },
+      {
+        "tag": "H2",
+        "text": "Priority triage"
+      },
+      {
+        "tag": "H2",
+        "text": "Last 24 hours"
+      },
+      {
+        "tag": "H2",
+        "text": "Service SLO health"
+      },
+      {
+        "tag": "H3",
+        "text": "checkout-api Degraded"
+      },
+      {
+        "tag": "H2",
+        "text": "Build runner pools"
+      },
+      {
+        "tag": "H2",
+        "text": "Recent deploys"
+      },
+      {
+        "tag": "H3",
+        "text": "rel-837 Failed"
+      }
+    ],
+    "interactiveCount": 47,
+    "visibleTextChars": 3374,
+    "bodyTextSample": "Skip to triage\n\nHARBORLINE · RELEASE & BUILD FLEET\n\nFleet Dashboard\n\nproduction · generated 2026-11-27T09:00:00Z · window 24h\n\nPRIORITY TRIAGE\nCritical\nINC-408\ncheckout-api · tier1 · payments-core\n\nConnection pool exhaustion on primary Postgres replica after rel-841 enabled eager inventory lock verification.\n\np99 vs SLO\n612 ms / 250 ms (+362 ms)\nError rate\n4.82%\nError budget left\n18%\nLast deploy\nrel-841\nInspect checkout-api\nWarning\nWRN-119\nsearch-indexer · tier2 · discovery-platform\n\nQueue backl"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 5300,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "t2",
+    "requiredFacts": {
+      "hasCheckoutApi": true,
+      "hasInc408": true,
+      "has612ms": true,
+      "hasSearchIndexer": true,
+      "hasLinuxArm64": true,
+      "hasRel841": true,
+      "hasSuccessRate": true
+    },
+    "interactionsAttempted": [
+      "Failed2",
+      "search-indexer"
+    ]
+  }
+}

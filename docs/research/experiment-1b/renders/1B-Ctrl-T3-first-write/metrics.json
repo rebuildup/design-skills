@@ -1,0 +1,86 @@
+{
+  "capturedAt": "2026-11-27T06:34:49.762Z",
+  "siteDir": "/tmp/exp1b-trials/_firstwrite/1B-Ctrl-T3",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Fieldnote — Spec Review Workbench",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 1125,
+    "horizontalOverflowPx": 0,
+    "svgCount": 1,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 1,
+    "brokenImgs": [],
+    "headingCount": 11,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Fieldnote"
+      },
+      {
+        "tag": "H2",
+        "text": "Specifications"
+      },
+      {
+        "tag": "H3",
+        "text": "Zero-Downtime Shard Split for Ledger Partitions"
+      },
+      {
+        "tag": "H3",
+        "text": "Adaptive Concurrency Limiter for Edge Auth Tokens"
+      },
+      {
+        "tag": "H3",
+        "text": "Streaming Arrow Export for Analytics Warehouse"
+      },
+      {
+        "tag": "H3",
+        "text": "Deterministic Retry Envelope for Webhook Delivery"
+      },
+      {
+        "tag": "H3",
+        "text": "Unified OTLP Span Attribute Taxonomy v2"
+      },
+      {
+        "tag": "H3",
+        "text": "Read-Only Audit Log Export CLI Command"
+      },
+      {
+        "tag": "H3",
+        "text": "Deprecate Legacy XML Invoice Attachment Endpoint"
+      },
+      {
+        "tag": "H2",
+        "text": "Selected Specification Details"
+      },
+      {
+        "tag": "H3",
+        "text": "Zero-Downtime Shard Split for Ledger Partitions"
+      }
+    ],
+    "interactiveCount": 25,
+    "visibleTextChars": 2125,
+    "bodyTextSample": "Fieldnote\n/\nSpec Review Workbench\n\nCore Platform Architecture\n\nUpdated Nov 27, 2026, 08:45 UTC\nQUEUE STATUS\n7\nspecifications\nReview 3\nChanges 2\nApproved 2\nPRIORITY & RISK ATTENTION\n2\nP0 (2 open)\n\n2 specs at critical risk (≥ 75/100)\n\nRISK DISTRIBUTION\n54\n/ 100 avg\nCHECKLIST READINESS\n63%\n12 / 19 items\n\n7 checklist items remaining\n\nSpecifications\n7 of 7\nSearch specifications by ID, title, owner, or domain\nAll (7)\nNeeds Review (3)\nChanges Requested (2)\nApproved (2)\nRFC-214\nP0\nNeeds Review\nZero-Down"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 2576,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "t3",
+    "requiredFacts": {
+      "usesExistingLogo": true,
+      "hasAll7Rfcs": true,
+      "searchWorked": true,
+      "filterWorked": true,
+      "checklistToggleWorked": true,
+      "approveWorked": true
+    }
+  }
+}

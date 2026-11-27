@@ -1,0 +1,113 @@
+{
+  "version": "1.0.0",
+  "id": "9f08751e-932e-4937-97b2-c0e386e7cba1",
+  "model": null,
+  "resolvedModel": null,
+  "specSha256": "fb7c38d22a9a888d7fcde7ea59eb81a91bb4ca75814de1a2098dc516d90efdf8",
+  "classification": "review-completed",
+  "verified": false,
+  "verdict": {
+    "findings": [
+      {
+        "description": "[defect] In 02-mobile-top.png, the \"CRITICAL\" label inside the risk score badges for RFC-214 (91) and RFC-211 (82) touches the left and right edges of its tinted container with virtually no horizontal padding (and is also tight on desktop in 00-desktop-top.png), unlike shorter labels such as \"HIGH\" and \"LOW\".",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In 01-desktop-full.png, the metadata for RFC-205 wraps \"8 files +144 −97\" onto a second line and places the checklist progress bar (\"1/2\") inline beside it, whereas the other six queue items place the progress bar left-aligned on its own dedicated bottom line.",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] In 01-desktop-full.png, the 7-item Review Queue in the left column extends well below the selected RFC-214 detail card, leaving open gray background canvas across the lower-right region beneath the detail pane (above the fold in 00-desktop-top.png the two columns are well balanced); constraining queue height with independent scrolling would keep the full-page layout balanced.",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] In 00-desktop-top.png and 01-desktop-full.png, the four queue filter pills wrap with \"Approved (2)\" alone as an orphan pill on a second row; slightly tighter spacing or sizing would let all four fit cleanly on a single row.",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] In 00-desktop-top.png and 02-mobile-top.png, the selected queue item (RFC-214) renders a black selection border directly beside the red left severity stripe, creating a slightly heavy double vertical edge on the left side.",
+        "severity": "info"
+      }
+    ],
+    "summary": "Clean, well-structured desktop and mobile workbench UI with strong visual hierarchy, consistent severity/status color coding, aligned grids, and no critical or major defects. Only minor polish issues and layout suggestions were observed across the reviewed screenshots, so the run is approved for the reviewed scope.",
+    "verdict": "approve"
+  },
+  "agy": {
+    "status": "SUCCESS",
+    "conversationId": "e6f75e74-e506-4d74-a708-25cbb7db84ac",
+    "durationSeconds": 117.539137473,
+    "numTurns": 1,
+    "usage": {
+      "input_tokens": 6141,
+      "output_tokens": 11658,
+      "thinking_tokens": 10916,
+      "cache_read_tokens": 19188,
+      "total_tokens": 17799
+    },
+    "deniedActions": []
+  },
+  "readonly": {
+    "deniedActions": [],
+    "permissionErrors": 0,
+    "protectedPath": null,
+    "protectedCheck": "unavailable",
+    "protectedMutations": []
+  },
+  "isolation": {
+    "workdir": "/home/basic/.local/state/agent/agy-review/9f08751e-932e-4937-97b2-c0e386e7cba1",
+    "osSandbox": "unsupported",
+    "permissionDeny": [
+      "write_file(*)",
+      "command(*)",
+      "read_url(*)",
+      "execute_url(*)",
+      "mcp(*)",
+      "unsandboxed(*)"
+    ]
+  },
+  "quota": {
+    "buckets": [
+      {
+        "group": "Gemini Models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.87,
+        "resetTime": "2026-12-03T07:02:48Z"
+      },
+      {
+        "group": "Gemini Models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.79,
+        "resetTime": "2026-11-27T07:25:30Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.5,
+        "resetTime": "2026-12-04T02:31:12Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0,
+        "resetTime": "2026-11-27T07:31:12Z"
+      }
+    ],
+    "raw": "Gemini Models\tWeekly Limit Remaining\t87%\t2026-12-03T07:02:48Z\nGemini Models\tFive Hour Limit Remaining\t79%\t2026-11-27T07:25:30Z\nClaude and GPT models\tWeekly Limit Remaining\t50%\t2026-12-04T02:31:12Z\nClaude and GPT models\tFive Hour Limit Remaining\t0%\t2026-11-27T07:31:12Z\n"
+  },
+  "executor": "local",
+  "reasons": [
+    "no protected path supplied; OS/permission layers only"
+  ]
+}

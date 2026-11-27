@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harborline Release &amp; Build Fleet Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <p class="eyebrow">Harborline · Release &amp; Build Fleet</p>
+    <h1>Fleet Dashboard</h1>
+  </div>
+  <p class="meta" id="meta" aria-live="polite">Loading…</p>
+</header>
+
+<main id="app">
+  <section id="triage" aria-labelledby="h-triage">
+    <h2 id="h-triage">Priority triage</h2>
+    <div id="kpis" class="kpis"></div>
+    <div id="alerts" class="alerts"></div>
+  </section>
+
+  <section id="trend" aria-labelledby="h-trend">
+    <h2 id="h-trend">Last 24 hours</h2>
+    <div class="panel">
+      <div class="seg" role="group" aria-label="Chart metric" id="metric-tabs"></div>
+      <div id="chart" class="chart"></div>
+      <p id="hour-readout" class="readout" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section id="services" aria-labelledby="h-services">
+    <h2 id="h-services">Service SLO health</h2>
+    <div class="split">
+      <div id="service-list" class="service-list"></div>
+      <aside id="service-detail" class="panel detail" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="runners" aria-labelledby="h-runners">
+    <h2 id="h-runners">Build runner pools</h2>
+    <div id="pool-list" class="pools"></div>
+  </section>
+
+  <section id="deploys" aria-labelledby="h-deploys">
+    <h2 id="h-deploys">Recent deploys</h2>
+    <div class="filters">
+      <div class="seg" role="group" aria-label="Deploy status filter" id="status-filter"></div>
+      <label>Service
+        <select id="service-filter"></select>
+      </label>
+    </div>
+    <div class="split">
+      <div class="table-wrap"><table id="deploy-table">
+        <thead><tr><th>ID</th><th>Service</th><th>Version</th><th>Started (UTC)</th><th>Status</th></tr></thead>
+        <tbody></tbody>
+      </table><p id="deploy-empty" class="empty" hidden>No deploys match the current filters.</p></div>
+      <aside id="deploy-detail" class="panel detail" aria-live="polite"></aside>
+    </div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

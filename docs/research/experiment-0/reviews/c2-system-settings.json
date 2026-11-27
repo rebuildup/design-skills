@@ -1,0 +1,109 @@
+{
+  "version": "1.0.0",
+  "id": "635abafe-9b5b-40db-9f6f-1f297da72514",
+  "model": null,
+  "resolvedModel": null,
+  "specSha256": "fb7c38d22a9a888d7fcde7ea59eb81a91bb4ca75814de1a2098dc516d90efdf8",
+  "classification": "review-completed",
+  "verified": false,
+  "verdict": {
+    "findings": [
+      {
+        "description": "[defect] The fieldset legends (\"Alert Routing\" and \"CLI Defaults\") straddle the top card border without a uniform backing, leaving a faint two-tone background transition behind the text where the light-gray page background meets the white card fill.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] The select controls (\"Escalation Channel\" and \"Default Output Format\") render slightly taller than the adjacent text inputs (\"Primary Incident Email\" and \"Default Control Plane Region\"), introducing a subtle height inconsistency between sibling form inputs.",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] On desktop, the right-aligned native checkboxes in \"Alert Routing\" sit across a wide horizontal gap from their left-aligned labels; placing checkboxes to the left of their labels or using toggle switches would make the label-to-control pairing easier to scan.",
+        "severity": "info"
+      },
+      {
+        "description": "[suggestion] On the mobile viewport, the label \"Page on SLO error-budget burn (> 5%/hr)\" breaks between \">\" and \"5%/hr)\"; keeping \"(> 5%/hr)\" together with a non-breaking space would improve line-wrap readability.",
+        "severity": "info"
+      }
+    ],
+    "summary": "Clean, well-structured single-column preferences form across both desktop and mobile viewports with clear typography, consistent left/right alignment, and no critical or major visual defects. Only minor styling polish items and optional readability suggestions were observed.",
+    "verdict": "approve"
+  },
+  "agy": {
+    "status": "SUCCESS",
+    "conversationId": "ddc8f2ba-9d1e-4607-8949-61744ab9ca48",
+    "durationSeconds": 50.454532552,
+    "numTurns": 1,
+    "usage": {
+      "input_tokens": 14720,
+      "output_tokens": 4904,
+      "thinking_tokens": 4357,
+      "cache_read_tokens": 10612,
+      "total_tokens": 19624
+    },
+    "deniedActions": []
+  },
+  "readonly": {
+    "deniedActions": [],
+    "permissionErrors": 0,
+    "protectedPath": null,
+    "protectedCheck": "unavailable",
+    "protectedMutations": []
+  },
+  "isolation": {
+    "workdir": "/home/basic/.local/state/agent/agy-review/635abafe-9b5b-40db-9f6f-1f297da72514",
+    "osSandbox": "unsupported",
+    "permissionDeny": [
+      "write_file(*)",
+      "command(*)",
+      "read_url(*)",
+      "execute_url(*)",
+      "mcp(*)",
+      "unsandboxed(*)"
+    ]
+  },
+  "quota": {
+    "buckets": [
+      {
+        "group": "Gemini Models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.86,
+        "resetTime": "2026-12-03T07:02:48Z"
+      },
+      {
+        "group": "Gemini Models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.76,
+        "resetTime": "2026-11-27T07:25:30Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.5,
+        "resetTime": "2026-12-04T02:31:12Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0,
+        "resetTime": "2026-11-27T07:31:12Z"
+      }
+    ],
+    "raw": "Gemini Models\tWeekly Limit Remaining\t86%\t2026-12-03T07:02:48Z\nGemini Models\tFive Hour Limit Remaining\t76%\t2026-11-27T07:25:30Z\nClaude and GPT models\tWeekly Limit Remaining\t50%\t2026-12-04T02:31:12Z\nClaude and GPT models\tFive Hour Limit Remaining\t0%\t2026-11-27T07:31:12Z\n"
+  },
+  "executor": "local",
+  "reasons": [
+    "no protected path supplied; OS/permission layers only"
+  ]
+}

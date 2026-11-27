@@ -1,0 +1,24 @@
+{
+  "first_encounter_X": "The hero pairs a specific p99 regression promise with a terminal transcript that follows collection, branch comparison, N+1 SQL attribution, and CI budget failure. The install command and operating footprint are visible alongside that proof.",
+  "first_encounter_Y": "The hero pairs the local profiling pitch with a compact trace preview that makes the slow checkout span and repeated SQL calls immediately recognizable. The install button and four footprint metrics are easy to scan.",
+  "axis_winners": {
+    "information_restructuring": "X",
+    "representation_fit": "X",
+    "hierarchy_rhythm": "Y",
+    "quality_floor": "X"
+  },
+  "overall_winner": "X",
+  "margin": "slight",
+  "evidence": "X carries the engineer from a concrete failure in the hero into a detailed investigation, then shows the four-command workflow before opening up the architecture and feature details. Its workbench exposes a time axis, span nesting, baseline and regression bars, source code, and the CI result together. Its ingestion diagram also makes the path from services through the collector to local storage explicit. Y gives the CI gate a dedicated demo tab, pairs workflow steps with sample CLI output, and makes both benchmark measures visible together. Y also has the stronger reading rhythm because its compact demo, feature grid, and split workflow vary the page's density and keep focal areas distinct. X wins narrowly because it better explains how the regression is diagnosed and enforced, while Y's benchmark introduces a quantitative-looking memory bar for an unquantified value.",
+  "defects_X": [
+    "The workflow heading strands the final character of 完結 on its own line.",
+    "The second workflow card's command is crowded against the right edge of its code box, and a long SQL line is visibly clipped in the span inspector.",
+    "The waterfall leaves a large empty area below its six rows because the inspector sets the panel height."
+  ],
+  "defects_Y": [
+    "The demo and plans headings each strand a single character on a second line at the shown desktop width.",
+    "The hero preview truncates the inventory span name and SQL text, and the selected-span SQL snippet is cut off at the right edge.",
+    "The Cloud SaaS APM memory comparison draws a partial striped bar even though the row supplies no measured memory value, implying a magnitude the label does not support.",
+    "Muted metadata in the hero and feature-card footers is difficult to read against the dark panels."
+  ]
+}

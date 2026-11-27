@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fieldnote Spec Review Workbench</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#workbench-main">Skip to review workbench</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <img class="brand-mark" src="./assets/fieldnote-mark.svg" alt="Fieldnote" width="34" height="34">
+        <div class="brand-copy">
+          <div class="brand-title-row">
+            <h1>Fieldnote</h1>
+            <span class="brand-divider" aria-hidden="true">/</span>
+            <span class="brand-subtitle">Spec Review Workbench</span>
+          </div>
+          <p id="workspace-meta" class="workspace-meta">Loading workspace...</p>
+        </div>
+      </div>
+
+      <div class="topbar-meta" aria-label="Queue status overview">
+        <span id="topbar-p0-pill" class="meta-pill meta-pill--critical" hidden></span>
+        <span id="topbar-updated" class="meta-timestamp"></span>
+      </div>
+    </div>
+  </header>
+
+  <main id="workbench-main" class="shell">
+    <section class="telemetry-strip" aria-labelledby="summary-heading">
+      <h2 id="summary-heading" class="sr-only">Queue Summary</h2>
+
+      <article class="metric-card metric-card--wide">
+        <div class="metric-header">
+          <span class="metric-label">Review Queue</span>
+          <span id="metric-total" class="metric-value metric-value--lg">0</span>
+        </div>
+        <div id="status-distribution-bar" class="stacked-bar" role="img" aria-label="Status distribution"></div>
+        <div id="status-legend" class="metric-legend"></div>
+      </article>
+
+      <article class="metric-card">
+        <div class="metric-header">
+          <span class="metric-label">Risk Exposure</span>
+          <span id="metric-avg-risk" class="metric-value">0<span class="metric-unit">/100</span></span>
+        </div>
+        <div id="risk-distribution-bar" class="stacked-bar" role="img" aria-label="Risk tier distribution"></div>
+        <p id="metric-risk-sub" class="metric-sub">Loading risk profile...</p>
+      </article>
+
+      <article class="metric-card">
+        <div class="metric-header">
+          <span class="metric-label">Checklist Readiness</span>
+          <span id="metric-checklist-pct" class="metric-value">0%</span>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="metric-checklist-fill" class="progress-fill" style="width: 0%"></div>
+        </div>
+        <p id="metric-checklist-sub" class="metric-sub">0 of 0 items verified</p>
+      </article>
+
+      <article class="metric-card">
+        <div class="metric-header">
+          <span class="metric-label">Change Scope</span>
+          <span id="metric-files-total" class="metric-value">0 <span class="metric-unit">files</span></span>
+        </div>
+        <div id="metric-diff-totals" class="diff-inline"></div>
+        <p id="metric-latency-sub" class="metric-sub">Net latency impact</p>
+      </article>
+    </section>
+
+    <section class="toolbar" aria-labelledby="controls-heading">
+      <h2 id="controls-heading" class="sr-only">Filter and Search Specifications</h2>
+
+      <div class="filter-tabs" role="group" aria-label="Filter by status">
+        <button type="button" class="filter-btn active" data-status="all" aria-pressed="true">
+          <span class="filter-label">All</span>
+          <span class="filter-count">0</span>
+        </button>
+        <button type="button" class="filter-btn" data-status="needs-review" aria-pressed="false">
+          <span class="status-dot status-dot--needs-review" aria-hidden="true"></span>
+          <span class="filter-label">Needs Review</span>
+          <span class="filter-count">0</span>
+        </button>
+        <button type="button" class="filter-btn" data-status="changes-requested" aria-pressed="false">
+          <span class="status-dot status-dot--changes-requested" aria-hidden="true"></span>
+          <span class="filter-label">Changes Requested</span>
+          <span class="filter-count">0</span>
+        </button>
+        <button type="button" class="filter-btn" data-status="approved" aria-pressed="false">
+          <span class="status-dot status-dot--approved" aria-hidden="true"></span>
+          <span class="filter-label">Approved</span>
+          <span class="filter-count">0</span>
+        </button>
+      </div>
+
+      <div class="search-field">
+        <label for="search-input" class="sr-only">Search specifications by ID, title, owner, or domain</label>
+        <svg class="search-icon" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="9" cy="9" r="6"></circle>
+          <path d="M13.5 13.5L17.5 17.5" stroke-linecap="round"></path>
+        </svg>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search RFC ID, title, owner, or domain..."
+          autocomplete="off"
+        >
+        <button type="button" id="search-clear" class="search-clear" aria-label="Clear search" hidden>&times;</button>
+      </div>
+    </section>
+
+    <div class="workbench-grid">
+      <section class="queue-pane" aria-labelledby="list-heading">
+        <div class="pane-header">
+          <h2 id="list-heading">Specifications</h2>
+          <span id="list-count" class="pane-count">0 shown</span>
+        </div>
+        <div id="spec-list" class="spec-list" role="listbox" aria-label="Specification review queue"></div>
+      </section>
+
+      <section class="detail-pane" aria-labelledby="detail-heading">
+        <h2 id="detail-heading" class="sr-only">Selected Specification Details</h2>
+        <div id="action-feedback" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+        <div id="spec-detail" class="spec-detail">
+          <p class="empty-state">Select a specification to inspect details.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

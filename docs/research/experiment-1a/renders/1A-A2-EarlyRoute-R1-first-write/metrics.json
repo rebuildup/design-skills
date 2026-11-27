@@ -1,0 +1,109 @@
+{
+  "capturedAt": "2026-11-27T06:14:55.631Z",
+  "siteDir": "/tmp/exp1a-trials/_firstwrite/1A-A2-EarlyRoute-R1",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Kestrel Trace v1.4 — ローカルファースト分散トレース＆差分フレームグラフ",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 5015,
+    "horizontalOverflowPx": 0,
+    "svgCount": 1,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 16,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "クラウドに送らず、\n              p99 回帰を手元で特定する。"
+      },
+      {
+        "tag": "H2",
+        "text": "ブランチ間の差分トレースで、原因の 1 行まで辿る"
+      },
+      {
+        "tag": "H3",
+        "text": "db: SELECT * FROM sku_locks"
+      },
+      {
+        "tag": "H2",
+        "text": "起動から CI ゲートまで、4 つのコマンドで完結"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカル実行と決定的な回帰検出のために設計"
+      },
+      {
+        "tag": "H3",
+        "text": "ゼロ設定 OTLP 取り込み"
+      },
+      {
+        "tag": "H3",
+        "text": "インタラクティブ Span Waterfall & Differential Flamegraph"
+      },
+      {
+        "tag": "H3",
+        "text": "SQL & N+1 クエリ帰属"
+      },
+      {
+        "tag": "H3",
+        "text": "決定的な CI レイテンシ予算ゲート"
+      },
+      {
+        "tag": "H3",
+        "text": "オフライン完結・プライバシー保護"
+      },
+      {
+        "tag": "H3",
+        "text": "クロス言語トレース連結"
+      },
+      {
+        "tag": "H2",
+        "text": "12 サービス・48,200 スパンでの性能比較"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカル解析機能はすべて Apache-2.0 で無料"
+      },
+      {
+        "tag": "H3",
+        "text": "Open-Source Core"
+      },
+      {
+        "tag": "H3",
+        "text": "Team CI"
+      },
+      {
+        "tag": "H3",
+        "text": "Enterprise"
+      }
+    ],
+    "interactiveCount": 46,
+    "visibleTextChars": 5412,
+    "bodyTextSample": "メインコンテンツへ移動\nKestrel Trace\nv1.4\n差分デモ\nワークフロー\n主要機能\nベンチマーク\nライセンス\nインストール\n\nLOCAL-FIRST DISTRIBUTED TRACING · RUST / GO / TYPESCRIPT\n\nクラウドに送らず、\np99 回帰を手元で特定する。\n\nKestrel Trace は、Rust・Go・TypeScript マイクロサービス向けのローカルファースト分散トレース＆差分フレームグラフプロファイラです。本番クラウド APM へ送信せず、手元の端末や CI 上でマイクロ秒単位のテールレイテンシ回帰を即座に検出します。\n\nHomebrew (macOS / Linux)\nShell Script\n$\nbrew install kestrel-trace/tap/kestrel\nCopy\n18 MB 単一静的バイナリ\n/\nDocker 不要\n/\nテレメトリ送信ゼロ\n/\nエアギャップ対応\nSPEC PROFILE · V1.4\nApache-2.0 Core\n48,200 スパン取り込み\n340 ms\n即時起動（12サービス決済トレ"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 453,
+    "scrollHeight": 8874,
+    "horizontalOverflowPx": 63
+  },
+  "functionalCheck": {
+    "mode": "t1",
+    "requiredFacts": {
+      "hasKestrelTrace": true,
+      "hasPort4317": true,
+      "has340ms": true,
+      "has42MB": true,
+      "has18MB": true,
+      "hasP99Max120ms": true,
+      "hasApache2": true,
+      "hasTeam19": true,
+      "hasInstallCmd": true
+    }
+  }
+}

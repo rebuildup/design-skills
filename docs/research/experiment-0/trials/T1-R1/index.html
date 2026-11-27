@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kestrel Trace — ローカルファーストな分散トレース＆フレームグラフ</title>
+<meta name="description" content="Rust / Go / TypeScript マイクロサービス向け、ローカルファーストの分散トレース＆差分フレームグラフプロファイラ。">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Kestrel Trace ホーム"><span class="brand-mark" aria-hidden="true"></span>Kestrel Trace</a>
+  <nav aria-label="主要ナビゲーション">
+    <a href="#demo">デモ</a><a href="#features">機能</a><a href="#bench">ベンチマーク</a><a href="#plans">プラン</a>
+  </nav>
+  <a class="btn btn-small" href="#install">インストール</a>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <p class="eyebrow">v1.4 · Rust / Go / TypeScript · macOS / Linux</p>
+    <h1>テールレイテンシの回帰を、<br>手元で、マイクロ秒単位で。</h1>
+    <p class="lead">Kestrel Trace は、データを本番クラウド APM に送らないローカルファーストの分散トレース＆フレームグラフプロファイラ。開発機と CI の上で、p99 の回帰を生んだスパンまで辿れます。</p>
+    <div class="cta">
+      <a class="btn" href="#install">インストール</a>
+      <a class="btn btn-ghost" href="#demo">差分を試す</a>
+    </div>
+    <ul class="facts" aria-label="要点">
+      <li><strong>18 MB</strong>単一静的バイナリ</li>
+      <li><strong>0</strong>テレメトリ送信</li>
+      <li><strong>Docker</strong>不要</li>
+    </ul>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <pre class="term"><span class="dim">$</span> kestrel watch --port 4317
+<span class="ok">✓</span> OTLP gRPC/HTTP listening
+<span class="dim">$</span> kestrel diff main..HEAD
+<span class="bad">+84ms</span> checkout.reserve_inventory
+  <span class="dim">SELECT * FROM sku_locks ×14</span>
+<span class="dim">$</span> kestrel check --p99-max 120ms
+<span class="bad">✗</span> exit 1 · snapshot.html</pre>
+  </div>
+</section>
+
+<section class="section" id="demo">
+  <div class="section-head">
+    <h2>Differential Flamegraph</h2>
+    <p>仕様のワークフロー例に基づくサンプルモデルです（実測データではありません）。<code>main</code> と <code>HEAD</code> の同一トレースを切り替え、差分を確認できます。</p>
+  </div>
+  <div class="demo">
+    <div class="demo-bar" role="tablist" aria-label="表示モード">
+      <button role="tab" aria-selected="false" data-view="main">main</button>
+      <button role="tab" aria-selected="false" data-view="head">HEAD</button>
+      <button role="tab" aria-selected="true" data-view="diff">差分</button>
+    </div>
+    <div class="flame" id="flame" role="img" aria-label="サンプルのスパン Waterfall"></div>
+    <div class="axis" aria-hidden="true"><span>0 ms</span><span id="axis-end"></span></div>
+    <div class="detail" id="detail" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="section" id="workflow">
+  <div class="section-head"><h2>4 ステップで回帰を捕まえる</h2></div>
+  <ol class="steps">
+    <li><code>kestrel watch --port 4317</code><span>ローカルコレクタを起動</span></li>
+    <li><code>make load-test</code><span>既存テストや負荷スクリプトでトレース収集</span></li>
+    <li><code>kestrel diff main..HEAD</code><span><code>checkout.reserve_inventory</code> 内の <code>SELECT * FROM sku_locks</code> が 14 回反復し +84ms</span></li>
+    <li><code>kestrel check --p99-max 120ms</code><span>CI に組み込み再発を防止</span></li>
+  </ol>
+</section>
+
+<section class="section" id="features">
+  <div class="section-head"><h2>6 つの主要機能</h2></div>
+  <div class="grid">
+    <article><span class="num">01</span><h3>ゼロ設定 OTLP 取り込み</h3><p><code>kestrel watch --port 4317</code> だけで gRPC / HTTP スパンをローカル SQLite + DuckDB リングバッファへ自動収集。</p></article>
+    <article><span class="num">02</span><h3>Span Waterfall &amp; Differential Flamegraph</h3><p><code>main</code> vs <code>HEAD</code> の同一トレースを重ね、p99 回帰箇所をミリ秒差分で強調表示。</p></article>
+    <article><span class="num">03</span><h3>SQL &amp; N+1 クエリ帰属</h3><p>重複するプリペアドステートメントを集約し、問題のクエリをアプリケーションの <code>file:line</code> へ直接リンク。</p></article>
+    <article><span class="num">04</span><h3>決定的な CI レイテンシ予算ゲート</h3><p><code>kestrel check --p99-max 120ms</code> は超過時に非ゼロ終了し、PR 添付用の自己完結型 HTML スナップショットを生成。</p></article>
+    <article><span class="num">05</span><h3>オフライン完結・プライバシー保護</h3><p>18 MB 単一バイナリ、外部送信なし。機密ペイロードもローカルで検証でき、エアギャップ環境でも動作。</p></article>
+    <article><span class="num">06</span><h3>クロス言語トレース連結</h3><p>W3C Trace Context で Rust (<code>tracing</code>)・Go (<code>otel</code>)・Node/Bun 間の呼び出しを単一タイムラインに統合。</p></article>
+  </div>
+</section>
+
+<section class="section" id="bench">
+  <div class="section-head">
+    <h2>ベンチマーク</h2>
+    <p>仕様の標準テスト条件: 12 サービス・決済トレース 48,200 スパン。</p>
+  </div>
+  <div class="bars" id="bars"></div>
+  <div class="table-wrap">
+    <table>
+      <caption class="sr">ツール別の取り込み時間・メモリ・外部送信/コスト</caption>
+      <thead><tr><th scope="col">ツール</th><th scope="col">取り込み完了 / 起動</th><th scope="col">メモリ</th><th scope="col">外部送信 / コスト</th></tr></thead>
+      <tbody>
+        <tr class="hl"><th scope="row">Kestrel Trace (v1.4)</th><td>340 ms（即時起動）</td><td>42 MB</td><td>なし / ローカル無料</td></tr>
+        <tr><th scope="row">Dockerized Jaeger + ES</th><td>4,800 ms（コンテナ起動別）</td><td>1,120 MB</td><td>なし / ローカル高負荷</td></tr>
+        <tr><th scope="row">Cloud SaaS APM（代表構成）</th><td>6,000–18,000 ms 反映遅延</td><td>エージェント常駐</td><td>外部送信あり / 約 $0.30/GB</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="plans">
+  <div class="section-head"><h2>プラン・ライセンス</h2></div>
+  <div class="plans">
+    <article><h3>Open-Source Core</h3><p class="price">無料<small>Apache-2.0</small></p><ul><li>ローカル CLI</li><li>OTLP 取り込み</li><li>Differential Flamegraph</li><li>HTML スナップショット出力</li></ul></article>
+    <article class="featured"><h3>Team CI</h3><p class="price">$19<small>/ seat / 月</small></p><ul><li>GitHub PR への自動差分アノテーション</li><li>ベースライン履歴保存</li><li>チーム共有リンク</li></ul></article>
+    <article><h3>Enterprise</h3><p class="price">カスタム</p><ul><li>セルフホスト SAML/SSO</li><li>長期保持ストレージ</li><li>専任サポート</li></ul></article>
+  </div>
+</section>
+
+<section class="section install" id="install">
+  <div class="section-head"><h2>インストール</h2><p>macOS / Linux 対応。Docker 不要。</p></div>
+  <div class="cmds">
+    <div class="cmd"><code>brew install kestrel-trace/tap/kestrel</code><button class="copy" type="button">コピー</button></div>
+    <div class="cmd"><code>curl -fsSL https://kestreltrace.dev/install.sh | sh</code><button class="copy" type="button">コピー</button></div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <p>Kestrel Trace v1.4 · 掲載の数値は製品仕様の標準テスト条件によるもので、デモの波形はサンプルモデルです。</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

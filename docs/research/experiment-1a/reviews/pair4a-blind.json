@@ -1,0 +1,24 @@
+{
+  "first_encounter_X": "The headline promises local p99 regression diagnosis. The adjacent 340 ms, 42 MB, and zero outbound bytes give engineers concrete reasons to look closer. The next section shows a failed CI gate and the SQL span responsible.",
+  "first_encounter_Y": "The headline makes the local p99 use case clear. The runtime panel answers deployment and data-handling questions and links directly to the trace demo. The dark demo is the strongest visual focal point below the hero.",
+  "axis_winners": {
+    "information_restructuring": "X",
+    "representation_fit": "Y",
+    "hierarchy_rhythm": "Y",
+    "quality_floor": "Y"
+  },
+  "overall_winner": "Y",
+  "margin": "slight",
+  "evidence": "X has the stronger decision sequence. It puts quantitative proof in the hero, then moves from diagnosis to the four-step workflow before expanding into architecture, benchmarks, and adoption. Y makes the mechanisms easier to scan. Its waterfall pairs baseline and candidate bars with visible deltas and a 120 ms marker, its inspector ties the regression to SQL and a source line, and its architecture section gives ingestion and CI gating distinct visual examples. X's regression and fixed-state controls are a useful affordance. Y gives the demo more focal weight, uses more legible secondary copy, and varies the density of its feature section. Interaction behavior cannot be verified from either screenshot.",
+  "defects_X": [
+    "The demo heading leaves 「辿る」 alone on its second line.",
+    "The selected SQL row truncates its service metadata, and the query in the inspector runs flush against the right edge of its field.",
+    "Muted labels in the hero spec panel, trace inspector, and benchmark table are difficult to read against their backgrounds.",
+    "The waterfall rows end well above the inspector, leaving a large empty region in the lower-left of the demo."
+  ],
+  "defects_Y": [
+    "The workflow heading splits 「再発防止」 across lines, and the plans heading starts its second line with 「を」.",
+    "The waterfall truncates the inventory and SQL span names, reducing scanability where the regression is concentrated.",
+    "The cloud APM memory comparison shows a partial bar without a numeric value, implying a measurable magnitude the page does not supply."
+  ]
+}

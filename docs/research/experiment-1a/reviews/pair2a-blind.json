@@ -1,0 +1,23 @@
+{
+  "first_encounter_X": "The headline establishes the local p99 regression use case. The install command and runtime specification are easy to find. The full-width trace demo follows in the next section, where it has room for both the waterfall and source-level inspection.",
+  "first_encounter_Y": "The checkout waterfall sits beside the headline, so the first screen connects the p99 promise to a concrete regression, a failed CI budget, and repeated SQL. The install command and runtime facts remain visible alongside the demo.",
+  "axis_winners": {
+    "information_restructuring": "Y",
+    "representation_fit": "X",
+    "hierarchy_rhythm": "X",
+    "quality_floor": "X"
+  },
+  "overall_winner": "X",
+  "margin": "slight",
+  "evidence": "Y gets engineers from the problem to a credible example faster and brings installation back into reach after pricing. X makes the underlying mechanism easier to inspect. Its default waterfall overlays main and HEAD, marks the 120 ms budget on the timeline, and connects the selected span to a file and line and the repeated SQL. Its feature section gives OTLP ingestion a dataflow and the CI gate a concrete failure transcript. Y handles the SaaS memory comparison better by leaving the unquantified entry without a bar. X gives the dense demo a clear focal section and varies the emphasis within the feature grid, while Y's equal-weight feature cards and awkward Japanese line breaks flatten the middle of the page. Both screenshots show a waterfall as the active view, so the flamegraph itself cannot be assessed.",
+  "defects_X": [
+    "The waterfall truncates the inventory span and SQL row labels, so readers must look to the inspector for the selected operation's full name.",
+    "The memory chart assigns the SaaS entry a partial striped bar despite providing no numeric memory value. Its length implies a quantitative comparison the page does not support.",
+    "The workflow heading splits the Japanese compound 再発防止 across lines."
+  ],
+  "defects_Y": [
+    "The benchmark heading breaks テスト between テ and スト, and the feature heading strands 6 at the end of a line before つの主要機能.",
+    "Small muted labels in the demo and terminal, including timeline ticks and output metadata, are difficult to read against the dark surfaces.",
+    "The workflow terminal leaves a large blank area beneath the short first-step output and ends well above the bottom of the adjacent step list."
+  ]
+}

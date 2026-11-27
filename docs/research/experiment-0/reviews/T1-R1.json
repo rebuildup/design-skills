@@ -1,0 +1,117 @@
+{
+  "version": "1.0.0",
+  "id": "9e19d317-191e-4046-8cfd-f0d6c1bda07f",
+  "model": null,
+  "resolvedModel": null,
+  "specSha256": "fb7c38d22a9a888d7fcde7ea59eb81a91bb4ca75814de1a2098dc516d90efdf8",
+  "classification": "review-completed",
+  "verified": false,
+  "verdict": {
+    "findings": [
+      {
+        "description": "[defect] Hero headline (H1) wraps awkwardly in Japanese on both desktop (00-desktop-top.png) and mobile (02-mobile-top.png): on desktop the compound word \"回帰\" is split across lines (\"テールレイテンシの回\" / \"帰を、\") and \"で。\" is orphaned on a fourth line; on mobile both \"を、\" and \"で。\" appear as two-character orphan lines. Adjusting font size, column width, or phrase break points would avoid mid-word breaks and orphan particles.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In the Benchmark (ベンチマーク) horizontal bar chart (01-desktop-full.png), the dark-gray fill bars for \"Docker Jaeger + ES\" (4,800 ms) and \"Cloud SaaS APM (下限)\" (6,000+ ms) have very low contrast against the dark track and page background, weakening the immediate visual comparison against the amber \"Kestrel Trace\" bar.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] On mobile (02-mobile-top.png), the three hero metrics (\"18 MB\", \"0\", \"Docker\") wrap into a 2+1 layout, leaving the right half of the second row empty and pushing the terminal preview almost completely below the fold.",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] In the Install (インストール) section (01-desktop-full.png), the two command blocks span roughly two-thirds of the container width and leave the right third empty, breaking the full-width right key line established by every other section on the page.",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] Inside the Differential Flamegraph chart container (01-desktop-full.png), there is noticeable unused vertical space between the third span row and the bottom \"0 ms\" / \"234 ms (サンプル)\" axis labels.",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] On mobile (02-mobile-top.png), the four desktop header navigation links (\"デモ\", \"機能\", \"ベンチマーク\", \"プラン\") are omitted with no visible menu toggle, leaving only the brand link and \"インストール\" CTA in the header.",
+        "severity": "info"
+      }
+    ],
+    "summary": "Approved within the reviewed scope (00-desktop-top.png, 01-desktop-full.png, 02-mobile-top.png). The Kestrel Trace landing page has a cohesive dark visual hierarchy, varied section layouts, crisp alignment across nearly all sections, clean table readability, and no overlap, clipping, or broken elements. Only minor polish issues were found: awkward Japanese orphan/mid-word wrapping in the hero H1 on desktop and mobile, low contrast on the two gray comparison bars in the benchmark chart, a 2+1 metric wrap on mobile, and minor right-side/vertical spacing polish in the install and flamegraph sections.",
+    "verdict": "approve"
+  },
+  "agy": {
+    "status": "SUCCESS",
+    "conversationId": "054c35b2-04c6-4718-96a0-f0820fef393d",
+    "durationSeconds": 109.726858113,
+    "numTurns": 1,
+    "usage": {
+      "input_tokens": 14689,
+      "output_tokens": 11626,
+      "thinking_tokens": 10743,
+      "cache_read_tokens": 10623,
+      "total_tokens": 26315
+    },
+    "deniedActions": []
+  },
+  "readonly": {
+    "deniedActions": [],
+    "permissionErrors": 0,
+    "protectedPath": null,
+    "protectedCheck": "unavailable",
+    "protectedMutations": []
+  },
+  "isolation": {
+    "workdir": "/home/basic/.local/state/agent/agy-review/9e19d317-191e-4046-8cfd-f0d6c1bda07f",
+    "osSandbox": "unsupported",
+    "permissionDeny": [
+      "write_file(*)",
+      "command(*)",
+      "read_url(*)",
+      "execute_url(*)",
+      "mcp(*)",
+      "unsandboxed(*)"
+    ]
+  },
+  "quota": {
+    "buckets": [
+      {
+        "group": "Gemini Models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.88,
+        "resetTime": "2026-12-03T07:02:48Z"
+      },
+      {
+        "group": "Gemini Models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.82,
+        "resetTime": "2026-11-27T07:25:30Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.5,
+        "resetTime": "2026-12-04T02:31:12Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0,
+        "resetTime": "2026-11-27T07:31:12Z"
+      }
+    ],
+    "raw": "Gemini Models\tWeekly Limit Remaining\t88%\t2026-12-03T07:02:48Z\nGemini Models\tFive Hour Limit Remaining\t82%\t2026-11-27T07:25:30Z\nClaude and GPT models\tWeekly Limit Remaining\t50%\t2026-12-04T02:31:12Z\nClaude and GPT models\tFive Hour Limit Remaining\t0%\t2026-11-27T07:31:12Z\n"
+  },
+  "executor": "local",
+  "reasons": [
+    "no protected path supplied; OS/permission layers only"
+  ]
+}

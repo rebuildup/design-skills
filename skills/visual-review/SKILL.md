@@ -2,7 +2,8 @@
 name: visual-review
 description: >
   Use to review and refine a rendered Web/application UI using screenshots,
-  comparable baselines, independent image critique, and bounded rerendering.
+  comparable baselines, independent image critique, optional automated
+  reviewer harnesses, and bounded rerendering.
   Distinguishes objective visual regressions from context-dependent aesthetics.
 ---
 
@@ -26,6 +27,15 @@ UI の source、lint、成功ログから「見た目が整った」と結論し
 ## 2. Capture comparable evidence
 
 表示結果を renderer / browser / target app から取得する。スクリーンショットを実際に取得できない場合は **未実施** と記録し、想像で評価しない。
+
+### Separate four Quality Floor concerns (Experiment 0 / 1B)
+
+UI の基礎品質検証では、次の 4 層を混同せず独立に満たす（詳細根拠: [Experiment 1B](../../docs/research/experiment-1b-quality-floor.md)）。
+
+1. **検証摩擦の低減（Verification friction）**: 毎回 ad-hoc にブラウザ起動スクリプトを書くとパス不一致・一時サーバー終了で検証が失敗または断念されやすい。project-local の単一検証コマンド（既存ブラウザ＋ローカルサーバー＋撮影＋DOM 基礎チェック）を優先して使う
+2. **最終リビジョン鮮度（Final-revision freshness）**: 最後のソース編集より前に取得したスクリーンショットや DOM 通過結果を最終版の証拠へ流用しない。最終編集後に再撮影・再実行し、対象ソースの SHA / build と検証証跡の一致を確認する
+3. **機械検査の適用範囲（Mechanical check boundary）**: `documentElement.scrollWidth` によるページ水平溢れ（画面外を含む）、console / page / network エラー、broken image、主要操作の機能テストは機械検査で確実に拾える。一方、`overflow-x: auto` 等の局所コンテナ内での主要コマンド見切れ、低コントラストで不可視な比較バー、数値と不整合なグラフ尺度などはページ単位 DOM 検査だけでは検出できない
+4. **独立コールドレビュー（Independent review vs self-inspection）**: ページ溢れ 0 かつ生成者自身がスクリーンショットを目視していても、局所見切れや尺度歪みを見落とす盲点がある。生成者自身の目視（self-check）と独立したコールド視覚レビューを区別し、重要な視覚変更や release candidate では独立レビューを併用する（軽微な非視覚変更へ一律に全画面レビューを強制しない）
 
 - 対象の route / component / view と **state**（default、empty、loading、error、long content、focus / selected など影響するもの）を明示
 - viewport、DPR、browser / OS、theme、locale、font loading、zoom、test data、scroll position、focus / hover の条件を記録
@@ -53,6 +63,15 @@ pixel / perceptual diff は **変わった領域の検出**。意図した変更
 - product-specific visual character と、目的のない decoration
 
 AI image reviewers は optional。可能なら実装担当とは別の reviewer と独立 critique を使う。複数モデルの意見や 10点評価を**合格の真値にしない**。不一致は見直す場所を示す signal。特定 pixel の指摘は原寸 crop、再撮影、DOM / computed styles などで裏取りする。
+
+### Automated screenshot review
+
+project が `agent review`（dotfiles の視覚レビューハーネス）等の自動 reviewer を提供する場合、同じ capture 条件の画像へ canonical spec（[references/agent-review-spec.md](./references/agent-review-spec.md)）を与えて局所チェックを実行できる。自動結果は Pass B への仮説入力であり、verdict をそのまま採用しない — 指摘は原寸画像・DOM・computed styles で裏取りする。
+
+- spec は finding を `[defect]`（観察可能な具体的問題）/ `[spec-mismatch]`（明示要件・確立した規約との不一致）/ `[suggestion]`（欠陥ではない主観的改善提案）に区別する。`suggestion` を defect として修正 Issue にしない
+- `approve` はその run の画像・spec 範囲の判断に限定される。製品全体の品質保証・人間の最終受入ではない
+- capture artifact（broken-image icon、consent overlay 等）や画像不足・未検証 state は `unverified` として記録し、pass にしない
+- 証跡として result JSON の model・specSha256・入力画像・findings・quota 消費を残す
 
 ## 4. Turn comments into evidence-based findings
 
@@ -93,4 +112,4 @@ Evidence: before / after / crop / baseline links:
 
 確認した artifact / commit、capture matrix、問題ごとの観察と影響、修正・意図的維持、before/after、各未実施検証を記録。reviewer 数や点数ではなく、**再現可能な指摘と、成果物で確かめた変化**を主要 evidence とする。
 
-参考比較・制約は [Research: screenshot-driven review](./references/research.md) を参照。品質改善の実証は **trial-pending**。単体 install でもこの手順を利用できる。
+参考比較・制約は [Research: screenshot-driven review](./references/research.md) を参照。Experiment 1B（`#206` / `#210`）で Quality Floor 4 層分離と独立コールドレビューの必要性を検証し手順へ統合済みだが、Skill 全体の `stable` 昇格に向けた実プロジェクト継続 trial は **trial-pending**。単体 install でもこの手順を利用できる。

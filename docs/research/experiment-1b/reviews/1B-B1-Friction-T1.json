@@ -1,0 +1,18 @@
+{
+  "verdict": "request-changes",
+  "summary": "The mobile hero clips the primary installation command. The desktop layout is readable overall, with a few awkward Japanese line breaks.",
+  "findings": [
+    {
+      "severity": "major",
+      "description": "[defect] At 390 px, the hero’s Homebrew command is cut off after `brew install kestrel-trace/tap/`, hiding the `kestrel` package name. Let the command wrap or give it a full-width row above the copy button."
+    },
+    {
+      "severity": "minor",
+      "description": "[defect] The green status dot in the mobile hero badge sits alone above the label. Keep it aligned with the first line when the label wraps."
+    },
+    {
+      "severity": "minor",
+      "description": "[defect] Several desktop text blocks leave awkward fragments on their last line. The hero paragraph ends with `す。` on its own line, the workflow heading leaves `で` alone, and the benchmark heading splits `テスト` across lines. Adjust the text widths or line breaks."
+    }
+  ]
+}

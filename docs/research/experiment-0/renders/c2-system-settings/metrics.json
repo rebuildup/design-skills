@@ -1,0 +1,38 @@
+{
+  "capturedAt": "2026-11-27T02:37:21.403Z",
+  "siteDir": "/home/basic/work/design-skills/docs/research/experiment-0/fixtures/counterexamples/c2-system-settings",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Harborline — Notification & CLI Settings",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 900,
+    "horizontalOverflowPx": 0,
+    "svgCount": 0,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 1,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Notification & CLI Preferences"
+      }
+    ],
+    "interactiveCount": 8,
+    "visibleTextChars": 772,
+    "bodyTextSample": "Notification & CLI Preferences\n\nConfigure alert routing, on-call quiet hours, and default CLI output behavior for your Harborline account.\n\nAlert Routing\nPrimary Incident Email\n\nReceives P0 degradation alerts and rollback notifications immediately.\n\nEscalation Channel\nPagerDuty + Slack (#ops-incidents)\nSlack only (#ops-incidents)\nEmail digest only\nPage on SLO error-budget burn (> 5%/hr)\n\nTriggers high-urgency alert even before hard p99 breach.\n\nMute Tier-3 warning alerts outside work hours\n\nBatc"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 1071,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "generic"
+  }
+}

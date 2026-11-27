@@ -1,0 +1,113 @@
+{
+  "version": "1.0.0",
+  "id": "a28719f5-1491-48cb-ade8-db4685d9966d",
+  "model": null,
+  "resolvedModel": null,
+  "specSha256": "fb7c38d22a9a888d7fcde7ea59eb81a91bb4ca75814de1a2098dc516d90efdf8",
+  "classification": "review-completed",
+  "verified": false,
+  "verdict": {
+    "findings": [
+      {
+        "description": "[defect] In the top dark KPI header across desktop and mobile screenshots, fraction slash spacing is inconsistent: '54 /100' has no space after the slash, whereas '2 / 2' and '12 / 19' include spaces on both sides of the slash.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] Status labels use inconsistent capitalization across the page: the header legend uses sentence case ('Needs review', 'Changes requested'), while the queue filter pills and item status badges use title case ('Needs Review', 'Changes Requested').",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] In the full-page desktop view (01-desktop-full.png), the 7-item left queue extends roughly two cards below the right detail panel, leaving trailing empty page background in the lower-right; giving the queue an independent scroll region or making the detail card sticky would maintain balance on taller queues.",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] In the detail panel's three-up metric row (00-desktop-top.png, 01-desktop-full.png), 'Risk score' (91/100, 'high risk') receives a tinted red alert surface while 'Latency budget delta' (+14ms, 'over budget') remains neutral; subtle warning styling for over-budget latency could strengthen scannability.",
+        "severity": "info"
+      },
+      {
+        "description": "[suggestion] On mobile (02-mobile-top.png), the stacked summary header occupies roughly half of the initial viewport height; a slightly more compact mobile header would expose more of the review queue above the fold.",
+        "severity": "info"
+      }
+    ],
+    "summary": "Reviewed the desktop top, desktop full-page, and mobile top screenshots of Fieldnote Spec Review Workbench. Visual hierarchy, alignment, contrast, responsive stacking, and master-detail composition are clean and free of critical or major defects; only minor typographic/casing polish issues and optional layout suggestions were found. Approval applies strictly to the supplied images and specification.",
+    "verdict": "approve"
+  },
+  "agy": {
+    "status": "SUCCESS",
+    "conversationId": "d2979e79-e193-497b-b47f-d139ac185222",
+    "durationSeconds": 92.473087533,
+    "numTurns": 1,
+    "usage": {
+      "input_tokens": 14766,
+      "output_tokens": 9004,
+      "thinking_tokens": 8318,
+      "cache_read_tokens": 10624,
+      "total_tokens": 23770
+    },
+    "deniedActions": []
+  },
+  "readonly": {
+    "deniedActions": [],
+    "permissionErrors": 0,
+    "protectedPath": null,
+    "protectedCheck": "unavailable",
+    "protectedMutations": []
+  },
+  "isolation": {
+    "workdir": "/home/basic/.local/state/agent/agy-review/a28719f5-1491-48cb-ade8-db4685d9966d",
+    "osSandbox": "unsupported",
+    "permissionDeny": [
+      "write_file(*)",
+      "command(*)",
+      "read_url(*)",
+      "execute_url(*)",
+      "mcp(*)",
+      "unsandboxed(*)"
+    ]
+  },
+  "quota": {
+    "buckets": [
+      {
+        "group": "Gemini Models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.87,
+        "resetTime": "2026-12-03T07:02:48Z"
+      },
+      {
+        "group": "Gemini Models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.82,
+        "resetTime": "2026-11-27T07:25:30Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.5,
+        "resetTime": "2026-12-04T02:31:12Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0,
+        "resetTime": "2026-11-27T07:31:12Z"
+      }
+    ],
+    "raw": "Gemini Models\tWeekly Limit Remaining\t87%\t2026-12-03T07:02:48Z\nGemini Models\tFive Hour Limit Remaining\t82%\t2026-11-27T07:25:30Z\nClaude and GPT models\tWeekly Limit Remaining\t50%\t2026-12-04T02:31:12Z\nClaude and GPT models\tFive Hour Limit Remaining\t0%\t2026-11-27T07:31:12Z\n"
+  },
+  "executor": "local",
+  "reasons": [
+    "no protected path supplied; OS/permission layers only"
+  ]
+}
