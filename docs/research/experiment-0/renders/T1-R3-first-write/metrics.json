@@ -1,0 +1,125 @@
+{
+  "capturedAt": "2026-11-27T02:46:23.254Z",
+  "siteDir": "/tmp/exp0-trials/_firstwrite/T1-R3",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Kestrel Trace — ローカルファースト分散トレース＆フレームグラフプロファイラ",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 5172,
+    "horizontalOverflowPx": 0,
+    "svgCount": 0,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 20,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "遅くなった 1 スパンを、PR のマージ前に見つける。"
+      },
+      {
+        "tag": "H2",
+        "text": "main と HEAD を重ねて、増えた時間だけを見る"
+      },
+      {
+        "tag": "H2",
+        "text": "6 つの機能、すべてローカルで完結"
+      },
+      {
+        "tag": "H3",
+        "text": "ゼロ設定 OTLP 取り込み"
+      },
+      {
+        "tag": "H3",
+        "text": "Span Waterfall & Differential Flamegraph"
+      },
+      {
+        "tag": "H3",
+        "text": "SQL & N+1 クエリ帰属"
+      },
+      {
+        "tag": "H3",
+        "text": "決定的な CI レイテンシ予算ゲート"
+      },
+      {
+        "tag": "H3",
+        "text": "オフライン完結・プライバシー保護"
+      },
+      {
+        "tag": "H3",
+        "text": "クロス言語トレース連結"
+      },
+      {
+        "tag": "H2",
+        "text": "4 コマンドで、回帰の発見から再発防止まで"
+      },
+      {
+        "tag": "H3",
+        "text": "コレクタを起動"
+      },
+      {
+        "tag": "H3",
+        "text": "トレースを収集"
+      },
+      {
+        "tag": "H3",
+        "text": "回帰スパンを特定"
+      },
+      {
+        "tag": "H3",
+        "text": "CI で再発を防止"
+      },
+      {
+        "tag": "H2",
+        "text": "起動の軽さは、そのまま回帰確認の速さ"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカル CLI は、ずっと無料"
+      },
+      {
+        "tag": "H3",
+        "text": "Open-Source Core"
+      },
+      {
+        "tag": "H3",
+        "text": "Team CI"
+      },
+      {
+        "tag": "H3",
+        "text": "Enterprise"
+      },
+      {
+        "tag": "H2",
+        "text": "1 分で手元の回帰を見る"
+      }
+    ],
+    "interactiveCount": 27,
+    "visibleTextChars": 3135,
+    "bodyTextSample": "本文へスキップ\nKestrel Trace\nデモ\n機能\nワークフロー\nベンチマーク\nプラン\nインストール\n\nV1.4 · RUST / GO / TYPESCRIPT · MACOS / LINUX\n\n遅くなった 1 スパンを、\nPR のマージ前に見つける。\n\nKestrel Trace は、データを外に出さないローカルファーストの分散トレース＆フレームグラフプロファイラです。手元と CI で、マイクロ秒単位のテールレイテンシ回帰を特定します。\n\n18 MB 単一静的バイナリ\n0 テレメトリ送信\nDocker 不要 エアギャップ可\nインストール手順を見る\n差分フレームグラフを試す\nsample output\n$ kestrel watch --port 4317\nlistening  otlp/grpc + otlp/http :4317\n\n$ kestrel diff main..HEAD\nPOST /checkout              +84 ms\n└ checkout.reserve_inventory  +84 ms\n  └ SELECT * FROM sku_lock"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 7684,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "t1",
+    "requiredFacts": {
+      "hasKestrelTrace": true,
+      "hasPort4317": true,
+      "has340ms": true,
+      "has42MB": true,
+      "has18MB": true,
+      "hasP99Max120ms": true,
+      "hasApache2": true,
+      "hasTeam19": true,
+      "hasInstallCmd": true
+    }
+  }
+}

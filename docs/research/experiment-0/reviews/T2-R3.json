@@ -1,0 +1,109 @@
+{
+  "version": "1.0.0",
+  "id": "0b7d3d6c-ead7-4fdb-bfd8-0c29ec5682cf",
+  "model": null,
+  "resolvedModel": null,
+  "specSha256": "fb7c38d22a9a888d7fcde7ea59eb81a91bb4ca75814de1a2098dc516d90efdf8",
+  "classification": "review-completed",
+  "verified": false,
+  "verdict": {
+    "findings": [
+      {
+        "description": "[defect] In the desktop Priority Triage section (00-desktop-top.png, 01-desktop-full.png), the two incident cards have unequal widths (~58% vs ~42%) that do not align with the 6-column KPI grid above, causing the right-hand search-indexer card to wrap \"budget left 62%\" onto a second metric line while checkout-api keeps all metrics inline.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In the mobile top view (02-mobile-top.png), the checkout-api incident metric wraps mid-parenthetical between \"(+362\" and \"ms)\", leaving an orphaned unit on the next line.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In the Last 24 Hours latency chart (00-desktop-top.png, 01-desktop-full.png), the Y-axis uses non-round decimal ticks (168.3, 336.6, 504.9, 673.2) rather than clean rounded intervals, reducing scannability.",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] In the desktop Service SLO Health section (01-desktop-full.png), the top-aligned detail card in the right column leaves empty background space beside the lower service list rows; balancing column heights or adding secondary context could tighten the composition.",
+        "severity": "info"
+      }
+    ],
+    "summary": "Approved for the reviewed desktop and mobile screenshots. The Fleet Dashboard has clean outer key-line alignment, strong visual hierarchy across triage, chart, SLO health, runner pools, and recent deploys, no overlapping or occluded content, and a responsive mobile layout. Only minor wrapping and chart tick-formatting polish items were observed, with no critical or major defects.",
+    "verdict": "approve"
+  },
+  "agy": {
+    "status": "SUCCESS",
+    "conversationId": "326194cc-7a01-4cd1-aebb-bee38a03a4c5",
+    "durationSeconds": 90.480893928,
+    "numTurns": 1,
+    "usage": {
+      "input_tokens": 14650,
+      "output_tokens": 9441,
+      "thinking_tokens": 8812,
+      "cache_read_tokens": 10595,
+      "total_tokens": 24091
+    },
+    "deniedActions": []
+  },
+  "readonly": {
+    "deniedActions": [],
+    "permissionErrors": 0,
+    "protectedPath": null,
+    "protectedCheck": "unavailable",
+    "protectedMutations": []
+  },
+  "isolation": {
+    "workdir": "/home/basic/.local/state/agent/agy-review/0b7d3d6c-ead7-4fdb-bfd8-0c29ec5682cf",
+    "osSandbox": "unsupported",
+    "permissionDeny": [
+      "write_file(*)",
+      "command(*)",
+      "read_url(*)",
+      "execute_url(*)",
+      "mcp(*)",
+      "unsandboxed(*)"
+    ]
+  },
+  "quota": {
+    "buckets": [
+      {
+        "group": "Gemini Models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.87,
+        "resetTime": "2026-12-03T07:02:48Z"
+      },
+      {
+        "group": "Gemini Models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.78,
+        "resetTime": "2026-11-27T07:25:30Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.5,
+        "resetTime": "2026-12-04T02:31:12Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0,
+        "resetTime": "2026-11-27T07:31:12Z"
+      }
+    ],
+    "raw": "Gemini Models\tWeekly Limit Remaining\t87%\t2026-12-03T07:02:48Z\nGemini Models\tFive Hour Limit Remaining\t78%\t2026-11-27T07:25:30Z\nClaude and GPT models\tWeekly Limit Remaining\t50%\t2026-12-04T02:31:12Z\nClaude and GPT models\tFive Hour Limit Remaining\t0%\t2026-11-27T07:31:12Z\n"
+  },
+  "executor": "local",
+  "reasons": [
+    "no protected path supplied; OS/permission layers only"
+  ]
+}

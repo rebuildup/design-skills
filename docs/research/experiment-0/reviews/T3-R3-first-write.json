@@ -1,0 +1,125 @@
+{
+  "version": "1.0.0",
+  "id": "0346cdcc-4d78-4a23-b687-5573d1003f40",
+  "model": null,
+  "resolvedModel": null,
+  "specSha256": "fb7c38d22a9a888d7fcde7ea59eb81a91bb4ca75814de1a2098dc516d90efdf8",
+  "classification": "review-completed",
+  "verified": false,
+  "verdict": {
+    "findings": [
+      {
+        "description": "[defect] In 02-mobile-top.png, the \"P0 AWAITING DECISION\" and \"CHECKLIST PROGRESS\" KPI cards span only roughly half the viewport width on the left, leaving large empty dead regions to their right and breaking alignment with the right key line established by the full-width \"STATUS DISTRIBUTION\" and \"RISK DISTRIBUTION\" cards, search input, and queue card below; the narrowed width also forces the \"P0 AWAITING DECISION\" heading to wrap onto two lines.",
+        "severity": "major"
+      },
+      {
+        "description": "[defect] In 01-desktop-full.png, the two-column master-detail layout is strongly unbalanced vertically: the left \"REVIEW QUEUE\" column extends downward across all seven cards while the right detail panel terminates alongside the fourth card (\"RFC-207\"), leaving the entire lower-right region (roughly two-thirds of the page width across the bottom half of the page) as an empty dead region.",
+        "severity": "major"
+      },
+      {
+        "description": "[defect] In 00-desktop-top.png and 01-desktop-full.png, the four top KPI cards have unequal widths (\"P0 AWAITING DECISION\" and \"CHECKLIST PROGRESS\" are visibly narrower than \"STATUS DISTRIBUTION\" and \"RISK DISTRIBUTION\"), and the \"STATUS DISTRIBUTION\" legend wraps \"Approved 2\" onto a second line as an orphan item.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In 02-mobile-top.png, the header subtitle breaks the ISO timestamp mid-date across two lines (\"Last updated 2026-\" followed by \"11-27T08:45:00Z\"), hurting readability.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In 00-desktop-top.png and 01-desktop-full.png, the vertical connector line in the detail panel's \"HISTORY TIMELINE\" continues downward past the final timeline node (\"2026-11-27\") into empty space rather than stopping at the last marker.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In 00-desktop-top.png and 01-desktop-full.png, the \"REVIEW QUEUE\" filter pills wrap \"Approved (2)\" alone onto a second row as a single orphan pill.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In 00-desktop-top.png and 01-desktop-full.png, the \"P0 AWAITING DECISION\" card displays \"Average risk 54/100\" directly under \"2 of 2 P0\", which appears contradictory next to the two visible P0 cards (risk scores 91 and 82) because it reports the overall queue average without labeling its scope.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In all three screenshots, the selected \"RFC-214\" queue card renders a red left accent bar inside a thick dark rounded outer border, creating a visibly double-layered edge where the bar meets the top-left and bottom-left rounded corners.",
+        "severity": "minor"
+      }
+    ],
+    "summary": "Two major layout defects warrant changes: in the mobile view, two of the four KPI cards shrink to half-width and leave large dead regions on the right; in the full desktop view, the master-detail columns are vertically unbalanced, leaving a large empty dead region beneath the detail panel. Several minor polish issues (unequal desktop KPI card widths, mid-date timestamp wrap on mobile, trailing timeline connector line, orphan filter pill, ambiguous average-risk scope label, and double-layered selected-card corner edge) are also present.",
+    "verdict": "request-changes"
+  },
+  "agy": {
+    "status": "SUCCESS",
+    "conversationId": "e6aaccba-bcbc-4f37-8a6f-d6422913f5ad",
+    "durationSeconds": 104.722423613,
+    "numTurns": 1,
+    "usage": {
+      "input_tokens": 6154,
+      "output_tokens": 10637,
+      "thinking_tokens": 9591,
+      "cache_read_tokens": 19190,
+      "total_tokens": 16791
+    },
+    "deniedActions": []
+  },
+  "readonly": {
+    "deniedActions": [],
+    "permissionErrors": 0,
+    "protectedPath": null,
+    "protectedCheck": "unavailable",
+    "protectedMutations": []
+  },
+  "isolation": {
+    "workdir": "/home/basic/.local/state/agent/agy-review/0346cdcc-4d78-4a23-b687-5573d1003f40",
+    "osSandbox": "unsupported",
+    "permissionDeny": [
+      "write_file(*)",
+      "command(*)",
+      "read_url(*)",
+      "execute_url(*)",
+      "mcp(*)",
+      "unsandboxed(*)"
+    ]
+  },
+  "quota": {
+    "buckets": [
+      {
+        "group": "Gemini Models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.87,
+        "resetTime": "2026-12-03T07:02:48Z"
+      },
+      {
+        "group": "Gemini Models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.77,
+        "resetTime": "2026-11-27T07:25:30Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.5,
+        "resetTime": "2026-12-04T02:31:12Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0,
+        "resetTime": "2026-11-27T07:31:12Z"
+      }
+    ],
+    "raw": "Gemini Models\tWeekly Limit Remaining\t87%\t2026-12-03T07:02:48Z\nGemini Models\tFive Hour Limit Remaining\t77%\t2026-11-27T07:25:30Z\nClaude and GPT models\tWeekly Limit Remaining\t50%\t2026-12-04T02:31:12Z\nClaude and GPT models\tFive Hour Limit Remaining\t0%\t2026-11-27T07:31:12Z\n"
+  },
+  "executor": "local",
+  "reasons": [
+    "no protected path supplied; OS/permission layers only"
+  ]
+}

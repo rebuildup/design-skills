@@ -1,0 +1,62 @@
+{
+  "capturedAt": "2026-11-27T02:37:18.991Z",
+  "siteDir": "/home/basic/work/design-skills/docs/research/experiment-0/fixtures/counterexamples/c1-api-reference",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Kestrel OTLP Ingest API — Reference v1.4",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 1768,
+    "horizontalOverflowPx": 0,
+    "svgCount": 0,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 7,
+    "headings": [
+      {
+        "tag": "H2",
+        "text": "Ingest Reference v1.4"
+      },
+      {
+        "tag": "H1",
+        "text": "Local OTLP Trace Ingest Reference"
+      },
+      {
+        "tag": "H2",
+        "text": "POST /v1/traces"
+      },
+      {
+        "tag": "H2",
+        "text": "Query Parameters & Headers"
+      },
+      {
+        "tag": "H2",
+        "text": "Example OTLP/JSON Request"
+      },
+      {
+        "tag": "H2",
+        "text": "Status Codes"
+      },
+      {
+        "tag": "H2",
+        "text": "Related CLI Flags"
+      }
+    ],
+    "interactiveCount": 5,
+    "visibleTextChars": 2066,
+    "bodyTextSample": "INGEST REFERENCE V1.4\nPOST /v1/traces\nQuery Parameters\nRequest Payload\nStatus Codes\nCLI Flags\nLocal OTLP Trace Ingest Reference\n\nHTTP/JSON and gRPC specification for writing OpenTelemetry spans into a local Kestrel ring buffer.\n\nPOST /v1/traces\n\nAccepts standard OpenTelemetry ExportTraceServiceRequest payloads encoded as Protocol Buffers (application/x-protobuf) or OTLP/JSON (application/json). Payloads are validated synchronously and appended to the local write-ahead log before returning HTTP 2"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 812,
+    "scrollHeight": 1921,
+    "horizontalOverflowPx": 422
+  },
+  "functionalCheck": {
+    "mode": "generic"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "version": "1.0.0",
+  "id": "08feb1b3-59e9-4342-ba23-6a41bd06e0a2",
+  "model": null,
+  "resolvedModel": null,
+  "specSha256": "fb7c38d22a9a888d7fcde7ea59eb81a91bb4ca75814de1a2098dc516d90efdf8",
+  "classification": "review-completed",
+  "verified": false,
+  "verdict": {
+    "findings": [
+      {
+        "description": "[defect] In 01-desktop-full.png (Interactive Model waterfall chart), the left label column truncates the two primary regression span names to \"checkout.reserve_invent…\" and \"SELECT * FROM sku_loc…\". Widening the label column slightly would let readers identify the highlighted spans directly on their rows without relying on the detail callout below.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In 01-desktop-full.png (Workflow section), step 02 (\"トレースを収集\") contains a two-line code block whereas steps 01, 03, and 04 each contain a one-line code block, pushing step 02's description paragraph downward out of horizontal baseline alignment with the sibling columns.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In 02-mobile-top.png (hero section), the H1 wraps as \"遅くなった 1\" / \"スパンを、  PR の\" / \"マージ前に見つける。\", creating a noticeably wide visual gap after the fullwidth comma before \"PR の\" and splitting the numeral \"1\" from its counter \"スパン\".",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In 01-desktop-full.png (Features section, bottom row cards 03–06), the narrower 4-column card width produces cramped wrapping, including short orphan lines (\"ます。\" in card 04, \"す。\" in card 06) and a mid-command wrap (\"kestrel check --p99-max\" / \"120ms\") in card 04.",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] In 01-desktop-full.png (Benchmark bar chart), the \"Cloud SaaS APM\" bar renders its value (\"6,000–10,000 ms\") inside the left end of the bar while the other two bars place their values to the right of the bar; a dedicated right-aligned value column would make scanning across rows more uniform.",
+        "severity": "info"
+      },
+      {
+        "description": "[suggestion] In 02-mobile-top.png (header), desktop section links are hidden with no mobile menu toggle, leaving only the logo and \"インストール\" CTA; while common on single-page landing sites, a compact menu could help mobile visitors jump to specific sections.",
+        "severity": "info"
+      }
+    ],
+    "summary": "Approved for the reviewed desktop and mobile screenshots. The Kestrel Trace landing page shows cohesive dark-mode styling, strong section variety, consistent container alignment, clean hierarchy, and zero overlap or broken layout regions; only minor typography, wrapping, label-truncation, and baseline-alignment polish issues were observed.",
+    "verdict": "approve"
+  },
+  "agy": {
+    "status": "SUCCESS",
+    "conversationId": "93b113ee-dfd2-4444-9992-917faeb09fe1",
+    "durationSeconds": 73.056573704,
+    "numTurns": 1,
+    "usage": {
+      "input_tokens": 14567,
+      "output_tokens": 6821,
+      "thinking_tokens": 5984,
+      "cache_read_tokens": 10615,
+      "total_tokens": 21388
+    },
+    "deniedActions": []
+  },
+  "readonly": {
+    "deniedActions": [],
+    "permissionErrors": 0,
+    "protectedPath": null,
+    "protectedCheck": "unavailable",
+    "protectedMutations": []
+  },
+  "isolation": {
+    "workdir": "/home/basic/.local/state/agent/agy-review/08feb1b3-59e9-4342-ba23-6a41bd06e0a2",
+    "osSandbox": "unsupported",
+    "permissionDeny": [
+      "write_file(*)",
+      "command(*)",
+      "read_url(*)",
+      "execute_url(*)",
+      "mcp(*)",
+      "unsandboxed(*)"
+    ]
+  },
+  "quota": {
+    "buckets": [
+      {
+        "group": "Gemini Models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.87,
+        "resetTime": "2026-12-03T07:02:48Z"
+      },
+      {
+        "group": "Gemini Models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.79,
+        "resetTime": "2026-11-27T07:25:30Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.5,
+        "resetTime": "2026-12-04T02:31:12Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0,
+        "resetTime": "2026-11-27T07:31:12Z"
+      }
+    ],
+    "raw": "Gemini Models\tWeekly Limit Remaining\t87%\t2026-12-03T07:02:48Z\nGemini Models\tFive Hour Limit Remaining\t79%\t2026-11-27T07:25:30Z\nClaude and GPT models\tWeekly Limit Remaining\t50%\t2026-12-04T02:31:12Z\nClaude and GPT models\tFive Hour Limit Remaining\t0%\t2026-11-27T07:31:12Z\n"
+  },
+  "executor": "local",
+  "reasons": [
+    "no protected path supplied; OS/permission layers only"
+  ]
+}

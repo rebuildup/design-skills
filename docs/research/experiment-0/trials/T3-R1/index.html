@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fieldnote Spec Review Workbench</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#spec-detail">Skip to selected specification</a>
+  <header class="topbar">
+    <div class="brand">
+      <img src="./assets/fieldnote-mark.svg" alt="Fieldnote" width="36" height="36">
+      <div>
+        <h1>Fieldnote Spec Review Workbench</h1>
+        <p id="workspace-meta">Loading workspace...</p>
+      </div>
+    </div>
+    <section class="overview" aria-labelledby="summary-heading">
+      <h2 id="summary-heading" class="visually-hidden">Queue Summary</h2>
+      <div id="summary-stats" class="stats"></div>
+      <div id="summary-distribution" class="distribution"></div>
+    </section>
+  </header>
+
+  <main class="workbench">
+    <section class="queue" aria-labelledby="list-heading">
+      <h2 id="list-heading">Review queue <span id="list-count" class="count"></span></h2>
+      <div class="controls">
+        <label class="visually-hidden" for="search-input">Search specifications</label>
+        <input id="search-input" type="search" placeholder="Search ID, title, owner, domain">
+        <div class="filter-buttons" role="group" aria-label="Filter by status">
+          <button type="button" class="filter-btn active" data-status="all" aria-pressed="true">All (0)</button>
+          <button type="button" class="filter-btn" data-status="needs-review" aria-pressed="false">Needs Review (0)</button>
+          <button type="button" class="filter-btn" data-status="changes-requested" aria-pressed="false">Changes Requested (0)</button>
+          <button type="button" class="filter-btn" data-status="approved" aria-pressed="false">Approved (0)</button>
+        </div>
+      </div>
+      <ul id="spec-list" class="spec-list"></ul>
+    </section>
+
+    <section class="detail" aria-labelledby="detail-heading" id="spec-detail" tabindex="-1">
+      <h2 id="detail-heading" class="visually-hidden">Selected Specification Details</h2>
+      <div id="spec-detail-body">Select a specification to view details.</div>
+    </section>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

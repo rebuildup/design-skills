@@ -1,0 +1,121 @@
+{
+  "version": "1.0.0",
+  "id": "a56f1de6-5bd6-4f28-9df3-b92e1b95db13",
+  "model": null,
+  "resolvedModel": null,
+  "specSha256": "fb7c38d22a9a888d7fcde7ea59eb81a91bb4ca75814de1a2098dc516d90efdf8",
+  "classification": "review-completed",
+  "verified": false,
+  "verdict": {
+    "findings": [
+      {
+        "description": "[defect] Benchmark section (01-desktop-full.png): The section subtitle explicitly references comparison bars (\"反映遅延は 6,000–18,000 ms (バーは下限値)。\"), but neither \"取り込み完了 / 起動時間\" nor \"メモリ使用量\" displays any visible bars—only text labels on the left and values on the right separated by large empty dark gaps.",
+        "severity": "major"
+      },
+      {
+        "description": "[defect] Benchmark metric layout and wrapping (01-desktop-full.png): In \"取り込み完了 / 起動時間\", \"6,000–18,000 ms\" wraps the unit \"ms\" onto a second line, breaking tabular row alignment. Furthermore, the gutter between the left and right metric columns is much narrower than the empty space between each label and its value, placing the left column's right-aligned values (\"340 ms\", \"4,800 ms\", \"6,000–18,000\") visually closer to the right column's labels than to their own labels.",
+        "severity": "major"
+      },
+      {
+        "description": "[defect] Differential Flamegraph heading (00-desktop-top.png, 01-desktop-full.png): \"main と HEAD を重ねて、回帰だけを光らせる\" orphans the single character \"る\" onto a second line despite substantial unused horizontal space to the right inside the section container.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] Awkward mid-word Japanese line breaks (00-desktop-top.png, 01-desktop-full.png, 02-mobile-top.png): The hero H1 splits \"見つける\" across lines (\"手元で 340 ms で見\" / \"つける。\" on desktop; \"手元で 340 ms で見つ\" / \"ける。\" on mobile), and the third lower Features card splits \"プライバシー\" (\"オフライン完結・プライバ\" / \"シー保護\").",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] Mobile hero metrics and stacked CTAs (02-mobile-top.png): The three key metrics wrap into an unbalanced 2+1 grid leaving an empty right half beside \"Air-gap\", and the two stacked CTA buttons (\"インストール\" and \"差分フレームグラフを試す\") have unequal intrinsic widths rather than matching widths.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] Benchmark table redundancy (01-desktop-full.png): \"外部送信 / コスト\" is used as the subheading immediately above the table and repeated verbatim as the second column header directly beneath it.",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] Desktop horizontal key lines (00-desktop-top.png, 01-desktop-full.png): The top navigation bar, horizontal section dividers, and centered main content each align to slightly different left and right margins; aligning the section dividers (and optionally the header) with the main content key lines would strengthen the page grid.",
+        "severity": "minor"
+      }
+    ],
+    "summary": "Overall the landing page has strong dark-mode visual hierarchy, varied section layouts, and a clear interactive flamegraph widget, but the Benchmark section has major visual defects: the comparison bars referenced in the subtitle (\"バーは下限値\") are missing or invisible, the \"6,000–18,000 ms\" value wraps its unit onto a second line, and the narrow inter-column gutter causes left-column numbers to visually crowd the right-column labels. Additional minor typographic wrapping and mobile alignment polish issues are noted.",
+    "verdict": "request-changes"
+  },
+  "agy": {
+    "status": "SUCCESS",
+    "conversationId": "a3e66eb9-cefe-4549-bd07-ff176bfbdaa3",
+    "durationSeconds": 120.751817846,
+    "numTurns": 1,
+    "usage": {
+      "input_tokens": 14590,
+      "output_tokens": 12303,
+      "thinking_tokens": 11270,
+      "cache_read_tokens": 10608,
+      "total_tokens": 26893
+    },
+    "deniedActions": []
+  },
+  "readonly": {
+    "deniedActions": [],
+    "permissionErrors": 0,
+    "protectedPath": null,
+    "protectedCheck": "unavailable",
+    "protectedMutations": []
+  },
+  "isolation": {
+    "workdir": "/home/basic/.local/state/agent/agy-review/a56f1de6-5bd6-4f28-9df3-b92e1b95db13",
+    "osSandbox": "unsupported",
+    "permissionDeny": [
+      "write_file(*)",
+      "command(*)",
+      "read_url(*)",
+      "execute_url(*)",
+      "mcp(*)",
+      "unsandboxed(*)"
+    ]
+  },
+  "quota": {
+    "buckets": [
+      {
+        "group": "Gemini Models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.87,
+        "resetTime": "2026-12-03T07:02:48Z"
+      },
+      {
+        "group": "Gemini Models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.8,
+        "resetTime": "2026-11-27T07:25:30Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.5,
+        "resetTime": "2026-12-04T02:31:12Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0,
+        "resetTime": "2026-11-27T07:31:12Z"
+      }
+    ],
+    "raw": "Gemini Models\tWeekly Limit Remaining\t87%\t2026-12-03T07:02:48Z\nGemini Models\tFive Hour Limit Remaining\t80%\t2026-11-27T07:25:30Z\nClaude and GPT models\tWeekly Limit Remaining\t50%\t2026-12-04T02:31:12Z\nClaude and GPT models\tFive Hour Limit Remaining\t0%\t2026-11-27T07:31:12Z\n"
+  },
+  "executor": "local",
+  "reasons": [
+    "no protected path supplied; OS/permission layers only"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "capturedAt": "2026-11-27T02:40:35.842Z",
+  "siteDir": "/tmp/exp0-trials/T2-R1",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Harborline Release & Build Fleet Dashboard",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 2215,
+    "horizontalOverflowPx": 0,
+    "svgCount": 1,
+    "largeSvgCount": 1,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 8,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Release & Build Fleet"
+      },
+      {
+        "tag": "H2",
+        "text": "checkout-api INC-408"
+      },
+      {
+        "tag": "H2",
+        "text": "search-indexer WRN-119"
+      },
+      {
+        "tag": "H2",
+        "text": "Last 24 hours"
+      },
+      {
+        "tag": "H2",
+        "text": "Service SLO health (6)"
+      },
+      {
+        "tag": "H3",
+        "text": "checkout-api detail"
+      },
+      {
+        "tag": "H2",
+        "text": "Build runner pools (4)"
+      },
+      {
+        "tag": "H2",
+        "text": "Recent deploys (8 of 8)"
+      }
+    ],
+    "interactiveCount": 26,
+    "visibleTextChars": 3075,
+    "bodyTextSample": "HARBORLINE · ON-CALL CONSOLE\n\nRelease & Build Fleet\n\nproduction · last 24h · generated 2026-11-27 09:00Z\n\nCRITICAL\ncheckout-api\nINC-408\n\nConnection pool exhaustion on primary Postgres replica after rel-841 enabled eager inventory lock verification.\n\np99 vs SLO\n612 / 250 ms\nError rate\n4.82%\nError budget left\n18%\nOwner\npayments-core\nLast deploy\nrel-841\n\nOpen service detail\n\nWARNING\nsearch-indexer\nWRN-119\n\nQueue backlog growing on linux-arm64 runner pool; incremental reindex latency breached 400ms "
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 3704,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "t2",
+    "requiredFacts": {
+      "hasCheckoutApi": true,
+      "hasInc408": true,
+      "has612ms": true,
+      "hasSearchIndexer": true,
+      "hasLinuxArm64": true,
+      "hasRel841": true,
+      "hasSuccessRate": true
+    },
+    "interactionsAttempted": [
+      "Deploys / failed",
+      "search-indexer"
+    ]
+  }
+}

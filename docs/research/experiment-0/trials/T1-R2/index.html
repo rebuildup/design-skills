@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kestrel Trace — ローカルファーストの分散トレース＆フレームグラフ</title>
+<meta name="description" content="Rust / Go / TypeScript マイクロサービス向け。データを外部に送らず、手元と CI でマイクロ秒単位のテールレイテンシ回帰を特定します。">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Kestrel Trace トップ"><span class="brand-mark" aria-hidden="true"></span>Kestrel Trace</a>
+  <nav aria-label="主要ナビゲーション">
+    <a href="#demo">デモ</a><a href="#features">機能</a><a href="#bench">ベンチマーク</a><a href="#plans">プラン</a>
+  </nav>
+  <a class="btn btn-small" href="#install">インストール</a>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <p class="eyebrow">v1.4 · Rust / Go / TypeScript</p>
+    <h1>遅くなったスパンを、<br>手元で 340 ms で見つける。</h1>
+    <p class="lede">Kestrel Trace は、ローカルファーストの分散トレース＆フレームグラフプロファイラ。本番クラウド APM にデータを送らず、開発機と CI でテールレイテンシ回帰を特定します。</p>
+    <ul class="facts">
+      <li><strong>18 MB</strong> 単一静的バイナリ</li>
+      <li><strong>0</strong> テレメトリ送信</li>
+      <li><strong>Air-gap</strong> 動作可能</li>
+    </ul>
+    <div class="cta-row">
+      <a class="btn" href="#install">インストール</a>
+      <a class="btn btn-ghost" href="#demo">差分フレームグラフを試す</a>
+    </div>
+  </div>
+  <figure class="terminal" aria-label="kestrel diff の出力例（仕様に基づくサンプル）">
+    <div class="term-bar"><i></i><i></i><i></i><span>~/shop — sample output</span></div>
+<pre><span class="dim">$</span> kestrel watch --port 4317
+<span class="ok">✓</span> listening  gRPC/HTTP OTLP  :4317
+<span class="dim">$</span> kestrel diff main..HEAD
+<span class="bad">+84 ms</span>  checkout.reserve_inventory
+  └ SELECT * FROM sku_locks  <span class="warn">×14</span>
+<span class="dim">$</span> kestrel check --p99-max 120ms
+<span class="bad">✗</span> p99 204 ms &gt; 120 ms  <span class="dim">exit 1</span></pre>
+    <figcaption>表示はモデル例です。実測ログではありません。</figcaption>
+  </figure>
+</section>
+
+<section class="section" id="demo">
+  <div class="section-head">
+    <p class="eyebrow">Differential Flamegraph</p>
+    <h2>main と HEAD を重ねて、回帰だけを光らせる</h2>
+    <p>同一トレースをブランチ間で重ね合わせ、差分をミリ秒で表示します。下は仕様の例（<code>checkout.reserve_inventory</code> の N+1）を元にした<strong>モデル表現</strong>です。スパンを選ぶと詳細が見られます。</p>
+  </div>
+  <div class="demo" data-demo>
+    <div class="demo-controls" role="group" aria-label="表示ブランチ">
+      <button type="button" data-mode="main" aria-pressed="false">main</button>
+      <button type="button" data-mode="head" aria-pressed="false">HEAD</button>
+      <button type="button" data-mode="diff" aria-pressed="true">差分</button>
+    </div>
+    <div class="waterfall" data-waterfall role="list" aria-label="スパン ウォーターフォール（モデル）"></div>
+    <div class="axis" aria-hidden="true"><span>0</span><span>50 ms</span><span>100 ms</span><span>150 ms</span><span>200 ms</span></div>
+    <div class="detail" data-detail aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="section" id="workflow">
+  <div class="section-head">
+    <p class="eyebrow">Workflow</p>
+    <h2>4 コマンドで、検出から再発防止まで</h2>
+  </div>
+  <ol class="steps">
+    <li><code>kestrel watch --port 4317</code><p>ローカルコレクタを起動</p></li>
+    <li><span class="code-like">テスト / 負荷スクリプト実行</span><p>既存のものでトレースを収集</p></li>
+    <li><code>kestrel diff main..HEAD</code><p>回帰スパンを特定</p></li>
+    <li><code>kestrel check --p99-max 120ms</code><p>CI に組み込み再発防止</p></li>
+  </ol>
+</section>
+
+<section class="section" id="features">
+  <div class="section-head">
+    <p class="eyebrow">Features</p>
+    <h2>6 つの主要機能</h2>
+  </div>
+  <div class="features">
+    <article class="feature wide">
+      <h3>ゼロ設定 OTLP 取り込み</h3>
+      <p><code>kestrel watch --port 4317</code> を起動するだけ。gRPC / HTTP スパンをローカル SQLite + DuckDB リングバッファへ自動収集します。</p>
+    </article>
+    <article class="feature wide">
+      <h3>Span Waterfall &amp; Differential Flamegraph</h3>
+      <p><code>main</code> vs <code>HEAD</code> の同一トレースを重ね、p99 レイテンシ回帰箇所をミリ秒差分で即座に強調します。</p>
+    </article>
+    <article class="feature">
+      <h3>SQL &amp; N+1 クエリ帰属</h3>
+      <p>重複するプリペアドステートメントを集約し、問題のクエリをアプリの <code>file:line</code> へ直接リンク。</p>
+    </article>
+    <article class="feature">
+      <h3>決定的な CI 予算ゲート</h3>
+      <p><code>kestrel check --p99-max 120ms</code> は超過時に非ゼロ終了。PR 添付用の自己完結 HTML スナップショットを生成。</p>
+    </article>
+    <article class="feature">
+      <h3>オフライン完結・プライバシー保護</h3>
+      <p>18 MB 単一バイナリ、外部送信なし。機密ペイロードもローカルで検証できます。</p>
+    </article>
+    <article class="feature">
+      <h3>クロス言語トレース連結</h3>
+      <p>W3C Trace Context で Rust (<code>tracing</code>)・Go (<code>otel</code>)・Node/Bun 間の呼び出しを単一タイムラインに。</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="bench">
+  <div class="section-head">
+    <p class="eyebrow">Benchmark</p>
+    <h2>起動も取り込みも、軽い</h2>
+    <p>条件: 12 サービス・決済トレース 48,200 スパンの標準テスト（仕様記載値）。SaaS は代表構成で、反映遅延は 6,000–18,000 ms（バーは下限値）。</p>
+  </div>
+  <div class="bench" data-bench>
+    <div class="bench-block">
+      <h3>取り込み完了 / 起動時間</h3>
+      <div class="bar-row is-self"><span>Kestrel Trace v1.4</span><div class="bar"><b style="--v:340"></b></div><em>340 ms</em></div>
+      <div class="bar-row"><span>Jaeger + ES (Docker)</span><div class="bar"><b style="--v:4800"></b></div><em>4,800 ms</em></div>
+      <div class="bar-row"><span>Cloud SaaS APM</span><div class="bar"><b style="--v:6000"></b></div><em>6,000–18,000 ms</em></div>
+    </div>
+    <div class="bench-block">
+      <h3>メモリ使用量</h3>
+      <div class="bar-row is-self"><span>Kestrel Trace v1.4</span><div class="bar"><b style="--v:42;--max:1120"></b></div><em>42 MB</em></div>
+      <div class="bar-row"><span>Jaeger + ES (Docker)</span><div class="bar"><b style="--v:1120;--max:1120"></b></div><em>1,120 MB</em></div>
+      <div class="bar-row"><span>Cloud SaaS APM</span><div class="bar na"><b></b></div><em>エージェント常駐</em></div>
+    </div>
+    <table class="bench-table">
+      <caption>外部送信 / コスト</caption>
+      <thead><tr><th>ツール</th><th>外部送信 / コスト</th></tr></thead>
+      <tbody>
+        <tr><th>Kestrel Trace v1.4</th><td>なし / ローカル無料</td></tr>
+        <tr><th>Jaeger + ES (Docker)</th><td>なし / ローカル高負荷</td></tr>
+        <tr><th>Cloud SaaS APM</th><td>外部送信あり / 約 $0.30/GB</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="plans">
+  <div class="section-head">
+    <p class="eyebrow">Plans</p>
+    <h2>コアは無料、チームで使うなら Team CI</h2>
+  </div>
+  <div class="plans">
+    <article class="plan">
+      <h3>Open-Source Core</h3>
+      <p class="price">無料 <small>Apache-2.0</small></p>
+      <ul><li>ローカル CLI</li><li>OTLP 取り込み</li><li>Differential Flamegraph</li><li>HTML スナップショット出力</li></ul>
+    </article>
+    <article class="plan featured">
+      <h3>Team CI</h3>
+      <p class="price">$19 <small>/ seat / 月</small></p>
+      <ul><li>GitHub PR への自動差分アノテーション</li><li>ベースライン履歴保存</li><li>チーム共有リンク</li></ul>
+    </article>
+    <article class="plan">
+      <h3>Enterprise</h3>
+      <p class="price">カスタム</p>
+      <ul><li>セルフホスト SAML/SSO</li><li>長期保持ストレージ</li><li>専任サポート</li></ul>
+    </article>
+  </div>
+</section>
+
+<section class="section install" id="install">
+  <div class="section-head">
+    <p class="eyebrow">Install</p>
+    <h2>macOS / Linux。Docker は不要。</h2>
+  </div>
+  <div class="cmds">
+    <div class="cmd"><span class="label">Homebrew</span><code>brew install kestrel-trace/tap/kestrel</code><button type="button" class="copy" data-copy="brew install kestrel-trace/tap/kestrel">コピー</button></div>
+    <div class="cmd"><span class="label">curl</span><code>curl -fsSL https://kestreltrace.dev/install.sh | sh</code><button type="button" class="copy" data-copy="curl -fsSL https://kestreltrace.dev/install.sh | sh">コピー</button></div>
+  </div>
+  <p class="status" data-copy-status role="status"></p>
+</section>
+</main>
+
+<footer class="site-footer">
+  <p>© Kestrel Trace · v1.4 · Apache-2.0 Core</p>
+  <p>本ページの図・出力はすべて仕様に基づくモデル例です。顧客ロゴや導入実績は掲載していません。</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
