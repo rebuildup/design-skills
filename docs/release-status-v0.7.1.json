@@ -5,20 +5,20 @@
   "targetBranch": "main",
   "skillsCliVersion": "1.6.0",
   "statusDefinitions": {
-    "stable": "Previously released or empirically validated within its documented scope and retained as the default supported surface.",
-    "experimental": "Public preview; usable but not yet promoted to stable.",
-    "trial-pending": "Public experimental Skill with a concrete real-project/artifact or adapter trial still required before promotion."
+    "stable": "従来から公開済み、または文書化された範囲内で実証済みの Skill。default supported surface として維持する。",
+    "experimental": "公開プレビュー。利用可能だが stable への昇格はまだ行わない。",
+    "trial-pending": "公開中の実験的 Skill。昇格前に具体的な実プロジェクト/成果物または adapter trial が必要。"
   },
   "evidenceBoundaries": {
     "design-discipline": {
       "status": "stable",
-      "verifiedScope": "Static 2D visual / Web UI design and redesign across #170 (3 genres + proportionality), #205 Experiment 1A (gemini-4-neon-medium, 10 blind GPT-6 pairs including confound-free first-write 2-0), #209 candidate validation (claude-sonnet-5-5-medium, passive vs early routing 0/1 -> 2/2, blind GPT-6 first-write & final win over v0.6.0), and project-init#129 4-case dispatch/collision eval.",
-      "unverifiedScope": "Time-based/motion artifacts and independent human evaluation remain unexecuted and are recorded separately rather than gating the verified static 2D/UI release."
+      "verifiedScope": "#170（3 ジャンル + 比例性）、#205 Experiment 1A（gemini-4-neon-medium、10 盲検 GPT-6 ペア、交絡除去 first-write 2-0 を含む）、#209 候補検証（claude-sonnet-5-5-medium、passive vs early routing 0/1 -> 2/2、盲検 GPT-6 で v0.6.0 に対し first-write & final 勝利）、および project-init#129 の 4 ケース dispatch/collision eval による静止画 2D 視覚 / Web UI の設計・再構成。",
+      "unverifiedScope": "時間軸/モーション成果物および独立した人間評価は未実施であり、検証済みの静止画 2D/UI リリースを妨げるものではなく別途記録する。"
     },
     "visual-review": {
       "status": "trial-pending",
-      "verifiedScope": "Experiment 1B (#206 / #210) validated the four Quality Floor layers (verification friction, final-revision freshness, mechanical check bounds, independent cold visual review) and agent review harness integration (#200).",
-      "unverifiedScope": "Broader real-project promotion trials remain pending before stable/default promotion."
+      "verifiedScope": "Experiment 1B（#206 / #210）で Quality Floor 4 層（検証摩擦・最終 revision 鮮度・機械検査の限界・独立コールド視覚レビュー）と agent review harness 連携（#200）を検証済み。",
+      "unverifiedScope": "より広範な実プロジェクト昇格 trial は stable/default 昇格前に未完了。"
     }
   },
   "skills": {
