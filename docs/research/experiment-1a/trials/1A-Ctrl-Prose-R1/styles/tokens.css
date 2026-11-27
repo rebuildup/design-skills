@@ -1,0 +1,85 @@
+/* Design tokens for Kestrel Trace v1.4 product page */
+
+:root {
+  /* Surface palette */
+  --bg-canvas: #090d12;
+  --bg-surface: #0f151e;
+  --bg-surface-elevated: #141c27;
+  --bg-surface-subtle: #192230;
+  --bg-code: #0b1017;
+
+  /* Ink / text palette */
+  --ink-primary: #eef3f8;
+  --ink-secondary: #a2b1c2;
+  --ink-muted: #708094;
+  --ink-inverse: #071214;
+
+  /* Borders */
+  --border-subtle: rgba(226, 236, 248, 0.09);
+  --border-default: rgba(226, 236, 248, 0.15);
+  --border-strong: rgba(226, 236, 248, 0.26);
+
+  /* Brand & semantic accents */
+  --accent-primary: #2dd4bf;
+  --accent-primary-hover: #5eead4;
+  --accent-primary-dim: rgba(45, 212, 191, 0.12);
+  --accent-primary-border: rgba(45, 212, 191, 0.34);
+
+  --semantic-regression: #f97316;
+  --semantic-regression-strong: #ef4444;
+  --semantic-regression-dim: rgba(239, 68, 68, 0.14);
+  --semantic-regression-border: rgba(249, 115, 22, 0.42);
+
+  --semantic-ok: #22c55e;
+  --semantic-ok-dim: rgba(34, 197, 94, 0.14);
+
+  /* Runtime / service tags */
+  --tag-rust: #f59e0b;
+  --tag-go: #38bdf8;
+  --tag-ts: #a78bfa;
+  --tag-db: #fb7185;
+
+  /* Typography */
+  --font-sans: 'Inter', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', ui-monospace, 'Cascadia Code', Menlo, Monaco, Consolas, monospace;
+
+  /* Type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: clamp(1.5rem, 2.2vw, 2rem);
+  --text-hero: clamp(1.85rem, 3.05vw, 2.85rem);
+
+  /* Spacing rhythm */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4.5rem;
+  --space-12: 6rem;
+
+  /* Layout */
+  --container-max: 1220px;
+  --container-pad: 1.5rem;
+  --header-height: 64px;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-panel: 0 18px 48px rgba(0, 0, 0, 0.45);
+  --shadow-focus: 0 0 0 2px var(--bg-canvas), 0 0 0 4px var(--accent-primary);
+
+  /* Motion */
+  --duration-fast: 140ms;
+  --duration-normal: 220ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

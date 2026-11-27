@@ -1,0 +1,125 @@
+{
+  "capturedAt": "2026-11-27T06:14:43.722Z",
+  "siteDir": "/tmp/exp1a-trials/_firstwrite/1A-Ctrl-Prose-R1",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Kestrel Trace v1.4 — ローカルファースト分散トレース＆フレームグラフプロファイラ",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 5335,
+    "horizontalOverflowPx": 0,
+    "svgCount": 2,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 0,
+    "brokenImgs": [],
+    "headingCount": 21,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "手元の端末と CI だけで、\n            p99 回帰をマイクロ秒単位で突き止める。"
+      },
+      {
+        "tag": "H2",
+        "text": "収集・差分特定・CI ゲートまで、3 コマンドで完結"
+      },
+      {
+        "tag": "H3",
+        "text": "ローカルで OTLP スパンを自動収集"
+      },
+      {
+        "tag": "H3",
+        "text": "ブランチ間の回帰スパンをミリ秒差分で可視化"
+      },
+      {
+        "tag": "H3",
+        "text": "CI で予算超過を遮断し、スナップショットを出力"
+      },
+      {
+        "tag": "H2",
+        "text": "checkout.reserve_inventory の N+1 回帰を追体験する"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカル常駐に耐える圧倒的な軽さと即時取り込み"
+      },
+      {
+        "tag": "H3",
+        "text": "取り込み / 反映レイテンシ（短いほど高速）"
+      },
+      {
+        "tag": "H3",
+        "text": "ローカルメモリ使用量（少ないほど軽量）"
+      },
+      {
+        "tag": "H3",
+        "text": "Kestrel Trace (v1.4)"
+      },
+      {
+        "tag": "H3",
+        "text": "Dockerized Jaeger + ES"
+      },
+      {
+        "tag": "H3",
+        "text": "Cloud SaaS APM (代表構成)"
+      },
+      {
+        "tag": "H3",
+        "text": "単一静的バイナリ"
+      },
+      {
+        "tag": "H3",
+        "text": "外部テレメトリ完全遮断"
+      },
+      {
+        "tag": "H3",
+        "text": "組込みリングバッファ"
+      },
+      {
+        "tag": "H3",
+        "text": "多言語マイクロサービス横断"
+      },
+      {
+        "tag": "H2",
+        "text": "ローカル解析はすべて無料。チーム CI と大規模運用へ段階拡張"
+      },
+      {
+        "tag": "H3",
+        "text": "Open-Source Core"
+      },
+      {
+        "tag": "H3",
+        "text": "Team CI"
+      },
+      {
+        "tag": "H3",
+        "text": "Enterprise"
+      }
+    ],
+    "interactiveCount": 43,
+    "visibleTextChars": 4914,
+    "bodyTextSample": "メインコンテンツへ移動\nKestrel Trace\nv1.4\nワークフロー\nインタラクティブデモ\n性能比較\n料金・ライセンス\nインストール\nLOCAL-FIRST DISTRIBUTED TRACE & FLAMEGRAPH PROFILER\n手元の端末と CI だけで、\np99 回帰をマイクロ秒単位で突き止める。\n\nKestrel Trace v1.4 は、Rust・Go・TypeScript マイクロサービスを扱うバックエンドエンジニア、プラットフォームエンジニア、SRE のためのローカルファースト分散プロファイラです。本番クラウド APM へトレースを送らず、18 MB 単一静的バイナリだけで原因スパンと N+1 クエリを特定します。\n\nHomebrew\ncurl\nHomebrew (macOS / Linux)\n$brew install kestrel-trace/tap/kestrel\nコピー\n/\nmacOS & Linux 18 MB 静的バイナリ\n/\nDocker 不要\n/\n外部送信なし・エアギャップ対応\n/\nOpen-Source Core (Apache-2.0)\n"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 10338,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "t1",
+    "requiredFacts": {
+      "hasKestrelTrace": true,
+      "hasPort4317": true,
+      "has340ms": true,
+      "has42MB": true,
+      "has18MB": true,
+      "hasP99Max120ms": true,
+      "hasApache2": true,
+      "hasTeam19": true,
+      "hasInstallCmd": true
+    }
+  }
+}

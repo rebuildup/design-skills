@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kestrel Trace v1.4 — Rust / Go / TypeScript マイクロサービス向けのローカルファースト分散トレース＆フレームグラフプロファイラ。18 MB 単一バイナリ、Docker 不要、テレメトリゼロ。">
+  <title>Kestrel Trace v1.4 — ローカルファースト分散トレース＆フレームグラフプロファイラ</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='1' y='1' width='26' height='26' rx='6' fill='%23131a23' stroke='%232a3647' stroke-width='1.5'/%3E%3Cpath d='M6.5 8.5H21.5M6.5 14H17.5M6.5 19.5H13.5' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M16.5 14H21.5' stroke='%23f43f5e' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M13.5 19.5H18L21.5 16' stroke='%23f59e0b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">メインコンテンツへ移動</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Kestrel Trace ホーム">
+        <svg class="brand-mark" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="26" height="26" rx="6" fill="#131a23" stroke="#2a3647" stroke-width="1.5"/>
+          <path d="M6.5 8.5H21.5M6.5 14H17.5M6.5 19.5H13.5" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16.5 14H21.5" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M13.5 19.5L18 19.5L21.5 16" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-name">Kestrel Trace</span>
+        <span class="version-pill mono">v1.4</span>
+      </a>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="主要ナビゲーション">
+        <a href="#inspector">インタラクティブデモ</a>
+        <a href="#features">主要機能</a>
+        <a href="#workflow">ワークフロー</a>
+        <a href="#benchmark">ベンチマーク</a>
+        <a href="#pricing">プラン</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary btn-sm" href="#install">インストール</a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="メニューを開く"
+          data-menu-toggle
+        >
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="モバイルナビゲーション" hidden>
+      <a href="#inspector" data-mobile-link>インタラクティブデモ</a>
+      <a href="#features" data-mobile-link>主要機能</a>
+      <a href="#workflow" data-mobile-link>ワークフロー</a>
+      <a href="#benchmark" data-mobile-link>ベンチマーク</a>
+      <a href="#pricing" data-mobile-link>プラン</a>
+      <a href="#install" class="mobile-nav-cta" data-mobile-link>CLI をインストール</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow mono">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Apache-2.0 · 18 MB 単一バイナリ · テレメトリ送信ゼロ</span>
+          </div>
+
+          <h1 id="hero-title" class="hero-title">
+            手元と CI で、<br>
+            マイクロ秒の<span class="accent-text">遅延回帰</span>を特定。
+          </h1>
+
+          <p class="hero-lead">
+            <strong>Kestrel Trace</strong> は Rust / Go / TypeScript マイクロサービス向けのローカルファースト分散トレース＆フレームグラフプロファイラです。クラウド APM へデータを送らず、<code>main</code> と <code>HEAD</code> の p99 差分をその場で特定します。
+          </p>
+
+          <!-- Install Command Switcher -->
+          <div class="install-box" id="install">
+            <div class="install-tabs" role="tablist" aria-label="インストール方法の選択">
+              <button
+                type="button"
+                role="tab"
+                class="install-tab is-active"
+                aria-selected="true"
+                data-install-tab="brew"
+              >Homebrew (macOS / Linux)</button>
+              <button
+                type="button"
+                role="tab"
+                class="install-tab"
+                aria-selected="false"
+                data-install-tab="curl"
+              >Shell Script (curl)</button>
+            </div>
+            <div class="install-cmd-row">
+              <span class="cmd-prompt mono" aria-hidden="true">$</span>
+              <code class="cmd-text mono" data-install-cmd>brew install kestrel-trace/tap/kestrel</code>
+              <button
+                type="button"
+                class="copy-btn"
+                data-copy-btn
+                aria-label="インストールコマンドをコピー"
+              >
+                <span data-copy-label>コピー</span>
+              </button>
+            </div>
+            <p class="install-meta">
+              macOS / Linux 対応 · Docker 不要 · エアギャップ環境で動作可能
+            </p>
+          </div>
+
+          <dl class="hero-metrics" aria-label="主要仕様スペック">
+            <div class="metric-item">
+              <dt>バイナリサイズ</dt>
+              <dd class="mono">18 MB</dd>
+            </div>
+            <div class="metric-item">
+              <dt>48,200 スパン取込</dt>
+              <dd class="mono">340 ms</dd>
+            </div>
+            <div class="metric-item">
+              <dt>メモリ使用量</dt>
+              <dd class="mono">42 MB</dd>
+            </div>
+            <div class="metric-item">
+              <dt>外部送信</dt>
+              <dd class="mono">0 B</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Hero Visual: Live Diff Summary Card -->
+        <aside class="hero-visual" aria-label="Kestrel diff 実行プレビュー（仕様モデル）">
+          <div class="window-frame">
+            <div class="window-bar">
+              <div class="window-dots" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="window-title mono">kestrel diff main..HEAD</span>
+              <span class="sample-badge">仕様サンプル</span>
+            </div>
+
+            <div class="hero-diff-body">
+              <div class="diff-summary-header">
+                <div>
+                  <div class="diff-trace-id mono">POST /v1/checkout · trace 8f3a…c91b</div>
+                  <div class="diff-sub">12 services · Rust + Go + Bun (W3C Trace Context)</div>
+                </div>
+                <div class="delta-badge delta-danger mono">p99 +84.2 ms</div>
+              </div>
+
+              <div class="mini-waterfall" role="img" aria-label="main ブランチと HEAD ブランチのレイテンシ差分ウォーターフォール図。checkout.reserve_inventory 内の SELECT * FROM sku_locks が 14 回反復し +84ms 増加している。">
+                <div class="mw-row">
+                  <div class="mw-label">
+                    <span class="lang-dot lang-rust"></span>
+                    <span class="mono">gateway.checkout</span>
+                  </div>
+                  <div class="mw-track">
+                    <div class="mw-bar mw-base" style="left: 0%; width: 51%;"></div>
+                    <div class="mw-bar mw-reg" style="left: 51%; width: 47%;"></div>
+                  </div>
+                  <div class="mw-time mono">178.4ms</div>
+                </div>
+
+                <div class="mw-row">
+                  <div class="mw-label">
+                    <span class="lang-dot lang-go"></span>
+                    <span class="mono">auth.verify_session</span>
+                  </div>
+                  <div class="mw-track">
+                    <div class="mw-bar mw-base" style="left: 3%; width: 10%;"></div>
+                  </div>
+                  <div class="mw-time mono">14.1ms</div>
+                </div>
+
+                <div class="mw-row is-highlighted">
+                  <div class="mw-label">
+                    <span class="lang-dot lang-rust"></span>
+                    <span class="mono">checkout.reserve_inventory</span>
+                  </div>
+                  <div class="mw-track">
+                    <div class="mw-bar mw-base" style="left: 14%; width: 16%;"></div>
+                    <div class="mw-bar mw-reg" style="left: 30%; width: 47%;"></div>
+                  </div>
+                  <div class="mw-time mono text-danger">+84.0ms</div>
+                </div>
+
+                <div class="mw-row mw-child is-highlighted">
+                  <div class="mw-label">
+                    <span class="sql-tag mono">N+1 ×14</span>
+                    <span class="mono">SELECT * FROM sku_locks</span>
+                  </div>
+                  <div class="mw-track">
+                    <div class="mw-n1-burst" style="left: 18%; width: 59%;">
+                      <span></span><span></span><span></span><span></span><span></span>
+                      <span></span><span></span><span></span><span></span><span></span>
+                      <span></span><span></span><span></span><span></span>
+                    </div>
+                  </div>
+                  <div class="mw-time mono text-danger">96.2ms</div>
+                </div>
+
+                <div class="mw-row">
+                  <div class="mw-label">
+                    <span class="lang-dot lang-ts"></span>
+                    <span class="mono">ledger.emit_receipt</span>
+                  </div>
+                  <div class="mw-track">
+                    <div class="mw-bar mw-base" style="left: 78%; width: 18%;"></div>
+                  </div>
+                  <div class="mw-time mono">31.8ms</div>
+                </div>
+              </div>
+
+              <div class="hero-attribution">
+                <div class="attr-row">
+                  <span class="attr-key">原因クエリ帰属</span>
+                  <code class="mono attr-val">src/inventory/lock.rs:142</code>
+                </div>
+                <div class="attr-row">
+                  <span class="attr-key">CI 予算判定</span>
+                  <code class="mono text-danger">FAIL (178.4ms &gt; 120ms budget · exit 1)</code>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="visual-caption">
+            ※ 仕様書に基づくサンプルモデル表示です。下のインタラクティブデモで各スパンと CI ゲートを操作できます。
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Interactive Trace Inspector Section -->
+    <section class="section section-inspector" id="inspector" aria-labelledby="inspector-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow mono">INTERACTIVE MODEL · 仕様ベースデモ</div>
+          <h2 id="inspector-title" class="section-title">回帰の検出から CI 遮断までを画面上で確認</h2>
+          <p class="section-desc">
+            Span Waterfall、Differential Flamegraph、CI レイテンシ予算ゲートの 3 ビューを切り替え、仕様で定義された <code>checkout.reserve_inventory</code> の N+1 回帰ケースを探索できます。
+          </p>
+        </div>
+
+        <div class="inspector-shell">
+          <div class="inspector-toolbar">
+            <div class="view-tabs" role="tablist" aria-label="プロファイラビュー切り替え">
+              <button type="button" role="tab" class="view-tab is-active" aria-selected="true" data-inspector-tab="waterfall">
+                Span Waterfall
+              </button>
+              <button type="button" role="tab" class="view-tab" aria-selected="false" data-inspector-tab="flamegraph">
+                Differential Flamegraph
+              </button>
+              <button type="button" role="tab" class="view-tab" aria-selected="false" data-inspector-tab="cigate">
+                CI 予算ゲート
+              </button>
+            </div>
+
+            <div class="inspector-meta mono">
+              <span class="meta-chip">main: 94.2ms</span>
+              <span class="meta-chip meta-chip-danger">HEAD: 178.4ms (+84.2ms)</span>
+            </div>
+          </div>
+
+          <!-- Panel 1: Span Waterfall -->
+          <div class="inspector-panel" data-inspector-panel="waterfall">
+            <div class="filter-bar">
+              <div class="filter-group" role="group" aria-label="サービスフィルタ">
+                <button type="button" class="filter-pill is-active" data-service-filter="all">すべて (6)</button>
+                <button type="button" class="filter-pill" data-service-filter="rust">
+                  <span class="lang-dot lang-rust"></span>Rust · gateway / inventory
+                </button>
+                <button type="button" class="filter-pill" data-service-filter="go">
+                  <span class="lang-dot lang-go"></span>Go · auth / payment
+                </button>
+                <button type="button" class="filter-pill" data-service-filter="ts">
+                  <span class="lang-dot lang-ts"></span>Node/Bun · ledger
+                </button>
+              </div>
+              <label class="diff-toggle">
+                <input type="checkbox" checked data-diff-toggle>
+                <span>main との差分バーを重ねて表示</span>
+              </label>
+            </div>
+
+            <div class="waterfall-layout">
+              <div class="waterfall-table" role="listbox" aria-label="トレーススパン一覧" data-waterfall-list>
+                <!-- Populated by app.js -->
+              </div>
+
+              <div class="span-detail-pane" aria-live="polite" data-span-detail>
+                <!-- Populated by app.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Differential Flamegraph -->
+          <div class="inspector-panel" data-inspector-panel="flamegraph" hidden>
+            <div class="flame-header">
+              <p class="flame-hint">
+                フレームをクリックすると <code>main</code> vs <code>HEAD</code> の差分内訳とソース位置を確認できます。
+              </p>
+              <div class="flame-legend mono" aria-label="差分カラースケール">
+                <span class="legend-item"><i class="swatch swatch-ok"></i>差分なし / 改善</span>
+                <span class="legend-item"><i class="swatch swatch-warn"></i>軽微な増加 (+1–15ms)</span>
+                <span class="legend-item"><i class="swatch swatch-hot"></i>回帰ホットスポット (+84ms)</span>
+              </div>
+            </div>
+
+            <div class="flamegraph-canvas" data-flamegraph>
+              <!-- Populated by app.js -->
+            </div>
+
+            <div class="flame-detail-bar" aria-live="polite" data-flame-detail>
+              <!-- Populated by app.js -->
+            </div>
+          </div>
+
+          <!-- Panel 3: CI Budget Gate Simulator -->
+          <div class="inspector-panel" data-inspector-panel="cigate" hidden>
+            <div class="cigate-grid">
+              <div class="cigate-controls">
+                <h3 class="cigate-heading">レイテンシ予算のしきい値シミュレーション</h3>
+                <p class="cigate-text">
+                  <code>kestrel check --p99-max &lt;ms&gt;</code> は、ローカル計測または CI 実行時の p99 レイテンシが予算を超過した場合に非ゼロ終了し、PR 添付用の自己完結型 HTML スナップショットを出力します。
+                </p>
+
+                <div class="budget-slider-wrap">
+                  <div class="budget-slider-head">
+                    <label for="budget-range">許容 p99 上限 (<code>--p99-max</code>)</label>
+                    <output for="budget-range" class="mono budget-value" data-budget-output>120 ms</output>
+                  </div>
+                  <input
+                    id="budget-range"
+                    type="range"
+                    min="80"
+                    max="220"
+                    step="10"
+                    value="120"
+                    data-budget-slider
+                  >
+                  <div class="slider-ticks mono" aria-hidden="true">
+                    <span>80ms</span>
+                    <span>120ms (仕様既定)</span>
+                    <span>180ms</span>
+                    <span>220ms</span>
+                  </div>
+                </div>
+
+                <div class="snapshot-card">
+                  <div class="snapshot-title mono">生成アーティファクト（モデル出力）</div>
+                  <ul class="snapshot-list">
+                    <li><code>kestrel-report-pr.html</code> — 単一ファイル自己完結型 HTML スナップショット</li>
+                    <li>外部 CDN 依存なし・オフラインブラウザでそのまま差分確認可能</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="terminal-card" aria-live="polite">
+                <div class="terminal-bar mono">
+                  <span>CI Runner · GitHub Actions / GitLab CI</span>
+                  <span class="exit-badge" data-exit-badge>EXIT 1</span>
+                </div>
+                <pre class="terminal-pre mono" data-cigate-output></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 Core Features -->
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow mono">CAPABILITIES · 6つの主要機能</div>
+          <h2 id="features-title" class="section-title">クラウド APM の待ち時間を排し、ローカルで完結する計測基盤</h2>
+          <p class="section-desc">
+            バックエンドエンジニア・プラットフォームエンジニア・SRE の日常的な調査と CI ゲート運用に必要な機能だけを、18 MB の単一バイナリに凝縮しています。
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-top">
+              <span class="feature-num mono">01</span>
+              <svg class="feature-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="18" cy="17" r="3" stroke="#f59e0b" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <h3>ゼロ設定 OTLP 取り込み</h3>
+            <p>
+              <code>kestrel watch --port 4317</code> を起動するだけで、gRPC / HTTP スパンをローカルの SQLite + DuckDB リングバッファへ自動収集します。
+            </p>
+            <div class="feature-foot mono">OTLP gRPC :4317 · SQLite + DuckDB</div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-top">
+              <span class="feature-num mono">02</span>
+              <svg class="feature-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/>
+                <rect x="3" y="10" width="12" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/>
+                <rect x="15" y="10" width="6" height="4" rx="1" stroke="#f43f5e" stroke-width="1.8"/>
+                <rect x="7" y="16" width="14" height="4" rx="1" stroke="#f59e0b" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <h3>Span Waterfall &amp; Differential Flamegraph</h3>
+            <p>
+              ブランチ間（<code>main</code> vs <code>HEAD</code>）の同一トレースを重ね合わせ、p99 レイテンシ回帰箇所をミリ秒差分で即座に強調表示します。
+            </p>
+            <div class="feature-foot mono">main..HEAD · p99 ms diff</div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-top">
+              <span class="feature-num mono">03</span>
+              <svg class="feature-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <ellipse cx="12" cy="6" rx="7" ry="3" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M5 6v6c0 1.66 3.13 3 7 3s7-1.34 7-3V6" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M5 12v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6" stroke="#f59e0b" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <h3>SQL &amp; N+1 クエリ帰属</h3>
+            <p>
+              重複するプリペアドステートメントを自動集約し、問題のクエリをアプリケーション側の <code>file:line</code> へ直接リンクします。
+            </p>
+            <div class="feature-foot mono">prepared stmt 集約 → file:line</div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-top">
+              <span class="feature-num mono">04</span>
+              <svg class="feature-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3l8 4v6c0 4.5-3.4 7.8-8 9-4.6-1.2-8-4.5-8-9V7l8-4z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M9 12l2 2 4-4" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>決定的な CI レイテンシ予算ゲート</h3>
+            <p>
+              <code>kestrel check --p99-max 120ms</code> がしきい値超過時に非ゼロ終了し、PR 添付用の自己完結型 HTML スナップショットを生成します。
+            </p>
+            <div class="feature-foot mono">exit code 制御 · HTML snapshot</div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-top">
+              <span class="feature-num mono">05</span>
+              <svg class="feature-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M8 11V8a4 4 0 118 0v3" stroke="#f59e0b" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <h3>オフライン完結・プライバシー保護</h3>
+            <p>
+              18 MB 単一バイナリで外部送信はゼロ。Docker 不要かつエアギャップ環境でも動作するため、機密ペイロードをローカル完結で検証できます。
+            </p>
+            <div class="feature-foot mono">Zero telemetry · Air-gap ready</div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-top">
+              <span class="feature-num mono">06</span>
+              <svg class="feature-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="6" cy="7" r="2.5" stroke="#f59e0b" stroke-width="1.8"/>
+                <circle cx="18" cy="7" r="2.5" stroke="#38bdf8" stroke-width="1.8"/>
+                <circle cx="12" cy="18" r="2.5" stroke="#a78bfa" stroke-width="1.8"/>
+                <path d="M8.2 8.2L11 15.8M15.8 8.2L13 15.8M8.5 7h7" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+            </div>
+            <h3>クロス言語トレース連結</h3>
+            <p>
+              W3C Trace Context を介して Rust（<code>tracing</code>）・Go（<code>otel</code>）・Node/Bun サービス間の呼び出しを単一タイムラインに統合します。
+            </p>
+            <div class="feature-foot mono">Rust · Go · Node/Bun · W3C traceparent</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4-Step Workflow -->
+    <section class="section section-alt" id="workflow" aria-labelledby="workflow-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow mono">WORKFLOW · 代表的な利用フロー</div>
+          <h2 id="workflow-title" class="section-title">収集・差分検出・CI 防御まで 4 ステップ</h2>
+          <p class="section-desc">
+            既存の OpenTelemetry 計装とテストスイートをそのまま活用し、手元での調査から CI の回帰ゲートまで一貫した CLI で完結します。
+          </p>
+        </div>
+
+        <div class="workflow-grid">
+          <ol class="workflow-steps" role="tablist" aria-label="利用ワークフローステップ">
+            <li>
+              <button type="button" class="step-btn is-active" role="tab" aria-selected="true" data-workflow-step="0">
+                <span class="step-index mono">01</span>
+                <span class="step-body">
+                  <strong class="step-title">ローカルコレクタを起動</strong>
+                  <span class="step-desc"><code>kestrel watch --port 4317</code> で OTLP 受信を即座に開始。</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="step-btn" role="tab" aria-selected="false" data-workflow-step="1">
+                <span class="step-index mono">02</span>
+                <span class="step-body">
+                  <strong class="step-title">テスト / 負荷スクリプトを実行</strong>
+                  <span class="step-desc">既存の統合テストやベンチマークを走らせ、ローカルへスパンを蓄積。</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="step-btn" role="tab" aria-selected="false" data-workflow-step="2">
+                <span class="step-index mono">03</span>
+                <span class="step-body">
+                  <strong class="step-title">ブランチ差分で回帰スパンを特定</strong>
+                  <span class="step-desc"><code>kestrel diff main..HEAD</code> で N+1 反復（+84ms）の原因箇所を抽出。</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="step-btn" role="tab" aria-selected="false" data-workflow-step="3">
+                <span class="step-index mono">04</span>
+                <span class="step-body">
+                  <strong class="step-title">CI へ組み込み再発を防止</strong>
+                  <span class="step-desc"><code>kestrel check --p99-max 120ms</code> で予算超過 PR を自動ブロック。</span>
+                </span>
+              </button>
+            </li>
+          </ol>
+
+          <div class="workflow-terminal" aria-live="polite">
+            <div class="terminal-bar mono">
+              <span data-workflow-title>Step 01 · ローカルコレクタ起動</span>
+              <span class="sample-badge">CLI 出力モデル</span>
+            </div>
+            <pre class="terminal-pre mono" data-workflow-output></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benchmark Section -->
+    <section class="section" id="benchmark" aria-labelledby="benchmark-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow mono">BENCHMARK · 仕様ベンチマーク</div>
+          <h2 id="benchmark-title" class="section-title">コンテナ起動待ちも、SaaS 反映遅延も不要</h2>
+          <p class="section-desc">
+            標準テスト条件：<strong>12 サービス・決済トレース 48,200 スパン</strong>における取り込み完了時間・メモリ使用量・外部送信コストの仕様比較です。
+          </p>
+        </div>
+
+        <!-- Visual Comparison Bars -->
+        <div class="bench-visual-grid">
+          <div class="bench-card">
+            <h3 class="bench-card-title">取り込み完了時間 / 反映遅延（低いほど高速）</h3>
+            <div class="bench-bars">
+              <div class="bench-bar-row is-kestrel">
+                <div class="bench-bar-meta">
+                  <span>Kestrel Trace (v1.4)</span>
+                  <strong class="mono">340 ms (即時起動)</strong>
+                </div>
+                <div class="bench-track">
+                  <div class="bench-fill bench-fill-kestrel" style="width: 3%;"></div>
+                </div>
+              </div>
+
+              <div class="bench-bar-row">
+                <div class="bench-bar-meta">
+                  <span>Dockerized Jaeger + ES</span>
+                  <strong class="mono">4,800 ms (コンテナ起動別)</strong>
+                </div>
+                <div class="bench-track">
+                  <div class="bench-fill bench-fill-muted" style="width: 27%;"></div>
+                </div>
+              </div>
+
+              <div class="bench-bar-row">
+                <div class="bench-bar-meta">
+                  <span>Cloud SaaS APM (代表構成)</span>
+                  <strong class="mono">6,000–18,000 ms 反映遅延</strong>
+                </div>
+                <div class="bench-track">
+                  <div class="bench-fill bench-fill-muted" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bench-card">
+            <h3 class="bench-card-title">ローカルメモリ使用量（低いほど軽量）</h3>
+            <div class="bench-bars">
+              <div class="bench-bar-row is-kestrel">
+                <div class="bench-bar-meta">
+                  <span>Kestrel Trace (v1.4)</span>
+                  <strong class="mono">42 MB</strong>
+                </div>
+                <div class="bench-track">
+                  <div class="bench-fill bench-fill-kestrel" style="width: 4%;"></div>
+                </div>
+              </div>
+
+              <div class="bench-bar-row">
+                <div class="bench-bar-meta">
+                  <span>Dockerized Jaeger + ES</span>
+                  <strong class="mono">1,120 MB</strong>
+                </div>
+                <div class="bench-track">
+                  <div class="bench-fill bench-fill-muted" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div class="bench-bar-row">
+                <div class="bench-bar-meta">
+                  <span>Cloud SaaS APM (代表構成)</span>
+                  <strong class="mono">エージェント常駐（外部送信あり）</strong>
+                </div>
+                <div class="bench-track">
+                  <div class="bench-fill bench-fill-striped" style="width: 35%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exact Spec Table -->
+        <div class="table-wrap">
+          <table class="bench-table">
+            <caption class="sr-only">12サービス・決済トレース 48,200 スパンの標準テスト条件による比較表</caption>
+            <thead>
+              <tr>
+                <th scope="col">ツール</th>
+                <th scope="col">取り込み完了時間 / 起動</th>
+                <th scope="col">メモリ使用量</th>
+                <th scope="col">外部送信 / コスト</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-highlight">
+                <th scope="row">
+                  <span class="table-brand">Kestrel Trace (v1.4)</span>
+                </th>
+                <td class="mono" data-label="取り込み完了時間 / 起動"><strong>340 ms</strong> (即時起動)</td>
+                <td class="mono" data-label="メモリ使用量"><strong>42 MB</strong></td>
+                <td data-label="外部送信 / コスト">なし / ローカル無料</td>
+              </tr>
+              <tr>
+                <th scope="row">Dockerized Jaeger + ES</th>
+                <td class="mono" data-label="取り込み完了時間 / 起動">4,800 ms (コンテナ起動別)</td>
+                <td class="mono" data-label="メモリ使用量">1,120 MB</td>
+                <td data-label="外部送信 / コスト">なし / ローカル高負荷</td>
+              </tr>
+              <tr>
+                <th scope="row">Cloud SaaS APM (代表構成)</th>
+                <td class="mono" data-label="取り込み完了時間 / 起動">6,000–18,000 ms 反映遅延</td>
+                <td data-label="メモリ使用量">エージェント常駐</td>
+                <td data-label="外部送信 / コスト">外部送信あり / 約 $0.30/GB</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plans & Licensing -->
+    <section class="section section-alt" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow mono">PLANS &amp; LICENSING · プラン・ライセンス</div>
+          <h2 id="pricing-title" class="section-title">ローカル機能はすべて Apache-2.0 で無料</h2>
+          <p class="section-desc">
+            個人開発や手元プロファイリングは OSS 版で完全に動作します。PR 差分アノテーションや組織向けの統制機能が必要な段階から拡張できます。
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="plan-card plan-featured">
+            <div class="plan-head">
+              <div class="plan-badge mono">Apache-2.0</div>
+              <h3>Open-Source Core</h3>
+              <div class="plan-price">
+                <span class="price-amount mono">無料</span>
+                <span class="price-unit">永久無償</span>
+              </div>
+              <p class="plan-summary">手元の調査から CI 用 HTML スナップショット出力まで、ローカルコア機能をフル提供。</p>
+            </div>
+            <ul class="plan-list">
+              <li>ローカル CLI（18 MB 単一バイナリ）</li>
+              <li>ゼロ設定 OTLP 取り込み（SQLite + DuckDB）</li>
+              <li>Differential Flamegraph &amp; Span Waterfall</li>
+              <li>自己完結型 HTML スナップショット出力</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="#install">CLI をインストール</a>
+          </article>
+
+          <article class="plan-card">
+            <div class="plan-head">
+              <div class="plan-badge mono">FOR TEAMS</div>
+              <h3>Team CI</h3>
+              <div class="plan-price">
+                <span class="price-amount mono">$19</span>
+                <span class="price-unit">/ seat / 月</span>
+              </div>
+              <p class="plan-summary">PR レビューの場でレイテンシ回帰を共有し、ベースライン履歴を継続管理。</p>
+            </div>
+            <ul class="plan-list">
+              <li>Open-Source Core の全機能</li>
+              <li>GitHub PR への自動差分アノテーション</li>
+              <li>ベースライン履歴保存</li>
+              <li>チーム共有リンク</li>
+            </ul>
+            <a class="btn btn-secondary btn-block" href="#inspector">CI ゲート動作を確認</a>
+          </article>
+
+          <article class="plan-card">
+            <div class="plan-head">
+              <div class="plan-badge mono">ORGANIZATION</div>
+              <h3>Enterprise</h3>
+              <div class="plan-price">
+                <span class="price-amount mono">カスタム</span>
+                <span class="price-unit">個別見積</span>
+              </div>
+              <p class="plan-summary">厳格なセキュリティ要件・閉域環境・長期監査ログ保持に対応するエンタープライズ構成。</p>
+            </div>
+            <ul class="plan-list">
+              <li>Team CI の全機能</li>
+              <li>セルフホスト SAML / SSO</li>
+              <li>長期保持ストレージ</li>
+              <li>専任サポート</li>
+            </ul>
+            <a class="btn btn-secondary btn-block" href="#benchmark">導入仕様を確認</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA Band -->
+    <section class="section cta-band" aria-labelledby="cta-title">
+      <div class="container cta-inner">
+        <div>
+          <h2 id="cta-title" class="cta-title">次の PR マージ前に、p99 回帰をローカルで捕まえる。</h2>
+          <p class="cta-desc">Docker もアカウント登録も不要。1 コマンドで 4317 ポートの収集を開始できます。</p>
+        </div>
+        <div class="cta-cmd mono">
+          <span>$ kestrel watch --port 4317</span>
+          <button type="button" class="copy-btn" data-copy-quick="kestrel watch --port 4317">コピー</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">Kestrel Trace</span>
+        <span class="version-pill mono">v1.4</span>
+        <p class="footer-note">
+          ローカルファースト分散トレース＆フレームグラフプロファイラ（Apache-2.0）。<br>
+          本ページ内のトレースデータおよびベンチマーク値は製品仕様書（SPEC.md）に基づくモデル表現です。
+        </p>
+      </div>
+      <div class="footer-links mono">
+        <a href="#inspector">デモ</a>
+        <a href="#features">機能</a>
+        <a href="#workflow">ワークフロー</a>
+        <a href="#benchmark">ベンチマーク</a>
+        <a href="#pricing">プラン</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

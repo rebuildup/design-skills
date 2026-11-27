@@ -1,0 +1,23 @@
+{
+  "first_encounter_X": "The hero pairs an install command with an annotated checkout trace. The highlighted inventory span, repeated SQL, source location, and CI failure give the latency claim a concrete example before the reader reaches the demo.",
+  "first_encounter_Y": "The hero terminal shows the engineer's loop in sequence: collect a trace, compare branches, locate the repeated SQL, then fail the CI budget check. The workbench immediately below carries the same checkout example into a timeline and source inspector.",
+  "axis_winners": {
+    "information_restructuring": "Y",
+    "representation_fit": "Y",
+    "hierarchy_rhythm": "Y",
+    "quality_floor": "X"
+  },
+  "overall_winner": "Y",
+  "margin": "clear",
+  "evidence": "Y puts the four-command workflow directly after the proof, then explains the architecture and features that support it before moving to benchmarks and adoption. Its waterfall shows a labeled time axis and nested spans, while the inspector connects the selected span to before-and-after timings, a source line, the repeated query, and the CI outcome. The ingestion diagram also makes the path from services through the collector to local storage explicit. X has more immediately visible demo controls and shows both benchmark measures together, but its six equally weighted feature cards interrupt the progression from diagnosis to workflow. Y gives the workbench a stronger focal role and uses more consistent section introductions. X has the cleaner panel layout overall, with fewer instances of text colliding with adjacent graphics or panel boundaries. The screenshots support judgments about visible controls and default states only.",
+  "defects_X": [
+    "Several Japanese headings strand a single character on the second line, including 認 in the demo heading and 料 in the plans heading.",
+    "The hero truncates the inventory span and SQL labels, and the demo inspector cuts off the SQL statement at the right edge.",
+    "Muted metadata and benchmark table headers have weak contrast against the dark panels."
+  ],
+  "defects_Y": [
+    "The much taller inspector leaves a large unused region beneath the six waterfall rows.",
+    "The inspector code sample runs past the visible right edge, and the inventory span label in the smaller feature diagram meets the bar area.",
+    "The workflow heading strands 結 on a line by itself, and the second workflow command is cut off at the right edge of its code strip."
+  ]
+}

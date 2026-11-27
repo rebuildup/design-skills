@@ -1,0 +1,24 @@
+{
+  "first_encounter_X": "The hero puts the p99 regression claim, install command, and failing checkout trace in the same view. The orange headline and highlighted span make the problem visible immediately, but the compact demo requires close reading to connect the regression to the repeated query.",
+  "first_encounter_Y": "The hero leads with the local p99 regression claim, an install command, and four specification metrics. The trace appears after the first section break, where it has enough room to show the CI failure, branch comparison, and source attribution together.",
+  "axis_winners": {
+    "information_restructuring": "Y",
+    "representation_fit": "Y",
+    "hierarchy_rhythm": "Y",
+    "quality_floor": "Y"
+  },
+  "overall_winner": "Y",
+  "margin": "clear",
+  "evidence": "X gets the trace in front of the reader sooner. Y makes the diagnostic sequence easier to follow: the 120 ms budget marker explains the failure, paired baseline and HEAD bars show where latency grew, and the selected SQL span connects the delta to 14 calls and a file and line. Y then shows how to reproduce the workflow, how OTLP data flows into local storage, and what the performance and adoption tradeoffs are. Its benchmark places values, bars, and test caveats in one table, while X repeats the same figures in separate charts and a table. Y's split section headers and dedicated demo create clearer shifts in reading pace. The screenshots establish the visible waterfall states and controls. Flamegraph behavior and other interactions cannot be assessed from these views.",
+  "defects_X": [
+    "Several desktop headings wrap awkwardly. The capabilities heading separates 6 from つ, the benchmark heading splits テスト after テ, and the final install heading splits ローカル after ロー.",
+    "The workflow terminal has a large empty lower half below a short output sample.",
+    "Muted labels in the trace metadata, feature-card footers, and benchmark annotations are harder to read against their dark panels than the surrounding text."
+  ],
+  "defects_Y": [
+    "The demo heading leaves the final two characters, 辿る, on a line by themselves.",
+    "The taller SQL inspector sets the demo height, leaving a large empty area beneath the final waterfall row.",
+    "The small muted text in the specification panel, demo metadata, and terminal is harder to read than the main labels.",
+    "The cloud memory row uses a partial striped bar without a numeric memory value, which visually implies a measured quantity."
+  ]
+}

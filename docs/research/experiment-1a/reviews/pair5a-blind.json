@@ -1,0 +1,24 @@
+{
+  "first_encounter_X": "The headline quickly establishes the problem, and the install command and spec panel make the local-first pitch concrete. The strongest proof is one section down, where the trace demo connects a p99 budget failure to repeated SQL and a source line.",
+  "first_encounter_Y": "The headline and checkout trace work together in the opening view. An engineer can immediately see a failed CI budget, a highlighted regression span, and its source location, with the install command alongside.",
+  "axis_winners": {
+    "information_restructuring": "Y",
+    "representation_fit": "X",
+    "hierarchy_rhythm": "X",
+    "quality_floor": "X"
+  },
+  "overall_winner": "X",
+  "margin": "slight",
+  "evidence": "Y brings diagnostic proof into the hero and closes with a dedicated install block, giving it the stronger path from problem to adoption. X makes the diagnosis easier to audit in the visible waterfall. It overlays baseline and HEAD durations, marks the 120 ms budget, and ties the selected SQL span to the aggregated query, 14 calls, and a file and line. Its OTLP flow also shows the path from receiver to local storage, and its benchmark puts bars and exact values in one table. X has cleaner desktop heading wraps and a clearer focal point in each section. Both screenshots show flamegraph controls, so the comparison credits what is visible in the waterfall views.",
+  "defects_X": [
+    "The selected SQL row truncates its service description in the waterfall, though the inspector repeats it in full.",
+    "The waterfall leaves a large empty area beneath its five rows because the adjacent inspector determines the panel height.",
+    "The OTLP flow wraps its final storage node onto a second line after the arrow, interrupting the left-to-right read."
+  ],
+  "defects_Y": [
+    "Several Japanese headings break awkwardly, including between 「6」 and 「つ」 in the capabilities heading and inside 「標準テスト」 in the benchmark heading.",
+    "A narrow hero spec tile splits 「単一静的」 across lines, leaving 「的」 alone.",
+    "Muted trace metadata and time-axis labels are difficult to read against the dark panels.",
+    "The benchmark charts repeat much of the table directly below, increasing section height for the same comparison."
+  ]
+}

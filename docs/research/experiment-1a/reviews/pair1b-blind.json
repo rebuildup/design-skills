@@ -1,0 +1,24 @@
+{
+  "first_encounter_X": "The three-line headline makes the pre-merge use case immediate. The adjacent trace connects the p99 regression to a failed CI budget, a repeated SQL query, and its source line in the first viewport.",
+  "first_encounter_Y": "The hero quickly establishes local and CI use, with a prominent install command and four easy-to-scan product metrics. The trace preview shows the regression and points to a larger demo directly below.",
+  "axis_winners": {
+    "information_restructuring": "X",
+    "representation_fit": "Y",
+    "hierarchy_rhythm": "X",
+    "quality_floor": "X"
+  },
+  "overall_winner": "X",
+  "margin": "slight",
+  "evidence": "X has the tighter decision sequence. The hero establishes the problem and shows the diagnostic artifact, the workflow puts collection, diagnosis, and enforcement side by side, and the architecture diagram explains how spans cross runtimes and stay on the machine before the benchmark and adoption sections. Y gives the diagnostic mechanism more room. Its full-width demo visibly offers runtime filters, a baseline overlay, a selected-span inspection panel, and a dedicated CI gate tab. X's dataflow diagram is the stronger explanation of local execution. X takes hierarchy and quality narrowly because Y repeats some of the hero's trace evidence and several major headings break awkwardly. The screenshots show the visible controls and default states only.",
+  "defects_X": [
+    "The benchmark heading strands the final character 「計」 on a line by itself.",
+    "The compact hero waterfall truncates important span and SQL labels. The detail pane recovers the selected query.",
+    "The cloud APM row draws a bar on the memory chart without giving a numeric memory value, implying a comparable measurement."
+  ],
+  "defects_Y": [
+    "The demo and licensing headings strand a single character on the second line, and the capabilities heading splits 「ローカル」 across lines.",
+    "The SQL statement in the demo detail pane is cut off at the right edge in the captured state.",
+    "The visible workflow output covers only the first step and leaves a large blank area below the terminal beside the remaining steps.",
+    "The cloud APM row uses a striped memory bar without supplying a numeric memory value, leaving its length unexplained."
+  ]
+}

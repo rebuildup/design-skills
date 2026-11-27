@@ -1,0 +1,24 @@
+{
+  "first_encounter_X": "The amber p99 headline and the expanded waterfall share the first screen. The visible 120 ms CI budget, failed gate, and highlighted +84.0 ms span make the problem concrete immediately.",
+  "first_encounter_Y": "The headline and install command establish the local-first pitch. The compact trace preview points to the repeated SQL query and gives readers a direct route to inspect it in the demo.",
+  "axis_winners": {
+    "information_restructuring": "Y",
+    "representation_fit": "Y",
+    "hierarchy_rhythm": "X",
+    "quality_floor": "X"
+  },
+  "overall_winner": "Y",
+  "margin": "slight",
+  "evidence": "Y carries the checkout regression from the hero preview through the three-command workflow and local dataflow diagram into a dedicated diagnostic demo. Its paired baseline and HEAD bars, invocation count, and source location show how an engineer traces a p99 regression to a repeated query before evaluating performance and adoption. X is easier to scan on arrival: the waterfall has a visible time scale and readable span names, the CI failure is prominent, and alternating section backgrounds mark transitions. Y's truncation in the diagnostic panel and its unquantified cloud memory bar narrow the margin. The screenshots show control labels and default states, so interaction behavior could not be verified.",
+  "defects_X": [
+    "The benchmark heading breaks テスト across lines as テ / スト.",
+    "The workflow terminal is substantially taller than its default output, leaving a large blank region below the last line.",
+    "Small blue-gray metadata, including the waterfall time scale and source field labels, is subdued against the dark panel."
+  ],
+  "defects_Y": [
+    "The workflow heading breaks コマンド across lines as コマン / ド, and the final install heading similarly splits ローカル.",
+    "The two central span names are truncated in the detailed waterfall. The side panel restores the selected SQL name, while the parent span remains abbreviated in the list.",
+    "The cloud APM row draws a proportional-looking memory bar without a numeric memory value, implying a magnitude the page does not supply.",
+    "The taller detail panel leaves a large blank area beneath the waterfall rows."
+  ]
+}

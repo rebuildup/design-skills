@@ -1,0 +1,83 @@
+/* Design tokens for Kestrel Trace v1.4 product page */
+
+:root {
+  /* Surface palette — dark telemetry workbench */
+  --bg-canvas: #0b0e14;
+  --bg-surface: #111620;
+  --bg-elevated: #171d2a;
+  --bg-inset: #080b10;
+  --bg-hover: #1d2536;
+
+  /* Borders */
+  --border-subtle: #1e2636;
+  --border-default: #293448;
+  --border-strong: #3b4a66;
+
+  /* Text hierarchy */
+  --text-primary: #eef2f8;
+  --text-secondary: #a1afc4;
+  --text-muted: #708099;
+  --text-inverse: #090d14;
+
+  /* Semantic accents */
+  --accent-teal: #2dd4bf;
+  --accent-teal-dim: rgba(45, 212, 191, 0.14);
+  --accent-teal-border: rgba(45, 212, 191, 0.35);
+
+  --accent-regression: #fb7185;
+  --accent-regression-strong: #f43f5e;
+  --accent-regression-dim: rgba(244, 63, 94, 0.16);
+  --accent-regression-border: rgba(244, 63, 94, 0.42);
+
+  --accent-amber: #fbbf24;
+  --accent-amber-dim: rgba(251, 191, 36, 0.14);
+  --accent-amber-border: rgba(251, 191, 36, 0.35);
+
+  --accent-blue: #60a5fa;
+  --accent-blue-dim: rgba(96, 165, 250, 0.14);
+
+  /* Service runtime badges */
+  --runtime-rust: #f97316;
+  --runtime-go: #38bdf8;
+  --runtime-ts: #a78bfa;
+
+  /* Typography */
+  --font-sans: "Inter", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, "Cascadia Code", Menlo, Monaco, Consolas, monospace;
+
+  /* Type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: clamp(1.5rem, 2.4vw, 2rem);
+  --text-3xl: clamp(2rem, 3.8vw, 3rem);
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* Radii — restrained technical character */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Layout */
+  --container-max: 1200px;
+  --header-height: 64px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 140ms;
+  --duration-base: 220ms;
+}
