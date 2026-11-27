@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fieldnote Spec Review Workbench</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#spec-detail">Skip to selected specification</a>
+  <header class="topbar">
+    <div class="brand">
+      <img src="./assets/fieldnote-mark.svg" alt="Fieldnote" width="32" height="32">
+      <div>
+        <h1>Fieldnote Spec Review Workbench</h1>
+        <p id="workspace-meta">Loading workspace...</p>
+      </div>
+    </div>
+    <div class="search">
+      <label for="search-input">Search specifications</label>
+      <input id="search-input" type="search" placeholder="ID, title, owner, or domain" autocomplete="off">
+    </div>
+  </header>
+
+  <section class="overview" aria-labelledby="summary-heading">
+    <h2 id="summary-heading" class="visually-hidden">Queue Summary</h2>
+    <div id="summary-kpis" class="kpis"></div>
+    <div class="overview-charts">
+      <div class="chart">
+        <h3>Status distribution</h3>
+        <div id="status-bar" class="stack-bar" role="img" aria-label="Status distribution"></div>
+        <ul id="status-legend" class="legend"></ul>
+      </div>
+      <div class="chart">
+        <h3>Risk distribution</h3>
+        <div id="risk-bar" class="stack-bar" role="img" aria-label="Risk distribution"></div>
+        <ul id="risk-legend" class="legend"></ul>
+      </div>
+    </div>
+  </section>
+
+  <main class="workbench">
+    <section class="queue" aria-labelledby="list-heading">
+      <div class="queue-head">
+        <h2 id="list-heading">Review Queue <span id="queue-count" class="muted"></span></h2>
+        <div class="filter-buttons" role="group" aria-label="Filter by status">
+          <button type="button" class="filter-btn active" data-status="all" aria-pressed="true">All (0)</button>
+          <button type="button" class="filter-btn" data-status="needs-review" aria-pressed="false">Needs Review (0)</button>
+          <button type="button" class="filter-btn" data-status="changes-requested" aria-pressed="false">Changes Requested (0)</button>
+          <button type="button" class="filter-btn" data-status="approved" aria-pressed="false">Approved (0)</button>
+        </div>
+      </div>
+      <div id="spec-list" class="spec-list"></div>
+    </section>
+
+    <section class="detail" id="spec-detail-section" aria-labelledby="detail-heading">
+      <h2 id="detail-heading" class="visually-hidden">Selected Specification Details</h2>
+      <div id="spec-detail" tabindex="-1">Select a specification to view details.</div>
+    </section>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
