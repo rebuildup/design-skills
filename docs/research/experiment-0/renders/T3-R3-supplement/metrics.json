@@ -1,0 +1,90 @@
+{
+  "capturedAt": "2026-11-27T10:28:02.201Z",
+  "siteDir": "/tmp/exp-postreset/T3-R3-supplement",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "desktop": {
+    "title": "Fieldnote Spec Review Workbench",
+    "innerWidth": 1440,
+    "scrollWidth": 1440,
+    "scrollHeight": 1381,
+    "horizontalOverflowPx": 0,
+    "svgCount": 0,
+    "largeSvgCount": 0,
+    "canvasCount": 0,
+    "imgCount": 1,
+    "brokenImgs": [],
+    "headingCount": 12,
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Fieldnote Spec Review Workbench"
+      },
+      {
+        "tag": "H2",
+        "text": "Queue Summary"
+      },
+      {
+        "tag": "H2",
+        "text": "Review Queue"
+      },
+      {
+        "tag": "H3",
+        "text": "Zero-Downtime Shard Split for Ledger Partitions"
+      },
+      {
+        "tag": "H3",
+        "text": "Adaptive Concurrency Limiter for Edge Auth Tokens"
+      },
+      {
+        "tag": "H3",
+        "text": "Streaming Arrow Export for Analytics Warehouse"
+      },
+      {
+        "tag": "H3",
+        "text": "Deterministic Retry Envelope for Webhook Delivery"
+      },
+      {
+        "tag": "H3",
+        "text": "Unified OTLP Span Attribute Taxonomy v2"
+      },
+      {
+        "tag": "H3",
+        "text": "Read-Only Audit Log Export CLI Command"
+      },
+      {
+        "tag": "H3",
+        "text": "Deprecate Legacy XML Invoice Attachment Endpoint"
+      },
+      {
+        "tag": "H2",
+        "text": "Selected Specification Details"
+      },
+      {
+        "tag": "H3",
+        "text": "Zero-Downtime Shard Split for Ledger Partitions"
+      }
+    ],
+    "interactiveCount": 19,
+    "visibleTextChars": 2362,
+    "bodyTextSample": "Fieldnote Spec Review Workbench\n\nCore Platform Architecture — Last updated 2026-11-27T08:45:00Z\n\nQueue Summary\n\n7 specifications in the review queue: 3 need review, 2 have changes requested, 2 approved. 2 are P0. Average risk 54/100. 12 of 19 checklist items completed.\n\n2\nP0 specs\n3\nAwaiting review\n54\nAvg risk /100\n12/19\nChecks done\nRisk distribution\nHigh ≥70 2\nMedium 40–69 3\nLow <40 2\nReview status\nNeeds Review 3\nChanges Requested 2\nApproved 2\nREVIEW QUEUE\nSearch specifications\nAll (7)\nNeeds Re"
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "scrollHeight": 2954,
+    "horizontalOverflowPx": 0
+  },
+  "functionalCheck": {
+    "mode": "t3",
+    "requiredFacts": {
+      "usesExistingLogo": true,
+      "hasAll7Rfcs": true,
+      "searchWorked": true,
+      "filterWorked": true,
+      "checklistToggleWorked": true,
+      "approveWorked": true
+    }
+  }
+}
