@@ -198,9 +198,9 @@ WAI-ARIA APG、Stately / XState、Martin Fowler の GUI architecture patterns �
 
 `motion-system` は valid な transition をどう動かすか、`interaction-state` は transition 自体がいつ有効で誰が state を裁定するかを担当します。
 
-### `design-discipline` — trial-pending
+### `design-discipline`
 
-要件や参考画面をそのまま並べず、目的・情報の選択・体験構造・具体的な設計判断を実際の成果物で検証する、2D全般の上流Skill。狭い修正や承認済み仕様の再現を勝手に再設計しません。品質改善の比較実証は未完了のため、明示的に採用する実験用途として公開します。
+入力仕様の見出しや参考画面をそのまま並べず、意味の再構成・表現媒体の誠実な選択・テキストを含む空間構成・実物比較を通じて成果物を組み立てる、2D 視覚成果物・UI の上流 Skill。狭い修正や承認済み仕様の再現を勝手に再設計しません。静止画 2D / Web UI 領域では `#170`・Experiment 1A（`#205`）・候補検証（`#209`）および `project-init#129` の 4 ケース dispatch 検証を経て `v0.7.0` で `stable` 化しました（動画・モーション等の時間軸成果物および独立した人間評価は未実施範囲として別途記録）。
 
 ### `design-intent`
 
@@ -228,11 +228,11 @@ T3 Code の `components/ui`、variant / size、slot / composition、feature-loca
 
 ### `visual-review` — trial-pending
 
-実表示の screenshot と比較可能な baseline を用いて、視覚的な defect・一貫性・目的適合を検証する operation Skill。independent critique / multi-model review は optional、点数は合格閾値にせず、functional・a11y・motion の検証と分けます。調査: [reference](./skills/visual-review/references/research.md)。
+実表示の screenshot と比較可能な baseline を用いて、視覚的な defect・一貫性・目的適合を検証する operation Skill。Experiment 1B（`#206` / `#210`）の Quality Floor 4 層分離（検証摩擦低減・最終 revision 鮮度・機械検査の適用境界・独立コールドレビュー）と自動 reviewer ハーネス連携（`#200`）を統合済みですが、実プロジェクトでの昇格 trial は継続中です。調査: [reference](./skills/visual-review/references/research.md)。
 
-これら4 Skill の効果はまだ held-out real-artifact trials で未実証であり、既存の [evaluation protocol](./skills/skill-authoring/references/evaluation-protocol.md) に沿って評価します。
+これら 4 Skill（`ui-primitive-architecture`・`design-review-routing`・`design-system-enforcement`・`visual-review`）は既存の [evaluation protocol](./skills/skill-authoring/references/evaluation-protocol.md) に沿って実プロジェクト trial による昇格評価を進めます。
 
-**T3 Code に学ぶ運用の流れ:** representative screen / brand intent の観察 → primitive と例外の決定 → contract を source / lint に反映 → 変更範囲の最小十分な検証 → 変更影響に応じた画像・独立レビュー → 真に未確定な重大判断と RC 受入だけ人間へ。前提・目的の設計は既存の `design-intent` / `design-discipline`（trial）、token の意味・正規化は `token-audit` が担当し、それらを置き換えません。
+**T3 Code に学ぶ運用の流れ:** representative screen / brand intent の観察 → primitive と例外の決定 → contract を source / lint に反映 → 変更範囲の最小十分な検証 → 変更影響に応じた画像・独立レビュー → 真に未確定な重大判断と RC 受入だけ人間へ。前提・目的の設計は既存の `design-intent` / `design-discipline`、token の意味・正規化は `token-audit` が担当し、それらを置き換えません。
 
 ### `accessibility-audit`
 

@@ -12,7 +12,7 @@ Status: trial-pending / method research. 本 repo の実プロジェクトでの
 ### T3 Code — explicit ownership and layered enforcement
 
 - [T3 Code AGENTS — Taste](https://github.com/pingdotgg/t3code/blob/main/AGENTS.md#taste): `components/ui` が自分の見た目を所有し、consumer から `className` で見た目を上書きせず、必要なら variant / size へ追加するという契約。lint `shadcn/no-restyle` による機械検査も明記
-- [T3 Code Web UI policy](https://github.com/pingdotgg/t3code/blob/main/docs/internals/web-ui.md): primitive 優先、owner component の Tailwind、限定された global CSS、variant / slot ベースの合成。例外として semantic rows、resize handles、editor surface 等を明示
+- [T3 Code Web UI policy](https://github.com/pingdotgg/t3code/blob/main/docs/internals/10_web-ui.md): primitive 優先、owner component の Tailwind、限定された global CSS、variant / slot ベースの合成。例外として semantic rows、resize handles、editor surface 等を明示
 - [T3 Code Button implementation](https://github.com/pingdotgg/t3code/blob/main/apps/web/src/components/ui/button.tsx): `cva` の variant / size が geometry・focus・press・touch target・theme を統合。個々の consumer の ad hoc styling を減らす
 - [T3 Code UI consistency agent](https://github.com/pingdotgg/t3code/blob/main/.macroscope/check-run-agents/ui-consistency.md): changed lines のみを対象とする 3 点レビュー（primitive、スタイル所有者、composition）。不明瞭なら finding 無しとする。CI実行や美観採点を要求しない
 - [T3 Code UI polish PR #24776](https://github.com/pingdotgg/t3code/pull/24776): fonts / radius / icons / hierarchy / contrast を tokens と primitives 中心に修正。局所 restyle より shared owner で変える価値の production example

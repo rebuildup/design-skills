@@ -9,7 +9,7 @@ T3 Code は単に shadcn/ui default を並べるのでなく、**同じ役割を
 
 ## T3 Code primary sources
 
-- [Web UI policy](https://github.com/pingdotgg/t3code/blob/main/docs/internals/web-ui.md): `components/ui` / raw control の境界。shared primitive の role、owner-local Tailwind、slot composition、feature-specific exceptions
+- [Web UI policy](https://github.com/pingdotgg/t3code/blob/main/docs/internals/10_web-ui.md): `components/ui` / raw control の境界。shared primitive の role、owner-local Tailwind、slot composition、feature-specific exceptions
 - [AGENTS.md — Taste](https://github.com/pingdotgg/t3code/blob/main/AGENTS.md#taste): shared appearance は `variant` / `size`、layout は parent、特定 feature の look は feature 側。明示規則から逸脱する際は owner sign-off
 - [components.json](https://github.com/pingdotgg/t3code/blob/main/apps/web/components.json): shadcn schema、`base-mira`、baseColor zinc、CSS variables、Lucide、registry 選択が明示される。**shadcnの自動生成だけで全見た目が決まるわけではない**
 - [Button](https://github.com/pingdotgg/t3code/blob/main/apps/web/src/components/ui/button.tsx): `class-variance-authority` で visual variants / sizes、touch target、focus、press、disabled を shared contract に含める
