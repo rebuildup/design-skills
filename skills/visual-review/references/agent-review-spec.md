@@ -21,6 +21,13 @@ Look for:
 - Readability: wrapping that breaks tables or rows, cramped or oversized
   type, poor hierarchy.
 - Occlusion/overlap: fixed or floating elements covering content.
+- Local container clipping: primary commands, code snippets, or essential
+  labels cut off inside narrow scrollable/overflow-clipped containers
+  (especially on mobile viewports) even when the page itself has no
+  horizontal overflow.
+- Misleading or unquantified visual encodings: proportional-looking bars
+  or charts drawn for items without numeric values, or bar/chart lengths
+  that visibly contradict their labeled scale or range.
 - Inconsistent styling or spacing that looks unintentional.
 - Specification mismatches: visible violations of an explicit
   requirement stated in this spec or of clearly established UI
