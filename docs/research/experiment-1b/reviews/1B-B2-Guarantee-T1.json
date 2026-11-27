@@ -1,0 +1,22 @@
+{
+  "verdict": "request-changes",
+  "summary": "At 390 px, the primary Homebrew install command is visibly clipped. The desktop comparison also uses bar lengths that do not match the labeled values.",
+  "findings": [
+    {
+      "severity": "major",
+      "description": "[defect] On mobile, the Homebrew install command cuts off after `kestrel-trace/ta` beside the Copy button, hiding part of the package path. Let the command wrap or give it a full-width row so readers can see it in full."
+    },
+    {
+      "severity": "major",
+      "description": "[defect] In the desktop ingestion benchmark, the 4,800 ms bar spans about one-third of the track and the 340 ms bar spans about 4%. Neither is proportional to the same endpoint of the 6,000–18,000 ms range shown with a full-width bar. Use a shared scale and show the range as an interval."
+    },
+    {
+      "severity": "minor",
+      "description": "[defect] The desktop memory chart gives Cloud SaaS APM a hatched bar about half the track width but labels it only `エージェント常駐`. The bar implies a numeric memory value. Keep the text status and omit the bar."
+    },
+    {
+      "severity": "minor",
+      "description": "[defect] The mobile profiler badge wraps `プロファイラ` with only the final `ラ` on the second line. Adjust the badge copy or line break to keep the word together."
+    }
+  ]
+}
