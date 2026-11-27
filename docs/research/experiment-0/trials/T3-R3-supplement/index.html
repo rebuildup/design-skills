@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fieldnote Spec Review Workbench</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <img src="./assets/fieldnote-mark.svg" alt="Fieldnote" width="36" height="36">
+      <div class="brand">
+        <h1>Fieldnote Spec Review Workbench</h1>
+        <p id="workspace-meta">Loading workspace...</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="workbench">
+    <section class="overview" aria-labelledby="summary-heading">
+      <h2 id="summary-heading" class="visually-hidden">Queue Summary</h2>
+      <p id="summary-prose" class="visually-hidden">Loading review queue summary...</p>
+      <div id="summary-kpis" class="kpis"></div>
+      <div id="summary-distribution" class="distribution"></div>
+    </section>
+
+    <div class="panes">
+      <section class="queue" aria-labelledby="list-heading">
+        <h2 id="list-heading">Review Queue</h2>
+        <div class="controls" role="search">
+          <label for="search-input" class="visually-hidden">Search specifications</label>
+          <input id="search-input" type="search" placeholder="Search by ID, title, owner, or domain..." autocomplete="off">
+          <div class="filter-buttons" role="group" aria-label="Filter by status">
+            <button type="button" class="filter-btn active" data-status="all">All (0)</button>
+            <button type="button" class="filter-btn" data-status="needs-review">Needs Review (0)</button>
+            <button type="button" class="filter-btn" data-status="changes-requested">Changes Requested (0)</button>
+            <button type="button" class="filter-btn" data-status="approved">Approved (0)</button>
+          </div>
+        </div>
+        <div id="spec-list" class="spec-list"></div>
+      </section>
+
+      <section class="detail" id="detail-pane" aria-labelledby="detail-heading" tabindex="-1">
+        <h2 id="detail-heading" class="visually-hidden">Selected Specification Details</h2>
+        <div id="spec-detail">Select a specification to view details.</div>
+      </section>
+    </div>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
