@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harborline Release &amp; Build Fleet Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#triage">Skip to triage</a>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Harborline · Release &amp; Build Fleet</p>
+      <h1>Fleet Dashboard</h1>
+    </div>
+    <p class="meta" id="meta" aria-live="polite">Loading…</p>
+  </header>
+  <main id="main">
+    <section id="triage" class="panel" aria-labelledby="h-triage"><h2 id="h-triage">Priority triage</h2><div id="triage-body"></div></section>
+    <section id="kpis" class="kpis" aria-label="24h summary"></section>
+    <section class="panel" aria-labelledby="h-trend"><h2 id="h-trend">Last 24 hours</h2><div id="trend-body"></div></section>
+    <section class="panel" aria-labelledby="h-svc"><h2 id="h-svc">Service SLO health</h2><div id="services-body"></div></section>
+    <section class="panel" aria-labelledby="h-run"><h2 id="h-run">Build runner pools</h2><div id="runners-body"></div></section>
+    <section class="panel" aria-labelledby="h-dep"><h2 id="h-dep">Recent deploys</h2><div id="deploys-body"></div></section>
+  </main>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

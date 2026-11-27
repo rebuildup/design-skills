@@ -1,0 +1,117 @@
+{
+  "version": "1.0.0",
+  "id": "7b95812e-0b26-42e0-b39e-4b6699fa2e81",
+  "model": null,
+  "resolvedModel": null,
+  "specSha256": "fb7c38d22a9a888d7fcde7ea59eb81a91bb4ca75814de1a2098dc516d90efdf8",
+  "classification": "review-completed",
+  "verified": false,
+  "verdict": {
+    "findings": [
+      {
+        "description": "[defect] In PRIORITY TRIAGE on desktop (00-desktop-top.png, 01-desktop-full.png), the right card (WRN-119) is narrower than the left card (INC-408), causing its \"Last deploy\" metric to wrap onto an orphan second row. This vertically misaligns the two Inspect buttons and leaves unused empty space at the bottom of the INC-408 card.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In LAST 24 HOURS (01-desktop-full.png), the \"Deploys vs failed (per hour)\" bar chart uses fractional Y-axis ticks (2.2, 4.4) for integer deploy counts, and the companion charts display unrounded Y-axis ticks (673/337, 5.3/2.7) with no 0 baseline tick.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In RECENT DEPLOYS (01-desktop-full.png), the compact right-hand detail card (rel-837) occupies roughly the top 30% of the column height alongside 8 deploy rows, leaving a large empty region (~70% of the right column) below it; a smaller vertical imbalance (~45% empty) also appears below the detail card in SERVICE SLO HEALTH.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In LAST 24 HOURS (00-desktop-top.png, 01-desktop-full.png), the bordered narrative callout box (\"Shift at 06:00Z...\") stops at roughly 72% of the container width with no sibling content beside it, breaking right-edge alignment with the full-width slider and chart grid below.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] Line wrapping splits paired tokens in two places: in the SERVICE SLO HEALTH detail card (01-desktop-full.png), \"612 ms vs 250 ms (+362 ms)\" breaks between \"250\" and \"ms\", and in the mobile header (02-mobile-top.png), \"window 24h\" wraps to leave \"24h\" orphaned on a second line.",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] In BUILD RUNNER POOLS (01-desktop-full.png), each card renders a thin amber horizontal bar at the bottom beneath Utilization/Queued/Avg wait without a label or legend explaining the metric it represents.",
+        "severity": "info"
+      }
+    ],
+    "summary": "Approved for the reviewed desktop and mobile views. The Fleet Dashboard has a cohesive visual hierarchy, clear typography, varied data-visualization sections, and clean mobile stacking with no critical or major defects. Only minor polish issues were observed, including asymmetric Priority Triage metric wrapping, fractional/unrounded chart Y-axis ticks, empty vertical space beneath master-detail inspector cards, a non-full-width callout box, minor token wrapping, and an unlabeled secondary bar in runner pool cards.",
+    "verdict": "approve"
+  },
+  "agy": {
+    "status": "SUCCESS",
+    "conversationId": "e8a4fa89-aca9-4a42-96b1-ed41eba51f6e",
+    "durationSeconds": 121.975300702,
+    "numTurns": 1,
+    "usage": {
+      "input_tokens": 6296,
+      "output_tokens": 12514,
+      "thinking_tokens": 11599,
+      "cache_read_tokens": 19189,
+      "total_tokens": 18810
+    },
+    "deniedActions": []
+  },
+  "readonly": {
+    "deniedActions": [],
+    "permissionErrors": 0,
+    "protectedPath": null,
+    "protectedCheck": "unavailable",
+    "protectedMutations": []
+  },
+  "isolation": {
+    "workdir": "/home/basic/.local/state/agent/agy-review/7b95812e-0b26-42e0-b39e-4b6699fa2e81",
+    "osSandbox": "unsupported",
+    "permissionDeny": [
+      "write_file(*)",
+      "command(*)",
+      "read_url(*)",
+      "execute_url(*)",
+      "mcp(*)",
+      "unsandboxed(*)"
+    ]
+  },
+  "quota": {
+    "buckets": [
+      {
+        "group": "Gemini Models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.87,
+        "resetTime": "2026-12-03T07:02:48Z"
+      },
+      {
+        "group": "Gemini Models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.81,
+        "resetTime": "2026-11-27T07:25:30Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.5,
+        "resetTime": "2026-12-04T02:31:12Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0,
+        "resetTime": "2026-11-27T07:31:12Z"
+      }
+    ],
+    "raw": "Gemini Models\tWeekly Limit Remaining\t87%\t2026-12-03T07:02:48Z\nGemini Models\tFive Hour Limit Remaining\t81%\t2026-11-27T07:25:30Z\nClaude and GPT models\tWeekly Limit Remaining\t50%\t2026-12-04T02:31:12Z\nClaude and GPT models\tFive Hour Limit Remaining\t0%\t2026-11-27T07:31:12Z\n"
+  },
+  "executor": "local",
+  "reasons": [
+    "no protected path supplied; OS/permission layers only"
+  ]
+}

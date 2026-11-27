@@ -1,0 +1,117 @@
+{
+  "version": "1.0.0",
+  "id": "22cab84d-86fa-4058-bc2a-5ac6f2550c3c",
+  "model": null,
+  "resolvedModel": null,
+  "specSha256": "fb7c38d22a9a888d7fcde7ea59eb81a91bb4ca75814de1a2098dc516d90efdf8",
+  "classification": "review-completed",
+  "verified": false,
+  "verdict": {
+    "findings": [
+      {
+        "description": "[defect] In the desktop full-page view (01-desktop-full.png), the two-column row pairing \"Service SLO health (6)\" and \"Build runner pools (4)\" is vertically unbalanced: the expanded \"checkout-api detail\" panel inside the left card extends well below the bottom of \"Build runner pools (4)\", leaving an unused empty region beneath the right column.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In the desktop top incident cards (00-desktop-top.png, 01-desktop-full.png), the five metadata items fit on a single row in the wider CRITICAL card (\"checkout-api INC-408\") but wrap to two rows in the narrower WARNING card (\"search-indexer WRN-119\"), leaving excess empty vertical space below the \"Open service detail\" link in the CRITICAL card.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In the \"Service SLO health (6)\" table (01-desktop-full.png), the right-aligned \"Error rate\" values sit tightly against the left-aligned \"Owner\" column (e.g., \"4.82%\" beside \"payments-core\" and \"0.91%\" beside \"discovery-platform\"), creating noticeably tighter horizontal separation than between other columns.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] Inside the \"checkout-api detail\" sub-panel (01-desktop-full.png), the \"p99 / SLO\" value wraps onto two lines (\"612 / 250 ms\" and \"(+362 ms)\"), and \"Status\" (\"degraded\") and \"Tier\" (\"tier1\") appear as plain lowercase text rather than matching the uppercase semantic badges used in the table immediately above.",
+        "severity": "minor"
+      },
+      {
+        "description": "[defect] In the mobile view (02-mobile-top.png), flex-wrapped metadata fields in the incident cards do not align along consistent columns and create an orphan single-item row (\"Error budget left: 62%\") in the \"search-indexer WRN-119\" card when \"discovery-platform\" wraps to the following line.",
+        "severity": "minor"
+      },
+      {
+        "description": "[suggestion] In \"Build runner pools (4)\" (01-desktop-full.png), bar colors do not scale monotonically with active utilization (\"linux-x64\" at 79% active is green while \"macos-arm64\" at 69% active is amber, likely reflecting average wait time); clarifying the color threshold or metric would make the status encoding immediately clear.",
+        "severity": "info"
+      }
+    ],
+    "summary": "Reviewed desktop top, desktop full-page, and mobile top screenshots of the Harborline Release & Build Fleet dashboard against the visual review specification. The layout, typography, hierarchy, contrast, data visualization, tables, and mobile stacking are clean and functional with no critical or major defects. Only minor layout balance, spacing, wrapping, and styling polish issues were observed, so the reviewed screenshots are approved within the reviewed scope.",
+    "verdict": "approve"
+  },
+  "agy": {
+    "status": "SUCCESS",
+    "conversationId": "759fb597-71b8-4a16-a6d8-c758331a1ad3",
+    "durationSeconds": 96.829205082,
+    "numTurns": 1,
+    "usage": {
+      "input_tokens": 14820,
+      "output_tokens": 10074,
+      "thinking_tokens": 9172,
+      "cache_read_tokens": 10618,
+      "total_tokens": 24894
+    },
+    "deniedActions": []
+  },
+  "readonly": {
+    "deniedActions": [],
+    "permissionErrors": 0,
+    "protectedPath": null,
+    "protectedCheck": "unavailable",
+    "protectedMutations": []
+  },
+  "isolation": {
+    "workdir": "/home/basic/.local/state/agent/agy-review/22cab84d-86fa-4058-bc2a-5ac6f2550c3c",
+    "osSandbox": "unsupported",
+    "permissionDeny": [
+      "write_file(*)",
+      "command(*)",
+      "read_url(*)",
+      "execute_url(*)",
+      "mcp(*)",
+      "unsandboxed(*)"
+    ]
+  },
+  "quota": {
+    "buckets": [
+      {
+        "group": "Gemini Models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.89,
+        "resetTime": "2026-12-03T07:02:48Z"
+      },
+      {
+        "group": "Gemini Models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.83,
+        "resetTime": "2026-11-27T07:25:30Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.5,
+        "resetTime": "2026-12-04T02:31:12Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0,
+        "resetTime": "2026-11-27T07:31:12Z"
+      }
+    ],
+    "raw": "Gemini Models\tWeekly Limit Remaining\t89%\t2026-12-03T07:02:48Z\nGemini Models\tFive Hour Limit Remaining\t83%\t2026-11-27T07:25:30Z\nClaude and GPT models\tWeekly Limit Remaining\t50%\t2026-12-04T02:31:12Z\nClaude and GPT models\tFive Hour Limit Remaining\t0%\t2026-11-27T07:31:12Z\n"
+  },
+  "executor": "local",
+  "reasons": [
+    "no protected path supplied; OS/permission layers only"
+  ]
+}

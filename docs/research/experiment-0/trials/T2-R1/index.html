@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harborline Release &amp; Build Fleet Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <p class="eyebrow">Harborline · On-call console</p>
+    <h1>Release &amp; Build Fleet</h1>
+  </div>
+  <p class="meta" id="meta" aria-live="polite">Loading…</p>
+</header>
+<main id="app">
+  <p class="state" id="state">Loading fleet metrics…</p>
+  <section id="triage" aria-label="Current triage" hidden></section>
+  <section id="kpis" aria-label="24h summary" hidden></section>
+  <section id="trend" class="panel" aria-labelledby="h-trend" hidden></section>
+  <div class="split" id="split" hidden>
+    <section id="services" class="panel" aria-labelledby="h-services"></section>
+    <section id="runners" class="panel" aria-labelledby="h-runners"></section>
+  </div>
+  <section id="deploys" class="panel" aria-labelledby="h-deploys" hidden></section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+{
+  "workspace": "Core Platform Architecture",
+  "updatedAt": "2026-11-27T08:45:00Z",
+  "specs": [
+    {
+      "id": "RFC-214",
+      "title": "Zero-Downtime Shard Split for Ledger Partitions",
+      "owner": "a.patel",
+      "domain": "storage",
+      "status": "needs-review",
+      "priority": "P0",
+      "riskScore": 91,
+      "updatedAt": "2026-11-27T08:30:00Z",
+      "latencyBudgetDeltaMs": 14,
+      "diffStats": { "added": 482, "removed": 119, "files": 11 },
+      "summary": "Introduces dual-write shadow partitions with monotonic watermark verification so hot ledger shards can split without pausing checkout writes.",
+      "checklist": [
+        { "label": "Dual-write idempotency proof reviewed", "done": true },
+        { "label": "Rollback trigger under replication lag > 500ms verified", "done": false },
+        { "label": "Shadow table storage headroom approved by DBA", "done": false },
+        { "label": "Canary shard rehearsal runbook attached", "done": true }
+      ],
+      "timeline": [
+        { "date": "2026-11-24", "event": "Draft opened with dual-write topology diagram" },
+        { "date": "2026-11-25", "event": "Load test showed +14ms p99 write overhead during cutover" },
+        { "date": "2026-11-27", "event": "Updated failure matrix; awaiting P0 architecture sign-off" }
+      ]
+    },
+    {
+      "id": "RFC-211",
+      "title": "Adaptive Concurrency Limiter for Edge Auth Tokens",
+      "owner": "k.sato",
+      "domain": "security",
+      "status": "changes-requested",
+      "priority": "P0",
+      "riskScore": 82,
+      "updatedAt": "2026-11-27T07:50:00Z",
+      "latencyBudgetDeltaMs": -8,
+      "diffStats": { "added": 295, "removed": 84, "files": 6 },
+      "summary": "Replaces fixed per-POP token introspection limits with Little's Law gradient shedding to avoid cascading retries during regional failover.",
+      "checklist": [
+        { "label": "Fallback behavior for JWKS cache miss documented", "done": true },
+        { "label": "Retry-After header jitter specification added", "done": false },
+        { "label": "Tenant starvation edge case mitigated", "done": false }
+      ],
+      "timeline": [
+        { "date": "2026-11-22", "event": "Initial spec published" },
+        { "date": "2026-11-26", "event": "Security review flagged burst starvation for low-volume tenants" },
+        { "date": "2026-11-27", "event": "Status moved to changes-requested" }
+      ]
+    },
+    {
+      "id": "RFC-209",
+      "title": "Streaming Arrow Export for Analytics Warehouse",
+      "owner": "r.chen",
+      "domain": "data",
+      "status": "needs-review",
+      "priority": "P1",
+      "riskScore": 64,
+      "updatedAt": "2026-11-26T22:10:00Z",
+      "latencyBudgetDeltaMs": 3,
+      "diffStats": { "added": 618, "removed": 204, "files": 9 },
+      "summary": "Switches nightly JSONL dumps to chunked Apache Arrow IPC streams over object storage to cut warehouse ingest costs by 61%.",
+      "checklist": [
+        { "label": "Schema evolution rules for nullable columns confirmed", "done": true },
+        { "label": "Backfill compatibility with v2 consumers checked", "done": true },
+        { "label": "Memory ceiling benchmarked on 4 GB worker", "done": false }
+      ],
+      "timeline": [
+        { "date": "2026-11-21", "event": "Proposal drafted after warehouse cost audit" },
+        { "date": "2026-11-25", "event": "Prototype exported 1.2B rows in 19 minutes" },
+        { "date": "2026-11-26", "event": "Ready for data-platform sign-off" }
+      ]
+    },
+    {
+      "id": "RFC-207",
+      "title": "Deterministic Retry Envelope for Webhook Delivery",
+      "owner": "l.garcia",
+      "domain": "messaging",
+      "status": "needs-review",
+      "priority": "P1",
+      "riskScore": 52,
+      "updatedAt": "2026-11-26T18:05:00Z",
+      "latencyBudgetDeltaMs": 0,
+      "diffStats": { "added": 188, "removed": 61, "files": 4 },
+      "summary": "Standardizes exponential backoff schedules, dead-letter inspection payloads, and HMAC timestamp skew tolerance across outbound webhooks.",
+      "checklist": [
+        { "label": "HMAC signature replay window kept at 300s", "done": true },
+        { "label": "Dead-letter retention policy aligned with privacy tier", "done": true },
+        { "label": "Customer changelog draft prepared", "done": false }
+      ],
+      "timeline": [
+        { "date": "2026-11-20", "event": "Opened after merchant support escalations" },
+        { "date": "2026-11-26", "event": "SDK maintainers signed off on payload format" }
+      ]
+    },
+    {
+      "id": "RFC-205",
+      "title": "Unified OTLP Span Attribute Taxonomy v2",
+      "owner": "m.takahashi",
+      "domain": "observability",
+      "status": "changes-requested",
+      "priority": "P1",
+      "riskScore": 47,
+      "updatedAt": "2026-11-26T14:20:00Z",
+      "latencyBudgetDeltaMs": 1,
+      "diffStats": { "added": 144, "removed": 97, "files": 8 },
+      "summary": "Aligns service, tenant, and deployment span attributes across Rust, Go, and TypeScript runtimes with OpenTelemetry semantic conventions.",
+      "checklist": [
+        { "label": "High-cardinality user_id tag removed from metric labels", "done": true },
+        { "label": "Dashboard query migration script attached", "done": false }
+      ],
+      "timeline": [
+        { "date": "2026-11-19", "event": "Draft circulated to telemetry working group" },
+        { "date": "2026-11-26", "event": "Requested migration script for legacy alert rules" }
+      ]
+    },
+    {
+      "id": "RFC-202",
+      "title": "Read-Only Audit Log Export CLI Command",
+      "owner": "d.kim",
+      "domain": "security",
+      "status": "approved",
+      "priority": "P2",
+      "riskScore": 24,
+      "updatedAt": "2026-11-25T16:40:00Z",
+      "latencyBudgetDeltaMs": 0,
+      "diffStats": { "added": 112, "removed": 18, "files": 3 },
+      "summary": "Adds a scoped read-only CLI export command with cryptographic manifest hashes for quarterly SOC2 evidence collection.",
+      "checklist": [
+        { "label": "Read-only token scope verified", "done": true },
+        { "label": "PII redaction unit tests passing", "done": true }
+      ],
+      "timeline": [
+        { "date": "2026-11-18", "event": "RFC opened" },
+        { "date": "2026-11-25", "event": "Approved by security and compliance" }
+      ]
+    },
+    {
+      "id": "RFC-198",
+      "title": "Deprecate Legacy XML Invoice Attachment Endpoint",
+      "owner": "a.patel",
+      "domain": "billing",
+      "status": "approved",
+      "priority": "P2",
+      "riskScore": 18,
+      "updatedAt": "2026-11-24T11:15:00Z",
+      "latencyBudgetDeltaMs": -2,
+      "diffStats": { "added": 64, "removed": 312, "files": 5 },
+      "summary": "Retires the unused v1 XML invoice endpoint after 90 days of zero production traffic and removes three legacy XML parser dependencies.",
+      "checklist": [
+        { "label": "90-day zero-traffic telemetry verified", "done": true },
+        { "label": "410 Gone response header confirmed", "done": true }
+      ],
+      "timeline": [
+        { "date": "2026-11-15", "event": "Deprecation notice reviewed" },
+        { "date": "2026-11-24", "event": "Approved for next minor release" }
+      ]
+    }
+  ]
+}

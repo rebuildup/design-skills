@@ -1,0 +1,105 @@
+{
+  "version": "1.0.0",
+  "id": "160f64c0-cbb8-4ab8-b60f-a80ec8a69238",
+  "model": null,
+  "resolvedModel": null,
+  "specSha256": "fb7c38d22a9a888d7fcde7ea59eb81a91bb4ca75814de1a2098dc516d90efdf8",
+  "classification": "review-completed",
+  "verified": false,
+  "verdict": {
+    "findings": [
+      {
+        "description": "[defect] In the mobile view (02-mobile-top.png), the main content overflows past the right edge of the viewport, severely clipping every section: the page title is cut off mid-word (\"Local OTLP Trace Inge\"), the subtitle and all lines of the POST /v1/traces paragraph are truncated on the right (\"...for writin\", \"ExportTraceS\", \"OTLP/JSO\", \"local write\"), the Local-only bind callout box extends past the right edge clipping its text (\"...binds st\", \"...trusted LAN\"), and the Query Parameters & Headers table overflows so the Description column is mostly cut off (\"Descri\", \"applic\", \"Suppor\"). The top navigation dividers also extend flush to the right edge without matching the left margin. This renders the mobile page unreadable.",
+        "severity": "critical"
+      },
+      {
+        "description": "[defect] In the desktop full-page view (01-desktop-full.png), the long resource line in the Example OTLP/JSON Request code block (\"resource\": { \"attributes\": [{ \"key\": \"service.name\", \"value\": { \"stringValue\": \"checkout-api\" }) runs flush against the right edge of the dark container with no right padding and is clipped, cutting off the closing JSON delimiters and leaving the visible JSON example incomplete.",
+        "severity": "major"
+      },
+      {
+        "description": "[defect] In the desktop views (00-desktop-top.png, 01-desktop-full.png), narrow first columns in both reference tables force inline-code tokens to wrap awkwardly across two lines inside their shaded chips: \"Content-Encoding\" (\"Content-\" / \"Encoding\") and \"X-Kestrel-Session\" (\"X-Kestrel-\" / \"Session\") in Query Parameters & Headers, and \"413 Payload Too Large\" (\"413 Payload Too\" / \"Large\") in Status Codes. \"Content-Encoding\" wraps the same way in 02-mobile-top.png.",
+        "severity": "minor"
+      }
+    ],
+    "summary": "Changes requested due to severe horizontal overflow and right-edge clipping across the entire mobile view (02-mobile-top.png) that renders headings, prose, callout, and table content unreadable, plus right-edge clipping of a long JSON line in the desktop code example (01-desktop-full.png) and minor awkward wrapping of inline-code identifiers in table first columns.",
+    "verdict": "request-changes"
+  },
+  "agy": {
+    "status": "SUCCESS",
+    "conversationId": "ec8926db-674f-4497-8c24-18ce7baad730",
+    "durationSeconds": 84.264515551,
+    "numTurns": 1,
+    "usage": {
+      "input_tokens": 6335,
+      "output_tokens": 7647,
+      "thinking_tokens": 6885,
+      "cache_read_tokens": 19176,
+      "total_tokens": 13982
+    },
+    "deniedActions": []
+  },
+  "readonly": {
+    "deniedActions": [],
+    "permissionErrors": 0,
+    "protectedPath": null,
+    "protectedCheck": "unavailable",
+    "protectedMutations": []
+  },
+  "isolation": {
+    "workdir": "/home/basic/.local/state/agent/agy-review/160f64c0-cbb8-4ab8-b60f-a80ec8a69238",
+    "osSandbox": "unsupported",
+    "permissionDeny": [
+      "write_file(*)",
+      "command(*)",
+      "read_url(*)",
+      "execute_url(*)",
+      "mcp(*)",
+      "unsandboxed(*)"
+    ]
+  },
+  "quota": {
+    "buckets": [
+      {
+        "group": "Gemini Models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.87,
+        "resetTime": "2026-12-03T07:02:48Z"
+      },
+      {
+        "group": "Gemini Models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.78,
+        "resetTime": "2026-11-27T07:25:30Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Weekly Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0.5,
+        "resetTime": "2026-12-04T02:31:12Z"
+      },
+      {
+        "group": "Claude and GPT models",
+        "label": "Five Hour Limit Remaining",
+        "id": null,
+        "name": null,
+        "window": null,
+        "remainingFraction": 0,
+        "resetTime": "2026-11-27T07:31:12Z"
+      }
+    ],
+    "raw": "Gemini Models\tWeekly Limit Remaining\t87%\t2026-12-03T07:02:48Z\nGemini Models\tFive Hour Limit Remaining\t78%\t2026-11-27T07:25:30Z\nClaude and GPT models\tWeekly Limit Remaining\t50%\t2026-12-04T02:31:12Z\nClaude and GPT models\tFive Hour Limit Remaining\t0%\t2026-11-27T07:31:12Z\n"
+  },
+  "executor": "local",
+  "reasons": [
+    "no protected path supplied; OS/permission layers only"
+  ]
+}
