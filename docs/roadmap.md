@@ -12,7 +12,7 @@
 - Public Skill inventory: **88 Skills**（`stable`: 8 / `trial-pending`: 80）。新規 Skill・Visual Primitives・Perceptual View・美的検出器・汎用実験基盤は導入しない。
 - Shipping classification: `docs/release-status-v0.7.0.json`
 
-**Evidence boundary:** `design-discipline` の実証は静止画 2D・Web UI 領域（`#170`, `#205` Experiment 1A, `#209` 候補検証, `project-init#129` 4 ケース dispatch 検証）を対象とする。動画・モーション等の時間軸成果物および独立した人間評価者による校正は未実施（`unavailable / unexecuted`）であり、本リリースの実証済み範囲とは分離して記録する（`#170` に追跡を保持）。
+**Evidence boundary:** `design-discipline` の実証は静止画 2D・Web UI 領域（`#170`, `#205` Experiment 1A, `#209` 候補検証, `project-init#129`〔現 `aude-skills#129`〕4 ケース dispatch 検証）を対象とする。動画・モーション等の時間軸成果物および独立した人間評価者による校正は未実施（`unavailable / unexecuted`）であり、本リリースの実証済み範囲とは分離して記録する（`#170` に追跡を保持）。
 
 ## Previous release — v0.5.0
 
